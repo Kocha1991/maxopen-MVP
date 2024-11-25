@@ -1,0 +1,27 @@
+{
+    "name": "nivia",
+    "version": "0.1.0",
+    "private": true,
+    "authoe": "alithemes",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "sass": "sass --watch public/assets/scss/main.scss:public/assets/css/main.css"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "isotope-layout": "^3.0.6",
+        "next": "14.0.1",
+        "react": "18.2.0",
+        "react-bootstrap": "^2.10.6",
+        "react-dom": "18.2.0",
+        "react-fast-marquee": "^1.6.2",
+        "react-i18next": "^15.1.1",
+        "react-modal-video": "^2.0.1",
+        "sass": "^1.69.5",
+        "swiper": "^11.0.4",
+        "wowjs": "^1.1.3"
+    }
+}
