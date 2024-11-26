@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LogoTicker2 from '@/components/elements/LogoTicker';
 
 export default function Banner() {
     return (
@@ -6,10 +7,10 @@ export default function Banner() {
           <section className="section-box">
               <div className="banner-hero hero-5">
                   <div className="banner-image-main">
-                      <div className="img-bg" />
-                      <div className="blur-bg blur-move" />
+                    <div className="img-bg" />
+                    <div className="blur-bg blur-move" />
                   </div>
-                  <div className="banner-inner-top">
+                  <div className="banner-inner-top banner-maxOpen">
                       <div className="container">
                           <div className="box-banner-left">
                               <h1 className="display-2 mb-30 mt-25 neutral-0">Let's bring your vision to reality</h1>
@@ -24,6 +25,13 @@ export default function Banner() {
                       </div>
                   </div>
               </div>
+              <section className="section-box wow animate__animated animate__fadeIn box-logos-2 box-logos-custom">
+                  <div className="container">
+                      <div className="carouselTickerLogos2 carouselTicker_vertical" id="slide-logos">
+                          <LogoTicker2 />
+                      </div>
+                  </div>
+              </section>
           </section>
         </>
     )

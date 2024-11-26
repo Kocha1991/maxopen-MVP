@@ -14,18 +14,20 @@ import Section8 from "@/components/sections/home1/Section8";
 import Section9 from "@/components/sections/home1/Section9";
 
 import Banner from '@/components/sections/customHome/Banner';
+import { Services } from '@/components/sections/customHome/Services';
+
 export default function Home() {
 
     return (
         <>
             <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
                 <Banner />
-                <Section2 />
+                <Services />
                 {/* <Section3 /> */}
                 {/* <Section4 /> */}
                 {/* <Section5 /> */}
-                {/* <Section6 /> */}
-                {/* <Section7 /> */}
+                <Section6 />
+                <Section7 />
                 {/* <Section8 /> */}
                 {/* <Section9 /> */}
                 {/* <Section10 /> */}

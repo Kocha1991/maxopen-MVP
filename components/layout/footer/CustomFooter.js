@@ -17,9 +17,23 @@ export default function CustomFooter() {
                     </nav>
                     
                     <div className="custom-footer__social">
-                        <p className="text-lg title-follow neutral-0">Follow us
-                        </p><div className="box-socials-footer" /><a className="icon-socials icon-facebook" href="#"><img alt="Nivia" src="/assets/imgs/template/icons/fb.svg" /></a><a className="icon-socials icon-instagram" href="#"><img alt="Nivia" src="/assets/imgs/template/icons/in.svg" /></a><a className="icon-socials icon-twitter" href="#"><img alt="Nivia" src="/assets/imgs/template/icons/tw.svg" /></a><a className="icon-socials icon-be" href="#"><img alt="Nivia" src="/assets/imgs/template/icons/be.svg" /></a>
-                        <p />
+                        <p className="text-lg title-follow neutral-0 mt-0">
+                          Follow us
+                        </p>
+                        <div className="box-socials-footer">
+                          <a className="icon-socials icon-facebook" href="#">
+                            <img alt="Nivia" src="/assets/imgs/template/icons/fb.svg" />
+                          </a>
+                          <a className="icon-socials icon-instagram" href="#">
+                            <img alt="Nivia" src="/assets/imgs/template/icons/in.svg" />
+                          </a>
+                          <a className="icon-socials icon-twitter" href="#">
+                            <img alt="Nivia" src="/assets/imgs/template/icons/tw.svg" />
+                          </a>
+                          <a className="icon-socials icon-be" href="#">
+                            <img alt="Nivia" src="/assets/imgs/template/icons/be.svg" />
+                          </a>
+                        </div>
                     </div>
                     <div className="footer-bottom text-center">
                       <p className="text-sm neutral-600">Copyright © 2023 MAXOPEN. All rights reserved.</p>
