@@ -5,6 +5,7 @@ import { Services } from '@/components/sections/customHome/Services';
 import { Projects } from '@/components/sections/customHome/Projects';
 import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
+import ContactUs from '@/components/sections/customHome/ContactUs';
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
             <Projects />
             <WhyWe />
             <Process />
+            <ContactUs />
           </Layout>
         </>
     )
