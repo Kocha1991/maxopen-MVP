@@ -20,7 +20,12 @@ export default function Banner() {
                                 <br />
                                 From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations
                               </p>
-                              <div className="d-flex mb-60"><Link className="hover-up mr-5" href="#"><img src="/assets/imgs/page/homepage1/googleplay.png" alt="Nivia" /></Link><Link className="hover-up" href="#"><img src="/assets/imgs/page/homepage1/appstore.png" alt="Nivia" /></Link></div>
+                              <div className="d-flex mb-60">
+                                <Link className="btn banner-btn hover-up mr-5" href="#" >
+                                  <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
+                                  Book a meeting
+                                </Link>
+                              </div>
                           </div>
                       </div>
                   </div>

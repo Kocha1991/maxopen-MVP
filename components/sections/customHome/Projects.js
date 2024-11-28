@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { ProjectCard } from '@/components/elements/ProjectCard';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Link from 'next/link';
 
 export const Projects = () => {
+  const [visibleCount, setVisibleCount] = useState(3); // Кількість видимих елементів
+  const [isExpanded, setIsExpanded] = useState(false);
+  
   return (
     <div className='maxOpen-projects'>
       <div className='container'>

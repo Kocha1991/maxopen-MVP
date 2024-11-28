@@ -7,7 +7,7 @@ export default function CustomFooter() {
                 <div className="container">
                   <div className="custom-footer__wrapper">
                     <Link href="/" className="maxOpen-logo">
-                      <img alt="MaxOpen" src="/assets/imgs/template/log.png"/>
+                      <img alt="MaxOpen" src="/assets/imgs/template/logo.png"/>
                     </Link>
                     <nav className='footer-nav'>
                       <Link className="active" href="/">Home</Link>

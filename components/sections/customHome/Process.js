@@ -50,7 +50,6 @@ const Process = () => {
               title="Let's discuss your project!"
               descr="Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life"
               buttonText="Get in Touch"
-
             />
         </div>
     </section>

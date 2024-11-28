@@ -3,7 +3,7 @@ import React from "react";
 export const BlogTitle = ({
   textOnBg,
   title,
-  descr
+  descr,
 }) => {
   return (
     <>

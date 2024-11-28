@@ -6,6 +6,7 @@ import { Projects } from '@/components/sections/customHome/Projects';
 import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
 import ContactUs from '@/components/sections/customHome/ContactUs';
+import Prices from '@/components/sections/customHome/Prices';
 
 export default function Home() {
 
@@ -17,6 +18,7 @@ export default function Home() {
             <Projects />
             <WhyWe />
             <Process />
+            <Prices />
             <ContactUs />
           </Layout>
         </>
