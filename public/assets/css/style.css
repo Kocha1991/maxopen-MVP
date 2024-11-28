@@ -10028,8 +10028,6 @@ a.icon-socials:hover {
   }
 }
 
-
-
 .bg-abstract {
   position: absolute;
   width: 400px;
@@ -10037,6 +10035,7 @@ a.icon-socials:hover {
   background: url('/assets/imgs/template/bg-menu-dark.png') no-repeat center/cover;
   opacity: 0.5;
 }
+
 .banner-inner-top.banner-maxOpen {
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;

@@ -5,11 +5,8 @@ export default function Banner() {
     return (
         <>
           <section className="section-box">
-              <div className="banner-hero hero-5">
-                  <div className="banner-image-main">
-                    <div className="img-bg" />
-                    <div className="blur-bg blur-move" />
-                  </div>
+              <div className="maxOpen-banner hero-5">
+                  
                   <div className="banner-inner-top banner-maxOpen">
                       <div className="container">
                           <div className="box-banner-left">
@@ -27,6 +24,10 @@ export default function Banner() {
                                 </Link>
                               </div>
                           </div>
+                          <div className="banner-image-main">
+                      {/* <div className="blur-bg blur-move" /> */}
+                      <div className="img-bg" />
+                    </div>
                       </div>
                   </div>
               </div>
