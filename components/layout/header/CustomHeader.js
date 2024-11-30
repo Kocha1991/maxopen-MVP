@@ -18,7 +18,7 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                     </div>
                 }
                 <div className="container">
-                    <div className="main-header">
+                    <div className="main-header custom-header">
                         <div className="header-left">
                             <div className="header-logo">
                                 <Link className="d-flex" href="/">
@@ -55,12 +55,14 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                                 </nav>
                             </div>
                         </div>
-                        <div className="header-right">
-                            <LanguageDropdown />
-                            <Link className="btn btn-brand-4-medium hover-up" href="#">
-                              Get Started
-                            </Link>
-                            <div className="burger-icon burger-icon-white" onClick={handleMobileMenu}>
+                        <div className="header-right ">
+                            <div className='header-right__block'>
+                              <LanguageDropdown />
+                              <Link className="btn btn-brand-4-medium hover-up" href="#">
+                                Get Started
+                              </Link>
+                            </div>
+                            <div className="burger-icon burger-icon-white burger-icon-custom" onClick={handleMobileMenu}>
                                 <span className="burger-icon-top" />
                                 <span className="burger-icon-mid" />
                                 <span className="burger-icon-bottom" />

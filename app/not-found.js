@@ -4,7 +4,6 @@ export default function Error() {
 
     return (
         <>
-
             <Layout headerStyle={1} footerStyle={1} headerCls="header-style-2 header-style-4" >
                 <section className="section-box wow animate__animated animate__fadeIn box-404">
                     <div className="text-center"><img src="/assets/imgs/page/404/404.png" alt="Nivia" />
@@ -16,7 +15,6 @@ export default function Error() {
                             </svg></Link>
                     </div>
                 </section>
-
             </Layout>
         </>
     )

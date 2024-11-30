@@ -70,24 +70,25 @@ export const Services = () => {
 
           <div className='col-lg-12 '>
             <div className="card-features-maxOpen card-features-maxOpen-long">
-              <div></div>
-              <div className="card-image"> 
-                <img 
-                  src="/assets/imgs/template/icons/Cybersecurity-green.svg" 
-                  alt="icon" 
-                  className='card-image__icon'
-                />
-                <img 
-                  src="/assets/imgs/template/icons/Cybersecurity-black.svg" 
-                  alt="icon" 
-                  className='card-image__icon-hover'
-                />
-              </div>
-              <div className="card-info">
-                <h5 className="mb-12">Cybersecurity</h5>
-                <p className="mb-12 text-md neutral-300">
-                  Technical support and maintenance for companies worldwide
-                </p>
+              <div className='card-features-maxOpen-long__block'>
+                <div className="card-image"> 
+                  <img 
+                    src="/assets/imgs/template/icons/Cybersecurity-green.svg" 
+                    alt="icon" 
+                    className='card-image__icon'
+                  />
+                  <img 
+                    src="/assets/imgs/template/icons/Cybersecurity-black.svg" 
+                    alt="icon" 
+                    className='card-image__icon-hover'
+                  />
+                </div>
+                <div className="card-info">
+                  <h5 className="mb-12">Cybersecurity</h5>
+                  <p className="mb-12 text-md neutral-300">
+                    Technical support and maintenance for companies worldwide
+                  </p>
+                </div>
               </div>
               <Link className="btn btn-info-card" href="#">
                 Learn more

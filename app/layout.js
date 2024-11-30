@@ -1,8 +1,8 @@
-import { Urbanist } from 'next/font/google'
-import 'swiper/css'
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "/public/assets/css/style.css"
+import { Urbanist } from 'next/font/google';
+import 'swiper/css';
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "/public/assets/css/style.css";
 const urban = Urbanist({
     weight: ['200', '300', '400', '500', '600', '700'],
     subsets: ['latin'],

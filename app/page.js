@@ -7,6 +7,7 @@ import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
 import ContactUs from '@/components/sections/customHome/ContactUs';
 import Prices from '@/components/sections/customHome/Prices';
+import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
         <>
           <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
             <Banner />
+            <GoodsAnimation />
             <Services />
             <Projects />
             <WhyWe />
