@@ -59,7 +59,7 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                             <div className='header-right__block'>
                               <LanguageDropdown />
                               <Link className="btn btn-brand-4-medium hover-up" href="#">
-                                Get Started
+                                <span>Get Started</span>
                               </Link>
                             </div>
                             <div className="burger-icon burger-icon-white burger-icon-custom" onClick={handleMobileMenu}>

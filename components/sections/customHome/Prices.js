@@ -1,6 +1,6 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
-import { PriceItem } from './PriceItem';
+import { PriceItem } from '../../elements/PriceItem';
 
 const Prices = () => {
   return (

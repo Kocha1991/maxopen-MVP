@@ -49,7 +49,7 @@ export const Projects = () => {
             />
         </div>
         <Link className="btn btn-brand-4-medium hover-up" href="#">
-          Load more
+          <span>Load more</span>
         </Link>
       </div>
     </div>

@@ -8,6 +8,7 @@ import Process from '@/components/sections/customHome/Process';
 import ContactUs from '@/components/sections/customHome/ContactUs';
 import Prices from '@/components/sections/customHome/Prices';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
+import { Games } from '@/components/sections/customHome/Games';
 
 export default function Home() {
 
@@ -19,6 +20,7 @@ export default function Home() {
             <Services />
             <Projects />
             <WhyWe />
+            <Games />
             <Process />
             <Prices />
             <ContactUs />

@@ -1314,8 +1314,8 @@ body {
   background: #ECEEF2;
 }
 .btn.btn-brand-4-medium {
+  position: relative;
   padding: 14px 25px;
-  /* background-color:#2AFAF8; */
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
   border-radius: 60px;
   color: #191919;
@@ -1325,10 +1325,41 @@ body {
   font-family: var(--tg-body-font-family);
   display: flex;
   align-items: center;
-  transition: background-image 0.3s ease-in-out;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
 }
-.btn.btn-brand-4-medium:hover {
-  background-image: linear-gradient(113.15deg, #ECEEF2 -35.36%, #ECEEF2 165%);
+
+.btn.btn-brand-4-medium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ECEEF2;
+  border-radius: 60px; /* Повторює форму кнопки */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Плавний перехід кольору */
+  z-index: 0; /* Псевдоелемент під текстом */
+}
+
+.btn.btn-brand-4-medium:hover::before {
+  opacity: 1; /* Показує однотонний фон */
+}
+
+.btn.btn-brand-4-medium span {
+  position: relative; /* Залишає текст вище псевдоелемента */
+  z-index: 2; /* Гарантує, що текст зверху */
+}
+
+.hover-up {
+  transition: transform 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+.hover-up:hover {
+  transform: translateY(-3px);
 }
 .btn.btn-brand-4-medium svg {
   fill: #191919;
@@ -2664,7 +2695,6 @@ label {
 .card-we-know:hover .card-desc {
   display: block;
 }
-
 .card-integration {
   background-color: #ffffff;
   border-radius: 16px;
@@ -9723,9 +9753,7 @@ a.icon-socials:hover {
   .lists-our-features .item-our-feature.feature-big, .lists-our-features .item-our-feature.feature-mid, .lists-our-features .item-our-feature.feature-sm {
     width: 100%;
   }
-  /* .header .btn-brand-4-medium {
-    display: none;
-  } */
+
   .box-image-rect-both::after {
     height: 169px;
     width: 183px;
@@ -10156,18 +10184,48 @@ a.icon-socials:hover {
 }
 
 .card-features-maxOpen {
-  padding: 41px;
+  padding: 23px 32px;
   width: auto;
   min-height: 230px;
-  padding: 23px 32px;
   gap: 24px;
   border: 2px solid rgba(236, 238, 242, 1);
   border-radius: 16px;
-  opacity: 0px;
-  /* cursor: pointer; */
+  opacity: 1;
+  background: #ffffff; /* початковий фон */
+  position: relative; /* для позиціонування псевдоелемента */
+  overflow: hidden; /* щоб псевдоелемент не виходив за межі картки */
+  transition: box-shadow 0.25s ease-in-out;
 }
+
+.card-features-maxOpen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out; 
+}
+
+.card-features-maxOpen:hover::before {
+  opacity: 1;
+}
+.card-features-maxOpen:hover {
+  box-shadow: 0px 6px 30px rgba(42, 250, 248, 0.6);
+}
+
 .card-features-maxOpen .card-image {
+  position: relative;
   height: 75px;
+  z-index: 5;
+}
+.card-features-maxOpen
+.card-info {
+  position: relative;
+  z-index: 5;
 }
 .card-features-maxOpen.card-features-maxOpen-long {
   min-height: auto;
@@ -10227,6 +10285,7 @@ a.icon-socials:hover {
   text-align: center;
 }
 .btn-info-card {
+  position: relative;
   width: fit-content;
   padding: 10px 20px;
   display: flex;
@@ -10234,20 +10293,17 @@ a.icon-socials:hover {
   gap: 10px;
   border-radius: 20px;
   background-color: #fff;
+  z-index: 5;
 }
 .card-image {
   position: relative;
-  transition: all 0.25s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .card-image__icon-hover {
   display: none;
   transition: all 0.25s ease-in-out;
 }
-.card-features-maxOpen:hover{
-  background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
-  transition: all 0.25s ease-in-out;
-  box-shadow: 0px 6px 30px rgba(42, 250, 248, 0.6);
-}
+
 .card-features-maxOpen:hover 
 .card-image__icon {
   display: none;
@@ -10565,4 +10621,39 @@ a.icon-socials:hover {
   .custom-header .burger-icon-custom {
     top: -10px;
   }
+}
+.games {
+  padding: 100px 0;
+}
+.games__wrapper {
+  position: relative;
+}
+.games .maxOpen-services__title {
+  width: 70%;
+  text-align: left;
+}
+.games .slide-card {
+  position: relative;
+}
+.games .slide-card .card-image {
+  height: 345px;
+}
+.card-video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+.games .box-button-slider.box-button-slider-team {
+  position: absolute;
+  top: 0;
+  right: 150px;
+}
+.play-btn {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.play-btn:hover {
+  scale: 105%;
 }

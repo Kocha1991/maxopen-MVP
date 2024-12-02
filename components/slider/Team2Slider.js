@@ -1,7 +1,8 @@
 'use client'
-import Link from 'next/link'
-import { Autoplay, Navigation, Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+import Link from 'next/link';
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SlideCard } from '../elements/SlideCard';
 
 const swiperOptions = {
     modules: [Autoplay, Pagination, Navigation],
@@ -42,84 +43,44 @@ export default function Team2Slider() {
             <div className="swiper-container swiper-group-4">
                 <Swiper {...swiperOptions}>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team1.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Olivia Williams</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video1.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team2.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Foysal Khan</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video2.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team3.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Ava Smith</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video3.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team4.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Alexander Hall</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video4.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team1.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Olivia Williams</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video5.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team2.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Foysal Khan</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video6.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team3.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Ava Smith</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video7.MP4'
+                        />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="card-team-2">
-                            <div className="card-image"><img src="/assets/imgs/page/homepage2/team4.png" alt="Nivia" /></div>
-                            <div className="card-info"><Link href="#">
-                                <h6>Alexander Hall</h6>
-                            </Link>
-                                <p className="text-lg neutral-600">Master Trainer</p>
-                            </div>
-                        </div>
+                        <SlideCard 
+                          video='/assets/imgs/template/video8.MP4'
+                        />
                     </SwiperSlide>
                 </Swiper>
             </div>
