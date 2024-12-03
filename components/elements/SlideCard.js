@@ -10,10 +10,10 @@ export const SlideCard = ({
         <video
           className="card-video"
           src={video}
-          controls
           muted
           autoPlay
           loop
+          playsInline
           poster="/assets/imgs/template/video-thumbnail.jpg"
           preload="auto"
         >
