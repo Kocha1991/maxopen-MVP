@@ -9,9 +9,10 @@ export default function CustomFooter() {
                     <Link href="/" className="maxOpen-logo">
                       <img alt="MaxOpen" src="/assets/imgs/template/logo.png"/>
                     </Link>
-                    <nav className='footer-nav'>
+                    <nav className='custom-nav'>
                       <Link className="active" href="/">Home</Link>
                       <Link href="/service">Services</Link>
+                      <Link href="/contact">Complete Solutions</Link>
                       <Link href="/blog">Portfolio</Link>
                       <Link href="/contact">Contact</Link>
                     </nav>

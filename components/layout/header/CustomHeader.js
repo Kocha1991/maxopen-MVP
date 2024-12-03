@@ -41,8 +41,8 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                                                 <li><Link href="/index-6">AI Platform</Link></li>
                                             </ul> */}
                                         </li>
-                                        <li className="has-children"><Link href="/about">About</Link></li>
                                         <li className="has-children"><Link href="/service">Services</Link></li>
+                                        <li className="has-children"><Link href="/service">Complete Solutions</Link></li>
                                         <li className="has-children"><Link href="/blog">Portfolio</Link>
                                             {/* <ul className="sub-menu">
                                                 <li><Link href="/blog">Project V1</Link></li>
