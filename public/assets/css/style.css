@@ -2678,22 +2678,28 @@ label {
 }
 .card-we-know .card-info .card-title svg {
   fill: #191919;
+  transition: all 0.4s ease-in-out;
 }
 .card-we-know .card-info .card-title:hover {
   color: #52B8AA;
 }
 .card-we-know .card-info .card-title:hover svg {
   fill: #52B8AA;
+  transition: all 0.5s ease-in-out;
 }
 .card-we-know .card-info .card-desc {
   border-top: 1px solid #191919;
-  padding-top: 17px;
-  display: none;
-  padding-bottom: 10px;
-  transition: all 0.3s ease-in-out;
+  padding-top: 15px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease-in-out, max-height 0.4s ease-in-out;
 }
+
 .card-we-know:hover .card-desc {
-  display: block;
+  opacity: 1;
+  max-height: 200px;
+  transition: all 0.4s ease-in-out;
 }
 .card-integration {
   background-color: #ffffff;
@@ -10194,7 +10200,7 @@ a.icon-socials:hover {
   background: #ffffff; /* початковий фон */
   position: relative; /* для позиціонування псевдоелемента */
   overflow: hidden; /* щоб псевдоелемент не виходив за межі картки */
-  transition: box-shadow 0.25s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .card-features-maxOpen::before {
@@ -10207,7 +10213,7 @@ a.icon-socials:hover {
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
   z-index: 1;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out; 
+  transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out; 
 }
 
 .card-features-maxOpen:hover::before {
@@ -10215,6 +10221,14 @@ a.icon-socials:hover {
 }
 .card-features-maxOpen:hover {
   box-shadow: 0px 6px 30px rgba(42, 250, 248, 0.6);
+}
+.card-features-maxOpen p {
+  transition: color 0.3s ease-in-out;
+}
+.card-features-maxOpen:hover 
+p {
+  transition: color 0.3s ease-in-out;
+  color: #4B4B4B !important;
 }
 
 .card-features-maxOpen .card-image {
@@ -10295,24 +10309,34 @@ a.icon-socials:hover {
   background-color: #fff;
   z-index: 5;
 }
+.maxOpen-services
 .card-image {
+  width: 68px;
+  height: 68px;
   position: relative;
   transition: opacity 0.3s ease-in-out;
 }
+.card-image__icon,
 .card-image__icon-hover {
-  display: none;
-  transition: all 0.25s ease-in-out;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  z-index: 5;
 }
-
+.card-image__icon {
+  opacity: 1;
+}
+.card-image__icon-hover {
+  opacity: 0;
+}
 .card-features-maxOpen:hover 
 .card-image__icon {
-  display: none;
-  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
-
-.card-features-maxOpen:hover .card-image__icon-hover {
-  display: block;
-  transition: all 0.25s ease-in-out;
+.card-features-maxOpen:hover 
+.card-image__icon-hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 .maxOpen_project-card {
   position: relative;
@@ -10640,7 +10664,7 @@ a.icon-socials:hover {
 }
 .card-video {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -10656,4 +10680,21 @@ a.icon-socials:hover {
 }
 .play-btn:hover {
   scale: 105%;
+}
+.games 
+.swiper-button-next:hover,
+.games 
+.swiper-button-prev:hover {
+  background-color: #2afad7;
+  border-color: #2afad7;
+}
+@media (max-width: 992px) {
+  .games .maxOpen-services__title {
+    width: 100%;
+    text-align: center;
+  }
+  .games .box-button-slider.box-button-slider-team {
+    position: relative;
+    right: 0;
+  }
 }
