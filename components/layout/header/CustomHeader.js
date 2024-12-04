@@ -42,7 +42,7 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                                             </ul> */}
                                         </li>
                                         <li className="has-children"><Link href="/service">Services</Link></li>
-                                        <li className="has-children"><Link href="/service">Complete Solutions</Link></li>
+                                        <li className="has-children"><Link href="/complete-solutions">Complete Solutions</Link></li>
                                         <li className="has-children"><Link href="/blog">Portfolio</Link>
                                             {/* <ul className="sub-menu">
                                                 <li><Link href="/blog">Project V1</Link></li>
@@ -63,16 +63,12 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                               </Link>
                             </div>
                             <div className="burger-icon burger-icon-white burger-icon-custom" onClick={handleMobileMenu}>
-                                <span className="burger-icon-top" />
-                                <span className="burger-icon-mid" />
-                                <span className="burger-icon-bottom" />
+                                <img src="/assets/imgs/template/icons/burger.svg" alt="" />
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-
-
         </>
     )
 }

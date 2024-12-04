@@ -11,7 +11,6 @@ import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import { Games } from '@/components/sections/customHome/Games';
 
 export default function Home() {
-
     return (
         <>
           <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
