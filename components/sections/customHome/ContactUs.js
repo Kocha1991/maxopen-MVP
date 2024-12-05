@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <section className="section-box box-get-touch-section box-get-touch-section--maxOpen">
+    <section className="section-box box-get-touch-section box-get-touch-section--maxOpen" id="contact">
         <div className="container">
             <div className="row align-items-start">
                 <div className="col-lg-6 ">

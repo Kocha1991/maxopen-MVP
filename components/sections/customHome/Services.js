@@ -5,7 +5,7 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 
 export const Services = () => {
   return (
-    <div className='maxOpen-services'>
+    <div className='maxOpen-services' id='services'>
       <div className="container">
         <BlogTitle 
           textOnBg='Your solution is here'

@@ -27,7 +27,7 @@ export default function CompleteSolutions() {
         <div className="complete-solutions__items">
           <div className="container">
             <SolutionCard 
-
+  
             />
             <SolutionCard2 />
           </div>
@@ -37,10 +37,10 @@ export default function CompleteSolutions() {
           <div className='add-top-footer__wrapper'>
             <div className='add-top-footer__text-block'>
               <div className="solution-card__title text-wite">
-                Discovery: Strategic planning and goal setting
+                Need help or have additional questions?
               </div>
               <div className='solution-card__descr'>
-                We build a strong technical foundation for the product, including servers, databases, and a secure infrastructure that can withstand the load and ensure stable operation. Each stage of technical development is aimed at optimizing the product's performance, ensuring high speed and security. This guarantees not only uninterrupted operation today, but also the ability to scale the product for future growth, allowing you to develop your business without restrictions.
+                If you want to know more or have any questions about our work, we will be happy to help you! Book a call and we will discuss everything in detail.
               </div>
               <button
                 className="btn btn-brand-4-medium hover-up"

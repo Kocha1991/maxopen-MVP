@@ -5,11 +5,8 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import Link from 'next/link';
 
 export const Projects = () => {
-  const [visibleCount, setVisibleCount] = useState(3); // Кількість видимих елементів
-  const [isExpanded, setIsExpanded] = useState(false);
-  
   return (
-    <div className='maxOpen-projects'>
+    <div className='maxOpen-projects' id="projects">
       <div className='container'>
         <BlogTitle 
           textOnBg='Our Portfolio'

@@ -9,7 +9,10 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                     <div className="top-bar">
                         <div className="container">
                             <div className="top-bar-inner">
-                                <div className="box-top-bar-left"><span className="address-icon text-md">9207 Lakeshore RdShreveport</span>
+                                <div className="box-top-bar-left">
+                                  <span className="address-icon text-md">
+                                    9207 Lakeshore RdShreveport
+                                  </span>
                                 </div>
                                 <div className="box-top-bar-right"><a className="phone-icon text-md" href="tel:(262) 555-0131">(262)
                                     555-0131</a><a className="email-icon text-md" href="mailto:contact@nivia.com">contact@nivia.com</a></div>
@@ -25,6 +28,12 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                                     <img 
                                       src="/assets/imgs/template/logo.png" 
                                       alt="MaxOpen"
+                                      className='web-logo'
+                                    />
+                                    <img 
+                                      src="/assets/imgs/template/mobile-logo.svg"
+                                      alt="MaxOpen"
+                                      className='mobile-logo'
                                     />
                                 </Link>
                             </div>
@@ -41,16 +50,16 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                                                 <li><Link href="/index-6">AI Platform</Link></li>
                                             </ul> */}
                                         </li>
-                                        <li className="has-children"><Link href="/service">Services</Link></li>
-                                        <li className="has-children"><Link href="/complete-solutions">Complete Solutions</Link></li>
-                                        <li className="has-children"><Link href="/blog">Portfolio</Link>
+                                        <li className="has-children"><Link href="#services">Services</Link></li>
+                                        <li className="has-children"><Link href="/complete-solutions">Solutions</Link></li>
+                                        <li className="has-children"><Link href="#projects">Portfolio</Link>
                                             {/* <ul className="sub-menu">
                                                 <li><Link href="/blog">Project V1</Link></li>
                                                 <li><Link href="/blog-2">ProjectV2</Link></li>
                                                 <li><Link href="/blog-post">Project V3</Link></li>
                                             </ul> */}
                                         </li>
-                                        <li className="has-children"><Link href="/contact">Contact</Link></li>
+                                        <li className="has-children"><Link href="#contact">Contact</Link></li>
                                     </ul>
                                 </nav>
                             </div>
