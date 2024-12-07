@@ -6846,7 +6846,7 @@ a.icon-socials:hover {
   transform: translateX(-50%);
   width: 80%;
   margin: 0 auto;
-  padding: 10px 0px;
+  padding: 10px 11px;
   border-radius: 50px;
   background-color: #ffffff;
   z-index: 20;
@@ -6871,8 +6871,9 @@ a.icon-socials:hover {
   min-height: auto;
   width: auto;
   max-width: 100%;
-  max-height: 42px;
+  max-height: 75px;
   vertical-align: middle;
+  filter: grayscale(100%);
 }
 
 .card-feature-2 {
@@ -8706,7 +8707,7 @@ a.icon-socials:hover {
   margin-bottom: 20px;
 }
 .list-logos-login li .item-logo img {
-  height: 18px;
+  height: 28px;
   display: block;
 }
 
