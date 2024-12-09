@@ -90,7 +90,7 @@ export const Services = () => {
                   </p>
                 </div>
               </div>
-              <Link className="btn btn-info-card" href="#">
+              <Link className="btn btn-info-card animation-btn-svg" href="#">
                 Learn more
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#2AFAF8"/>

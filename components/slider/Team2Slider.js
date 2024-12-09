@@ -84,7 +84,7 @@ export default function Team2Slider() {
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <div className="box-button-slider box-button-slider-team">
+            <div className="box-button-slider box-button-slider-team custom-slider-btn">
                 <div className="swiper-button-prev swiper-button-prev-testimonials swiper-button-prev-3">
                     <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.66667 3.33398L2 8.00065M2 8.00065L6.66667 12.6673M2 8.00065H14" stroke="true" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">

@@ -18,8 +18,10 @@ export default function Banner() {
                       </p>
                       <div className="d-flex mb-60">
                         <Link className="btn banner-btn hover-up mr-5" href="#" >
-                          <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
-                          Book a meeting
+                          <span>
+                            <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
+                            Book a meeting
+                          </span>
                         </Link>
                       </div>
                   </div>

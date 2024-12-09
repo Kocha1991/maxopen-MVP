@@ -1317,6 +1317,7 @@ body {
   background: #ECEEF2;
 }
 .btn.btn-brand-4-medium {
+  min-width: 220px;
   position: relative;
   padding: 14px 25px;
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
@@ -1329,12 +1330,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   overflow: hidden;
   z-index: 1;
 }
-
-.btn.btn-brand-4-medium::before {
+.btn.btn-brand-4-medium:hover {
+  background: linear-gradient(287.34deg, #00FFFD 33.47%, #07FFA0 88.72%);
+  transition: all 0.3s ease-in-out;
+}
+/* .btn.btn-brand-4-medium::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1342,19 +1346,18 @@ body {
   width: 100%;
   height: 100%;
   background: #ECEEF2;
-  border-radius: 60px; /* Повторює форму кнопки */
+  border-radius: 60px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out; /* Плавний перехід кольору */
-  z-index: 0; /* Псевдоелемент під текстом */
-}
-
-.btn.btn-brand-4-medium:hover::before {
-  opacity: 1; /* Показує однотонний фон */
-}
+  transition: opacity 0.3s ease-in-out;
+  z-index: 0;
+} */
+/* .btn.btn-brand-4-medium:hover::before {
+  opacity: 1;
+} */
 
 .btn.btn-brand-4-medium span {
-  position: relative; /* Залишає текст вище псевдоелемента */
-  z-index: 2; /* Гарантує, що текст зверху */
+  position: relative; 
+  z-index: 2;
 }
 
 .hover-up {
@@ -2702,7 +2705,7 @@ label {
 .card-we-know:hover .card-desc {
   opacity: 1;
   max-height: 200px;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .card-integration {
   background-color: #ffffff;
@@ -10201,26 +10204,31 @@ a.icon-socials:hover {
   border: 2px solid rgba(236, 238, 242, 1);
   border-radius: 16px;
   opacity: 1;
-  background: #ffffff; /* початковий фон */
-  position: relative; /* для позиціонування псевдоелемента */
-  overflow: hidden; /* щоб псевдоелемент не виходив за межі картки */
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
 }
 
 .card-features-maxOpen::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: -200%;
+  left: 100%;
+  width: 200%;
+  height: 200%;
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
   z-index: 1;
+  transform: translate(0, 0);
   opacity: 0;
-  transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out; 
+  border-radius: 30%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .card-features-maxOpen:hover::before {
+  transform: translate(-50%, 50%);
+  border-radius: 16px;
+  transition: all 0.6s ease-in-out;
   opacity: 1;
 }
 .card-features-maxOpen:hover {
@@ -10304,14 +10312,18 @@ p {
 }
 .btn-info-card {
   position: relative;
-  width: fit-content;
+  width: 180px;
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   border-radius: 20px;
   background-color: #fff;
   z-index: 5;
+}
+.btn-info-card:hover {
+  color: black;
 }
 .maxOpen-services
 .card-image {
@@ -10600,14 +10612,64 @@ p {
   background: url('/assets/imgs/template/banner-bg.png') no-repeat center/contain;
 }
 .banner-btn {
+  width: 220px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   background-color: #fff;
   color: #212529;
   border-radius: 40px;
+  padding: 10px 20px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
 }
+
+.banner-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #1FFBD1;
+  border-radius: 50px;
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+}
+.banner-btn:hover::before {
+  left: 0;
+  transition: all 0.5s ease-in-out;
+}
+.banner-btn:hover {
+  color: #212529;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+
+}
+.banner-btn img {
+  position: relative;
+  z-index: 1;
+  width: 20px; 
+  transition: all 0.5s ease-in-out;
+}
+.banner-btn:hover img {
+  filter: brightness(0) invert(1);
+  transition: all 0.5s ease-in-out;
+}
+.banner-btn span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  gap: 10px;
+}
+
 @media (max-width: 1400px) {
   .maxOpen-banner {
     padding-top: 160px;
@@ -10701,19 +10763,58 @@ p {
   top: 0;
   right: 150px;
 }
-.play-btn {
+.play-btn-block {
   position: absolute;
   left: 10px;
   bottom: 10px;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px;
+  border-radius: 100px;
+  background: rgba(25, 25, 25, 1);
+  transition: all 0.4s ease-in-out;
 }
-.play-btn:hover {
-  scale: 105%;
+.play-btn-block svg {
+  opacity: 0.9;
+  transition: all 0.4s ease-in-out;
+}
+.play-btn-block span {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  color: #ffff;
+  transition: transform 0.4s ease-in-out;
+}
+.play-btn-block:hover {
+  background-color: #2afad7;
+}
+.play-btn-block:hover svg {
+  transform: translateX(69px);
+  fill: red;
+  transition: all 0.4s ease-in-out;
+}
+.play-btn-block:hover svg circle {
+  fill: #fff;
+  transition: all 0.4s ease-in-out;
+}
+.play-btn-block:hover svg path {
+  fill: #000;
+  transition: all 0.4s ease-in-out;
+}
+.play-btn-block:hover span {
+  color: #000;
+  transform: translateX(-35px);
+  transition: all 0.4s ease-in-out;
 }
 .games 
 .swiper-button-next:hover,
 .games 
 .swiper-button-prev:hover {
-  background-color: #2afad7;
+  background-color: #191919;
   border-color: #2afad7;
 }
 @media (max-width: 992px) {
@@ -10825,9 +10926,6 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .complete-solutions__descr {
   max-width: 680px;
-}
-.complete-solutions .banner-btn{
-  width: 230px;
 }
 .complete-solutions__items {
   width: 100%;
@@ -11052,4 +11150,27 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     align-self: flex-end;
   }
 }
-
+.animation-btn-svg svg {
+  width: 22px;
+  transition: all 0.3s ease-in-out;
+}
+.animation-btn-svg:hover svg {
+  width: 1px;
+  transition: all 0.3s ease-in-out;
+}
+.custom-slider-btn .swiper-button-prev,
+.custom-slider-btn .swiper-button-next {
+  width: 50px;
+  height: 50px;
+  border: 6px solid transparent;
+  background-color: #191919;
+  transition: all 0.3s ease-in-out;
+}
+.custom-slider-btn .swiper-button-prev svg,
+.custom-slider-btn .swiper-button-next svg {
+  stroke: #ffff;
+}
+.custom-slider-btn:hover .swiper-button-prev svg,
+.custom-slider-btn:hover .swiper-button-next svg {
+  stroke: #ffff;
+}

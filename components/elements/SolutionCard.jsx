@@ -14,7 +14,7 @@ export const SolutionCard = () => {
           We build a strong technical foundation for the product, including servers, databases, and a secure infrastructure that can withstand the load and ensure stable operation. Each stage of technical development is aimed at optimizing the product's performance, ensuring high speed and security. This guarantees not only uninterrupted operation today, but also the ability to scale the product for future growth, allowing you to develop your business without restrictions.
         </div>
         <div className='solution-card__left-bottom'>
-          <button className="btn btn-brand-4-medium hover-up" type="submit">
+          <button className="btn btn-brand-4-medium hover-up animation-btn-svg" type="submit">
             <span>
               Order package
               <svg width={22} height={8} viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -42,7 +42,7 @@ export const SolutionCard2 = () => {
           </div>
         </div>
         <div className='solution-card__left-bottom'>
-          <button className="btn btn-brand-4-medium hover-up" type="submit">
+          <button className="btn btn-brand-4-medium hover-up animation-btn-svg" type="submit">
             <span>
               Order package
               <svg width={22} height={8} viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">

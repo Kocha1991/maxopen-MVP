@@ -51,10 +51,10 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
                   <div className="custom-menu-body">
                     <nav className='custom-nav'>
                       <Link className="active" href="/">Home</Link>
-                      <Link href="/service">Services</Link>
-                      <Link href="/contact">Complete Solutions</Link>
-                      <Link href="/blog">Portfolio</Link>
-                      <Link href="/contact">Contact</Link>
+                      <Link href="#services">Services</Link>
+                      <Link href="/complete-solutions">Complete Solutions</Link>
+                      <Link href="#projects">Portfolio</Link>
+                      <Link href="#contact">Contact</Link>
                     </nav>
                     <Link className="btn btn-brand-4-medium hover-up" href="#">
                       <span>Get Started</span>

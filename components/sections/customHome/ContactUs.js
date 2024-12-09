@@ -17,9 +17,6 @@ const ContactUs = () => {
                     <p className='box-image-get-touch__time'>Hours: 8:00 - 17:00, Mon - Sat </p>
                 </div>
                 <div className="col-lg-6">
-                  <div className='maxOpen-bg-text'>
-                    Send Message
-                  </div>
                   <h2 className=" mt-20">Get in Touch</h2>
                   <p className="text-md neutral-700">Contact us below and we will get back to you shortly.</p>
                   <div className="block-form-contact mt-20">
@@ -37,10 +34,15 @@ const ContactUs = () => {
                           <div className="form-group">
                               <label htmlFor="fullname">
                                   Message *</label>
-                              <textarea className="form-control" rows={3} placeholder="How can we help you?" />
+                              <textarea 
+                                className="form-control" 
+                                rows={4} 
+                                placeholder="How can we help you?" 
+                                style={{ resize: 'none' }}
+                              />
                           </div>
                           <div className="form-group">
-                            <button className="btn btn-brand-4-medium hover-up" type="submit">
+                            <button className="btn btn-brand-4-medium hover-up animation-btn-svg" type="submit">
                                 <span>
                                   Send Message
                                   <svg width={22} height={8} viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
