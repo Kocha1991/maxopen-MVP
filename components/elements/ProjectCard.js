@@ -5,9 +5,9 @@ export const ProjectCard = ({ img, title, descr, link }) => {
   return (
     <div className="col-lg-4 col-md-6 mb-20 maxOpen_project-card">
       <div className="card-we-know">
-        <div className="card-image">
+        <Link className="card-image" href={link}>
           <img src={img} alt={title} />
-        </div>
+        </Link>
         <div className="card-info">
           <Link className="card-title" href={link}>
             <h4>{title}</h4>

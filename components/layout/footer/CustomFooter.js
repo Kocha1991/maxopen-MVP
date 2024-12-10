@@ -25,7 +25,7 @@ export default function CustomFooter() {
                           <a className="icon-socials icon-facebook" href="#">
                             <img alt="facebook" src="/assets/imgs/template/icons/fb.svg" />
                           </a>
-                          <a className="icon-socials icon-instagram" href="#">
+                          <a className="icon-socials icon-instagram" href="https://www.instagram.com/maxopen_studio/">
                             <img alt="instagram" src="/assets/imgs/template/icons/in.svg" />
                           </a>
                           <a className="icon-socials icon-twitter" href="#">

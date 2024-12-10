@@ -67,7 +67,7 @@ export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, t
                         <div className="header-right ">
                             <div className='header-right__block'>
                               <LanguageDropdown />
-                              <Link className="btn btn-brand-4-medium hover-up" href="#">
+                              <Link className="btn btn-brand-4-medium hover-up" href="https://calendly.com/maxopenstudio">
                                 <span>Get Started</span>
                               </Link>
                             </div>

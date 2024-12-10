@@ -16,7 +16,7 @@ export default function Banner() {
                         From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations
                       </p>
                       <div className="d-flex mb-60">
-                        <Link className="btn banner-btn hover-up mr-5" href="#" >
+                        <Link className="btn banner-btn hover-up mr-5" href="https://calendly.com/maxopenstudio" >
                           <span>
                             <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
                             Book a meeting
