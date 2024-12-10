@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import LogoTicker2 from '@/components/elements/LogoTicker';
 
 export default function Banner() {
     return (

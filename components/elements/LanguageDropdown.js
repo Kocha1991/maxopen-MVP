@@ -17,6 +17,7 @@ function LanguageDropdown() {
       <Dropdown.Menu id='dropdown-lan-menu' style={{ width: 'auto', minWidth: '60px' }}>
         <Dropdown.Item href="#/action-1" onClick={() => handleSelectLanguage('EN')}>English</Dropdown.Item>
         <Dropdown.Item href="#/action-2" onClick={() => handleSelectLanguage('UA')}>Ukrainian</Dropdown.Item>
+        <Dropdown.Item href="#/action-2" onClick={() => handleSelectLanguage('RU')}>Russian</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

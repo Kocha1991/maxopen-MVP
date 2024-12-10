@@ -14,10 +14,9 @@ const ContactUs = () => {
                         We are always ready to help! Contact us and we will be happy to discuss your ideas and project requirements.
                       </h3>
                     </div>
-                    <p className='box-image-get-touch__time'>Hours: 8:00 - 17:00, Mon - Sat </p>
                 </div>
                 <div className="col-lg-6">
-                  <h2 className=" mt-20">Get in Touch</h2>
+                  <h2>Get in Touch</h2>
                   <p className="text-md neutral-700">Contact us below and we will get back to you shortly.</p>
                   <div className="block-form-contact mt-20">
                       <form action="#">
@@ -36,7 +35,7 @@ const ContactUs = () => {
                                   Message *</label>
                               <textarea 
                                 className="form-control" 
-                                rows={4} 
+                                rows={3} 
                                 placeholder="How can we help you?" 
                                 style={{ resize: 'none' }}
                               />

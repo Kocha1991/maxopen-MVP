@@ -1,29 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 export const PriceItem = ({ title, descr }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDescr = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div className="price-item">
       <div className="price-item__text">
         <h2 className="price-item__title">{title}</h2>
-
-        <p className={`price-item__descr ${isOpen ? "open" : "closed"}`}>
-          {descr}
-        </p>
+        <p className="price-item__descr">{descr}</p>
       </div>
-
-      <button
-        className="btn btn-brand-4-medium hover-up"
-        onClick={toggleDescr}
-      >
+      <button className="btn btn-brand-4-medium hover-up">
         <span>
-          {isOpen ? "Hide details" : "Let's discuss"}
+          Let's discuss
           <svg
             width="11"
             height="12"

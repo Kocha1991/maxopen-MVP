@@ -37,7 +37,7 @@ export default function CustomFooter() {
                         </div>
                     </div>
                     <div className="footer-bottom text-center">
-                      <p className="text-sm neutral-600">Copyright © 2023 MAXOPEN. All rights reserved.</p>
+                      <p className="text-sm neutral-600">Copyright © 2025 MAXOPEN. All rights reserved.</p>
                     </div>
                   </div>
                 </div>
