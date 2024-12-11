@@ -3152,6 +3152,9 @@ label {
   left: 0px;
   z-index: 123;
 }
+.header-black {
+  background: #191919;
+}
 .header.header-style-4 {
   padding-top: 0px;
 }
@@ -9234,7 +9237,7 @@ a.icon-socials:hover {
     padding: 30px;
   }
   .header .main-header {
-    padding: 15px 0px;
+    padding: 20px 0px;
   }
   .box-list-news-2 {
     padding-right: 0px;
@@ -10170,7 +10173,7 @@ a.icon-socials:hover {
   content: "";
   height: 10px;
   width: 10px;
-  background: url(/_next/static/media/arrow-up.7d575b6f.svg) no-repeat center;
+  background: url(../imgs/template/icons/arrow-up.svg) no-repeat center;
   opacity: 1;
   margin-left: 0px;
   position: absolute;
@@ -10317,14 +10320,15 @@ p {
 .btn-info-card {
   position: relative;
   width: 180px;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 10px;
   border-radius: 20px;
   background-color: #fff;
   z-index: 5;
+  transition: all 0.3s ease-in-out;
 }
 .btn-info-card:hover {
   color: black;
@@ -10357,6 +10361,12 @@ p {
 .card-image__icon-hover {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+}
+.card-features-maxOpen:hover
+.btn-info-card {
+  padding: 10px 20px;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 .maxOpen_project-card {
   position: relative;
@@ -10589,7 +10599,11 @@ p {
     font-size: 24px;
     line-height: 28px;
   }
+  .price-item
   .price-item__descr {
+    max-height: 100%;
+    opacity: 1;
+    visibility: visible;
     font-size: 16px;
     line-height: 24px;
   }
@@ -10749,6 +10763,7 @@ p {
   }
   .mobile-logo {
     display: block;
+    padding-left: 15px;
   }
 }
 @media (max-width: 1200px) {
@@ -11211,4 +11226,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .btn:active {
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.7);
+}
+.not-found-404-custom {
+  background-color: black !important;
 }

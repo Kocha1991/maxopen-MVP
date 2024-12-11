@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
 
-export default function CustomHeader({ scroll, isMobileMenu, handleMobileMenu, topBar, headerCls, logoWhite }) {
+export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack}) {
     return (
         <>
-            <header className={`header ${headerCls ? headerCls : ""} sticky-bar ${scroll ? "stick" : ""}`}>
+            <header className={`header ${headerCls ? headerCls : ""} sticky-bar ${scroll ? "stick" : ""} ${isBlack ? "header-black" : ""}`}>
                 {topBar &&
                     <div className="top-bar">
                         <div className="container">

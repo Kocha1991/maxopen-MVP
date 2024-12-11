@@ -15,13 +15,13 @@ import CustomFooter from './footer/CustomFooter';
 export default function Layout({ 
   headerStyle, 
   footerStyle, 
-  headTitle, 
   breadcrumbTitle, 
   children, 
   topBar, 
   headerCls, 
   logoWhite,
-  useCustomHeader
+  useCustomHeader,
+  isBlack
 }) {
     const [scroll, setScroll] = useState(0);
     // Moblile Menu
@@ -55,7 +55,8 @@ export default function Layout({
                 <CustomHeader 
                     scroll={scroll} 
                     isMobileMenu={isMobileMenu} 
-                    handleMobileMenu={handleMobileMenu} 
+                    handleMobileMenu={handleMobileMenu}
+                    isBlack={isBlack}
                 />
             ) : (
                 <>

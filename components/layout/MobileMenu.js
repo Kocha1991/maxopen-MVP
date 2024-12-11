@@ -38,6 +38,10 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
       }
     }, [isMobileMenu]);
 
+    const handleLinkClick = () => {
+      handleMobileMenu();
+    };
+
     return (
       <>
           <div className={`mobile-header-active mobile-header-wrapper-style custom-mobile-inner ${isMobileMenu ? "sidebar-visible" : ""}`}>
@@ -50,13 +54,13 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
                   </div>
                   <div className="custom-menu-body">
                     <nav className='custom-nav'>
-                      <Link className="active" href="/">Home</Link>
-                      <Link href="#services">Services</Link>
-                      <Link href="/complete-solutions">Complete Solutions</Link>
-                      <Link href="#projects">Portfolio</Link>
-                      <Link href="#contact">Contact</Link>
+                      <Link className="active" href="/" onClick={handleLinkClick}>Home</Link>
+                      <Link href="#services" onClick={handleLinkClick}>Services</Link>
+                      <Link href="/complete-solutions" onClick={handleLinkClick}>Complete Solutions</Link>
+                      <Link href="#projects" onClick={handleLinkClick}>Portfolio</Link>
+                      <Link href="#contact" onClick={handleLinkClick}>Contact</Link>
                     </nav>
-                    <Link className="btn btn-brand-4-medium hover-up" href="#">
+                    <Link className="btn btn-brand-4-medium hover-up" href="https://calendly.com/maxopenstudio">
                       <span>Get Started</span>
                     </Link>
                   </div>
