@@ -4071,7 +4071,8 @@ a.icon-socials {
 }
 a.icon-socials img {
   vertical-align: middle;
-  width: 40px;
+  width: 25px;
+  height: 70%;
 }
 a.icon-socials:last-child {
   margin-right: 0px;
