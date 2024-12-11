@@ -1,5 +1,4 @@
-'use client'
-import Link from 'next/link';
+'use client';
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideCard } from '../elements/SlideCard';
@@ -37,7 +36,7 @@ const swiperOptions = {
     },
 }
 
-export default function Team2Slider() {
+export default function Team2Slider({ openModal }) {
     return (
         <>
             <div className="swiper-container swiper-group-4">
@@ -45,41 +44,49 @@ export default function Team2Slider() {
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video1.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video2.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video3.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video4.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video5.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video6.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video7.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <SlideCard 
                           video='/assets/imgs/template/video8.MP4'
+                          openModal={openModal}
                         />
                     </SwiperSlide>
                 </Swiper>

@@ -17,7 +17,7 @@ export default function CompleteSolutions() {
               <h3 className='text-lg neutral-500 mb-55 complete-solutions__descr'>
                 Tired of endless back-and-forth just to estimate your project? We’ve streamlined the process with ready-made packages tailored for your needs. Skip the hassle – explore, choose, and watch your idea take off!
               </h3>
-              <Link className="btn banner-btn hover-up mr-5" href="#" >
+              <Link className="btn banner-btn hover-up mr-5" href="https://calendly.com/maxopenstudio" >
                 <span>
                   <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
                   Book a meeting

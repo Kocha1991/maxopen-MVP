@@ -1,3 +1,4 @@
+import { SocialNetworks } from '@/components/elements/SocialNetworks';
 import Link from 'next/link';
 
 export default function CustomFooter() {
@@ -21,20 +22,7 @@ export default function CustomFooter() {
                         <p className="text-lg title-follow neutral-0 mt-0">
                           Follow us
                         </p>
-                        <div className="box-socials-footer">
-                          <a className="icon-socials icon-facebook" href="#">
-                            <img alt="facebook" src="/assets/imgs/template/icons/fb.svg" />
-                          </a>
-                          <a className="icon-socials icon-instagram" href="https://www.instagram.com/maxopen_studio/">
-                            <img alt="instagram" src="/assets/imgs/template/icons/in.svg" />
-                          </a>
-                          <a className="icon-socials icon-twitter" href="#">
-                            <img alt="twiter" src="/assets/imgs/template/icons/tw.svg" />
-                          </a>
-                          <a className="icon-socials icon-be" href="#">
-                            <img alt="be" src="/assets/imgs/template/icons/be.svg" />
-                          </a>
-                        </div>
+                        <SocialNetworks />
                     </div>
                     <div className="footer-bottom text-center">
                       <p className="text-sm neutral-600">Copyright © 2025 MAXOPEN. All rights reserved.</p>
