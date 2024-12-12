@@ -41,23 +41,10 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                                 <nav className="nav-main-menu d-none d-xl-block">
                                     <ul className="main-menu">
                                         <li className="has-children"><Link className="active" href="/">Home</Link>
-                                            {/* <ul className="sub-menu">
-                                                <li><Link href="/">Business Solutions</Link></li>
-                                                <li><Link href="/index-2">Marketing App</Link></li>
-                                                <li><Link href="/index-3">Web Agency</Link></li>
-                                                <li><Link href="/index-4">Digital Agency</Link></li>
-                                                <li><Link href="/index-5">3D Products</Link></li>
-                                                <li><Link href="/index-6">AI Platform</Link></li>
-                                            </ul> */}
                                         </li>
                                         <li className="has-children"><Link href="#services">Services</Link></li>
                                         <li className="has-children"><Link href="/complete-solutions">Solutions</Link></li>
                                         <li className="has-children"><Link href="#projects">Portfolio</Link>
-                                            {/* <ul className="sub-menu">
-                                                <li><Link href="/blog">Project V1</Link></li>
-                                                <li><Link href="/blog-2">ProjectV2</Link></li>
-                                                <li><Link href="/blog-post">Project V3</Link></li>
-                                            </ul> */}
                                         </li>
                                         <li className="has-children"><Link href="#contact">Contact</Link></li>
                                     </ul>
@@ -67,7 +54,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                         <div className="header-right ">
                             <div className='header-right__block'>
                               <LanguageDropdown />
-                              <Link className="btn btn-brand-4-medium hover-up" href="https://calendly.com/maxopenstudio">
+                              <Link className="btn btn-brand-4-medium hover-up" href="/calendly">
                                 <span>Get Started</span>
                               </Link>
                             </div>
