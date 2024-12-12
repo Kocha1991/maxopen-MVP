@@ -10,10 +10,13 @@ import ContactUs from '@/components/sections/customHome/ContactUs';
 import Prices from '@/components/sections/customHome/Prices';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import { Games } from '@/components/sections/customHome/Games';
+import ModalCalendar from '@/components/elements/ModalCalendar';
+import ModalGames from '@/components/elements/ModalGames'; // Імпортуємо ModalGames
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalVideo, setModalVideo] = useState('');
+  const [modalType, setModalType] = useState('');
+  const [modalGames, setmodalGames] = useState(''); // Додано для відео
 
   useEffect(() => {
     if (isModalOpen) {
@@ -26,19 +29,22 @@ export default function Home() {
     };
   }, [isModalOpen]);
 
-  const openModal = (video) => {
-    setModalVideo(video);
-    setIsModalOpen(true);
+  // Функція для відкриття модалки
+  const openModal = (type, videoSrc = '') => {
+    setModalType(type); // Встановлюємо тип модалки (game або calendar)
+    setmodalGames(videoSrc); // Встановлюємо відео
+    setIsModalOpen(true); // Відкриваємо модалку
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
-    setModalVideo('');
+    setIsModalOpen(false); // Закриваємо модалку
+    setModalType(''); // Скидаємо тип модалки
+    setmodalGames(''); // Скидаємо відео
   };
 
   return (
-    <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
-      <Banner />
+    <Layout useCustomHeader={true} footerStyle={'customFooter'}>
+      <Banner openModal={openModal} />
       <GoodsAnimation />
       <Services />
       <Projects />
@@ -48,24 +54,12 @@ export default function Home() {
       <Prices />
       <ContactUs />
       
-      {/* modal-games */}
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-content__close" onClick={closeModal}>
-              <img src="/assets/imgs/template/icons/close-green.png" alt="close" />
-            </button>
-            <video
-              className="modal-video"
-              src={modalVideo}
-              controls
-              autoPlay
-              playsInline
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+      {/* modals */}
+      {modalType === 'calendar' && (
+        <ModalCalendar isOpen={isModalOpen} onClose={closeModal} />
+      )}
+      {modalType === 'game' && (
+        <ModalGames isOpen={isModalOpen} onClose={closeModal} videoSrc={modalGames} />
       )}
     </Layout>
   );

@@ -1,6 +1,6 @@
-import Link from 'next/link';
+'use client';
 
-export default function Banner() {
+export default function Banner({ openModal }) {
   return (
     <>
       <section className="section-box maxOpen-banner">
@@ -16,12 +16,12 @@ export default function Banner() {
                   From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations
                 </p>
                 <div className="d-flex mb-60">
-                  <Link className="btn banner-btn hover-up mr-5" href="https://calendly.com/maxopenstudio" >
+                  <button className="btn banner-btn hover-up mr-5" onClick={() => openModal('calendar')} >
                     <span>
                       <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
                       Book a meeting
                     </span>
-                  </Link>
+                  </button>
                 </div>
             </div>
             <div className="maxOpen-banner__right">
@@ -31,5 +31,5 @@ export default function Banner() {
         </div>
       </section>
     </>
-  )
+  );
 }
