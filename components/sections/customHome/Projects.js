@@ -16,9 +16,7 @@ export const Projects = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        const language = navigator.language || navigator.userLanguage;
-        const lang = (language.startsWith('uk') || language.startsWith('ru')) ? 'uk' : 'en';
-        const filteredProjects = data.filter(project => project.locale === lang);
+        const filteredProjects = data.filter(project => project.locale === 'en');
         if (Array.isArray(filteredProjects)) {
           setProjects(filteredProjects);
         } else {
