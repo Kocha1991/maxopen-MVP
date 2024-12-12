@@ -44,8 +44,9 @@ export default function CompleteSolutions() {
               <div className='solution-card__descr'>
                 If you want to know more or have any questions about our work, we will be happy to help you! Book a call and we will discuss everything in detail.
               </div>
-              <button
+              <a
                 className="btn btn-brand-4-medium hover-up"
+                href="https://calendly.com/maxopenstudio" 
               >
                 <span>
                   Book a call
@@ -74,7 +75,7 @@ export default function CompleteSolutions() {
                     </defs>
                   </svg>
                 </span>
-              </button>
+              </a>
             </div>
             <img src="/assets/imgs/template/top-footer-img.png" alt="image" />
           </div>
