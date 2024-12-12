@@ -12,6 +12,7 @@ export const Projects = () => {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
+        'Accept-Language': 'en',
       }
     })
       .then((response) => response.json())

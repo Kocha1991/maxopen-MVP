@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Layout from "@/components/layout/Layout";
-
 import Banner from '@/components/sections/customHome/Banner';
 import { Services } from '@/components/sections/customHome/Services';
 import { Projects } from '@/components/sections/customHome/Projects';
