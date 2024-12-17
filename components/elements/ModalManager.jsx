@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ModalCalendar from './ModalCalendar';
 import ModalGames from './ModalGames';
 
 export default function ModalManager({ isOpen, modalType, modalData, onClose }) {
+  useEffect(() => {
+    // Блокування/розблокування скролу при відкритті/закритті модалки
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Очищення стилів при демонтажі компонента
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   switch (modalType) {
