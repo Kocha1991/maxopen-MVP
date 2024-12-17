@@ -10804,6 +10804,12 @@ p {
 .games .slide-card .card-image {
   height: 345px;
 }
+.card-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 .card-video {
   width: 100%;
   height: 100%;
@@ -11311,8 +11317,10 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .calendar-page__contacts {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 25px;
 }
 .calendar-page__contact-item {
   display: flex;

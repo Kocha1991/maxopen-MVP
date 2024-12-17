@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
+import { useModal } from '@/components/customHooks/useModal';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack}) {
+  const { openModal } = useModal();
+
+  const handleCalendarOpen = (e) => {
+    e.preventDefault();
+    openModal('calendar');
+  };
     return (
         <>
             <header className={`header ${headerCls ? headerCls : ""} sticky-bar ${scroll ? "stick" : ""} ${isBlack ? "header-black" : ""}`}>
@@ -54,9 +61,12 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                         <div className="header-right ">
                             <div className='header-right__block'>
                               <LanguageDropdown />
-                              <Link className="btn btn-brand-4-medium hover-up" href="/calendly">
-                                <span>Get Started</span>
-                              </Link>
+                              <button 
+                                  className="btn btn-brand-4-medium hover-up"
+                                  onClick={handleCalendarOpen}
+                              >
+                                  <span>Get Started</span>
+                              </button>
                             </div>
                             <div className="burger-icon burger-icon-white burger-icon-custom" onClick={handleMobileMenu}>
                                 <img src="/assets/imgs/template/icons/burger.svg" alt="" />

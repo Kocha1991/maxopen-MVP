@@ -1,5 +1,6 @@
+'use client';
 import React from "react";
-import Link from 'next/link';
+import { useModal } from '@/components/customHooks/useModal';
 
 export const ServicesCard = ({
   icon,
@@ -7,6 +8,12 @@ export const ServicesCard = ({
   title,
   descr,
 }) => {
+  const { openModal } = useModal();
+
+  const handleCalendarOpen = () => {
+    openModal('calendar');
+  };
+
   return (
     <div className="col-lg-4 mb-20">
       <div className="card-features-maxOpen">
@@ -27,12 +34,15 @@ export const ServicesCard = ({
           <p className="mb-12 text-md neutral-300">
             {descr}
           </p>
-          <Link className="btn btn-info-card animation-btn-svg" href="https://calendly.com/maxopenstudio">
+          <button 
+            className="btn btn-info-card animation-btn-svg" 
+            onClick={handleCalendarOpen}
+          >
             Book a call
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
             </svg>
-          </Link>
+          </button>
         </div>
       </div>
     </div>
