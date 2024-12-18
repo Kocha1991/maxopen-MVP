@@ -11,17 +11,12 @@ import ContactUs from '@/components/sections/customHome/ContactUs';
 import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
 import ModalManager from '@/components/elements/ModalManager';
-import { ModalProvider, useModal } from '@/components/customHooks/useModal';
+import { useModal } from '@/components/customHooks/useModal';
 
 export default function Home() {
-  return (
-    <ModalProvider>
-      <HomeContent />
-    </ModalProvider>
-  );
+  return <HomeContent />
 }
 
-// Окремий компонент HomeContent для логіки модалок
 function HomeContent() {
   const { isOpen, modalType, modalData, closeModal } = useModal();
 

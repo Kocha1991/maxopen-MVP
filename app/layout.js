@@ -3,6 +3,7 @@ import 'swiper/css';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "/public/assets/css/style.css";
+import { ModalProvider } from '@/components/customHooks/useModal';
 
 const urban = Urbanist({
     weight: ['200', '300', '400', '500', '600', '700'],
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
     return (
       <html lang="en">
         <body className={urban.variable}>
-          {children}
+          <ModalProvider>
+            {children}
+          </ModalProvider>
         </body>
       </html>
     )
