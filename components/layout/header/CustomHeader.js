@@ -1,9 +1,14 @@
+'use client';
 import Link from 'next/link';
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
 import { useModal } from '@/components/customHooks/useModal';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack}) {
   const { openModal } = useModal();
+
+  if (!openModal) {
+    console.error('openModal is not available. Make sure CustomHeader is wrapped in ModalProvider.');
+  }
 
   const handleCalendarOpen = (e) => {
     e.preventDefault();
