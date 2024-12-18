@@ -2,9 +2,17 @@ import { SolutionCard } from '@/components/elements/SolutionCard';
 import { SolutionCard2 } from '@/components/elements/SolutionCard2';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
-
+import { ModalProvider } from '@/components/customHooks/useModal';
 
 export default function CompleteSolutions() {
+  return (
+    <ModalProvider>
+      <CompleteSolutionsContent />
+    </ModalProvider>
+  );
+}
+
+function CompleteSolutionsContent() {
   return (
     <div className='complete-solutions'>
       <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
