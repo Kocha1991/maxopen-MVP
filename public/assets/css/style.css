@@ -11278,14 +11278,14 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .modal-content-calendar {
   width: 100%;
-  height: 100%; /* Додаємо висоту для правильного розміщення елементів */
+  height: 100%;
   display: flex;
-  flex-direction: column; /* Дозволяє розмістити елементи вертикально */
+  flex-direction: column;
 }
 
 .calendar-page {
   padding: 20px 0;
-  flex-grow: 1; /* Дозволяє цьому блоку займати весь доступний простір */
+  flex-grow: 1;
 }
 .calendar-page__footer {
   margin: 0 auto;
