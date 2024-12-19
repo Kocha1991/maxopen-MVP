@@ -2499,9 +2499,12 @@ label {
   margin-bottom: 16px;
   display: inline-block;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.card-preparing-2 .card-image svg {
-  fill: #C5FF41;
+.card-preparing-2 .card-image img {
+  width: 40px;
 }
 .card-preparing-2 .card-info {
   position: relative;
@@ -2516,8 +2519,8 @@ label {
 .card-preparing-2:hover .card-image {
   background-color: #C5FF41;
 }
-.card-preparing-2:hover .card-image svg {
-  fill: #191919;
+.card-preparing-2:hover .card-image img {
+  background: #191919;
 }
 
 .card-testimonial-3 {
@@ -7557,6 +7560,7 @@ a.icon-socials:hover {
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
 }
 .box-border-rounded .card-casestudy {
   margin-bottom: 0px;
@@ -8506,13 +8510,14 @@ a.icon-socials:hover {
 .box-border-rounded {
   border: 1px solid #ECEEF2;
   border-radius: 16px;
-  padding: 55px 55px 25px 55px;
+  padding: 35px;
   display: flex;
   align-items: center;
   margin-bottom: 45px;
   background-color: #ffffff;
 }
 .box-border-rounded:hover {
+  transition: all 0.3s ease-in-out;
   box-shadow: 0px 8px 18px -4px rgba(12, 49, 49, 0.1);
 }
 
@@ -8524,8 +8529,10 @@ a.icon-socials:hover {
   align-items: center;
   margin-bottom: 45px;
   background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
 }
 .box-border-rounded-md:hover {
+  transition: all 0.3s ease-in-out;
   box-shadow: 0px 8px 18px -4px rgba(12, 49, 49, 0.1);
 }
 
@@ -10324,7 +10331,7 @@ p {
 }
 .btn-info-card {
   position: relative;
-  width: 180px;
+  min-width: 180px;
   padding: 10px 20px 10px 0;
   display: flex;
   align-items: center;
@@ -10450,7 +10457,6 @@ p {
 .maxOpen-projects .btn {
   display: block;
   margin: 0 auto;
-  width: 200px;
 }
 .box-get-touch-section--maxOpen {
   padding: 100px 0;
@@ -10663,7 +10669,7 @@ p {
   background: url('/assets/imgs/template/banner-bg.png') no-repeat center/contain;
 }
 .banner-btn {
-  width: 220px;
+  width: fit-content;
   height: 54px;
   display: flex;
   align-items: center;

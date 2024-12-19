@@ -1,57 +1,106 @@
-import React from "react";
+'use client';
+import React, { useState, useEffect } from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
+import { useLanguage } from '@/components/customHooks/LanguageContext';
 
 const Process = () => {
+  const { language } = useLanguage();
+  const [processSteps, setProcessSteps] = useState([]);
+
+  const translations = {
+    en: {
+      textOnBg: "How We Work",
+      title: "From idea to finished product: how we work on your project",
+      descr: "We follow a consistent approach to the implementation of each project, which guarantees high quality execution and transparency at all stages of work - from planning to final implementation.",
+      newsLetterTitle: "Let's discuss your project!",
+      newsLetterDescr: "Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life",
+      newsLetterPlaceholder: "Your email address",
+      newsLetterText: "Your email is safe with us – just for project updates.",
+      btnText: "Get in Touch"
+    },
+    uk: {
+      textOnBg: "Як ми працюємо",
+      title: "Від ідеї до готового продукту: як ми працюємо над вашим проектом",
+      descr: "Ми дотримуємось послідовного підходу до реалізації кожного проекту, що гарантує високу якість виконання та прозорість на всіх етапах роботи - від планування до фінальної реалізації.",
+      newsLetterTitle: "Давайте обговоримо ваш проект!",
+      newsLetterDescr: "Введіть свій e-mail, і ми зв’яжемося з вами найближчим часом, щоб детально обговорити ваші ідеї та допомогти втілити ваш проект у життя.",
+      newsLetterPlaceholder: "Ваша електронна адреса",
+      newsLetterText: "Ваш e-mail у безпеці – лише для оновлень проекту.",
+      btnText: "Зв'язатися"
+    },
+    ru_UA: {
+      textOnBg: "Как мы работаем",
+      title: "От идеи до готового продукта: как мы работаем над вашим проектом",
+      descr: "Мы придерживаемся последовательного подхода к реализации каждого проекта, что гарантирует высокое качество выполнения и прозрачность на всех этапах работы - от планирования до финальной реализации.",
+      newsLetterTitle: "Давайте обсудим ваш проект!",
+      newsLetterDescr: "Введите свой e-mail, и мы свяжемся с вами в ближайшее время, чтобы детально обсудить ваши идеи и помочь воплотить ваш проект в жизнь.",
+      newsLetterPlaceholder: "Ваш электронный адрес",
+      newsLetterText: "Ваш e-mail в безопасности – только для обновлений в проекте.",
+      btnText: "Связаться"
+    },
+  };
+
+  const { 
+    textOnBg, title, descr, newsLetterTitle, newsLetterDescr, newsLetterPlaceholder, newsLetterText, btnText 
+  } = translations[language] || translations.en;
+
+  useEffect(() => {
+    const fetchProcessSteps = async () => {
+      try {
+        const response = await fetch(
+          `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/work-process?where[locale]=${language}`,
+          {
+            method: 'GET',
+            headers: {
+              Authorization: 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
+            },
+          }
+        );
+        const data = await response.json();
+
+        if (Array.isArray(data) && data.length > 0) {
+          setProcessSteps(data);
+        } else {
+          console.error('No data found or invalid format.');
+        }
+      } catch (error) {
+        console.error('Error fetching process steps:', error);
+      }
+    };
+
+    fetchProcessSteps();
+  }, [language]);
+
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
-        <div className="container">
-          <BlogTitle 
-             textOnBg='How We Works'
-             title='From idea to finished product: how we work on your project'
-             descr='We follow a consistent approach to the implementation of each project, which guarantees high quality execution and transparency at all stages of work - from planning to final implementation.'
-          />
-          <div className="row">
+      <div className="container">
+        <BlogTitle 
+          textOnBg={textOnBg}
+          title={title}
+          descr={descr}
+        />
+        <div className="row">
+          {processSteps.map((step) => (
             <InfoBlock2 
-              number='1'
-              title='Signup for Service'
-              descr='This process is straightforward and swift, prioritizing your convenience and experience. It enables you to access tailored solutions and special offers swiftly, ensuring you can quickly begin enjoying our services.'
+              key={step.id}
+              number={step.number}
+              title={step['name process']}
+              descr={step.description}
             />
-            <InfoBlock2 
-              number='2'
-              title='Design'
-              descr='Once the requirements are collected, we design the system’s architecture, specifying components, interfaces, and interactions. A detailed design is created, including both technical and functional specifications for implementation.'
-            />
-            <InfoBlock2 
-              number='3'
-              title='Implementation or coding'
-              descr='At this stage, developers write the code based on the design specifications, integrate the system’s components, and ensure its functionality. Ongoing monitoring and quality control are essential to ensure the code meets the required standards.'
-            />
-            <InfoBlock2 
-              number='4'
-              title='Testing'
-              descr='Once coding is complete, the system undergoes testing to identify and fix any errors, ensuring all features function as intended. This phase includes functional, integration, and security testing to guarantee system quality.'
-            />
-            <InfoBlock2 
-              number='5'
-              title='Deployment'
-              descr='The system is deployed in a live environment at this stage, where final configurations and testing are performed. Once deployment is complete, the system is ready for use by end users.'
-            />
-            <InfoBlock2 
-              number='6'
-              title='Maintenance'
-              descr='After launch, the system enters a maintenance phase, involving regular updates, bug fixes, and adjustments for environmental changes. Ongoing maintenance keeps the system relevant and secure throughout its life cycle.'
-            />
-          </div>
+          ))}
         </div>
-        <div className="container mt-25">
-            <BoxNewsletter 
-              title="Let's discuss your project!"
-              descr="Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life"
-              buttonText="Get in Touch"
-            />
-        </div>
+      </div>
+      <div className="container mt-25">
+        <BoxNewsletter 
+          title={newsLetterTitle}
+          descr={newsLetterDescr}
+          buttonText={btnText}
+          placeholder={newsLetterPlaceholder}
+          newsLetterText={newsLetterText}
+        />
+      </div>
     </section>
   );
 };

@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from "react";
 import { ProjectCard } from '@/components/elements/ProjectCard';
 import { BlogTitle } from '@/components/blog/BlogTitle';
+import { useLanguage } from '@/components/customHooks/LanguageContext';
+
 
 export const Projects = () => {
+  const { language } = useLanguage();
   const [projects, setProjects] = useState([]);
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   useEffect(() => {
-    fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/cases', {
+    fetch(`https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/cases?where[locale]=${language}`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
@@ -16,15 +19,11 @@ export const Projects = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        const filteredProjects = data.filter(project => project.locale === 'en');
-        if (Array.isArray(filteredProjects)) {
-          setProjects(filteredProjects);
-        } else {
-          console.error('Дані не є масивом:', filteredProjects);
-        }
+        const filteredProjects = data.length > 0 ? data : data.filter(project => project.locale === 'en');
+        setProjects(filteredProjects);
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  }, [language]);
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
@@ -32,13 +31,38 @@ export const Projects = () => {
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
+  const translations = {
+    en: {
+      textOnBg:'Our Portfolio',
+      title:'Explore our projects to witness our expertise in action',
+      descr:"Our portfolio showcases successful solutions crafted for businesses of all sizes. We help clients grow, enhance efficiency, and reach new heights. Review our work and see what we can do for you.",
+      showLess:"Show less",
+      loadMore:"Load more"
+    },
+    uk: {
+      textOnBg: 'Наше портфоліо',
+      title: 'Ознайомтеся з нашими проектами, щоб побачити нашу експертизу в дії',
+      descr: 'Наше портфоліо демонструє успішні рішення, створені для бізнесу будь-якого розміру. Ми допомагаємо клієнтам зростати, підвищувати ефективність та досягати нових висот. Ознайомтеся з нашою роботою та переконайтеся, що ми можемо зробити для вас.',
+      showLess: "Показати менше",
+      loadMore: "Завантажити більше"
+    },
+    ru_UA: {
+      textOnBg: 'Наше портфолио',
+      title: 'Ознакомьтесь с нашими проектами, чтобы увидеть нашу экспертизу в действии',
+      descr: 'Наше портфолио демонстрирует успешные решения, созданные для бизнеса любого размера. Мы помогаем клиентам расти, повышать эффективность и достигать новых высот. Ознакомьтесь с нашей работой и убедитесь, что мы можем сделать для вас.',
+      showLess: "Показать меньше",
+      loadMore: "Загрузить больше"
+    },
+  };
+  const { textOnBg, title, descr, loadMore, showLess } = translations[language] || translations.en;
+
   return (
     <div className="maxOpen-projects" id="projects">
       <div className="container">
         <BlogTitle 
-          textOnBg="Our Portfolio"
-          title="Explore our projects to witness our expertise in action"
-          descr="Our portfolio showcases successful solutions crafted for businesses of all sizes. We help clients grow, enhance efficiency, and reach new heights. Review our work and see what we can do for you."
+          textOnBg={textOnBg}
+          title={title}
+          descr={descr}
         />
         <div className="row mt-65">
           {Array.isArray(projects) && projects.length > 0 ? (
@@ -52,7 +76,7 @@ export const Projects = () => {
               />
             ))
           ) : (
-            <p>Немає доступних проектів</p>
+            <p>No available projects.</p>
           )}
         </div>
         {projects.length > 6 && (
@@ -60,7 +84,7 @@ export const Projects = () => {
             className="btn btn-brand-4-medium hover-up mt-4" 
             onClick={toggleProjectsView}
           >
-            <span>{showAllProjects ? 'Show less' : 'Load more'}</span>
+            <span>{showAllProjects ? showLess : loadMore}</span>
           </button>
         )}
       </div>
