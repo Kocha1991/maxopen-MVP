@@ -56,7 +56,7 @@ export default function WhyWe() {
                   whyWeItems.map((item) => (
                     <InfoBlock 
                       key={item.id}
-                      icon={<img src={item.icon.full_url} alt={item.title} />}
+                      icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
                       title={item.title}
                       descr={item.description}
                     />

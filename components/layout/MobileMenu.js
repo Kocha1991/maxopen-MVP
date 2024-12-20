@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from "react";
+import { Nav } from '../elements/Nav';
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
     const [isActive, setIsActive] = useState({
@@ -53,13 +54,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
                       </div>
                   </div>
                   <div className="custom-menu-body">
-                    <nav className='custom-nav'>
-                      <Link className="active" href="/" onClick={handleLinkClick}>Home</Link>
-                      <Link href="#services" onClick={handleLinkClick}>Services</Link>
-                      <Link href="/complete-solutions" onClick={handleLinkClick}>Complete Solutions</Link>
-                      <Link href="#projects" onClick={handleLinkClick}>Portfolio</Link>
-                      <Link href="#contact" onClick={handleLinkClick}>Contact</Link>
-                    </nav>
+                    <Nav />
                     <Link className="btn btn-brand-4-medium hover-up" href="https://calendly.com/maxopenstudio">
                       <span>Get Started</span>
                     </Link>

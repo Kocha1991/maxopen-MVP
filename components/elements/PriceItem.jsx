@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-export const PriceItem = ({ title, descr }) => {
+export const PriceItem = ({ title, descr, btnText }) => {
   return (
     <div className="price-item">
       <div className="price-item__text">
@@ -10,7 +10,7 @@ export const PriceItem = ({ title, descr }) => {
       </div>
       <button className="btn btn-brand-4-medium hover-up">
         <span>
-          Let's discuss
+          {btnText}
           <svg
             width="11"
             height="12"

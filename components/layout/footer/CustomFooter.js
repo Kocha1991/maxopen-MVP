@@ -1,7 +1,23 @@
 import { SocialNetworks } from '@/components/elements/SocialNetworks';
 import Link from 'next/link';
+import { useLanguage } from '@/components/customHooks/LanguageContext';
+import { Nav } from '@/components/elements/Nav';
 
 export default function CustomFooter() {
+    const { language } = useLanguage();
+    const translations = {
+      en: {
+        follow:"Follow us",
+      },
+      uk: {
+        follow: "Підпишіться на нас"
+      },
+      ru_UA: {
+        follow: "Подпишитесь на нас"
+      },
+    };
+    const { follow } = translations[language] || translations.en;
+  
     return (
         <>
             <footer className="footer custom-footer">
@@ -10,17 +26,11 @@ export default function CustomFooter() {
                     <Link href="/" className="maxOpen-logo">
                       <img alt="MaxOpen" src="/assets/imgs/template/logo.png"/>
                     </Link>
-                    <nav className='custom-nav'>
-                      <Link className="active" href="/">Home</Link>
-                      <Link href="#services">Services</Link>
-                      <Link href="/complete-solutions">Solutions</Link>
-                      <Link href="#projects">Portfolio</Link>
-                      <Link href="#contact">Contact</Link>
-                    </nav>
+                    <Nav />
                     
                     <div className="custom-footer__social">
                         <p className="text-lg title-follow neutral-0 mt-0">
-                          Follow us
+                          {follow}
                         </p>
                         <SocialNetworks />
                     </div>

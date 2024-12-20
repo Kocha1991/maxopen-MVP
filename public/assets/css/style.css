@@ -2487,6 +2487,7 @@ label {
 .card-preparing-2 {
   margin-bottom: 42px;
   text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 .card-preparing-2 .card-image {
   max-width: 64px;
@@ -2503,9 +2504,6 @@ label {
   align-items: center;
   justify-content: center;
 }
-.card-preparing-2 .card-image img {
-  width: 40px;
-}
 .card-preparing-2 .card-info {
   position: relative;
 }
@@ -2519,10 +2517,6 @@ label {
 .card-preparing-2:hover .card-image {
   background-color: #C5FF41;
 }
-.card-preparing-2:hover .card-image img {
-  background: #191919;
-}
-
 .card-testimonial-3 {
   border: 1px solid #434445;
   border-radius: 16px;
@@ -3196,7 +3190,7 @@ label {
 .header .main-menu li {
   float: left;
   position: relative;
-  padding: 0px 25px;
+  padding: 0px 10px;
 }
 .header .main-menu li.has-children > a::after {
   content: "";
@@ -10160,7 +10154,7 @@ a.icon-socials:hover {
     margin-bottom: 40px;
   }
 }
-.custom-nav {
+.custom-nav ul {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10196,7 +10190,7 @@ a.icon-socials:hover {
   background: url(../imgs/template/icons/arr-green.svg) no-repeat center;
 }
 @media (max-width: 992px) {
-  .custom-nav {
+  .custom-nav ul {
     flex-direction: column;
     margin-bottom: 40px;
   }
@@ -10590,8 +10584,8 @@ p {
   max-height: 0;
   opacity: 0;
 }
-.price-item .btn {
-  width: 190px;
+.price-item .btn span {
+  min-width: 220px;
 }
 .price-item:hover .price-item__descr {
   max-height: 500px;

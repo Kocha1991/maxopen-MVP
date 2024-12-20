@@ -3,6 +3,7 @@ import Link from 'next/link';
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
 import { useModal } from '@/components/customHooks/useModal';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
+import { Nav } from '@/components/elements/Nav';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack}) {
   const { openModal } = useModal();
@@ -19,32 +20,17 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
 
   const translations = {
     en: {
-      home:"Home",
-      services:"Services",
-      solutions:"Solutions",
-      portfolio:"Portfolio",
-      contact:"Contact",
       buttonText:"Get started"
     },
     uk: {
-      home:"Головна",
-      services:"Послуги",
-      solutions:"Рішення",
-      portfolio:"Портфоліо",
-      contact:"Контакт",
       buttonText:"Розпочати"
     },
     ru_UA: {
-      home: "Главная",
-      services: "Услуги",
-      solutions: "Решения",
-      portfolio: "Портфолио",
-      contact: "Контакты",
       buttonText:"Начать"
     },
   };
   
-  const { home, services, solutions, portfolio, contact, buttonText } = translations[language] || translations.en;
+  const { buttonText } = translations[language] || translations.en;
 
     return (
         <>
@@ -83,15 +69,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                             </div>
                             <div className="header-nav">
                                 <nav className="nav-main-menu d-none d-xl-block">
-                                    <ul className="main-menu">
-                                        <li className="has-children"><Link className="active" href="/">{home}</Link>
-                                        </li>
-                                        <li className="has-children"><Link href="#services">{services}</Link></li>
-                                        <li className="has-children"><Link href="/complete-solutions">{solutions}</Link></li>
-                                        <li className="has-children"><Link href="#projects">{portfolio}</Link>
-                                        </li>
-                                        <li className="has-children"><Link href="#contact">{contact}</Link></li>
-                                    </ul>
+                                  <Nav />
                                 </nav>
                             </div>
                         </div>
