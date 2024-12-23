@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
 export default function WhyWe() {
     const { language } = useLanguage();
-    const [whyWeItems, setWhyWeItems] = useState([]);
+    const { data: whyWeItems, loading, error } = useFetchData("why-we-items", language);
 
     const translations = {
       en: {
@@ -27,20 +28,8 @@ export default function WhyWe() {
 
     const { textOnBg, title, descr } = translations[language] || translations.en;
 
-    useEffect(() => {
-        fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/why-we-items', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
-            },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            const filteredItems = data.filter(item => item.locale === language);
-            setWhyWeItems(filteredItems.length > 0 ? filteredItems : data.filter(item => item.locale === 'en'));
-        })
-        .catch((error) => console.error('Error fetching Why We items:', error));
-    }, [language]);
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
 
     return (
       <section className="section-box wow animate__animated animate__fadeIn box-preparing-3 maxOpen-whyWe">

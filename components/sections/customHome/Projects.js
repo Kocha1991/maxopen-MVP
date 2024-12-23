@@ -1,29 +1,14 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ProjectCard } from '@/components/elements/ProjectCard';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
-
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
 export const Projects = () => {
   const { language } = useLanguage();
-  const [projects, setProjects] = useState([]);
+  const { data: projects, loading, error } = useFetchData("cases", language);
   const [showAllProjects, setShowAllProjects] = useState(false);
-
-  useEffect(() => {
-    fetch(`https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/cases?where[locale]=${language}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
-      }
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const filteredProjects = data.length > 0 ? data : data.filter(project => project.locale === 'en');
-        setProjects(filteredProjects);
-      })
-      .catch((error) => console.error('Error fetching data:', error));
-  }, [language]);
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
@@ -56,6 +41,9 @@ export const Projects = () => {
   };
   const { textOnBg, title, descr, loadMore, showLess } = translations[language] || translations.en;
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+  
   return (
     <div className="maxOpen-projects" id="projects">
       <div className="container">

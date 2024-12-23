@@ -8,7 +8,7 @@ export const ServicesCard = ({
   title,
   descr,
   btnText,
-  isFullWidth, // Отримуємо прапорець для перевірки
+  isFullWidth,
 }) => {
   const { openModal } = useModal();
 

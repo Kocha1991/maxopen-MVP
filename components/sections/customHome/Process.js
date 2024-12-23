@@ -1,14 +1,15 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
 const Process = () => {
   const { language } = useLanguage();
-  const [processSteps, setProcessSteps] = useState([]);
-
+  const { data: processSteps, loading, error } = useFetchData("work-process", language);
+  
   const translations = {
     en: {
       textOnBg: "How We Work",
@@ -46,32 +47,8 @@ const Process = () => {
     textOnBg, title, descr, newsLetterTitle, newsLetterDescr, newsLetterPlaceholder, newsLetterText, btnText 
   } = translations[language] || translations.en;
 
-  useEffect(() => {
-    const fetchProcessSteps = async () => {
-      try {
-        const response = await fetch(
-          `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/work-process?where[locale]=${language}`,
-          {
-            method: 'GET',
-            headers: {
-              Authorization: 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
-            },
-          }
-        );
-        const data = await response.json();
-
-        if (Array.isArray(data) && data.length > 0) {
-          setProcessSteps(data);
-        } else {
-          console.error('No data found or invalid format.');
-        }
-      } catch (error) {
-        console.error('Error fetching process steps:', error);
-      }
-    };
-
-    fetchProcessSteps();
-  }, [language]);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">

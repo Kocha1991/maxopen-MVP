@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ServicesCard } from "@/components/elements/ServicesCard";
 import { BlogTitle } from "@/components/blog/BlogTitle";
-import { useModal } from "@/components/customHooks/useModal";
 import { useLanguage } from "@/components/customHooks/LanguageContext";
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
 export const Services = () => {
-  const { openModal } = useModal();
   const { language } = useLanguage();
-  const [services, setServices] = useState([]);
+  const { data: services, loading, error } = useFetchData("services", language);
 
   const translations = {
     en: {
@@ -32,25 +31,10 @@ export const Services = () => {
       btnText: "Записаться на звонок",
     },
   };
-
   const { textOnBg, title, descr, btnText } = translations[language] || translations.en;
 
-  useEffect(() => {
-    fetch(
-      `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/services?where[locale]=${language}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setServices(data.length > 0 ? data : []);
-      })
-      .catch((error) => console.error("Error fetching services:", error));
-  }, [language]);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="maxOpen-services" id="services">
@@ -69,7 +53,7 @@ export const Services = () => {
                 title={service.title}
                 descr={service.description}
                 btnText={btnText}
-                isFullWidth={isFullWidth} // Передаємо у компонент `ServicesCard`
+                isFullWidth={isFullWidth}
               />
             );
           })}
