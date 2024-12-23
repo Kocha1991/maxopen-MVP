@@ -3,6 +3,7 @@ import { ServicesCard } from "@/components/elements/ServicesCard";
 import { BlogTitle } from "@/components/blog/BlogTitle";
 import { useLanguage } from "@/components/customHooks/LanguageContext";
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 export const Services = () => {
   const { language } = useLanguage();
@@ -33,7 +34,7 @@ export const Services = () => {
   };
   const { textOnBg, title, descr, btnText } = translations[language] || translations.en;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
 
   return (

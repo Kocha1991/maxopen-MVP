@@ -3,6 +3,7 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 export default function WhyWe() {
     const { language } = useLanguage();
@@ -28,7 +29,7 @@ export default function WhyWe() {
 
     const { textOnBg, title, descr } = translations[language] || translations.en;
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loading />;
     if (error) return <div>{error}</div>;
 
     return (

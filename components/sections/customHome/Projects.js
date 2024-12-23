@@ -4,6 +4,7 @@ import { ProjectCard } from '@/components/elements/ProjectCard';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 export const Projects = () => {
   const { language } = useLanguage();
@@ -41,7 +42,7 @@ export const Projects = () => {
   };
   const { textOnBg, title, descr, loadMore, showLess } = translations[language] || translations.en;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
   
   return (

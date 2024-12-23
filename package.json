@@ -24,6 +24,7 @@
         "react-fast-marquee": "^1.6.2",
         "react-i18next": "^15.1.4",
         "react-modal-video": "^2.0.1",
+        "react-spinners": "^0.15.0",
         "sass": "^1.69.5",
         "styled-components": "^6.1.13",
         "swiper": "^11.0.4",

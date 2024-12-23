@@ -2,12 +2,13 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { useFetchData } from '../customHooks/useFetchData';
+import Loading from "@/components/elements/Loading";
 
 export default function LogoTicker() {
   const { data, loading, error } = useFetchData('logo-techonologies');
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

@@ -5,6 +5,7 @@ import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
 import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 const Process = () => {
   const { language } = useLanguage();
@@ -47,7 +48,7 @@ const Process = () => {
     textOnBg, title, descr, newsLetterTitle, newsLetterDescr, newsLetterPlaceholder, newsLetterText, btnText 
   } = translations[language] || translations.en;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
 
   return (
