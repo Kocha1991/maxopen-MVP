@@ -7549,16 +7549,6 @@ a.icon-socials:hover {
   margin: 0 auto;
 }
 
-.box-border-rounded {
-  border: 1px solid #D1D3D4;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease-in-out;
-}
-.box-border-rounded .card-casestudy {
-  margin-bottom: 0px;
-}
 
 .box-author {
   display: flex;
@@ -8502,14 +8492,17 @@ a.icon-socials:hover {
 }
 
 .box-border-rounded {
+  height: 100%;
   border: 1px solid #ECEEF2;
   border-radius: 16px;
   padding: 35px;
   display: flex;
-  align-items: center;
-  margin-bottom: 45px;
   background-color: #ffffff;
 }
+.box-border-rounded .card-casestudy {
+  margin-bottom: 0px;
+}
+
 .box-border-rounded:hover {
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 8px 18px -4px rgba(12, 49, 49, 0.1);
@@ -10210,10 +10203,12 @@ a.icon-socials:hover {
 }
 
 .card-features-maxOpen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 23px 32px;
   width: auto;
-  min-height: 230px;
-  gap: 24px;
+  height: 100%;
   border: 2px solid rgba(236, 238, 242, 1);
   border-radius: 16px;
   opacity: 1;
@@ -10222,7 +10217,6 @@ a.icon-socials:hover {
   overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
 }
-
 .card-features-maxOpen::before {
   content: "";
   position: absolute;
@@ -10268,16 +10262,16 @@ p {
 }
 .card-features-maxOpen.card-features-maxOpen-long {
   min-height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.card-features-maxOpen-long__block {
-  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 20px;
 }
+.card-features-maxOpen.card-features-maxOpen-long
+.card-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
 @media (max-width: 992px) {
   .card-features-maxOpen-long {
     flex-direction: column;
@@ -10326,6 +10320,8 @@ p {
 .btn-info-card {
   position: relative;
   min-width: 180px;
+  max-width: fit-content;
+  height: 38px;
   padding: 10px 20px 10px 0;
   display: flex;
   align-items: center;

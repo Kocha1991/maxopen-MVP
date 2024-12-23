@@ -6,7 +6,7 @@ const InfoBlock2 = ({
   descr
 }) => {
   return (
-    <div className="col-lg-4">
+    <div className="col-lg-4 mb-20">
       <div className="box-border-rounded">
         <div className="card-casestudy maxOpen-card-casestudy">
           <div className="card-title">

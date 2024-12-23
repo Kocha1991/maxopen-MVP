@@ -8,6 +8,7 @@ export const ServicesCard = ({
   title,
   descr,
   btnText,
+  isFullWidth, // Отримуємо прапорець для перевірки
 }) => {
   const { openModal } = useModal();
 
@@ -16,26 +17,27 @@ export const ServicesCard = ({
   };
 
   return (
-    <div className="col-lg-4 mb-20">
-      <div className="card-features-maxOpen">
-        <div className="card-image"> 
-          <img 
-            src={icon}
-            alt="icon" 
-            className='card-image__icon'
-          />
-          <img 
-            src={iconHover} 
-            alt="icon" 
-            className='card-image__icon-hover'
-          />
+    <div className={`mb-20 ${isFullWidth ? 'col-12 card-features-maxOpen-long' : 'col-lg-4'}`}>
+      <div className={`card-features-maxOpen ${isFullWidth ? 'card-features-maxOpen-long' : ''}`}>
+        <div className="card-wrapper">
+          <div className="card-image"> 
+            <div 
+              className='card-image__icon'
+              dangerouslySetInnerHTML={{ __html: icon }}
+            />
+            <div 
+              className='card-image__icon-hover'
+              dangerouslySetInnerHTML={{ __html: iconHover }}
+            />
+          </div>
+          <div className="card-info">
+              <h5 className="mb-12">{title}</h5>
+              <p className="mb-12 text-md neutral-300">
+                {descr}
+              </p>
+          </div>
         </div>
-        <div className="card-info">
-          <h5 className="mb-12">{title}</h5>
-          <p className="mb-12 text-md neutral-300">
-            {descr}
-          </p>
-          <button 
+        <button 
             className="btn btn-info-card animation-btn-svg" 
             onClick={handleCalendarOpen}
           >
@@ -44,7 +46,6 @@ export const ServicesCard = ({
               <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
             </svg>
           </button>
-        </div>
       </div>
     </div>
   );
