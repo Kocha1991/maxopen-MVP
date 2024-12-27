@@ -1,3 +1,10 @@
 {
-  "home-banner-title": "Let's bring your vision to reality",
+  "textOnBg": "How We Work",
+  "title": "From idea to finished product: how we work on your project",
+  "descr": "We follow a consistent approach to the implementation of each project, which guarantees high quality execution and transparency at all stages of work - from planning to final implementation.",
+  "newsLetterTitle": "Let's discuss your project!",
+  "newsLetterDescr": "Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life",
+  "newsLetterPlaceholder": "Your email address",
+  "newsLetterText": "Your email is safe with us – just for project updates.",
+  "btnText": "Get in Touch"
 }

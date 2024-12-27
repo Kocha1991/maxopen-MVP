@@ -1,16 +1,17 @@
 'use client';
-import React from "react";
+import React from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
-import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import { useLanguage } from '@/components/customHooks/LanguageContext';
 import Loading from '@/components/elements/Loading';
 
 const Process = () => {
-  const { language } = useLanguage();
+  const { language } = useLanguage(); // Поточна мова з контексту
   const { data: processSteps, loading, error } = useFetchData("work-process", language);
-  
+
   const translations = {
     en: {
       textOnBg: "How We Work",
@@ -23,16 +24,6 @@ const Process = () => {
       btnText: "Get in Touch"
     },
     uk: {
-      textOnBg: "Як ми працюємо",
-      title: "Від ідеї до готового продукту: як ми працюємо над вашим проектом",
-      descr: "Ми дотримуємось послідовного підходу до реалізації кожного проекту, що гарантує високу якість виконання та прозорість на всіх етапах роботи - від планування до фінальної реалізації.",
-      newsLetterTitle: "Давайте обговоримо ваш проект!",
-      newsLetterDescr: "Введіть свій e-mail, і ми зв’яжемося з вами найближчим часом, щоб детально обговорити ваші ідеї та допомогти втілити ваш проект у життя.",
-      newsLetterPlaceholder: "Ваша електронна адреса",
-      newsLetterText: "Ваш e-mail у безпеці – лише для оновлень проекту.",
-      btnText: "Зв'язатися"
-    },
-    ru_UA: {
       textOnBg: "Как мы работаем",
       title: "От идеи до готового продукта: как мы работаем над вашим проектом",
       descr: "Мы придерживаемся последовательного подхода к реализации каждого проекта, что гарантирует высокое качество выполнения и прозрачность на всех этапах работы - от планирования до финальной реализации.",
@@ -42,11 +33,19 @@ const Process = () => {
       newsLetterText: "Ваш e-mail в безопасности – только для обновлений в проекте.",
       btnText: "Связаться"
     },
+    ru_UA: {
+      textOnBg: "Як ми працюємо",
+      title: "Від ідеї до готового продукту: як ми працюємо над вашим проектом",
+      descr: "Ми дотримуємось послідовного підходу до реалізації кожного проекту, що гарантує високу якість виконання та прозорість на всіх етапах роботи - від планування до фінальної реалізації.",
+      newsLetterTitle: "Давайте обговоримо ваш проект!",
+      newsLetterDescr: "Введіть свій e-mail, і ми зв’яжемося з вами найближчим часом, щоб детально обговорити ваші ідеї та допомогти втілити ваш проект у життя.",
+      newsLetterPlaceholder: "Ваша електронна адреса",
+      newsLetterText: "Ваш e-mail у безпеці – лише для оновлень проекту.",
+      btnText: "Зв'язатися"
+    },
   };
 
-  const { 
-    textOnBg, title, descr, newsLetterTitle, newsLetterDescr, newsLetterPlaceholder, newsLetterText, btnText 
-  } = translations[language] || translations.en;
+  const { textOnBg, title, descr, btnText, newsLetterTitle, newsLetterDescr, newsLetterPlaceholder, newsLetterText } = translations[language] || translations.en;
 
   if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
