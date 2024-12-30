@@ -1,6 +1,5 @@
 import { SocialNetworks } from '@/components/elements/SocialNetworks';
 import Link from 'next/link';
-import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { Nav } from '@/components/elements/Nav';
 import { useTranslation } from 'react-i18next';
 

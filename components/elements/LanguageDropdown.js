@@ -1,15 +1,23 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useTranslation } from 'react-i18next';
 
 function LanguageDropdown() {
-  const { i18n } = useTranslation();  // Доступ до i18n
+  const { i18n } = useTranslation();
 
   // Обробник для зміни мови
   const handleSelectLanguage = (lang) => {
-    i18n.changeLanguage(lang);  // Зміна мови в i18next
+    i18n.changeLanguage(lang);
+    localStorage.setItem('language', lang);
   };
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage);  // Якщо є, змінюємо мову
+    }
+  }, [i18n]);
 
   return (
     <Dropdown>

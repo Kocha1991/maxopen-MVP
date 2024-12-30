@@ -1,10 +1,10 @@
 'use client';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en'); // Мова за замовчуванням
+  const [language, setLanguage] = useState('en');
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
@@ -12,6 +12,3 @@ export const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
-
-// Хук для використання контексту
-export const useLanguage = () => useContext(LanguageContext);
