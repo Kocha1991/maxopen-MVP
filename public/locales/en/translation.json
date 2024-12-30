@@ -1,0 +1,63 @@
+{
+  "HomeBannerTitle": "Let's bring your vision to reality",
+  "HomeBannerDescription": "Your idea deserves an exceptional realization. We create more than just apps and websites; we craft thoughtful digital products that reflect your brand’s unique identity, set you apart from the competition, and drive your bottom line.",
+  "HomeBannerDescription2":"From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations",
+
+  "ServicesTextOnBg": "Your solution is here",
+  "ServicesTitle": "Choose services based on your needs",
+  "ServicesSubtitle":
+    "Looking to increase sales, enhance brand recognition, or streamline customer interactions? We offer a wide range of web design and mobile app development services tailored to your specific needs",
+
+  "ProjectsTextOnBg":"Our Portfolio",
+  "ProjectsTitle":"Explore our projects to witness our expertise in action",
+  "ProjectsSubtitle":"Our portfolio showcases successful solutions crafted for businesses of all sizes. We help clients grow, enhance efficiency, and reach new heights. Review our work and see what we can do for you.",
+ 
+
+  "WhyTextOnBg": "Why we?",
+  "WhyTitle": "What Makes Us Unique?",
+  "WhySubtitle": "These benefits are just the beginning. We are ready to offer many more solutions for your business, focusing on your individual needs and requirements.",
+
+  "GamesTitle":"Expanding our horizons from web development to game development",
+
+  "ProcesTextOnBg": "How We Work",
+  "ProcesTitle": "From idea to finished product: how we work on your project",
+  "ProcesSubtitle": "We follow a consistent approach to the implementation of each project, which guarantees high quality execution and transparency at all stages of work - from planning to final implementation.",
+  "NewsLetterTitle": "Let's discuss your project!",
+  "NewsLetterDescr": "Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life",
+  "NewsLetterPlaceholder": "Your email address",
+  "NewsLetterText": "Your email is safe with us – just for project updates.",
+
+  "PricesTextOnBg": "Solutions for You",
+  "PricesTitle": "Your Goal — Our Solutions",
+  "PricesDescr": "Browse our services and find the perfect match for your project. We offer tailored solutions for every need, whether it's website development, mobile app creation, or business process optimization. Together, we'll achieve results that exceed your expectations",
+
+  "ContactUsBannerTitle":"Ready to cooperate?",
+  "ContactUsBannerDescr":"We are always ready to help! Contact us and we will be happy to discuss your ideas and project requirements.",
+  "ContactUsTitle":"Get in Touch",
+  "ContactUsdescr":"Contact us below and we will get back to you shortly.",
+  "YourName":"Your Name *",
+  "TypeName":"Type your name",
+  "YourEmail":"Your Email *",
+  "TypeEmail":"Type your email",
+  "ContactUsMessage":"Message *",
+  "ContactUsHelp":"How can we help you?",
+
+  "Home":"Home",
+  "Services":"Services",
+  "Solutions":"Solutions",
+  "Portfolio":"Portfolio",
+  "Contact":"Contact",
+
+  "Follow":"Follow us",
+
+  "buttons": {
+    "BookMeeting": "Book a meeting",
+    "Book a call": "Book a call",
+    "LoadMore": "Load more",
+    "ShowLess": "Show less",
+    "Get in Touch": "Get in Touch",
+    "Let's discuss": "Let's discuss",
+    "Send Message": "Send Message",
+    "Get started": "Get started"
+  }
+}

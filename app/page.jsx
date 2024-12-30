@@ -13,6 +13,8 @@ import Process from '@/components/sections/customHome/Process';
 import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
 
+import '@/public/locales/i18n';
+
 export default function Home() {
   return <HomeContent />
 }
@@ -31,6 +33,7 @@ function HomeContent() {
       <Process />
       <Prices />
       <ContactUs />
+      
 
       {/* ModalManager для відображення модалок */}
       <ModalManager 
