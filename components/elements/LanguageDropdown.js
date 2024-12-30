@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useTranslation } from 'react-i18next';
 
@@ -11,13 +11,6 @@ function LanguageDropdown() {
     i18n.changeLanguage(lang);
     localStorage.setItem('language', lang);
   };
-
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage);  // Якщо є, змінюємо мову
-    }
-  }, [i18n]);
 
   return (
     <Dropdown>

@@ -21,19 +21,39 @@ const resources = {
   }
 };
 
+// Функція для отримання мови з localStorage або параметрів URL
+const getInitialLanguage = () => {
+  // Отримуємо мову з URL (перший параметр шляху)
+  const langFromUrl = window.location.pathname.split('/')[1];
+
+  // Перевіряємо, чи зберігалася мова в localStorage
+  const savedLanguage = localStorage.getItem('language');
+
+  if (langFromUrl && resources[langFromUrl]) {
+    // Якщо мова є в URL, використовуємо її
+    return langFromUrl;
+  } else if (savedLanguage && resources[savedLanguage]) {
+    // Якщо мова є в localStorage, використовуємо її
+    return savedLanguage;
+  } else {
+    // Якщо немає мови в URL або localStorage, за замовчуванням англійська
+    return LOCALS.EN;
+  }
+};
+
 i18n
-  .use(Backend) 
+  .use(Backend)
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
     debug: true,
     resources,
-    fallbackLng: 'en',
-    lng: LOCALS.EN,
+    fallbackLng: LOCALS.EN,
+    lng: getInitialLanguage(), // Встановлюємо початкову мову через нашу функцію
 
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false // React already safes from XSS
     }
   });
 
-  export default i18n;
+export default i18n;
