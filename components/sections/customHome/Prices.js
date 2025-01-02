@@ -1,7 +1,6 @@
 import React from "react";
 import { BlogTitle } from "@/components/blog/BlogTitle";
 import { PriceItem } from "../../elements/PriceItem";
-import { useLanguage } from "@/components/customHooks/LanguageContext";
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';

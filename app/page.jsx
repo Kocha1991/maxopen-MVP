@@ -34,7 +34,6 @@ function HomeContent() {
       <Prices />
       <ContactUs />
       
-
       {/* ModalManager для відображення модалок */}
       <ModalManager 
         isOpen={isOpen} 
