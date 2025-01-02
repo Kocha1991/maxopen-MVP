@@ -9,27 +9,36 @@ import en from './en/translation.json';
 import uk from './uk/translation.json';
 import ru from './ru_UA/translation.json';
 
-const resources = {
-  [LOCALS.EN]: { translation: en },
-  [LOCALS.UK]: { translation: uk },
-  [LOCALS.RU]: { translation: ru }
-};
+// Перевіряємо, чи i18n вже ініціалізовано
+// Це важливо для Next.js, щоб уникнути повторної ініціалізації при серверному рендерингу
+if (!i18n.isInitialized) {
+  i18n
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      resources: {
+        [LOCALS.EN]: {
+          translation: en
+        },
+        [LOCALS.UK]: {
+          translation: uk
+        },
+        [LOCALS.RU]: {
+          translation: ru
+        }
+      },
+      fallbackLng: LOCALS.EN, // Мова за замовчуванням
+      
+      detection: {
+        order: ['path', 'localStorage'], // Спочатку перевіряємо URL, потім localStorage
+        lookupFromPathIndex: 0,
+        caches: ['localStorage']
+      },
 
-i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .init({
-    resources,
-    fallbackLng: LOCALS.EN,
-    lng: LOCALS.EN, // Встановлюємо початкову мову явно
-    detection: {
-      order: ['path', 'localStorage'],
-      lookupFromPathIndex: 0,
-      caches: ['localStorage']
-    },
-    interpolation: {
-      escapeValue: false
-    }
-  });
+      interpolation: {
+        escapeValue: false
+      }
+    });
+}
 
 export default i18n;
