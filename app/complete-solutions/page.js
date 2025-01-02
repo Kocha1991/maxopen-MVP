@@ -36,9 +36,7 @@ function CompleteSolutionsContent() {
         </div>
         <div className="complete-solutions__items">
           <div className="container">
-            <SolutionCard 
-  
-            />
+            <SolutionCard />
             <SolutionCard2 />
           </div>
         </div>
