@@ -1,7 +1,7 @@
 const LOCALS = {
   EN: 'en',
   UK: 'uk',
-  RU: 'ru',
+  RU: 'ru'
 }
 
 export { LOCALS };

@@ -25,9 +25,9 @@ export async function generateMetadata({ params: { lang } }) {
     title: "MaxOpen",
     alternates: {
       languages: {
-        en: "/en",
-        uk: "/uk",
-        ru: "/ru",
+        'en': '/en',
+        'uk': '/uk',
+        'ru_UA': '/ru_UA',
       },
     },
   };

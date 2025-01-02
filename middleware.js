@@ -14,10 +14,14 @@ export function middleware(request) {
   // Отримуємо першу частину шляху
   const firstSegment = pathname.split('/')[1];
 
+  // Спеціальна обробка для ru_UA
+  if (firstSegment === 'ru_UA') {
+    return NextResponse.next();
+  }
+
   // Якщо шлях містить невалідний мовний код, перенаправляємо на дефолтну мову
-  if (firstSegment && !Object.values(LOCALS).includes(firstSegment)) {
+  if (firstSegment && !Object.values(LOCALS).includes(firstSegment) && firstSegment !== 'ru_UA') {
     const defaultLocale = LOCALS.EN;
-    // Видаляємо невалідний мовний код і додаємо правильний
     const pathWithoutLang = pathname.split('/').slice(2).join('/');
     const newUrl = new URL(
       `/${defaultLocale}${pathWithoutLang ? '/' + pathWithoutLang : ''}`,
@@ -27,11 +31,11 @@ export function middleware(request) {
   }
 
   // Якщо шлях вже містить валідний мовний код, пропускаємо
-  if (Object.values(LOCALS).includes(firstSegment)) {
+  if (Object.values(LOCALS).includes(firstSegment) || firstSegment === 'ru_UA') {
     return NextResponse.next();
   }
 
-  // В іншому випадку (корінь сайту або шлях без мови) додаємо мовний код за замовчуванням
+  // В іншому випадку додаємо мовний код за замовчуванням
   const defaultLocale = LOCALS.EN;
   const newUrl = new URL(
     `/${defaultLocale}${pathname === '/' ? '' : pathname}`,
@@ -42,8 +46,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: [
-    // Матчимо всі шляхи, крім API routes та статичних файлів
-    '/((?!api|_next/static|_next/image|favicon.ico).*)'
-  ]
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 }; 

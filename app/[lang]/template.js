@@ -9,8 +9,9 @@ export default function Template({ children }) {
 
   useEffect(() => {
     const lang = pathname.split('/')[1];
-    if (i18n.language !== lang) {
-      i18n.changeLanguage(lang);
+    const i18nLang = lang === 'ru_UA' ? 'ru' : lang;
+    if (i18n.language !== i18nLang) {
+      i18n.changeLanguage(i18nLang);
     }
   }, [pathname, i18n]);
 

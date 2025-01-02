@@ -15,14 +15,16 @@ function LanguageDropdown() {
   const handleSelectLanguage = (lang) => {
     const currentPath = window.location.pathname;
     const pathWithoutLang = currentPath.split('/').slice(2).join('/');
-    const newPath = `/${lang}${pathWithoutLang ? '/' + pathWithoutLang : ''}`;
+    const urlLang = lang === 'ru' ? 'ru_UA' : lang;
+    const newPath = `/${urlLang}${pathWithoutLang ? '/' + pathWithoutLang : ''}`;
     
     localStorage.setItem('language', lang);
+    i18n.changeLanguage(lang);
     window.location.href = newPath;
   };
 
   if (!mounted) {
-    return null; // Не рендеримо нічого під час SSR
+    return null;
   }
 
   return (

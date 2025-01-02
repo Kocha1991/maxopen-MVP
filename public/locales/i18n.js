@@ -16,22 +16,25 @@ if (!i18n.isInitialized) {
     .use(LanguageDetector)
     .init({
       resources: {
-        [LOCALS.EN]: {
+        'en': {
           translation: en
         },
-        [LOCALS.UK]: {
+        'uk': {
           translation: uk
         },
-        [LOCALS.RU]: {
+        'ru': {
           translation: ru
         }
       },
-      fallbackLng: LOCALS.EN, // Мова за замовчуванням
+      fallbackLng: 'en',
       
       detection: {
-        order: ['path', 'localStorage'], // Спочатку перевіряємо URL, потім localStorage
+        order: ['path', 'localStorage'],
         lookupFromPathIndex: 0,
-        caches: ['localStorage']
+        caches: ['localStorage'],
+        lookupFromUrlMatch: {
+          'ru_UA': 'ru'
+        }
       },
 
       interpolation: {
