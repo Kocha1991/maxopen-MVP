@@ -1,4 +1,3 @@
-'use client';
 import { LOCALS } from "@/public/locales/locales";
 import { Urbanist } from "next/font/google";
 import { ModalProvider } from "@/components/customHooks/useModal";
