@@ -1,20 +1,43 @@
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'next/router';
+'use client';
+import React from 'react';
+import Layout from "@/components/layout/Layout";
+import Banner from '@/components/sections/customHome/Banner';
+import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
+import { Services } from '@/components/sections/customHome/Services';
+import { Projects } from '@/components/sections/customHome/Projects';
+import { Games } from '@/components/sections/customHome/Games';
+import Prices from '@/components/sections/customHome/Prices';
+import ContactUs from '@/components/sections/customHome/ContactUs';
+import WhyWe from '@/components/sections/customHome/WhyWe';
+import Process from '@/components/sections/customHome/Process';
+import ModalManager from '@/components/elements/ModalManager';
+import { useModal } from '@/components/customHooks/useModal';
 
-const LangPage = () => {
-  const { i18n } = useTranslation();  // Доступ до i18n для зміни мови
-  const router = useRouter();
-  const { lang } = router.query;      // Отримуємо параметр lang з URL
+export default function Page() {
+  return <HomeContent />;
+}
+function HomeContent() {
+  const { isOpen, modalType, modalData, closeModal } = useModal();
 
-  useEffect(() => {
-    if (lang && lang !== i18n.language) {
-      i18n.changeLanguage(lang);  // Зміна мови через i18next
-      localStorage.setItem('language', lang);  // Збереження мови в localStorage
-    }
-  }, [lang, i18n]);
+  return (
+    <Layout useCustomHeader={true} footerStyle={'customFooter'}>
+      <Banner />
+      <GoodsAnimation />
+      <Services />
+      <Projects />
+      <WhyWe />
+      <Games />
+      <Process />
+      <Prices />
+      <ContactUs />
 
-  return null;
-};
+      <ModalManager 
+        isOpen={isOpen} 
+        modalType={modalType} 
+        modalData={modalData} 
+        onClose={closeModal} 
+      />
+    </Layout>
+  );
+}
 
-export default LangPage;

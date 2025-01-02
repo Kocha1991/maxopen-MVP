@@ -1,11 +1,13 @@
 // next.config.js
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'uk', 'ru_UA'],  // Список доступних мов
-    defaultLocale: 'en',              // Мова за замовчуванням
-    localeDetection: false,           // Вимкнути автоматичне виявлення мови
+  // Додаємо конфігурацію для оптимізації
+  compiler: {
+    // Відключаємо регенераторRuntime для зменшення розміру бандла
+    reactRemoveProperties: true,
+    removeConsole: process.env.NODE_ENV === 'production',
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

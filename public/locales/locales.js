@@ -1,7 +1,7 @@
 const LOCALS = {
   EN: 'en',
   UK: 'uk',
-  RU: 'ru_UA',
+  RU: 'ru',
 }
 
 export { LOCALS };
