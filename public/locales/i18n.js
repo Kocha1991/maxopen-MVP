@@ -7,18 +7,12 @@ import { LOCALS } from './locales';
 // Імпортуємо переклади для кожної мови
 import en from './en/translation.json';
 import uk from './uk/translation.json';
-import ru from './ru/translation.json';
+import ru from './ru_UA/translation.json';
 
 const resources = {
-  [LOCALS.EN]: {
-    translation: en
-  },
-  [LOCALS.UK]: {
-    translation: uk
-  },
-  [LOCALS.RU]: {
-    translation: ru
-  }
+  [LOCALS.EN]: { translation: en },
+  [LOCALS.UK]: { translation: uk },
+  [LOCALS.RU]: { translation: ru }
 };
 
 i18n
