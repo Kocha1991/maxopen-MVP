@@ -14,20 +14,22 @@ export function middleware(request) {
   // Отримуємо першу частину шляху
   const firstSegment = pathname.split('/')[1];
 
+  // Якщо це кореневий URL, перевіряємо мову в cookie
+  if (pathname === '/') {
+    const savedLang = request.cookies.get('i18nextLng')?.value;
+    let defaultLang = savedLang || LOCALS.UK; // Змінюємо дефолтну мову на UK
+    
+    // Конвертуємо 'ru' в 'ru_UA' для URL
+    if (defaultLang === 'ru') {
+      defaultLang = 'ru_UA';
+    }
+
+    return NextResponse.redirect(new URL(`/${defaultLang}`, request.url));
+  }
+
   // Спеціальна обробка для ru_UA
   if (firstSegment === 'ru_UA') {
     return NextResponse.next();
-  }
-
-  // Якщо шлях містить невалідний мовний код, перенаправляємо на дефолтну мову
-  if (firstSegment && !Object.values(LOCALS).includes(firstSegment) && firstSegment !== 'ru_UA') {
-    const defaultLocale = LOCALS.EN;
-    const pathWithoutLang = pathname.split('/').slice(2).join('/');
-    const newUrl = new URL(
-      `/${defaultLocale}${pathWithoutLang ? '/' + pathWithoutLang : ''}`,
-      request.url
-    );
-    return NextResponse.redirect(newUrl);
   }
 
   // Якщо шлях вже містить валідний мовний код, пропускаємо
@@ -35,10 +37,17 @@ export function middleware(request) {
     return NextResponse.next();
   }
 
-  // В іншому випадку додаємо мовний код за замовчуванням
-  const defaultLocale = LOCALS.EN;
+  // В іншому випадку перевіряємо збережену мову
+  const savedLang = request.cookies.get('i18nextLng')?.value;
+  let defaultLang = savedLang || LOCALS.UK;
+  
+  // Конвертуємо 'ru' в 'ru_UA' для URL
+  if (defaultLang === 'ru') {
+    defaultLang = 'ru_UA';
+  }
+
   const newUrl = new URL(
-    `/${defaultLocale}${pathname === '/' ? '' : pathname}`,
+    `/${defaultLang}${pathname === '/' ? '' : pathname}`,
     request.url
   );
   

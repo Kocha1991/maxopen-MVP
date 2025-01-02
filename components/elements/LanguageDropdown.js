@@ -19,6 +19,8 @@ function LanguageDropdown() {
     const newPath = `/${urlLang}${pathWithoutLang ? '/' + pathWithoutLang : ''}`;
     
     localStorage.setItem('language', lang);
+    document.cookie = `i18nextLng=${lang}; path=/; max-age=31536000`;
+    
     i18n.changeLanguage(lang);
     window.location.href = newPath;
   };
