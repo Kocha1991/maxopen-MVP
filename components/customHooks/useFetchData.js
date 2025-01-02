@@ -12,7 +12,7 @@ export const useFetchData = (endpoint, language = null, fallbackLocale = "en") =
 
       try {
         const url = language
-          ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${language}`
+          ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${language === 'ru' ? 'ru_UA' : language}`
           : `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}`;
 
         const response = await fetch(url, {
@@ -30,8 +30,8 @@ export const useFetchData = (endpoint, language = null, fallbackLocale = "en") =
 
         if (language) {
           const filteredData =
-            result.filter((item) => item.locale === language).length > 0
-              ? result.filter((item) => item.locale === language)
+            result.filter((item) => item.locale === (language === 'ru' ? 'ru_UA' : language)).length > 0
+              ? result.filter((item) => item.locale === (language === 'ru' ? 'ru_UA' : language))
               : result.filter((item) => item.locale === fallbackLocale);
 
           setData(filteredData);
