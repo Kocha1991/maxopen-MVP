@@ -6,9 +6,10 @@ import Layout from '@/components/layout/Layout';
 import { ModalProvider } from '@/components/customHooks/useModal';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
-import ModalManager from '@/components/elements/ModalManager';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
+import PageBanner from '@/components/elements/PageBanner';
+import ModalManager from '@/components/elements/ModalManager';
 
 export default function CompleteSolutions() {
   return (
@@ -35,27 +36,12 @@ function CompleteSolutionsContent() {
   return (
     <div className="complete-solutions">
       <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
-        <div className="complete-solutions__banner">
-          <div className="container">
-            <div className="complete-solutions__wrapper">
-              <h2 className="display-2 mb-30 mt-25 neutral-0 complete-solutions__title">
-                {t("SolutionsBannerTitle")}
-              </h2>
-              <h3 className="text-lg neutral-500 mb-55 complete-solutions__descr">
-                {t("SolutionsBannerDescr")}
-              </h3>
-              <button
-                className="btn banner-btn hover-up mr-5"
-                onClick={() => openModal('calendar')}
-              >
-                <span>
-                  <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
-                  {t("buttons.BookMeeting")}
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
+        <PageBanner 
+          SolutionsBannerTitle={t("SolutionsBannerTitle")}
+          SolutionsBannerDescr={t("SolutionsBannerDescr")}
+          textBnt={t("buttons.BookMeeting")}
+          onOpenModal={openModal}
+        />
         <div className="complete-solutions__items">
           <div className="container">
             {cards.map((card) => (
@@ -136,6 +122,7 @@ function CompleteSolutionsContent() {
             </div>
           </div>
         </div>
+
         <ModalManager 
           isOpen={isOpen} 
           modalType={modalType} 

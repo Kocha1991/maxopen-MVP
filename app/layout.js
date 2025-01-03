@@ -16,10 +16,6 @@ const urban = Urbanist({
     display: 'swap',
 });
 
-// export const metadata = {
-//     title: 'MaxOpen',
-// };
-
 export default function RootLayout({ children }) {
   const { t } = useTranslation();
 
