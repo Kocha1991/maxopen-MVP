@@ -11012,6 +11012,10 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   display: flex;
   justify-content: space-between;
 }
+.solution-card__icon {
+  width: 60px;
+  height: 60px;
+}
 .solution-card__left {
   width: 50%;
   padding: 70px 50px;
@@ -11043,6 +11047,11 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   font-size: 22px;
   font-weight: 500;
   line-height: 26.4px;
+}
+.solution-card--2__item
+.solution-card__subheader {
+  color: #fff;
+  margin-top: 15px;
 }
 .solution-card__descr {
   font-size: 18px;
@@ -11113,7 +11122,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .solution-card--2__items {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;

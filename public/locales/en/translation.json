@@ -61,6 +61,10 @@
   "SolutionsNeedHelp": "Need help or have additional questions?",
   "SolutionsHalpDescr": "If you want to know more or have any questions about our work, we will be happy to help you! Book a call and we will discuss everything in detail.",
 
+  "WhatIncluded": "What's included?",
+  "PackagePrice": "Package price",
+  "YouGet": "With the Full Package, you get:",
+
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",
@@ -69,6 +73,7 @@
     "Get in Touch": "Get in Touch",
     "Let's discuss": "Let's discuss",
     "Send Message": "Send Message",
-    "Get started": "Get started"
+    "Get started": "Get started",
+    "Order package": "Order package"
   }
 }
