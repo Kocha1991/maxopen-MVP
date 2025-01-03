@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "MetaTitle": "MaxOpen Agency 🌍 Web Development Studio | Ukraine, Europe, USA",
+    "MetaDescription": "At MaxOpen Agency, we create modern websites: e-commerce stores, corporate portals, and mobile applications. ⚡️ Serving clients in Ukraine, Europe, and the USA. Over 10 years of experience and 100+ successful projects. Personalized approach, SEO optimization, and ongoing support. 🚀",
+    "MetaKeywords": "MaxOpen, website development, web design, e-commerce development, SEO optimization, CRM systems, hire web developers, web agency for Europe and USA"
+  },
+
   "HomeBannerTitle": "Let's bring your vision to reality",
   "HomeBannerDescription": "Your idea deserves an exceptional realization. We create more than just apps and websites; we craft thoughtful digital products that reflect your brand’s unique identity, set you apart from the competition, and drive your bottom line.",
   "HomeBannerDescription2":"From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations",
@@ -49,6 +55,11 @@
   "Contact":"Contact",
 
   "Follow":"Follow us",
+
+  "SolutionsBannerTitle": "Services to Bring Your Vision to Life",
+  "SolutionsBannerDescr": "Tired of endless back-and-forth just to estimate your project? We’ve streamlined the process with ready-made packages tailored for your needs. Skip the hassle – explore, choose, and watch your idea take off!",
+  "SolutionsNeedHelp": "Need help or have additional questions?",
+  "SolutionsHalpDescr": "If you want to know more or have any questions about our work, we will be happy to help you! Book a call and we will discuss everything in detail.",
 
   "buttons": {
     "BookMeeting": "Book a meeting",
