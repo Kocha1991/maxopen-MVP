@@ -6,7 +6,7 @@ export const BlogTitle = ({
   descr,
 }) => {
   return (
-    <>
+    <div className='blog-title'>
       <div className='maxOpen-bg-text'>
         {textOnBg}
       </div>
@@ -16,6 +16,6 @@ export const BlogTitle = ({
       <h3 className='maxOpen-services__descr'>
         {descr}
       </h3>
-    </>
+    </div>
   );
 };

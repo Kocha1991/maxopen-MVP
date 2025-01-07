@@ -11,7 +11,6 @@ const urban = Urbanist({
   display: "swap",
 });
 
-// Кореневий layout, який обгортає всі сторінки
 export default async function Layout({ children, params }) {
   return (
     <html lang={params?.lang}>
