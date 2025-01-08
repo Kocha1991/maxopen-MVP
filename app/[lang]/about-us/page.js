@@ -9,6 +9,8 @@ import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Link from 'next/link';
+import BlogChangeOption from '@/components/blog/BlogChangeOption';
+import Indicators from '@/components/blog/Indicators';
 
 export default function AboutUs() {
   return (
@@ -32,6 +34,7 @@ function AboutUsContent() {
           textBnt={t("buttons.BookMeeting")}
           onOpenModal={openModal}
         />
+        
         <section className='who-we'>
           <div className="container">
             <div className='who-we__wrapper'>
@@ -117,6 +120,18 @@ function AboutUsContent() {
             </div>
           </div>
         </section>
+        <section className='our-mission'>
+          <div className="container">
+            <BlogTitle
+              textOnBg={t("OurMissionTextOnBg")}
+              title={t("OurMissionTitle")}
+              descr={t("TextOnBgDescr")}
+            />
+            <BlogChangeOption 
+            />
+          </div>
+        </section>
+        <Indicators />
         <ContactUs />
       </Layout>
       <ModalManager 

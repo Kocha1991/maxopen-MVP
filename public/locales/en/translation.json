@@ -1,10 +1,4 @@
 {
-  "metadata": {
-    "MetaTitle": "MaxOpen Agency 🌍 Web Development Studio | Ukraine, Europe, USA",
-    "MetaDescription": "At MaxOpen Agency, we create modern websites: e-commerce stores, corporate portals, and mobile applications. ⚡️ Serving clients in Ukraine, Europe, and the USA. Over 10 years of experience and 100+ successful projects. Personalized approach, SEO optimization, and ongoing support. 🚀",
-    "MetaKeywords": "MaxOpen, website development, web design, e-commerce development, SEO optimization, CRM systems, hire web developers, web agency for Europe and USA"
-  },
-
   "HomeBannerTitle": "Let's bring your vision to reality",
   "HomeBannerDescription": "Your idea deserves an exceptional realization. We create more than just apps and websites; we craft thoughtful digital products that reflect your brand’s unique identity, set you apart from the competition, and drive your bottom line.",
   "HomeBannerDescription2":"From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations",
@@ -89,6 +83,13 @@
   "OurCultureBloc3Descr": "Innovation and creativity flourish in an environment where fresh ideas are always encouraged. We nurture bold solutions and embrace new thinking, pushing the boundaries of what’s possible while finding unique ways to solve problems and meet challenges.",
   "OurCultureBloc4Title": "Continuous Growth",
   "OurCultureBloc4Descr": "Our culture is built on the foundation of continuous personal and professional growth. We provide opportunities for learning and development, motivating our team to improve, adapt, and embrace a mindset focused on ongoing improvement and progress in all aspects of their work.",
+
+  "OurMissionTextOnBg":"Our Mission & Goals",
+  "OurMissionTitle": "Shaping the Future, One Solution at a Time",
+  "TextOnBgDescr": "Our mission is to empower businesses with cutting-edge technology and innovative strategies. We aim to create solutions that drive efficiency, boost profitability, and ensure long-term success. At MaxOpen, every project is a step toward a brighter, more connected future.",
+
+  "IndicatorsTextOnBg": "Our Numbers Speak for Themselves",
+  "IndicatorsTitle": "Proven Success Through Facts and Figures",
 
   "buttons": {
     "BookMeeting": "Book a meeting",

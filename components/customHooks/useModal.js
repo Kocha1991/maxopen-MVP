@@ -9,6 +9,7 @@ export const ModalProvider = ({ children }) => {
   const [modalData, setModalData] = useState(null);
 
   const openModal = (type, data = null) => {
+    console.log("Opening modal with data:", data);
     setModalType(type);
     setModalData(data);
     setIsOpen(true);

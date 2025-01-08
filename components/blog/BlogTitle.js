@@ -4,16 +4,17 @@ export const BlogTitle = ({
   textOnBg,
   title,
   descr,
+  textColor
 }) => {
   return (
     <div className='blog-title'>
-      <div className='maxOpen-bg-text'>
+      <div className="maxOpen-bg-text">
         {textOnBg}
       </div>
-      <h2 className='maxOpen-services__title'>
+      <h2 className={`maxOpen-services__title ${textColor}`}>
         {title}
       </h2>
-      <h3 className='maxOpen-services__descr'>
+      <h3 className={`maxOpen-services__descr ${textColor}`}>
         {descr}
       </h3>
     </div>
