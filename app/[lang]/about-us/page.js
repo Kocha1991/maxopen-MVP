@@ -8,9 +8,9 @@ import ContactUs from '@/components/sections/customHome/ContactUs';
 import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
 import { BlogTitle } from '@/components/blog/BlogTitle';
-import Link from 'next/link';
 import BlogChangeOption from '@/components/blog/BlogChangeOption';
 import Indicators from '@/components/blog/Indicators';
+import BlogCardLinks from '@/components/blog/BlogCardLinks';
 
 export default function AboutUs() {
   return (
@@ -34,40 +34,7 @@ function AboutUsContent() {
           textBnt={t("buttons.BookMeeting")}
           onOpenModal={openModal}
         />
-        
-        <section className='who-we'>
-          <div className="container">
-            <div className='who-we__wrapper'>
-              <div className='who-we__brand-bloc'>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-google.jpg" alt="google" className='who-we__img'/>
-                </Link>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-meta.jpg" alt="meta" className='who-we__img'/>
-                </Link>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-amazon.jpg" alt="amazon" className='who-we__img'/>
-                </Link>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-effie.jpg" alt="" className='who-we__img'/>
-                </Link>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-iab.jpg" alt="" className='who-we__img'/>
-                </Link>
-                <Link href="#">
-                  <img src="/assets/imgs/template/Link-google-mark.jpg" alt="" className='who-we__img'/>
-                </Link>
-              </div>
-              <div className='who-we__info-bloc'>
-                <BlogTitle 
-                  textOnBg={t("AboutUsTextOnBg")} 
-                  title={t("AboutUsWhoWeTitle")} 
-                  descr={t("AboutUsWhoWeDescr")} 
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <BlogCardLinks />
         <section className='about-us__reality'>
           <div className="container">
             <h2 className='maxOpen-services__title'>
@@ -127,11 +94,19 @@ function AboutUsContent() {
               title={t("OurMissionTitle")}
               descr={t("TextOnBgDescr")}
             />
-            <BlogChangeOption 
-            />
+            <BlogChangeOption />
           </div>
         </section>
         <Indicators />
+        <section className='development-delivers'>
+          <div className="container">
+            <BlogTitle
+              textOnBg={t("OurMissionTextOnBg")}
+              title={t("OurMissionTitle")}
+              descr={t("TextOnBgDescr")}
+            />
+          </div>
+        </section>
         <ContactUs />
       </Layout>
       <ModalManager 

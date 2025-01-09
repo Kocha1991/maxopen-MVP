@@ -11406,30 +11406,30 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .add-top-footer .btn {
   width: fit-content;
 }
-.who-we {
+.blog-card-links {
   padding: 100px 0;
 }
-.who-we__wrapper {
+.blog-card-links__wrapper {
   display: flex;
   gap: 30px;
 }
-.who-we__brand-bloc {
+.blog-card-links__brand-bloc {
   width: 50%;
   display: flex;
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
 }
-.who-we__info-bloc {
+.blog-card-links__info-bloc {
   width: 50%;
 }
-.who-we__info-bloc .blog-title {
+.blog-card-links__info-bloc .blog-title {
   align-items: start;
 }
-.who-we__info-bloc .blog-title * {
+.blog-card-links__info-bloc .blog-title * {
   text-align: start;
 }
-.who-we__img {
+.blog-card-links__img {
   width: 185px;
   height: 185px;
   border-radius: 15px;
@@ -11438,27 +11438,27 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 
 @media (max-width:992px) {
-  .who-we__wrapper {
+  .blog-card-links__wrapper {
     flex-direction: column;
     gap: 0px;
   }
-  .who-we__info-bloc .blog-title {
+  .blog-card-links__info-bloc .blog-title {
     align-items: center;
   }
-  .who-we__info-bloc .blog-title * {
+  .blog-card-links__info-bloc .blog-title * {
     text-align: center;
   }
-  .who-we__brand-bloc {
+  .blog-card-links__brand-bloc {
     order: 2;
     width: 100%;
   }
-  .who-we__info-bloc {
+  .blog-card-links__info-bloc {
     width: 100%;
     order: 1;
   }
 }
 @media (max-width: 560px) {
-  .who-we__img {
+  .blog-card-links__img {
     width: 105px;
     height: 105px;
   }
@@ -11744,4 +11744,22 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   width: 435px;
   color: rgba(181, 181, 181, 1);
   text-align: left;
+}
+@media (max-width: 992px) {
+  .indicators-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .indicators .text-60-semibold {
+    font-size: 30px;
+    line-height: 31.2px;
+    letter-spacing: 0.03em;
+  }
+  .indicators .maxOpen-services__descr {
+    width: 100%;
+  }
+}
+
+.development-delivers {
+  padding: 130px 0;
 }
