@@ -1,0 +1,26 @@
+export const translations = {
+  en: {
+    MetaTitle: "MaxOpen Agency 🌍 Web Development Studio | Ukraine, Europe, USA",
+    MetaDescription:
+      "At MaxOpen Agency, we create modern websites: e-commerce stores, corporate portals, and mobile applications. ⚡️ Serving clients in Ukraine, Europe, and the USA. Over 10 years of experience and 100+ successful projects. Personalized approach, SEO optimization, and ongoing support. 🚀",
+    MetaKeywords:
+      "MaxOpen, website development, web design, e-commerce development, SEO optimization, CRM systems, hire web developers, web agency for Europe and USA",
+  },
+  uk: {
+    MetaTitle: "MaxOpen Agency 🌍 Студія розробки сайтів | Україна, Європа, США",
+    MetaDescription:
+      "MaxOpen Agency створює сучасні сайти: інтернет-магазини, корпоративні портали та мобільні застосунки. ⚡️ Працюємо для клієнтів в Україні, Європі та США. Понад 10 років досвіду та 100+ успішних проектів. Індивідуальний підхід, SEO-налаштування та підтримка. 🚀",
+    MetaKeywords:
+      "MaxOpen, розробка сайтів, веб-дизайн, створення інтернет-магазинів, SEO просування, CRM-системи під ключ, замовити сайт Україна, веб-агенція для Європи та США",
+  },
+  ru_UA: {
+    MetaTitle: "MaxOpen Agency 🌍 Студия разработки сайтов | Украина, Европа, США",
+    MetaDescription:
+      "MaxOpen Agency создает современные сайты: интернет-магазины, корпоративные порталы и мобильные приложения. ⚡️ Работаем для клиентов в Украине, Европе и США. Более 10 лет опыта и 100+ успешных проектов. Индивидуальный подход, SEO-настройка и поддержка. 🚀",
+    MetaKeywords:
+      "MaxOpen, разработка сайтов, веб-дизайн, создание интернет-магазинов, SEO продвижение, CRM-системы под ключ, заказать сайт Украина, веб-агентство для Европы и США",
+  },
+};
+
+// Функція для отримання перекладу
+export const getTranslation = (lang) => translations[lang] || translations.en;

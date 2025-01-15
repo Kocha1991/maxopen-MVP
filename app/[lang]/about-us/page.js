@@ -11,6 +11,7 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import BlogChangeOption from '@/components/blog/BlogChangeOption';
 import Indicators from '@/components/blog/Indicators';
 import BlogCardLinks from '@/components/blog/BlogCardLinks';
+import DevelopmentDelivers from '@/components/blog/DevelopmentDelivers';
 
 export default function AboutUs() {
   return (
@@ -105,6 +106,7 @@ function AboutUsContent() {
               title={t("OurMissionTitle")}
               descr={t("TextOnBgDescr")}
             />
+            <DevelopmentDelivers />
           </div>
         </section>
         <ContactUs />

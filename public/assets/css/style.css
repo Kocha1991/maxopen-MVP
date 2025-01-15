@@ -11763,3 +11763,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .development-delivers {
   padding: 130px 0;
 }
+.development-delivers__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
