@@ -2,18 +2,20 @@ import React from "react";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-export const Nav = () => {
+export const Nav = ({
+  onLinkClick,
+}) => {
   const { t } = useTranslation();
 
   return (
     <nav className="custom-nav">
       <ul className="main-menu">
-        <li className="has-children"><Link className="active" href="/">{t("Home")}</Link></li>
-        <li className="has-children"><Link href="#services">{t("Services")}</Link></li>
-        <li className="has-children"><Link href="/about-us">{t("AboutUs")}</Link></li>
-        <li className="has-children"><Link href="/complete-solutions">{t("Solutions")}</Link></li>
-        <li className="has-children"><Link href="#projects">{t("Portfolio")}</Link></li>
-        <li className="has-children"><Link href="#contact">{t("Contact")}</Link></li>
+        <li className="has-children"><Link className="active" href="/" onClick={onLinkClick}>{t("Home")}</Link></li>
+        <li className="has-children"><Link href="#services" onClick={onLinkClick}>{t("Services")}</Link></li>
+        <li className="has-children"><Link href="/about-us" onClick={onLinkClick}>{t("AboutUs")}</Link></li>
+        <li className="has-children"><Link href="/complete-solutions" onClick={onLinkClick}>{t("Solutions")}</Link></li>
+        <li className="has-children"><Link href="#projects" onClick={onLinkClick}>{t("Portfolio")}</Link></li>
+        <li className="has-children"><Link href="#contact" onClick={onLinkClick}>{t("Contact")}</Link></li>
       </ul>
     </nav>
   );

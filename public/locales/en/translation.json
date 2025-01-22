@@ -91,6 +91,9 @@
   "IndicatorsTextOnBg": "Our Numbers Speak for Themselves",
   "IndicatorsTitle": "Proven Success Through Facts and Figures",
 
+  "CalendarHeader":"Haven’t found the best time?",
+  "CalendarSubheader": "Feel free to use any alternative option below",
+
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",

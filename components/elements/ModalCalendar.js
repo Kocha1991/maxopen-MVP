@@ -1,10 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useCalendly } from '../customHooks/useCalendly';
+import { useTranslation } from 'react-i18next';
 
 export default function ModalCalendar({ isOpen, onClose }) {
   useCalendly('.calendly-inline-widget', 'https://calendly.com/maxopenstudio');
   const [contacts, setContacts] = useState([]);
+  const { t } = useTranslation();
+  
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -43,9 +46,9 @@ export default function ModalCalendar({ isOpen, onClose }) {
         <div className="calendly-inline-widget" style={{ minWidth: '320px', height: '680px' }}></div>
         <div className="calendar-page__footer">
           <div className="calendar-page__text">
-            <h2 className="calendar-page__footer-title">Haven’t found the best time?</h2>
+            <h2 className="calendar-page__footer-title">{t("CalendarHeader")}</h2>
             <h3 className="calendar-page__footer-descr">
-              Feel free to use any alternative option below
+              {t("CalendarSubheader")}
             </h3>
           </div>
           <div className="calendar-page__contacts">

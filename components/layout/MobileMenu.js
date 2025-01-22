@@ -11,11 +11,11 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
         key: "",
     });
 
-    const { t, i18n } = useTranslation();  // Використовуємо i18n для зміни мови
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');  // Ініціалізуємо з поточною мовою
+    const { t, i18n } = useTranslation();
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
 
     // Додано хук для роботи з модалкою
-    const { openModal } = useModal();  // Викликаємо openModal для відкриття модалки
+    const { openModal } = useModal();
 
     const handleToggle = (key) => {
         if (isActive.key === key) {
@@ -31,20 +31,20 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
     };
 
     const handleLanguageChange = (language) => {
-        i18n.changeLanguage(language);  // Зміна мови за допомогою i18n
-        localStorage.setItem('language', language);  // Збереження вибраної мови в localStorage
-        setSelectedLanguage(language);  // Оновлюємо поточний вибір мови
+        i18n.changeLanguage(language);
+        localStorage.setItem('language', language);
+        setSelectedLanguage(language);
     };
 
     // Обробка для відкриття календаря через модалку
     const handleCalendarOpen = () => {
-        openModal('calendar');  // Відкриваємо модалку з календарем
-        handleMobileMenu();  // Закриваємо мобільне меню після відкриття модалки
+        openModal('calendar');
+        handleMobileMenu();
     };
 
     // Обробка кліку по елементу навігації
     const handleNavLinkClick = () => {
-        handleMobileMenu();  // Закриваємо мобільне меню при натисканні на елемент навігації
+        handleMobileMenu();
     };
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
                       </div>
                   </div>
                   <div className="custom-menu-body">
-                    <Nav onLinkClick={handleNavLinkClick} /> {/* Додано обробник кліків на посилання */}
+                    <Nav onLinkClick={handleNavLinkClick} />
                     <button 
                         className="btn btn-brand-4-medium hover-up"
                         onClick={handleCalendarOpen}  // Відкриваємо модалку при натисканні
