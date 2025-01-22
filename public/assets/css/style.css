@@ -9270,6 +9270,9 @@ a.icon-socials:hover {
   }
 }
 @media (max-width: 991.98px) {
+  .box-image-get-touch {
+    padding: 60px 20px;
+  }
   .footer-1, .footer-2, .footer-3, .footer-4, .footer-5 {
     width: 50%;
     margin-bottom: 40px;
