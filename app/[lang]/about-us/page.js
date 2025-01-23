@@ -102,9 +102,9 @@ function AboutUsContent() {
         <section className='development-delivers'>
           <div className="container">
             <BlogTitle
-              textOnBg={t("OurMissionTextOnBg")}
-              title={t("OurMissionTitle")}
-              descr={t("TextOnBgDescr")}
+              textOnBg={t("DevelopmentDeliversTextOnBg")}
+              title={t("DevelopmentDeliversTitle")}
+              descr={t("DevelopmentDeliversSubtitle")}
             />
             <DevelopmentDelivers />
           </div>

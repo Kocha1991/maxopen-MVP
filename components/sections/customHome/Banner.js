@@ -13,9 +13,7 @@ export default function Banner() {
           <div className="blur-bg blur-move" />
           <div className="maxOpen-banner__left">
             <h1 className="display-2 mb-30 mt-25 neutral-0">{t("HomeBannerTitle")}</h1>
-            <p className="text-lg neutral-500">{t("HomeBannerDescription")}</p>
-            <br />
-            <p className="text-lg neutral-500 mb-55">{t("HomeBannerDescription2")}</p>
+            <p className="text-lg neutral-500 mb-40">{t("HomeBannerDescription3")}</p>
             <div className="d-flex mb-60">
               <button
                 className="btn banner-btn hover-up mr-5"

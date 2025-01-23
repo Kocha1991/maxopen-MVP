@@ -2,6 +2,7 @@
   "HomeBannerTitle": "Let's bring your vision to reality",
   "HomeBannerDescription": "Your idea deserves an exceptional realization. We create more than just apps and websites; we craft thoughtful digital products that reflect your brand’s unique identity, set you apart from the competition, and drive your bottom line.",
   "HomeBannerDescription2":"From the initial concept to the final release, we’re with you every step of the way, ensuring a result that exceeds your expectations",
+  "HomeBannerDescription3":"Custom MVP & App Development Services",
 
   "ServicesTextOnBg": "Your solution is here",
   "ServicesTitle": "Choose services based on your needs",
@@ -94,6 +95,10 @@
   "CalendarHeader":"Haven’t found the best time?",
   "CalendarSubheader": "Feel free to use any alternative option below",
 
+  "DevelopmentDeliversTextOnBg":"Development That Delivers",
+  "DevelopmentDeliversTitle":"Crafting Solutions That Drive Success",
+  "DevelopmentDeliversSubtitle":"At MaxOpen, our development process is built around innovation, precision, and your unique needs. Whether it's creating seamless websites or dynamic mobile applications, we harness the latest technologies to bring your vision to life. Every line of code we write is aimed at delivering results that matter and ensuring your business stays ahead in today’s fast-paced digital landscape.",
+  
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",
@@ -103,6 +108,7 @@
     "Let's discuss": "Let's discuss",
     "Send Message": "Send Message",
     "Get started": "Get started",
-    "Order package": "Order package"
+    "Order package": "Order package",
+    "Go to website":"Go to website"
   }
 }

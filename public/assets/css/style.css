@@ -10678,6 +10678,10 @@ p {
   max-width: 700px;
   height: 100%;
 }
+.maxOpen-banner__left > p {
+  font-size: 24px;
+  color: #fff !important;
+}
 .maxOpen-banner__right {
   width: 45%;
   height: 100%;
@@ -11793,7 +11797,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   border: 2px solid rgba(236, 238, 242, 1);
   border-radius: 16px;
   display: grid;
-  grid-template-columns: 412px auto 170px;
+  grid-template-columns: 412px auto 220px;
   grid-template-rows: 52px auto;
   gap: 40px;
 }

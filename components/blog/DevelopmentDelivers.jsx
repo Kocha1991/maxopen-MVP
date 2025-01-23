@@ -1,42 +1,54 @@
-import React, { useState } from "react";
+'use client';
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useFetchData } from "@/components/customHooks/useFetchData";
+import Loading from "@/components/elements/Loading";
 
 const DevelopmentDelivers = () => {
-  const [activeCategory, setActiveCategory] = useState("OneTap");
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+  const [activeCategory, setActiveCategory] = useState(null);
+  const { data: categories, loading, error } = useFetchData("development-delivers", language);
 
-  const categories = [
-    { id: "OneTap", title: "One tap", img: "/assets/imgs/template/OneTap.jpg" },
-    { id: "PriceRadar", title: "PriceRadar", img: "/assets/imgs/template/PriceRadar.jpg" },
-    { id: "UGSUp", title: "UGS-Up", img: "/assets/imgs/template/UGS App.jpg" },
-  ];
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+      setActiveCategory(categories[0].id);
+    }
+  }, [categories]);
 
-  const content = {
-    OneTap: {
-      subtitle: "Empowering Growth and Success",
-      description:
-        "We help businesses unlock their potential with tailored, high-quality solutions. By addressing challenges and providing effective strategies, we enable companies to thrive, grow sustainably, and build a strong foundation for long-term success.",
-      results: [
-        "85% of businesses see significant growth within the first year",
-        "70% report a stronger competitive edge after implementing our solutions",
-      ],
-    },
-    PriceRadar: {
-      subtitle: "Streamlining Pricing Strategies",
-      description:
-        "PriceRadar provides innovative tools for businesses to optimize pricing strategies and stay competitive in their markets.",
-      results: [
-        "Increased pricing efficiency by 60%",
-        "Improved market share through competitive analysis",
-      ],
-    },
-    UGSUp: {
-      subtitle: "Driving Success with Advanced Solutions",
-      description:
-        "UGS-Up delivers cutting-edge technology to enhance productivity and streamline operations for businesses worldwide.",
-      results: [
-        "50% improvement in operational efficiency",
-        "Enhanced collaboration through advanced tools",
-      ],
-    },
+  if (loading) return <Loading />;
+  if (error) return <div>{error}</div>;
+
+  const handleCategoryChange = (categoryId) => {
+    setActiveCategory(categoryId);
+  };
+
+  const renderActiveCategory = () => {
+    if (!activeCategory) return null;
+
+    const activeData = categories.find((cat) => cat.id === activeCategory);
+
+    console.log(activeData);
+
+    if (!activeData) {
+      return <div>{t("errors.noDataForCategory")}</div>;
+    }
+
+    return (
+      <div className="development-delivers__block">
+        <div className="development-delivers__img">
+          <img src={activeData.image.full_url} alt={activeData["text-button"]} />
+        </div>
+        <h2 className="development-delivers__title">{activeData["name-project"]}</h2>
+        <div
+          className="blog-change-option__text"
+          dangerouslySetInnerHTML={{ __html: activeData.description }}
+        />
+        <button className="btn btn-brand-4-medium hover-up">
+          {t("buttons.Go to website")}
+        </button>
+      </div>
+    );
   };
 
   return (
@@ -48,41 +60,13 @@ const DevelopmentDelivers = () => {
             className={`blog-change-option__categories-btn ${
               activeCategory === category.id ? "blog-change-option-active" : ""
             }`}
-            onClick={() => setActiveCategory(category.id)}
+            onClick={() => handleCategoryChange(category.id)}
           >
-            {category.title}
+            {category["text-button"]}
           </button>
         ))}
       </div>
-
-      <div className="development-delivers__block">
-        <div className="development-delivers__img">
-          <img
-            src={categories.find((cat) => cat.id === activeCategory)?.img}
-            alt={activeCategory}
-          />
-        </div>
-        <h2 className="development-delivers__title">
-          {categories.find((cat) => cat.id === activeCategory)?.title}
-        </h2>
-        <div className="blog-change-option__text">
-          <h2 className="maxOpen__subtitle">
-            {content[activeCategory].subtitle}
-          </h2>
-          <h3 className="maxOpen-services__descr">
-            {content[activeCategory].description}
-          </h3>
-          <h2 className="text-18-bold">Key Results:</h2>
-          <ul>
-            {content[activeCategory].results.map((result, index) => (
-              <li key={index} className="maxOpen-services__descr">
-                {result}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <button className="btn btn-brand-4-medium hover-up">Go to website</button>
-      </div>
+      {renderActiveCategory()}
     </div>
   );
 };
