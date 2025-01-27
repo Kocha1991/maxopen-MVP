@@ -22,21 +22,6 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
   return (
     <>
         <header className={`header ${headerCls ? headerCls : ""} sticky-bar ${scroll ? "stick" : ""} ${isBlack ? "header-black" : ""}`}>
-            {/* {topBar &&
-                <div className="top-bar">
-                    <div className="container">
-                        <div className="top-bar-inner">
-                            <div className="box-top-bar-left">
-                              <span className="address-icon text-md">
-                                9207 Lakeshore RdShreveport
-                              </span>
-                            </div>
-                            <div className="box-top-bar-right"><a className="phone-icon text-md" href="tel:(262) 555-0131">(262)
-                                555-0131</a><a className="email-icon text-md" href="mailto:contact@nivia.com">contact@nivia.com</a></div>
-                        </div>
-                    </div>
-                </div>
-            } */}
             <div className="container">
               <div className="custom-header">
                 <div className="header-logo">
@@ -53,12 +38,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                     />
                   </Link>
                 </div>
-
-                <div className="header-nav">
-                  <nav className="nav-main-menu d-none d-xl-block">
-                    <Nav />
-                  </nav>
-                </div>
+                <Nav />
                 <div className="header-right ">
                   <div className='header-right__block'>
                     <LanguageDropdown />

@@ -47,7 +47,7 @@
   "Services":"Services",
   "Solutions":"Solutions",
   "Portfolio":"Portfolio",
-  "Contact":"Contact",
+  "Blog":"Blog",
   "AboutUs": "About us",
 
   "Follow":"Follow us",
@@ -98,6 +98,10 @@
   "DevelopmentDeliversTextOnBg":"Development That Delivers",
   "DevelopmentDeliversTitle":"Crafting Solutions That Drive Success",
   "DevelopmentDeliversSubtitle":"At MaxOpen, our development process is built around innovation, precision, and your unique needs. Whether it's creating seamless websites or dynamic mobile applications, we harness the latest technologies to bring your vision to life. Every line of code we write is aimed at delivering results that matter and ensuring your business stays ahead in today’s fast-paced digital landscape.",
+  
+  "OurblogBannerTitle":"Discover new opportunities with our blog",
+  "OurblogBannerDescription":"Explore the latest insights, tips, and news from various industries. Here you will find useful information that will help you stay one step ahead in your business by improving strategies and making effective decisions.",
+  "Ourblog": "Our blog",
   
   "buttons": {
     "BookMeeting": "Book a meeting",

@@ -15,7 +15,7 @@ export const Nav = ({
         <li className="has-children"><Link href="/about-us" onClick={onLinkClick}>{t("AboutUs")}</Link></li>
         <li className="has-children"><Link href="/complete-solutions" onClick={onLinkClick}>{t("Solutions")}</Link></li>
         <li className="has-children"><Link href="#projects" onClick={onLinkClick}>{t("Portfolio")}</Link></li>
-        <li className="has-children"><Link href="#contact" onClick={onLinkClick}>{t("Contact")}</Link></li>
+        <li className="has-children"><Link href="/blog-maxOpen" onClick={onLinkClick}>{t("Blog")}</Link></li>
       </ul>
     </nav>
   );
