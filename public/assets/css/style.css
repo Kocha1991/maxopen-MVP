@@ -763,9 +763,9 @@ h6, .heading-6 {
   margin: 2px;
 }
 .pagination li a:hover, .pagination li a.active {
-  background-color: #C5FF41;
+  background-color: #2afad7;
   color: #191919;
-  border-color: #C5FF41;
+  border-color: #2afad7;
 }
 .pagination .page-item:not(:first-child) .page-link {
   margin-left: 2px;
@@ -11867,13 +11867,108 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .filter-categories {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
 }
 .filter-categories .blog-change-option__categories-btn {
   padding: 10px 25px;
   min-width: fit-content;
+}
+.filter-by {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-by__text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 1200px) {
+  .filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-by {
+    order: 1;
+  }
+  .filter-categories {
+    order: 2;
+  }
+}
+@media (max-width: 992px) {
+  .filter-by__text {
+    font-size: 15px;
+  }
+}
+@media (max-width: 540px) {
+  .filter-by {
+    width: 100%;
+  }
+}
+.custom-dropdown > button {
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.6);
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  transition: 0.3s all ease-in-out;
+}
+.custom-dropdown > button:hover {
+  color: rgba(0, 0, 0, 1);
+  background-color: transparent;
+  transition: 0.3s all ease-in-out;
+}
+.show.custom-dropdown > .dropdown-toggle,
+.custom-dropdown.dropdown > .dropdown-toggle:focus {
+  background-color: #2afad7;
+  border-color: #2afad7;
+  color: rgba(0, 0, 0, 1);
+}
+.blog-card-custom {
+  margin-bottom: 25px;
+  border: 1px solid rgba(236, 238, 242, 1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.blog-card-custom .card-title {
+  margin-bottom: 15px;
+  
+}
+.blog-card-custom .card-info {
+  padding: 20px;
+}
+.blog-card-custom .card-meta {
+  margin-bottom: 15px;
+}
+.blog-card-custom .date-post {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: rgba(155, 156, 159, 1);
+}
+.blog-card-custom .card-descr {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.blog-card-custom .btn {
+  width: 160px;
 }

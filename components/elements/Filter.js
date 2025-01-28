@@ -1,4 +1,5 @@
 import React from "react";
+import CustomDropdown from './CustomDropdown';
 
 const Filter = () => {
   return (
@@ -13,7 +14,8 @@ const Filter = () => {
         <button className='blog-change-option__categories-btn'>Design</button>
       </div>
       <div className='filter-by'>
-        <h3>Sort by:</h3>
+        <h3 className='filter-by__text'>Sort by:</h3>
+        <CustomDropdown />
       </div>
     </div>
   );

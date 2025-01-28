@@ -6,15 +6,16 @@ import BlogCard2 from "./BlogCard2";
 import BlogCard3 from "./BlogCard3";
 import Pagination from "./Pagination";
 import Filter from '../elements/Filter';
+import BlogCardCustom from './BlogCardCustom';
 
 export default function BlogPost({ style, showItem, showPagination }) {
-  let [currentPage, setCurrentPage] = useState(1)
+  let [currentPage, setCurrentPage] = useState(1);
   let showLimit = showItem,
-      paginationItem = 4
+      paginationItem = 4;
 
-  let [pagination, setPagination] = useState([])
-  let [limit, setLimit] = useState(showLimit)
-  let [pages, setPages] = useState(Math.ceil(data.length / limit))
+  let [pagination, setPagination] = useState([]);
+  let [limit, setLimit] = useState(showLimit);
+  let [pages, setPages] = useState(Math.ceil(data.length / limit));
 
   useEffect(() => {
     cratePagination()
@@ -24,7 +25,7 @@ export default function BlogPost({ style, showItem, showPagination }) {
     // set pagination
     let arr = new Array(Math.ceil(data.length / limit))
         .fill()
-        .map((_, idx) => idx + 1)
+        .map((_, idx) => idx + 1);
 
     setPagination(arr)
     setPages(Math.ceil(data.length / limit))
@@ -58,8 +59,8 @@ export default function BlogPost({ style, showItem, showPagination }) {
 
       {getPaginatedProducts.map(item => (
         <React.Fragment key={item.id}>
-            {!style && <BlogCard1 item={item} />}
-            {style === 1 && <BlogCard1 item={item} />}
+            {!style && <BlogCardCustom item={item} />}
+            {style === 1 && <BlogCardCustom  item={item} />}
             {style === 2 && <BlogCard2 item={item} />}
             {style === 3 && <BlogCard3 item={item} />}
         </React.Fragment>
