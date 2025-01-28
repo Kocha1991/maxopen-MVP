@@ -1,11 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import data from "../../util/blog.json";
-import BlogCard1 from "./BlogCard1";
-import BlogCard2 from "./BlogCard2";
-import BlogCard3 from "./BlogCard3";
 import Pagination from "./Pagination";
-import Filter from '../elements/Filter';
 import BlogCardCustom from './BlogCardCustom';
 
 export default function BlogPost({ style, showItem, showPagination }) {
@@ -41,28 +37,28 @@ export default function BlogPost({ style, showItem, showPagination }) {
 
   const next = () => {
     setCurrentPage((page) => page + 1)
-  }
+  };
 
   const prev = () => {
     setCurrentPage((page) => page - 1)
-  }
+  };
 
   const handleActive = (item) => {
-    setCurrentPage(item)
-  }
+    setCurrentPage(item);
+  };
+
   return (
     <>
-      <Filter />
       {getPaginatedProducts.length === 0 && (
         <h3>No Products Found </h3>
       )}
 
       {getPaginatedProducts.map(item => (
         <React.Fragment key={item.id}>
+            <div className="col-lg-4 col-md-6">
             {!style && <BlogCardCustom item={item} />}
             {style === 1 && <BlogCardCustom  item={item} />}
-            {style === 2 && <BlogCard2 item={item} />}
-            {style === 3 && <BlogCard3 item={item} />}
+            </div>
         </React.Fragment>
       ))}
 

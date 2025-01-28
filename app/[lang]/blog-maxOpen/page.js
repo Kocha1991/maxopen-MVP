@@ -6,17 +6,19 @@ import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
 import BlogPost from '@/components/blog/BlogPost';
+import ModalManager from '@/components/elements/ModalManager';
+import Filter from '@/components/elements/Filter';
 
 
-export default function AboutUs() {
+export default function BlogMaxOpen() {
   return (
     <ModalProvider>
-      <BlogMaxOpen />
+      <BlogMaxOpenContent />
     </ModalProvider>
   );
 };
 
-function BlogMaxOpen() {
+function BlogMaxOpenContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   // const { language } = i18n;
@@ -34,12 +36,20 @@ function BlogMaxOpen() {
           <div className="blog-maxOpen__wrapper">
             <h2 className='blog-title mb-20'>{t("Ourblog")}</h2>
             <div className="row">
+              <Filter />
               <BlogPost showItem={9} style={1} showPagination />
+              
 
             </div>
           </div>
         </div>
       </Layout>
+      <ModalManager 
+        isOpen={isOpen} 
+        modalType={modalType} 
+        modalData={modalData} 
+        onClose={closeModal} 
+      />
     </div>
   )
 }

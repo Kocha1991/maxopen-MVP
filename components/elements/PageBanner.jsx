@@ -5,9 +5,17 @@ const PageBanner = ({
   SolutionsBannerDescr,
   textBnt,
   onOpenModal,
+  bunnerBg,
 }) => {
+
+  const bannerStyle = {
+    background: bunnerBg
+      ? `url(${bunnerBg}) center/cover no-repeat`
+      : "rgba(25, 25, 25, 1)",
+  };
+
   return (
-    <div className="page-banner__banner">
+    <div className="page-banner__banner" style={bannerStyle}>
       <div className="container">
         <div className="page-banner__wrapper">
           <h2 className="display-2 mb-30 mt-25 neutral-0 page-banner__title">

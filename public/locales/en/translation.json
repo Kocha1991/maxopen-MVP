@@ -102,7 +102,15 @@
   "OurblogBannerTitle":"Discover new opportunities with our blog",
   "OurblogBannerDescription":"Explore the latest insights, tips, and news from various industries. Here you will find useful information that will help you stay one step ahead in your business by improving strategies and making effective decisions.",
   "Ourblog": "Our blog",
-  
+
+  "Ourportfolio": "Our Portfolio",
+  "OurportfolioBannerTitle": "Transform Ideas into Digital Reality",
+  "OurportfolioBannerdescr": "Explore the latest insights, tips, and news from various industries. Here you will find useful information that will help you stay one step ahead in your business by improving strategies and making effective decisions.",
+
+  "Ourservice":"Our service",
+  "OurserviceBannerTitle":"Elevate Your Business with Chatbots",
+  "OurserviceBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
+
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",

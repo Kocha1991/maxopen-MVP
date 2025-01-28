@@ -11,10 +11,10 @@ export const Nav = ({
     <nav className="custom-nav">
       <ul className="main-menu">
         <li className="has-children"><Link className="active" href="/" onClick={onLinkClick}>{t("Home")}</Link></li>
-        <li className="has-children"><Link href="#services" onClick={onLinkClick}>{t("Services")}</Link></li>
+        <li className="has-children"><Link href="/services" onClick={onLinkClick}>{t("Services")}</Link></li>
         <li className="has-children"><Link href="/about-us" onClick={onLinkClick}>{t("AboutUs")}</Link></li>
         <li className="has-children"><Link href="/complete-solutions" onClick={onLinkClick}>{t("Solutions")}</Link></li>
-        <li className="has-children"><Link href="#projects" onClick={onLinkClick}>{t("Portfolio")}</Link></li>
+        <li className="has-children"><Link href="/portfolio" onClick={onLinkClick}>{t("Portfolio")}</Link></li>
         <li className="has-children"><Link href="/blog-maxOpen" onClick={onLinkClick}>{t("Blog")}</Link></li>
       </ul>
     </nav>

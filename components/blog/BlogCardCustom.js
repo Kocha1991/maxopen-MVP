@@ -3,11 +3,11 @@ import Link from "next/link"
 export default function BlogCardCustom({ item }) {
     return (
         <>
-          <div className="col-lg-4 col-md-6">
+          
               <div className="blog-card-custom">
                   <div className="card-image">
-                    <Link href={`/blog/${item.id}`}>
-                      <img src={`/assets/imgs/page/blog/${item.img}`} alt="img" className="img-fluid" />
+                    <Link href={`/blog-maxOpen/article`}>
+                      <img src={`/assets/imgs/template/UxArticle.jpg`} alt="img" className="img-fluid" />
                     </Link>
                   </div>
                   <div className="card-info">
@@ -21,13 +21,13 @@ export default function BlogCardCustom({ item }) {
                       How do you create compelling presentations that wow your colleagues and impress your managers?
                     </div>
                     <div className="card-more">
-                      <Link className="btn btn-brand-4-medium hover-up" href={`/blog/${item.id}`}>
+                      <Link className="btn btn-brand-4-medium hover-up" href={`/blog-maxOpen/article`}>
                         Design
                       </Link>
                     </div>
                   </div>
               </div>
-          </div>
+          
 
         </>
     )
