@@ -10269,6 +10269,7 @@ p {
 
 .card-features-maxOpen .card-image {
   position: relative;
+  width: 75px;
   height: 75px;
   z-index: 5;
 }

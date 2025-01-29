@@ -31,14 +31,14 @@ function ServicesContent() {
     <div className='services'>
       <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
         <PageBanner 
-          SolutionsBannerTitle={t("OurserviceBannerTitle")}
-          SolutionsBannerDescr={t("OurserviceBannerDescr")}
+          SolutionsBannerTitle={t("OurservicesBannerTitle")}
+          SolutionsBannerDescr={t("OurservicesBannerDescr")}
           textBnt={t("buttons.BookMeeting")}
           onOpenModal={openModal}
         />
         <div className='container'>
           <div className="blog-maxOpen__wrapper">
-            <h2 className='blog-title mb-20'>{t("Ourservice")}</h2>
+            <h2 className='blog-title mb-20'>{t("Ourservices")}</h2>
             <div className="row">
               {/* Динамічні локалізовані дані з API */}
               {services.map((service, index) => {
@@ -51,8 +51,9 @@ function ServicesContent() {
                     iconHover={service["icon-black"]}
                     title={service.title}
                     descr={service.description}
-                    btnText={t("buttons.Book a call")}
+                    btnText={t("buttons.Learn more")}
                     isFullWidth={isFullWidth}
+                    link="/services/service"
                   />
                 );
               })}

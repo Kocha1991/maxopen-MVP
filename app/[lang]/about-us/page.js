@@ -12,6 +12,7 @@ import BlogChangeOption from '@/components/blog/BlogChangeOption';
 import Indicators from '@/components/blog/Indicators';
 import BlogCardLinks from '@/components/blog/BlogCardLinks';
 import DevelopmentDelivers from '@/components/blog/DevelopmentDelivers';
+import TextInfo from '@/components/elements/TextInfo';
 
 export default function AboutUs() {
   return (
@@ -36,19 +37,11 @@ function AboutUsContent() {
           onOpenModal={openModal}
         />
         <BlogCardLinks />
-        <section className='about-us__reality'>
-          <div className="container">
-            <h2 className='maxOpen-services__title'>
-              {t("RealityTitle")}
-            </h2>
-            <h3 className='maxOpen-services__descr'>
-              {t("RealityDescr")}
-            </h3>
-            <div className='about-us__reality_text'>
-              {t("RealityText")}
-            </div>
-          </div>
-        </section>
+        <TextInfo 
+          title={t("RealityTitle")}
+          descr={t("RealityDescr")}
+          textOnBg={t("RealityText")}
+        />
         <section className='our-culture'>
           <div className="container">
             <BlogTitle

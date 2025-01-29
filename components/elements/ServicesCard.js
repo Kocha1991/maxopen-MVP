@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-import { useModal } from '@/components/customHooks/useModal';
+import Link from 'next/link';
 
 export const ServicesCard = ({
   icon,
@@ -9,12 +9,8 @@ export const ServicesCard = ({
   descr,
   btnText,
   isFullWidth,
+  link = "/services"
 }) => {
-  const { openModal } = useModal();
-
-  const handleCalendarOpen = () => {
-    openModal('calendar');
-  };
 
   return (
     <div className={`mb-20 ${isFullWidth ? 'col-12 card-features-maxOpen-long' : 'col-lg-4'}`}>
@@ -37,15 +33,12 @@ export const ServicesCard = ({
               </p>
           </div>
         </div>
-        <button 
-            className="btn btn-info-card animation-btn-svg" 
-            onClick={handleCalendarOpen}
-          >
-            {btnText}
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
-            </svg>
-          </button>
+        <Link className="btn btn-info-card animation-btn-svg" href={link}>
+          {btnText}
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
+          </svg>
+        </Link>
       </div>
     </div>
   );

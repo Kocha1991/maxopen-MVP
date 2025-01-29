@@ -35,7 +35,7 @@ export const Services = () => {
                 iconHover={service["icon-black"]}
                 title={service.title}
                 descr={service.description}
-                btnText={t("buttons.Book a call")}
+                btnText={t("buttons.Learn more")}
                 isFullWidth={isFullWidth}
               />
             );

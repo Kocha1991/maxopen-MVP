@@ -107,9 +107,13 @@
   "OurportfolioBannerTitle": "Transform Ideas into Digital Reality",
   "OurportfolioBannerdescr": "Explore the latest insights, tips, and news from various industries. Here you will find useful information that will help you stay one step ahead in your business by improving strategies and making effective decisions.",
 
-  "Ourservice":"Our service",
-  "OurserviceBannerTitle":"Elevate Your Business with Chatbots",
-  "OurserviceBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
+  "Ourservices":"Our service",
+  "OurservicesBannerTitle":"Elevate Your Business with Chatbots",
+  "OurservicesBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
+
+  "ServicesBannerTitle": "Elevate Your Business with Chatbots",
+  "ServicesBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
+  "ServicesAnimationText": "We're proud to work with a diverse range of clients, helping them achieve success with innovative chatbot solutions.",
 
   "buttons": {
     "BookMeeting": "Book a meeting",
@@ -121,6 +125,7 @@
     "Send Message": "Send Message",
     "Get started": "Get started",
     "Order package": "Order package",
-    "Go to website":"Go to website"
+    "Go to website":"Go to website",
+    "Learn more": "Learn more"
   }
 }
