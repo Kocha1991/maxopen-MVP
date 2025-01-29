@@ -37,9 +37,7 @@ function BlogMaxOpenContent() {
             <h2 className='blog-title mb-20'>{t("Ourblog")}</h2>
             <div className="row">
               <Filter />
-              <BlogPost showItem={9} style={1} showPagination />
-              
-
+              <BlogPost showItem={12} style={1} showPagination />
             </div>
           </div>
         </div>

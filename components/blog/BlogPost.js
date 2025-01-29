@@ -55,7 +55,7 @@ export default function BlogPost({ style, showItem, showPagination }) {
 
       {getPaginatedProducts.map(item => (
         <React.Fragment key={item.id}>
-            <div className="col-lg-4 col-md-6">
+            <div className="col-lg-3 col-md-4">
             {!style && <BlogCardCustom item={item} />}
             {style === 1 && <BlogCardCustom  item={item} />}
             </div>

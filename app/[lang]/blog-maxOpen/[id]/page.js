@@ -49,8 +49,10 @@ const Article = () => {
             </div>
             <div className='article__right'>
               <h2 className='.text-30-bold mb-40'>Related Articles</h2>
-              <BlogCardCustom />
-              <BlogCardCustom />
+              <div className='article__cards'>
+                <BlogCardCustom />
+                <BlogCardCustom />
+              </div>
             </div>
           </div>
         </div>
