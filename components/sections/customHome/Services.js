@@ -37,6 +37,7 @@ export const Services = () => {
                 descr={service.description}
                 btnText={t("buttons.Learn more")}
                 isFullWidth={isFullWidth}
+                link="/services/service"
               />
             );
           })}

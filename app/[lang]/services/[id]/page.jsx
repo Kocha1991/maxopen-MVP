@@ -10,8 +10,7 @@ import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import ContactUs from '@/components/sections/customHome/ContactUs';
 import BlogCardLinks from '@/components/blog/BlogCardLinks';
 import TextInfo from '@/components/elements/TextInfo';
-// import Loading from '@/components/elements/Loading';
-// import { useFetchData } from '@/components/customHooks/useFetchData';
+import KeyBenefits from '@/components/sections/service-page/KeyBenefits';
 
 export default function Service() {
   return (
@@ -38,12 +37,16 @@ function ServiceContent() {
           textBnt={t("buttons.BookMeeting")}
           onOpenModal={openModal}
         />
-        <GoodsAnimation />
+        <GoodsAnimation 
+          text={t("ServicesAnimationText")}
+        />
         <BlogCardLinks />
         <TextInfo 
-          title={t("ServicesBannerTitle")}
-          descr={t("ServicesBannerDescr")}
+          title={t("ServiceTextInfoTitle")}
+          descr={t("ServiceTextInfoDescr")}
         />
+        <KeyBenefits />
+
         <ContactUs />
       </Layout>
       <ModalManager 

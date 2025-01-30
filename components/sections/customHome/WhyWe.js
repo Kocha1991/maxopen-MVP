@@ -1,7 +1,6 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
-import { useLanguage } from '@/components/customHooks/LanguageContext';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';
@@ -24,20 +23,20 @@ export default function WhyWe() {
             title={t("WhyTitle")}
             descr={t("WhySubtitle")}
           />
-            <div className="row mt-90">
-              {whyWeItems.length > 0 ? (
-                whyWeItems.map((item) => (
-                  <InfoBlock 
-                    key={item.id}
-                    icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
-                    title={item.title}
-                    descr={item.description}
-                  />
-                ))
-              ) : (
-                <p>No items available</p>
-              )}
-            </div>
+          <div className="row mt-90">
+            {whyWeItems.length > 0 ? (
+              whyWeItems.map((item) => (
+                <InfoBlock 
+                  key={item.id}
+                  icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
+                  title={item.title}
+                  descr={item.description}
+                />
+              ))
+            ) : (
+              <p>No items available</p>
+            )}
+          </div>
         </div>
     </section>
   );
