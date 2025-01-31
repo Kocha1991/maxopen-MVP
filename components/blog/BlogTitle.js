@@ -14,7 +14,7 @@ export const BlogTitle = ({
       <h2 className={`maxOpen-services__title ${textColor}`}>
         {title}
       </h2>
-      <h3 className={`maxOpen-services__descr ${textColor}`}>
+      <h3 className={`maxOpen-services__descr`}>
         {descr}
       </h3>
     </div>

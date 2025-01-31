@@ -1,23 +1,8 @@
-'use client';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { useFetchData } from '../customHooks/useFetchData';
-import Loading from "@/components/elements/Loading";
 
-export default function LogoTicker() {
-  const { data, loading, error } = useFetchData('logo-techonologies');
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  const logos = Array.isArray(data) && data.length > 0 && data[0]?.logo ? data[0].logo : [];
-
-  if (!logos.length) {
+export default function LogoTicker({ logos }) {
+  if (!logos || !logos.length) {
     return <p>No logos available</p>;
   }
 

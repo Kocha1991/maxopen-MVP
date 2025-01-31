@@ -11,6 +11,9 @@ import ContactUs from '@/components/sections/customHome/ContactUs';
 import BlogCardLinks from '@/components/blog/BlogCardLinks';
 import TextInfo from '@/components/elements/TextInfo';
 import KeyBenefits from '@/components/sections/service-page/KeyBenefits';
+import ChatbotSlider from '@/components/slider/ChatbotSlider';
+import LogoTicker from '@/components/elements/LogoTicker';
+import { BlogTitle } from '@/components/blog/BlogTitle';
 
 export default function Service() {
   return (
@@ -24,9 +27,6 @@ function ServiceContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-
-  // if (loading) return <Loading />;
-  // if (error) return <div>{error}</div>;
 
   return (
     <div className='service'>
@@ -46,7 +46,16 @@ function ServiceContent() {
           descr={t("ServiceTextInfoDescr")}
         />
         <KeyBenefits />
+        <ChatbotSlider />
+        <div className='who-needs'>
+          <BlogTitle 
+            textOnBg={t("WhoNeedsTextOnBg")}
+            title={t("WhoNeedsTitle")}
+            textColor="wight-text"
+          />
 
+        </div>
+        {/* <LogoTicker />  */}
         <ContactUs />
       </Layout>
       <ModalManager 

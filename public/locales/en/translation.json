@@ -121,6 +121,12 @@
   "KeyBenefitsTextOnBg": "Key Benefits",
   "KeyBenefitsTitle": "Unlocking the Full Potential of Chatbots",
 
+  "ChatbotTasksTextOnBg": "Chatbot Tasks",
+  "ChatbotTasksTextTitle": "Solving Business Challenges",
+
+  "WhoNeedsTextOnBg":"Who?",
+  "WhoNeedsTitle":"Who needs the service?",
+
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",

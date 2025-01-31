@@ -117,6 +117,12 @@
   "KeyBenefitsTextOnBg": "Ключові переваги",
   "KeyBenefitsTitle": "Розкриваючи повний потенціал чат-ботів",
 
+  "ChatbotTasksTextOnBg": "Завдання чат-ботів",
+  "ChatbotTasksTextTitle": "Розв'язування бізнес-викликів",
+
+  "WhoNeedsTextOnBg": "Кому?",
+  "WhoNeedsTitle": "Для кого потрібна ця послуга?",
+
   "buttons": {
     "BookMeeting": "Запланувати зустріч",
     "Book a call": "Записатись на дзвінок",
