@@ -21,7 +21,7 @@ const GoodsAnimation = ({ text }) => {
       <div className='box-logos-custom'>
         <div className="carouselTickerLogos2 carouselTicker_vertical" id="slide-logos">
           {text && <div className='carouselTickerLogos2__text'>{text}</div>}
-          <LogoTicker logos={logos} />
+          <LogoTicker items={logos} />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-export default function LogoTicker({ items }) {
+export default function ItemsTicker({ items }) {
   if (!items || !items.length) {
     return <p>No items available</p>;
   }
@@ -9,11 +9,9 @@ export default function LogoTicker({ items }) {
   return (
     <Marquee pauseOnHover={true} direction="left" className="carouselTicker__list list-logos">
       {items.map((item) => (
-        <li key={item.id} className="carouselTicker__item">
-          <div className="item-logo">
-            <img src={item.full_url} alt={item.file_name} />
-          </div>
-        </li>
+        <div key={item.id} className='animation-item '>
+          <h2 className='text-18-semibold'>{item["name-service"]}</h2>
+        </div>
       ))}
     </Marquee>
   );
