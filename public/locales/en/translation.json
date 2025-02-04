@@ -127,6 +127,16 @@
   "WhoNeedsTextOnBg":"Who?",
   "WhoNeedsTitle":"Who needs the service?",
 
+  "EfficiencyChatbotTextOnBg": "Chatbot Efficiency",
+  "EfficiencyChatbotTitle": "Unlocking the Power of Chatbots",
+  "EfficiencyChatbotDescr": "Chatbots are transforming the way businesses interact with customers by providing immediate, personalized responses. The secret to their effectiveness lies in their ability to combine automation with intelligence, offering a seamless and engaging experience. ",
+
+  "PlatformsChatbotTextOnBg": "Platforms",
+  "PlatformsChatbotTitle": "Building Across Platforms",
+  "PlatformsChatbotDescr": "We develop chatbots for a wide range of platforms to ensure that your business can reach customers wherever they are. Whether you need a bot for your website, mobile app, or messaging service, we have the expertise to create a seamless, multi-platform experience. We tailor our solutions to fit your business needs, delivering efficiency and engagement on the platforms.",
+
+  "FAQTitle": "Answers to your questions",
+
   "buttons": {
     "BookMeeting": "Book a meeting",
     "Book a call": "Book a call",

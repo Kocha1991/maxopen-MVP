@@ -16,6 +16,8 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import ItemsTicker from '@/components/elements/ItemsTicker';
 import Loading from '@/components/elements/Loading';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Efficiency from '@/components/sections/service-page/Efficiency';
+import Faq from '@/components/sections/service-page/Faq';
 
 export default function Service() {
   return (
@@ -30,12 +32,12 @@ function ServiceContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: services, loading, error } = useFetchData("animation-services", language);
+  const { data: services, loading: loadingServices, error: errorServices } = useFetchData("animation-services", language);
+  const { data: networks, loading: loadingNetworks, error: errorNetworks } = useFetchData("social-networks", language);
 
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
 
-  const filteredServices = services.filter(service => service.locale === language);
+  if (loadingServices || loadingNetworks) return <Loading />;
+  if (errorServices || errorNetworks) return <div>{errorServices || errorNetworks}</div>;
 
   return (
     <div className='service'>
@@ -63,9 +65,23 @@ function ServiceContent() {
             textColor="wight-text"
           />
           <ItemsTicker 
-            items={filteredServices}
+            items={services}
           /> 
         </div>
+        <Efficiency />
+        <div className='container'>
+          <BlogTitle 
+            textOnBg={t("PlatformsChatbotTextOnBg")}
+            title={t("PlatformsChatbotTitle")}
+            descr={t("PlatformsChatbotDescr")}
+          />
+        </div>
+        <ItemsTicker 
+          items={networks}
+        /> 
+        <Faq 
+          onOpenModal={openModal}
+        />
         <ContactUs />
       </Layout>
       <ModalManager 
