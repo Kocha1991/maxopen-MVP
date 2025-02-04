@@ -33,7 +33,7 @@ function ServiceContent() {
   const { language } = i18n;
 
   const { data: services, loading: loadingServices, error: errorServices } = useFetchData("animation-services", language);
-  const { data: networks, loading: loadingNetworks, error: errorNetworks } = useFetchData("social-networks", language);
+  const { data: networks, loading: loadingNetworks, error: errorNetworks } = useFetchData("social-networks");
 
 
   if (loadingServices || loadingNetworks) return <Loading />;

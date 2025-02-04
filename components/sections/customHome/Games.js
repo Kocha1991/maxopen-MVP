@@ -1,10 +1,18 @@
 import React from 'react';
 import Team2Slider from '@/components/slider/Team2Slider';
 import { useTranslation } from 'react-i18next';
+import { useFetchData } from '@/components/customHooks/useFetchData';
+import { useModal } from '@/components/customHooks/useModal';  // Додаємо useModal
 
-export const Games = ({ openModal }) => {
+export const Games = () => {
   const { t } = useTranslation();
-  
+  const { data: games, loading, error } = useFetchData("video-games");
+
+  const { openModal } = useModal();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading games</p>;
+
   return (
     <section className="games">
       <div className="container games__wrapper">
@@ -12,7 +20,7 @@ export const Games = ({ openModal }) => {
           {t("GamesTitle")}
         </h2>
         <div className="box-swiper mt-60">
-          <Team2Slider openModal={openModal} />
+          <Team2Slider slides={games} openModal={openModal} />
         </div>
       </div>
     </section>
