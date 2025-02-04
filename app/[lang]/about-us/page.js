@@ -36,7 +36,11 @@ function AboutUsContent() {
           textBnt={t("buttons.BookMeeting")}
           onOpenModal={openModal}
         />
-        <BlogCardLinks />
+        <BlogCardLinks 
+          textOnBg={t("AboutUsTextOnBg")} 
+          title={t("AboutUsWhoWeTitle")} 
+          descr={t("AboutUsWhoWeDescr")} 
+        />
         <TextInfo 
           title={t("RealityTitle")}
           descr={t("RealityDescr")}

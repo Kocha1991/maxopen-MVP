@@ -6,6 +6,7 @@ export default function ItemsTicker({ items }) {
   if (!items || !items.length) {
     return <p>No items available</p>;
   }
+  
 
   return (
     <Marquee pauseOnHover={true} direction="left" className="carouselTicker__list list-logos">

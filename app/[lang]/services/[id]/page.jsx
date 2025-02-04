@@ -51,7 +51,11 @@ function ServiceContent() {
         <GoodsAnimation 
           text={t("ServicesAnimationText")}
         />
-        <BlogCardLinks />
+        <BlogCardLinks 
+          textOnBg={t("ChatbotSolutionsTextOnBg")} 
+          title={t("ChatbotSolutionsTitle")} 
+          descr={t("ChatbotSolutionsDescr")} 
+        />
         <TextInfo 
           title={t("ServiceTextInfoTitle")}
           descr={t("ServiceTextInfoDescr")}

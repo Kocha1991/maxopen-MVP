@@ -12265,7 +12265,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     height: 50px;
   }
 }
-
+.service .blog-card-links {
+  padding: 150px 0 100px;
+}
 .faq {
   padding: 100px 0;
   background-color: rgba(25, 25, 25, 1);
@@ -12290,6 +12292,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   margin-bottom: 30px;
 }
 @media (max-width: 992px) {
+  .service .blog-card-links {
+    padding: 150px 0 60px;
+  }
   .faq {
     padding: 60px 0;
   }

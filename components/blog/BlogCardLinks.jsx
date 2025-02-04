@@ -1,10 +1,12 @@
 import React from "react";
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 
-const BlogCardLinks = () => {
-  const { t, i18n } = useTranslation();
+const BlogCardLinks = ({
+  textOnBg,
+  title,
+  descr,
+}) => {
   
   return (
     <section className='blog-card-links'>
@@ -32,9 +34,9 @@ const BlogCardLinks = () => {
           </div>
           <div className='blog-card-links__info-bloc'>
             <BlogTitle 
-              textOnBg={t("AboutUsTextOnBg")} 
-              title={t("AboutUsWhoWeTitle")} 
-              descr={t("AboutUsWhoWeDescr")} 
+              textOnBg={textOnBg}
+              title={title}
+              descr={descr}
             />
           </div>
         </div>
