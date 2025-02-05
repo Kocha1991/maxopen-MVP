@@ -3,7 +3,7 @@ import { ModalProvider } from "@/components/customHooks/useModal";
 import { LanguageProvider } from "@/components/customHooks/LanguageContext";
 import { I18nProvider } from "@/components/providers/I18nProvider";
 import { Suspense } from "react";
-import { getTranslation } from './metatranslations'; // Імпортуємо функцію перекладу
+import { getTranslation } from './metatranslations';
 
 const urban = Urbanist({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -16,7 +16,7 @@ const urban = Urbanist({
 export async function generateMetadata({ params: { lang } }) {
   console.log("Generating metadata for language:", lang);
 
-  const currentTranslation = getTranslation(lang); // Отримуємо переклад
+  const currentTranslation = getTranslation(lang);
 
   return {
     title: currentTranslation.MetaTitle,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params: { lang } }) {
 export default async function Layout({ children, params }) {
   console.log("Params:", params);
 
-  const currentTranslation = getTranslation(params.lang); // Отримуємо переклад
+  const currentTranslation = getTranslation(params.lang);
 
   return (
     <html lang={params.lang}>

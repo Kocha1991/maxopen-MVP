@@ -10855,7 +10855,7 @@ p {
 }
 
 .games {
-  padding: 100px 0;
+  padding-top: 100px;
 }
 .games__wrapper {
   position: relative;
@@ -10941,6 +10941,9 @@ p {
   border-color: #2afad7;
 }
 @media (max-width: 992px) {
+  .games {
+    padding-top: 60px;
+  }
   .maxOpen-services__title {
     font-size: 40px;
     line-height: 48px;
@@ -11700,7 +11703,6 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .blog-change-option__categories-btn {
   min-width: 265px;
-  padding: 5px 15px;
   height: 47px;
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 20px;
@@ -12128,6 +12130,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .slide-card2 {
   display: flex;
+  min-height: 250px;
   gap: 20px;
   max-width: 740px;
   padding: 20px;
@@ -12211,8 +12214,8 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   border-radius: 50%;
 }
 .animation-item__icon img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 
 .efficiency {
@@ -12261,8 +12264,8 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     padding: 10px;
   }
   .animation-item__icon img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 }
 .service .blog-card-links {
@@ -12281,6 +12284,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   gap: 60px;
 }
 .faq__left-block {
+  padding-top: 40px;
   max-width: 340px;
 }
 .faq__left-block-title {
@@ -12291,6 +12295,13 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   color: rgba(181, 181, 181, 1);
   margin-bottom: 30px;
 }
+.faq__right-block {
+  width: 100%;
+}
+.faq__right-block .price-item__title {
+  font-size: 20px;
+}
+
 @media (max-width: 992px) {
   .service .blog-card-links {
     padding: 150px 0 60px;

@@ -10,7 +10,7 @@ import { useFetchData } from '../customHooks/useFetchData';
 
 // Конфігурація слайдера Swiper
 const chatbotSliderOptions = {
-  modules: [Autoplay, Pagination, Navigation],
+  modules: [ Pagination, Navigation],
   spaceBetween: 30,
   slidesPerView: 1,
   slidesPerGroup: 1,

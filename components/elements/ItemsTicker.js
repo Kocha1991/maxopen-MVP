@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ItemsTicker({ items }) {
   if (!items || !items.length) {
-    return <p>No items available</p>;
+    return <p className='container'>No items available</p>;
   }
 
   return (
