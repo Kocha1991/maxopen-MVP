@@ -6,7 +6,7 @@ import { cookies } from 'next/headers';
 export default function Page() {
   const cookieStore = cookies();
   const savedLang = cookieStore.get('i18nextLng');
-  let currentLang = savedLang?.value || LOCALS.UK; // Змінюємо дефолтну мову на UK
+  let currentLang = savedLang?.value || LOCALS.EN; // Змінюємо дефолтну мову на UK
   
   // Конвертуємо 'ru' в 'ru_UA' для URL
   if (currentLang === 'ru') {

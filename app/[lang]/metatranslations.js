@@ -22,5 +22,4 @@ export const translations = {
   },
 };
 
-// Функція для отримання перекладу
 export const getTranslation = (lang) => translations[lang] || translations.en;

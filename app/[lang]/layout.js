@@ -18,6 +18,18 @@ export async function generateMetadata({ params: { lang } }) {
 
   const currentTranslation = getTranslation(lang);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MaxOpen Agency",
+    "url": "https://maxopen.com.ua",
+    "sameAs": [
+      "https://www.facebook.com/maxopen",
+      "https://www.instagram.com/maxopen",
+      "https://www.linkedin.com/company/maxopen"
+    ]
+  };
+
   return {
     title: currentTranslation.MetaTitle,
     description: currentTranslation.MetaDescription,
@@ -28,6 +40,9 @@ export async function generateMetadata({ params: { lang } }) {
         uk: "/uk",
         ru_UA: "/ru_UA",
       },
+    },
+    other: {
+      jsonLd: JSON.stringify(jsonLd),
     },
   };
 }
