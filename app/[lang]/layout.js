@@ -24,9 +24,10 @@ export async function generateMetadata({ params: { lang } }) {
     "name": "MaxOpen Agency",
     "url": "https://maxopen.com.ua",
     "sameAs": [
-      "https://www.facebook.com/maxopen",
-      "https://www.instagram.com/maxopen",
-      "https://www.linkedin.com/company/maxopen"
+      "https://www.linkedin.com/company/maxopen-studio/posts/?feedView=all",
+      "https://www.upwork.com/agencies/maxopen",
+      "https://www.instagram.com/maxopen_studio",
+      "https://t.me/account_owl",
     ]
   };
 
