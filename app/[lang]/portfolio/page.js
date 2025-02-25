@@ -48,7 +48,7 @@ function PortfolioContent() {
         <div className='container'>
           <div className="blog-maxOpen__wrapper">
             <h2 className='blog-title mb-20'>{t("Ourportfolio")}</h2>
-            <Filter />
+            {/* <Filter /> */}
             <div className="row mt-65">
               {Array.isArray(projects) && projects.length > 0 ? (
                 visibleProjects.map((project) => (
