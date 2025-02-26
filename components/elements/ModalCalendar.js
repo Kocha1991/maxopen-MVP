@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useCalendly } from '../customHooks/useCalendly';
 import { useTranslation } from 'react-i18next';
 
+// https://calendly.com/maxopenstudio/30min?embed_domain=maxopen.com.ua&embed_type=Inline
+// https://calendly.com/maxopenstudio
 export default function ModalCalendar({ isOpen, onClose }) {
   useCalendly('.calendly-inline-widget', 'https://calendly.com/maxopenstudio');
   const [contacts, setContacts] = useState([]);
@@ -43,21 +45,23 @@ export default function ModalCalendar({ isOpen, onClose }) {
         <button className="modal-content__close" onClick={onClose}>
           <img src="/assets/imgs/template/icons/close-green.png" alt="close" />
         </button>
-        <div className="calendly-inline-widget" style={{ minWidth: '320px', height: '680px' }}></div>
-        <div className="calendar-page__footer">
-          <div className="calendar-page__text">
-            <h2 className="calendar-page__footer-title">{t("CalendarHeader")}</h2>
-            <h3 className="calendar-page__footer-descr">
-              {t("CalendarSubheader")}
-            </h3>
-          </div>
-          <div className="calendar-page__contacts">
-            {contacts.map((item) => (
-              <div key={item.id} className="calendar-page__contact-item">
-                <img src={item.icon.full_url} alt="icon" width="30" height="30" />
-                <span>{item.contact || item['e-mail']}</span>
-              </div>
-            ))}
+        <div className="calendar__wrapper">
+          <div className="calendly-inline-widget" style={{ width: '100%', height: 'auto'}}></div>
+          <div className="calendar-page__footer">
+            <div className="calendar-page__text">
+              <h2 className="calendar-page__footer-title">{t("CalendarHeader")}</h2>
+              <h3 className="calendar-page__footer-descr">
+                {t("CalendarSubheader")}
+              </h3>
+            </div>
+            <div className="calendar-page__contacts">
+              {contacts.map((item) => (
+                <div key={item.id} className="calendar-page__contact-item">
+                  <img src={item.icon.full_url} alt="icon" width="20" height="20" />
+                  <span>{item.contact || item['e-mail']}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -11372,39 +11372,51 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   z-index: 900;
 }
 .calendly-inline-widget {
+  flex-grow: 1;
+  min-height: 0;
+  overflow: auto;
   z-index: 999;
+  overflow: hidden;
 }
 .calendar-page {
   padding: 20px 0;
   flex-grow: 1;
 }
-.calendar-page__footer {
+.calendar__wrapper {
+  position: relative;
   margin: 0 auto;
-  max-width: 1057px;
+  width: 700px;
+  height: 95vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.calendar-page__footer {
+  position: relative;
+  margin: 0 auto;
   width: 100%;
   padding: 20px 30px;
   border: 1px solid transparent;
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   background-color: white;
-  position: relative;
   z-index: 1002;
 }
 .calendar-page__footer-title {
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 28px;
   letter-spacing: 0.03em;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .calendar-page__footer-descr {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: 0.03em;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .calendar-page__contacts {
   display: flex;
@@ -11418,12 +11430,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   align-items: center;
   gap: 10px;
 }
-.calendar-page__contact-item svg {
-  width: 30px;
-  height: 30px;
-}
+
 .calendar-page__contact-item span {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 28px;
   letter-spacing: 0.03em;
@@ -11431,6 +11440,17 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .modal-content-calendar {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._cUP1np9gMvFQrcPftuf.xahN8AEzyAvQtVj17TPv {
+  margin-top: 0;
+}
+@media (max-width: 580px) {
+  .calendar__wrapper {
+    width: 90vw;
+  }
 }
 
 .loading-container {
@@ -12322,3 +12342,4 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     order: 1;
   }
 }
+

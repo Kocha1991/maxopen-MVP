@@ -17,7 +17,7 @@ const BoxNewsletter = ({
       </div>
       <div className="newsletter-right">
           <form action="#">
-              <input className="form-control" type="text" placeholder={placeholder} />
+              <input className="form-control" type="email" placeholder={placeholder} />
               <button className="btn btn-subscribe" type="submit">
                   {buttonText}
               </button>

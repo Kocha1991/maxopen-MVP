@@ -9,7 +9,6 @@ export function useCalendly(parentSelector, calendlyUrl) {
       window.Calendly.initInlineWidget({
         url: calendlyUrl,
         parentElement: document.querySelector(parentSelector),
-        styles: { minWidth: '320px', height: '560px' },
       });
       calendarInitialized.current = true;
     }
