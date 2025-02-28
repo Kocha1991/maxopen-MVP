@@ -9,10 +9,9 @@ import Loading from '@/components/elements/Loading';
 export const Services = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: services, loading, error } = useFetchData("services", language);
+  const { data: services, loading } = useFetchData("services", language);
 
   if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
 
   return (
     <div className="maxOpen-services" id="services">

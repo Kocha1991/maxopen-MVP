@@ -11372,6 +11372,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   z-index: 900;
 }
 .calendly-inline-widget {
+  margin-bottom: -80px;
   flex-grow: 1;
   min-height: 0;
   overflow: auto;
@@ -11447,7 +11448,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 ._cUP1np9gMvFQrcPftuf.xahN8AEzyAvQtVj17TPv {
   margin-top: 0;
 }
-@media (max-width: 580px) {
+@media (max-width: 760px) {
   .calendar__wrapper {
     width: 90vw;
   }

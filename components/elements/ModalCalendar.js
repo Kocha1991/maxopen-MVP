@@ -1,41 +1,68 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useCalendly } from '../customHooks/useCalendly';
 import { useTranslation } from 'react-i18next';
+import { useFetchData } from '../customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
-// https://calendly.com/maxopenstudio/30min?embed_domain=maxopen.com.ua&embed_type=Inline
-// https://calendly.com/maxopenstudio
 export default function ModalCalendar({ isOpen, onClose }) {
-  useCalendly('.calendly-inline-widget', 'https://calendly.com/maxopenstudio');
-  const [contacts, setContacts] = useState([]);
   const { t } = useTranslation();
-  
+  const [calendarUrl, setCalendarUrl] = useState('');  // Спочатку пустий URL календаря
+  const [isLoading, setIsLoading] = useState(true);  // Стан для контролю лоадера
 
+  // Отримуємо дані про календар з API
   useEffect(() => {
-    const fetchContacts = async () => {
+    const fetchCalendarData = async () => {
+      if (!isOpen) return; // Не робимо запит, якщо модалка не відкрита
+
       try {
-        const response = await fetch(
-          'https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/modal-contacts',
-          {
-            headers: {
-              Authorization: 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch contacts');
-        }
-
+        const response = await fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/calendar', {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
+          },
+        });
         const data = await response.json();
-        setContacts(data);
+        if (data && data.length > 0) {
+          setCalendarUrl(data[0]['calendar-link']);  // Зберігаємо URL календаря
+        }
       } catch (error) {
-        console.error('Error fetching contacts:', error);
+        console.error('Error fetching calendar data:', error);
+      } finally {
+        setIsLoading(false);  // Коли запит завершиться, приховуємо лоадер
       }
     };
 
-    fetchContacts();
-  }, []);
+    fetchCalendarData();
+  }, [isOpen]); // Викликаємо тільки при відкритті модалки
+
+  // Ініціалізуємо Calendly iframe, тільки коли URL існує
+  useEffect(() => {
+    if (calendarUrl && isOpen) {
+      const calendlyWidget = document.querySelector('.calendly-inline-widget');
+      if (calendlyWidget && calendarUrl) {
+        // Створюємо Calendly iframe за допомогою отриманого URL
+        calendlyWidget.innerHTML = `<iframe src="${calendarUrl}" width="100%" height="100%" frameborder="0"></iframe>`;
+      }
+    }
+  }, [calendarUrl, isOpen]);
+
+  const { data: contacts, loading: contactsLoading } = useFetchData('modal-contacts');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const iframe = document.querySelector('.calendly-inline-widget iframe');
+      if (iframe) {
+        if (window.innerWidth >= 720) {
+          iframe.style.marginTop = '-60px';
+        } else {
+          iframe.style.marginTop = '0px';
+        }
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -46,7 +73,12 @@ export default function ModalCalendar({ isOpen, onClose }) {
           <img src="/assets/imgs/template/icons/close-green.png" alt="close" />
         </button>
         <div className="calendar__wrapper">
-          <div className="calendly-inline-widget" style={{ width: '100%', height: 'auto'}}></div>
+          {/* Показуємо лоадер, поки дані для календаря не завантажені */}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <div className="calendly-inline-widget"></div> // Після завантаження календаря відображаємо його
+          )}
           <div className="calendar-page__footer">
             <div className="calendar-page__text">
               <h2 className="calendar-page__footer-title">{t("CalendarHeader")}</h2>
