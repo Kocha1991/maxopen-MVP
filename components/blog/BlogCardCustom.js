@@ -19,7 +19,7 @@ export default function BlogCardCustom({ item }) {
             How do you create compelling presentations that wow your colleagues and impress your managers?
           </div>
           <div className="card-more">
-            <Link className="btn btn-brand-4-medium hover-up" href={`/blog-maxOpen/article`}>
+            <Link className="btn btn-brand-4-medium hover-up" href={`/blog/article`}>
               Design
             </Link>
           </div>

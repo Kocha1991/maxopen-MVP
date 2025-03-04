@@ -17,35 +17,24 @@ const ContactUs = () => {
     setError(null);
     setSuccess(false);
   
-    // Створюємо форму даних
-    const formData = new FormData();
-    formData.append('locale', 'en'); // Вказуємо мову
-    formData.append('title', name);  // Використовуємо значення з полів форми
-    formData.append('message', message); // Додаємо повідомлення
-  
     try {
-      // Відправляємо запит на сервер
-      const response = await fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/customer-data', {
+      const response = await fetch('/api/customer-data', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
-          'Authorization': 'Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP',
         },
-        body: formData,
+        body: JSON.stringify({name, email, message}),
       });
-  
-      // Перевіряємо успішність відповіді
+      
       if (!response.ok) {
         throw new Error('Something went wrong');
       }
-  
-      setSuccess(true);  // Якщо все успішно, відображаємо повідомлення
-    } catch (error) {
-      setError('Failed to send the message');  // Якщо є помилка
+      setSuccess(true);
+      setError('Failed to send the message');
     } finally {
-      setIsSubmitting(false); // Завершуємо процес відправки
+      setIsSubmitting(false);
     }
-  };  
+  };
 
   return (
     <section className="section-box box-get-touch-section box-get-touch-section--maxOpen" id="contact">
