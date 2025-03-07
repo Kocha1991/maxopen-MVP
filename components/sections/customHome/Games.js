@@ -13,6 +13,11 @@ export const Games = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading games</p>;
 
+  // Перевірка, чи є дані масивом
+  if (!Array.isArray(games)) {
+    return <p>Invalid data format for games</p>;
+  }
+
   return (
     <section className="games">
       <div className="container games__wrapper">

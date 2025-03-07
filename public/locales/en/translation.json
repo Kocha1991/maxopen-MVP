@@ -40,7 +40,7 @@
   "TypeName":"Type your name",
   "YourEmail":"Your Email *",
   "TypeEmail":"Type your email",
-  "ContactUsMessage":"Message *",
+  "ContactUsMessage":"Message",
   "ContactUsHelp":"How can we help you?",
 
   "Home":"Home",
@@ -153,5 +153,11 @@
     "Order package": "Order package",
     "Go to website":"Go to website",
     "Learn more": "Learn more"
+  },
+
+  "notification": {
+    "FailedSend":"Failed to send the data",
+    "SentSuccessfully":"Data sent successfully!",
+    "validationRequired": "Enter correct data in the field..."
   }
 }

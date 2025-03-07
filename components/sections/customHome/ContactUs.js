@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 
 const ContactUs = () => {
@@ -10,9 +10,32 @@ const ContactUs = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState({ name: false, email: false });
+
+  useEffect(() => {
+    if (error || success) {
+      const timer = setTimeout(() => {
+        setError(null);
+        setSuccess(false);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [error, success]);
+
+  const validateForm = () => {
+    const newErrors = {
+      name: name.trim() === '',
+      email: email.trim() === '' || !/\S+@\S+\.\S+/.test(email),
+    };
+    setErrors(newErrors);
+    return !newErrors.name && !newErrors.email;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     setIsSubmitting(true);
     setError(null);
     setSuccess(false);
@@ -23,14 +46,18 @@ const ContactUs = () => {
         headers: {
           'Accept': 'application/json',
         },
-        body: JSON.stringify({name, email, message}),
+        body: JSON.stringify({ name, email, message }),
       });
       
       if (!response.ok) {
-        throw new Error('Something went wrong');
+        throw new Error(t("notification.FailedSend"));
       }
       setSuccess(true);
-      setError('Failed to send the message');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (err) {
+      setError(err.message);
     } finally {
       setIsSubmitting(false);
     }
@@ -58,22 +85,24 @@ const ContactUs = () => {
                 <div className="form-group">
                   <label htmlFor="fullname">{t("YourName")}</label>
                   <input
-                    className="form-control"
+                    className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                     type="text"
                     placeholder={t("TypeName")}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
+                  {errors.name && <small className="text-danger">{t("notification.validationRequired")}</small>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">{t("YourEmail")}</label>
                   <input
-                    className="form-control"
+                    className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                     type="email"
                     placeholder={t("TypeEmail")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
+                  {errors.email && <small className="text-danger">{t("notification.validationRequired")}</small>}
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">{t("ContactUsMessage")}</label>
@@ -104,7 +133,7 @@ const ContactUs = () => {
                 </div>
               </form>
               {error && <p className="text-danger">{error}</p>}
-              {success && <p className="text-success">{t("Message sent successfully!")}</p>}
+              {success && <p className="text-success">{t("notification.SentSuccessfully")}</p>}
             </div>
           </div>
         </div>

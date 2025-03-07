@@ -39,7 +39,7 @@
   "TypeName":"Введите ваше имя",
   "YourEmail":"Ваша электронная почта *",
   "TypeEmail":"Введите вашу электронную почту",
-  "ContactUsMessage":"Сообщение *",
+  "ContactUsMessage":"Сообщение",
   "ContactUsHelp":"Как мы можем вам помочь?",
 
   "Home": "Главная",
@@ -149,5 +149,11 @@
     "Order package": "Заказать пакет",
     "Go to website":"Перейти на сайт",
     "Learn more": "Узнать больше"
+  },
+
+  "notification": {
+    "FailedSend": "Не удалось отправить данные",
+    "SentSuccessfully": "Данные отправлено успешно!",
+    "validationRequired": "Введите корректные данные в поле..."
   }
 }

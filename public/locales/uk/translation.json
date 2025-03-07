@@ -39,7 +39,7 @@
   "TypeName":"Введіть ваше ім'я",
   "YourEmail":"Ваша електронна пошта *",
   "TypeEmail":"Введіть вашу електронну пошту",
-  "ContactUsMessage":"Повідомлення *",
+  "ContactUsMessage":"Повідомлення",
   "ContactUsHelp":"Як ми можемо вам допомогти?",
 
   "Home":"Головна",
@@ -149,5 +149,11 @@
     "Order package": "Замовити пакет",
     "Go to website":"Перейти на сайт",
     "Learn more": "Дізнатися більше"
+  },
+
+  "notification": {
+    "FailedSend": "Не вдалося надіслати повідомлення",
+    "SentSuccessfully": "Дані надіслано успішно!",
+    "validationRequired": "Введіть коретні дані в поле..."
   }
 }
