@@ -18,7 +18,7 @@ export const useFetchData = (endpoint, language = null, fallbackLocale = "en") =
         const response = await fetch(url, {
           method: "GET",
           headers: {
-            Authorization: "Bearer c8TUpsSJoXrGQLD0laAtVwYOgJdGtEPm72xrA2SP",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_BEARER_TOKEN_GET}`,
           },
         });
 

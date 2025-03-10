@@ -1,18 +1,11 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';
 
 
-export default function WhyWe() {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: whyWeItems, loading, error } = useFetchData("why-we-items", language);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+export default function WhyWe({data, isLoading}) {
+  const { t } = useTranslation();
 
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-preparing-3 maxOpen-whyWe">
@@ -24,8 +17,8 @@ export default function WhyWe() {
             descr={t("WhySubtitle")}
           />
           <div className="row mt-90">
-            {whyWeItems.length > 0 ? (
-              whyWeItems.map((item) => (
+            {data.length > 0 ? (
+              data.map((item) => (
                 <InfoBlock 
                   key={item.id}
                   icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}

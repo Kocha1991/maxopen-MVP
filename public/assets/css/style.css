@@ -10297,6 +10297,8 @@ p {
   z-index: 5;
 }
 .card-features-maxOpen.card-features-maxOpen-long {
+  width: 100%;
+  max-width: 100%;
   min-height: auto;
   flex-direction: row;
   align-items: center;

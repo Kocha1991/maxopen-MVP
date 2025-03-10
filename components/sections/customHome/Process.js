@@ -3,17 +3,10 @@ import React from 'react';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';
 
-const Process = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: processSteps, loading, error } = useFetchData("work-process", language);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+const Process = ({data, isLoading}) => {
+  const { t } = useTranslation();
 
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
@@ -24,7 +17,7 @@ const Process = () => {
           descr={t("ProcesSubtitle")}
         />
         <div className="row">
-          {processSteps.map((step) => (
+          {data.map((step) => (
             <InfoBlock2 
               key={step.id}
               number={step.number}

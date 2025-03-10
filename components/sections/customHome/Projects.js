@@ -2,26 +2,19 @@
 import React, { useState } from "react";
 import { ProjectCard } from '@/components/elements/ProjectCard';
 import { BlogTitle } from '@/components/blog/BlogTitle';
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';
 
-
-export const Projects = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: projects, loading, error } = useFetchData("cases", language);
+export const Projects = ({ data, isLoading }) => {
+  const { t } = useTranslation();
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
   };
 
+  const projects = Array.isArray(data) ? data : [];
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
-  
   return (
     <div className="maxOpen-projects" id="projects">
       <div className="container">
@@ -31,11 +24,11 @@ export const Projects = () => {
           descr={t("ProjectsSubtitle")}
         />
         <div className="row mt-65">
-          {Array.isArray(projects) && projects.length > 0 ? (
+          {projects.length > 0 ? (
             visibleProjects.map((project) => (
               <ProjectCard 
                 key={project.id} 
-                img={project['image-of-project'].thumb}
+                img={project['image-of-project']?.thumb}
                 title={project['name-of-project']}
                 descr={project['short-description']}
                 link={project['link-to-project']}
@@ -50,7 +43,7 @@ export const Projects = () => {
             className="btn btn-brand-4-medium hover-up mt-4" 
             onClick={toggleProjectsView}
           >
-            <span>{showAllProjects ? t("buttons.ShowLess"): t("buttons.LoadMore")}</span>
+            <span>{showAllProjects ? t("buttons.ShowLess") : t("buttons.LoadMore")}</span>
           </button>
         )}
       </div>

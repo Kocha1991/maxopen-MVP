@@ -1,18 +1,7 @@
 import React from "react";
 import LogoTicker from '@/components/elements/LogoTicker';
-import Loading from '@/components/elements/Loading'; 
-import { useFetchData } from '@/components/customHooks/useFetchData';
 
-const GoodsAnimation = ({ text }) => {
-  const { data, loading, error } = useFetchData('logo-techonologies');
-
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+const GoodsAnimation = ({ text, data, isLoading }) => {
 
   const logos = data.length > 0 && data[0].logo ? data[0].logo : [];
 

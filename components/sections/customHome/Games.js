@@ -4,17 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import { useModal } from '@/components/customHooks/useModal';  // Додаємо useModal
 
-export const Games = () => {
+export const Games = ({data, isLoading}) => {
   const { t } = useTranslation();
-  const { data: games, loading, error } = useFetchData("video-games");
 
   const { openModal } = useModal();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading games</p>;
-
-  // Перевірка, чи є дані масивом
-  if (!Array.isArray(games)) {
+  if (!Array.isArray(data)) {
     return <p>Invalid data format for games</p>;
   }
 
@@ -25,7 +20,7 @@ export const Games = () => {
           {t("GamesTitle")}
         </h2>
         <div className="box-swiper mt-60">
-          <Team2Slider slides={games} openModal={openModal} />
+          <Team2Slider slides={data} openModal={openModal} />
         </div>
       </div>
     </section>

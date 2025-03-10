@@ -15,7 +15,7 @@ export async function POST(req) {
         method: "POST",
         headers: {
           "Accept": "application/json",
-          "Authorization": "Bearer yyW7eRi8JtxiwRk2njAQJFl4Avn9zGl3pVViFcvM",
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_BEARER_TOKEN_POST}`,
         },
         body: formData,
       }
