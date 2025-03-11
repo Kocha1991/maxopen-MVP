@@ -1,8 +1,7 @@
 import React from 'react';
 import Team2Slider from '@/components/slider/Team2Slider';
 import { useTranslation } from 'react-i18next';
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import { useModal } from '@/components/customHooks/useModal';  // Додаємо useModal
+import { useModal } from '@/components/customHooks/useModal';
 
 export const Games = ({data, isLoading}) => {
   const { t } = useTranslation();
@@ -10,7 +9,7 @@ export const Games = ({data, isLoading}) => {
   const { openModal } = useModal();
 
   if (!Array.isArray(data)) {
-    return <p>Invalid data format for games</p>;
+    return <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
   }
 
   return (

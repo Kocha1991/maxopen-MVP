@@ -1,23 +1,16 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useFetchData } from "@/components/customHooks/useFetchData";
-import Loading from "@/components/elements/Loading";
 
-const BlogChangeOption = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
+const BlogChangeOption = ({data, isLoading}) => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(null);
-  const { data: options, loading, error } = useFetchData("our-mission", language);
 
   useEffect(() => {
-    if (options && options.length > 0) {
-      setActiveCategory(options[0]["text-button"]);
+    if (data && data.length > 0) {
+      setActiveCategory(data[0]["text-button"]);
     }
-  }, [options]);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+  }, [data]);
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
@@ -26,7 +19,7 @@ const BlogChangeOption = () => {
   const renderCategoryContent = () => {
     if (!activeCategory) return null;
 
-    const categoryData = options.find(item => item["text-button"] === activeCategory);
+    const categoryData = data.find(item => item["text-button"] === activeCategory);
     return (
       <div className='blog-change-option__bloc'>
         {categoryData ? (
@@ -45,7 +38,7 @@ const BlogChangeOption = () => {
     <div className='blog-change-option__wrapper'>
       <div className='blog-change-option__categories'>
         {/* Вибір категорій */}
-        {options.map((option) => (
+        {data.map((option) => (
           <button
             key={option.id}
             className={`blog-change-option__categories-btn ${activeCategory === option["text-button"] ? "blog-change-option-active" : ""}`}

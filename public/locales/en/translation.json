@@ -158,6 +158,7 @@
   "notification": {
     "FailedSend":"Failed to send the data",
     "SentSuccessfully":"Data sent successfully!",
-    "validationRequired": "Enter correct data in the field..."
+    "validationRequired": "Enter correct data in the field...",
+    "noDataAvailable": "No data available..."
   }
 }

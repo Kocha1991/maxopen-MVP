@@ -50,7 +50,7 @@ export default function BlogPost({ style, showItem, showPagination }) {
   return (
     <>
       {getPaginatedProducts.length === 0 && (
-        <h3>No Products Found </h3>
+        <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
       )}
 
       {getPaginatedProducts.map(item => (

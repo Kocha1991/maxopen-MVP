@@ -154,6 +154,7 @@
   "notification": {
     "FailedSend": "Не вдалося надіслати повідомлення",
     "SentSuccessfully": "Дані надіслано успішно!",
-    "validationRequired": "Введіть коретні дані в поле..."
+    "validationRequired": "Введіть коретні дані в поле...",
+    "noDataAvailable": "Немає доступних даних..."
   }
 }

@@ -254,6 +254,22 @@ html {
   opacity: 1;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-card {
+  animation: pulse 1.5s infinite;
+}
+
 .fix {
   overflow: hidden;
 }
@@ -11461,6 +11477,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 100%;
   text-align: center;
 }
@@ -12172,7 +12189,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .chatbot-slider .box-button-slider {
   position: absolute;
   top: 100px;
-  right: 100px;
+  right: 0px;
 }
 .slide-card2 img {
   width: 128px;
@@ -12345,4 +12362,10 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     order: 1;
   }
 }
-
+.no-data {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

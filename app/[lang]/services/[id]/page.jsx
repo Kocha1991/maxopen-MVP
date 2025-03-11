@@ -32,68 +32,83 @@ function ServiceContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: services, loading: loadingServices, error: errorServices } = useFetchData("animation-services", language);
-  const { data: networks, loading: loadingNetworks, error: errorNetworks } = useFetchData("social-networks");
+  const { data: services, loading: loadingServices } = useFetchData("animation-services", language);
+  const { data: networks, loading: loadingNetworks } = useFetchData("social-networks");
+  const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
+  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData("key-benefits", language);
+  const { data: cards, loading: cardsLoading} = useFetchData("chatbot-tasks-card", language);
 
-
-  if (loadingServices || loadingNetworks) return <Loading />;
-  if (errorServices || errorNetworks) return <div>{errorServices || errorNetworks}</div>;
+  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading;
 
   return (
-    <div className='service'>
-      <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
-        <PageBanner 
-          SolutionsBannerTitle={t("ServicesBannerTitle")}
-          SolutionsBannerDescr={t("ServicesBannerDescr")}
-          textBnt={t("buttons.BookMeeting")}
-          onOpenModal={openModal}
-        />
-        <GoodsAnimation 
-          text={t("ServicesAnimationText")}
-        />
-        <BlogCardLinks 
-          textOnBg={t("ChatbotSolutionsTextOnBg")} 
-          title={t("ChatbotSolutionsTitle")} 
-          descr={t("ChatbotSolutionsDescr")} 
-        />
-        <TextInfo 
-          title={t("ServiceTextInfoTitle")}
-          descr={t("ServiceTextInfoDescr")}
-        />
-        <KeyBenefits />
-        <ChatbotSlider />
-        <div className='who-needs'>
-          <BlogTitle 
-            textOnBg={t("WhoNeedsTextOnBg")}
-            title={t("WhoNeedsTitle")}
-            textColor="wight-text"
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className='service'>
+          <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
+            <PageBanner 
+              SolutionsBannerTitle={t("ServicesBannerTitle")}
+              SolutionsBannerDescr={t("ServicesBannerDescr")}
+              textBnt={t("buttons.BookMeeting")}
+              onOpenModal={openModal}
+            />
+            <GoodsAnimation 
+              text={t("ServicesAnimationText")}
+              data={logos} 
+              isLoading={logosLoading}
+            />
+            <BlogCardLinks 
+              textOnBg={t("ChatbotSolutionsTextOnBg")} 
+              title={t("ChatbotSolutionsTitle")} 
+              descr={t("ChatbotSolutionsDescr")} 
+            />
+            <TextInfo 
+              title={t("ServiceTextInfoTitle")}
+              descr={t("ServiceTextInfoDescr")}
+            />
+            <KeyBenefits 
+              data={benefitsItems}
+              isLoading={benefitsItemsLoading}
+            />
+            <ChatbotSlider 
+              data={cards}
+              isLoading={cardsLoading}
+            />
+            <div className='who-needs'>
+              <BlogTitle 
+                textOnBg={t("WhoNeedsTextOnBg")}
+                title={t("WhoNeedsTitle")}
+                textColor="wight-text"
+              />
+              <ItemsTicker 
+                items={services}
+              /> 
+            </div>
+            <Efficiency />
+            <div className='container'>
+              <BlogTitle 
+                textOnBg={t("PlatformsChatbotTextOnBg")}
+                title={t("PlatformsChatbotTitle")}
+                descr={t("PlatformsChatbotDescr")}
+              />
+            </div>
+            <ItemsTicker 
+              items={networks}
+            /> 
+            <Faq 
+              onOpenModal={openModal}
+            />
+            <ContactUs />
+          </Layout>
+          <ModalManager 
+            isOpen={isOpen} 
+            modalType={modalType} 
+            modalData={modalData} 
+            onClose={closeModal} 
           />
-          <ItemsTicker 
-            items={services}
-          /> 
         </div>
-        <Efficiency />
-        <div className='container'>
-          <BlogTitle 
-            textOnBg={t("PlatformsChatbotTextOnBg")}
-            title={t("PlatformsChatbotTitle")}
-            descr={t("PlatformsChatbotDescr")}
-          />
-        </div>
-        <ItemsTicker 
-          items={networks}
-        /> 
-        <Faq 
-          onOpenModal={openModal}
-        />
-        <ContactUs />
-      </Layout>
-      <ModalManager 
-        isOpen={isOpen} 
-        modalType={modalType} 
-        modalData={modalData} 
-        onClose={closeModal} 
-      />
-    </div>
+      )}
+    </>
   )
 };

@@ -27,7 +27,7 @@ export default function WhyWe({data, isLoading}) {
                 />
               ))
             ) : (
-              <p>No items available</p>
+              <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
             )}
           </div>
         </div>

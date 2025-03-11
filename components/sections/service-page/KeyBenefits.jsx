@@ -1,18 +1,10 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import { useTranslation } from 'react-i18next';
-import Loading from '@/components/elements/Loading';
-import { useFetchData } from '@/components/customHooks/useFetchData';
 import InfoBlock from '@/components/elements/InfoBlock';
 
-const KeyBenefits = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: benefitsItems, loading, error } = useFetchData("key-benefits", language);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
-
+const KeyBenefits = ({data, isLoading}) => {
+  const { t } = useTranslation();
 
   return (
     <div className='key-benefits'>
@@ -22,8 +14,8 @@ const KeyBenefits = () => {
           title={t("KeyBenefitsTitle")}
         />
         <div className="row mt-90">
-          {benefitsItems.length > 0 ? (
-            benefitsItems.map((item) => (
+          {data.length > 0 ? (
+            data.map((item) => (
               <InfoBlock 
                 key={item.id}
                 icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
@@ -33,7 +25,7 @@ const KeyBenefits = () => {
               />
             ))
           ) : (
-            <p>No items available</p>
+            <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
           )}
         </div>
       </div>

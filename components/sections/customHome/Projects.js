@@ -35,7 +35,7 @@ export const Projects = ({ data, isLoading }) => {
               />
             ))
           ) : (
-            <p>No available projects.</p>
+            <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
           )}
         </div>
         {projects.length > 6 && (

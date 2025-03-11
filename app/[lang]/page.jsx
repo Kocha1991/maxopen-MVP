@@ -14,7 +14,7 @@ import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import { useTranslation } from 'react-i18next';
-
+import Loading from '@/components/elements/Loading';
 
 export default function Page() {
   return <HomeContent />;
@@ -32,25 +32,34 @@ function HomeContent() {
   const { data: processSteps, loading: processStepsLoading } = useFetchData("work-process", language);
   const { data: prices, loading: pricesLoading  } = useFetchData("price-of-services", language);
 
-  return (
-    <Layout useCustomHeader={true} footerStyle={'customFooter'}>
-      <Banner />
-      <GoodsAnimation data={logos} isLoading={logosLoading}/>
-      <Services data={services} isLoading={servicesLoading} />
-      <Projects data={projects} isLoading={projectsLoading}/>
-      <WhyWe data={whyWeItems} isLoading={whyWeLoading}/>
-      <Games data={games} isLoading={gamesLoading}/>
-      <Process data={processSteps} isLoading={processStepsLoading}/>
-      <Prices data={prices} isLoading={pricesLoading}/>
-      <ContactUs />
+  const isLoading = logosLoading || servicesLoading || projectsLoading || whyWeLoading || gamesLoading || processStepsLoading || pricesLoading;
 
-      <ModalManager 
-        isOpen={isOpen} 
-        modalType={modalType} 
-        modalData={modalData} 
-        onClose={closeModal} 
-      />
-    </Layout>
+  return (
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Layout useCustomHeader={true} footerStyle={'customFooter'}>
+          <Banner />
+          <GoodsAnimation data={logos} isLoading={logosLoading}/>
+          <Services data={services} isLoading={servicesLoading} />
+          <Projects data={projects} isLoading={projectsLoading}/>
+          <WhyWe data={whyWeItems} isLoading={whyWeLoading}/>
+          <Games data={games} isLoading={gamesLoading}/>
+          <Process data={processSteps} isLoading={processStepsLoading}/>
+          <Prices data={prices} isLoading={pricesLoading}/>
+          <ContactUs />
+
+          <ModalManager 
+            isOpen={isOpen} 
+            modalType={modalType} 
+            modalData={modalData} 
+            onClose={closeModal} 
+          />
+        </Layout>
+      )}
+      
+    </>
   );
 }
 
