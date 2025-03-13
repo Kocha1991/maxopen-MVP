@@ -4,10 +4,15 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock2 from '@/components/elements/InfoBlock2';
 import BoxNewsletter from '@/components/elements/BoxNewsletter';
 import { useTranslation } from 'react-i18next';
+import Loading from '@/components/elements/Loading';
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
-const Process = ({data, isLoading}) => {
-  const { t } = useTranslation();
+const Process = () => {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
 
+  const { data: processSteps, loading: processStepsLoading } = useFetchData("work-process", language);
+  
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
       <div className="container">
@@ -16,16 +21,20 @@ const Process = ({data, isLoading}) => {
           title={t("ProcesTitle")}
           descr={t("ProcesSubtitle")}
         />
-        <div className="row">
-          {data.map((step) => (
-            <InfoBlock2 
-              key={step.id}
-              number={step.number}
-              title={step['name process']}
-              descr={step.description}
-            />
-          ))}
-        </div>
+        {processStepsLoading ? (
+          <Loading />
+        ) : (
+          <div className="row">
+            {processSteps.map((step) => (
+              <InfoBlock2 
+                key={step.id}
+                number={step.number}
+                title={step['name process']}
+                descr={step.description}
+              />
+            ))}
+          </div>
+        )}
       </div>
       <div className="container mt-25">
         <BoxNewsletter 

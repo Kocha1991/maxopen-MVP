@@ -3,9 +3,14 @@ import React from "react";
 import { ServicesCard } from "@/components/elements/ServicesCard";
 import { BlogTitle } from "@/components/blog/BlogTitle";
 import { useTranslation } from 'react-i18next';
+import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
-export const Services = ({ data, isLoading }) => {
-  const { t } = useTranslation();
+export const Services = () => {
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+
+  const { data: services, loading: servicesLoading } = useFetchData("services", language);
 
   return (
     <div className="maxOpen-services" id="services">
@@ -16,22 +21,30 @@ export const Services = ({ data, isLoading }) => {
           descr={t("ServicesSubtitle")} 
         />
         <div className="row">
-          {data.map((service, index) => {
-            const isLastSingle = (data.length % 3 === 1) && (index === data.length - 1);
+          {servicesLoading ? (
+            <Loading />
+          ) : (
+            Array.isArray(services) && services.length > 0 ? (
+              services.map((service, index) => {
+                const isLastSingle = (services.length % 3 === 1) && (index === services.length - 1);
 
-            return (
-              <ServicesCard
-                key={service.id}
-                icon={service.icon}
-                iconHover={service["icon-black"]}
-                title={service.title}
-                descr={service.description}
-                btnText={t("buttons.Learn more")}
-                isFullWidth={isLastSingle}
-                link="/services/service"
-              />
-            );
-          })}
+                return (
+                  <ServicesCard
+                    key={service.id}
+                    icon={service.icon}
+                    iconHover={service["icon-black"]}
+                    title={service.title}
+                    descr={service.description}
+                    btnText={t("buttons.Learn more")}
+                    isFullWidth={isLastSingle}
+                    link="/services/service"
+                  />
+                );
+              })
+            ) : (
+              <p>{t("notification.InformationMissing")}</p>
+            )
+          )}
         </div>
       </div>
     </div>

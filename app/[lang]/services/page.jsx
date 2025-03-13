@@ -26,7 +26,6 @@ function ServicesContent() {
   if (loading) return <Loading />;
   if (error) return <div>{error}</div>;
 
-
   return (
     <div className='services'>
       <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
