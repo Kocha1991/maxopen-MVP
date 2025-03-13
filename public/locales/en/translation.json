@@ -159,10 +159,6 @@
     "FailedSend":"Failed to send the data",
     "SentSuccessfully":"Data sent successfully!",
     "validationRequired": "Enter correct data in the field...",
-<<<<<<< HEAD
     "InformationMissing": "Information missing..."
-=======
-    "noDataAvailable": "No data available..."
->>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
   }
 }

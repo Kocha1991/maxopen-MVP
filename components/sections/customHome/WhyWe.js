@@ -20,7 +20,6 @@ export default function WhyWe() {
             title={t("WhyTitle")}
             descr={t("WhySubtitle")}
           />
-<<<<<<< HEAD
           {whyWeLoading ? (
             <Loading />
           ) : (
@@ -39,22 +38,6 @@ export default function WhyWe() {
               )}
             </div>
           )}
-=======
-          <div className="row mt-90">
-            {data.length > 0 ? (
-              data.map((item) => (
-                <InfoBlock 
-                  key={item.id}
-                  icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
-                  title={item.title}
-                  descr={item.description}
-                />
-              ))
-            ) : (
-              <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
-            )}
-          </div>
->>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
         </div>
     </section>
   );

@@ -12,19 +12,12 @@ import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
 import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
-<<<<<<< HEAD
-=======
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import { useTranslation } from 'react-i18next';
-import Loading from '@/components/elements/Loading';
->>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
 
 export default function Page() {
   return <HomeContent />;
 }
 function HomeContent() {
   const { isOpen, modalType, modalData, closeModal } = useModal();
-<<<<<<< HEAD
  
   return (
     <Layout useCustomHeader={true} footerStyle={'customFooter'}>
@@ -37,47 +30,14 @@ function HomeContent() {
       <Process />
       <Prices />
       <ContactUs />
-=======
-  const { i18n } = useTranslation();
-  const { language } = i18n;
-  
-  const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
-  const { data: services, loading: servicesLoading } = useFetchData("services", language);
-  const { data: projects, loading: projectsLoading } = useFetchData("cases", language);
-  const { data: whyWeItems, loading: whyWeLoading } = useFetchData("why-we-items", language);
-  const { data: games, loading: gamesLoading } = useFetchData("video-games");
-  const { data: processSteps, loading: processStepsLoading } = useFetchData("work-process", language);
-  const { data: prices, loading: pricesLoading  } = useFetchData("price-of-services", language);
 
-  const isLoading = logosLoading || servicesLoading || projectsLoading || whyWeLoading || gamesLoading || processStepsLoading || pricesLoading;
->>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
-
-  return (
-    <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Layout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Banner />
-          <GoodsAnimation data={logos} isLoading={logosLoading}/>
-          <Services data={services} isLoading={servicesLoading} />
-          <Projects data={projects} isLoading={projectsLoading}/>
-          <WhyWe data={whyWeItems} isLoading={whyWeLoading}/>
-          <Games data={games} isLoading={gamesLoading}/>
-          <Process data={processSteps} isLoading={processStepsLoading}/>
-          <Prices data={prices} isLoading={pricesLoading}/>
-          <ContactUs />
-
-          <ModalManager 
-            isOpen={isOpen} 
-            modalType={modalType} 
-            modalData={modalData} 
-            onClose={closeModal} 
-          />
-        </Layout>
-      )}
-      
-    </>
+      <ModalManager 
+        isOpen={isOpen} 
+        modalType={modalType} 
+        modalData={modalData} 
+        onClose={closeModal} 
+      />
+    </Layout>
   );
 }
 

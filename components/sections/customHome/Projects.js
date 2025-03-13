@@ -27,7 +27,6 @@ export const Projects = () => {
           title={t("ProjectsTitle")}
           descr={t("ProjectsSubtitle")}
         />
-<<<<<<< HEAD
         
         {projectsLoading ? (
           <Loading />
@@ -59,30 +58,6 @@ export const Projects = () => {
               </button>
             )}
           </>
-=======
-        <div className="row mt-65">
-          {projects.length > 0 ? (
-            visibleProjects.map((project) => (
-              <ProjectCard 
-                key={project.id} 
-                img={project['image-of-project']?.thumb}
-                title={project['name-of-project']}
-                descr={project['short-description']}
-                link={project['link-to-project']}
-              />
-            ))
-          ) : (
-            <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
-          )}
-        </div>
-        {projects.length > 6 && (
-          <button 
-            className="btn btn-brand-4-medium hover-up mt-4" 
-            onClick={toggleProjectsView}
-          >
-            <span>{showAllProjects ? t("buttons.ShowLess") : t("buttons.LoadMore")}</span>
-          </button>
->>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
         )}
       </div>
     </div>
