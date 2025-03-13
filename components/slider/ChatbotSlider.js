@@ -5,12 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideCard2 } from '../elements/SliderCard2';
 import { BlogTitle } from '../blog/BlogTitle';
 import { useTranslation } from 'react-i18next';
-import Loading from '@/components/elements/Loading';
-import { useFetchData } from '../customHooks/useFetchData';
 
-// Конфігурація слайдера Swiper
 const chatbotSliderOptions = {
-  modules: [ Pagination, Navigation],
+  modules: [Autoplay, Pagination, Navigation],
   spaceBetween: 30,
   slidesPerView: 1,
   slidesPerGroup: 1,
@@ -20,7 +17,7 @@ const chatbotSliderOptions = {
       prevEl: ".swiper-button-prev-4"
   },
   autoplay: {
-      delay: 10000
+      delay: 5000
   },
   breakpoints: {
     992: {
@@ -29,13 +26,8 @@ const chatbotSliderOptions = {
   },
 };
 
-export default function ChatbotSlider() {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: cards, loading, error } = useFetchData("chatbot-tasks-card", language);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+export default function ChatbotSlider({data, isLoading}) {
+  const { t } = useTranslation();
 
   return (
     <div className='container'>
@@ -48,7 +40,7 @@ export default function ChatbotSlider() {
         {/* Обгортка Swiper */}
         <div className="swiper-container swiper-group-4">
             <Swiper {...chatbotSliderOptions}>
-                {cards.map((card) => (
+                {data.map((card) => (
                     <SwiperSlide key={card.id}>
                         <SlideCard2
                             previewImage={card.image?.full_url}

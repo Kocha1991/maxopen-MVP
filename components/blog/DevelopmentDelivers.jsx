@@ -1,23 +1,16 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useFetchData } from "@/components/customHooks/useFetchData";
-import Loading from "@/components/elements/Loading";
 
-const DevelopmentDelivers = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
+const DevelopmentDelivers = ({data, isLoading}) => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(null);
-  const { data: categories, loading, error } = useFetchData("development-delivers", language);
 
   useEffect(() => {
-    if (categories && categories.length > 0) {
-      setActiveCategory(categories[0].id);
+    if (data && data.length > 0) {
+      setActiveCategory(data[0].id);
     }
-  }, [categories]);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+  }, [data]);
 
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
@@ -26,7 +19,7 @@ const DevelopmentDelivers = () => {
   const renderActiveCategory = () => {
     if (!activeCategory) return null;
 
-    const activeData = categories.find((cat) => cat.id === activeCategory);
+    const activeData = data.find((cat) => cat.id === activeCategory);
 
     console.log(activeData);
 
@@ -54,17 +47,21 @@ const DevelopmentDelivers = () => {
   return (
     <div className="development-delivers__wrapper">
       <div className="development-delivers__btns">
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            className={`blog-change-option__categories-btn ${
-              activeCategory === category.id ? "blog-change-option-active" : ""
-            }`}
-            onClick={() => handleCategoryChange(category.id)}
-          >
-            {category["text-button"]}
-          </button>
-        ))}
+        {data.length > 0 ? (
+          data.map((category) => (
+            <button
+              key={category.id}
+              className={`blog-change-option__categories-btn ${
+                activeCategory === category.id ? "blog-change-option-active" : ""
+              }`}
+              onClick={() => handleCategoryChange(category.id)}
+            >
+              {category["text-button"]}
+            </button>
+          ))
+        ) : (
+          <p className="text-white">Дані відсутні</p>
+        )}
       </div>
       {renderActiveCategory()}
     </div>

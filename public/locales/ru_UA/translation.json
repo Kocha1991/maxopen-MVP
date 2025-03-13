@@ -155,6 +155,10 @@
     "FailedSend": "Не удалось отправить данные",
     "SentSuccessfully": "Данные отправлено успешно!",
     "validationRequired": "Введите корректные данные в поле...",
+<<<<<<< HEAD
     "InformationMissing": "Информация отсутствует..."
+=======
+    "noDataAvailable": "Нет доступных данных..."
+>>>>>>> 5de815db54abd20719157f4fbf9d6efc4888f162
   }
 }

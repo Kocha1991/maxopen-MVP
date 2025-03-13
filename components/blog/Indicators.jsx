@@ -1,16 +1,9 @@
 import React from "react";
 import { BlogTitle } from "@/components/blog/BlogTitle";
-import { useFetchData } from "@/components/customHooks/useFetchData";
-import Loading from "@/components/elements/Loading";
 import { useTranslation } from "react-i18next";
 
-const Indicators = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
-  const { data: indicators, loading, error } = useFetchData("indicators", language);
-
-  if (loading) return <Loading />;
-  if (error) return <div>{error}</div>;
+const Indicators = ({data, isLoading}) => {
+  const { t } = useTranslation();
 
   return (
     <section className="indicators">
@@ -20,16 +13,20 @@ const Indicators = () => {
           title={t("IndicatorsTitle")}
           textColor="text-white"
         />
-        {indicators.map((indicator) => (
-          <div key={indicator.id} className="indicators-content">
-            <h2 className="text-60-semibold text-white">
-              {indicator["main-text"]}
-            </h2>
-            <h3 className="maxOpen-services__descr">
-              {indicator.description}
-            </h3>
-          </div>
-        ))}
+        {data.length > 0 ? (
+          data.map((indicator) => (
+            <div key={indicator.id} className="indicators-content">
+              <h2 className="text-60-semibold text-white">
+                {indicator["main-text"]}
+              </h2>
+              <h3 className="maxOpen-services__descr">
+                {indicator.description}
+              </h3>
+            </div>
+          ))
+        ) : (
+          <p className="text-white">Дані відсутні</p>
+        )}
       </div>
     </section>
   );
