@@ -159,6 +159,7 @@
     "FailedSend":"Failed to send the data",
     "SentSuccessfully":"Data sent successfully!",
     "validationRequired": "Enter correct data in the field...",
-    "InformationMissing": "Information missing..."
+    "InformationMissing": "Information missing...",
+    "noDataAvailable": "Data missing..."
   }
 }

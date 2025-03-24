@@ -155,6 +155,7 @@
     "FailedSend": "Не вдалося надіслати повідомлення",
     "SentSuccessfully": "Дані надіслано успішно!",
     "validationRequired": "Введіть коретні дані в поле...",
-    "InformationMissing": "Інформація відсутня..."
+    "InformationMissing": "Інформація відсутня...",
+    "noDataAvailable": "Дані відсутні..."
   }
 }

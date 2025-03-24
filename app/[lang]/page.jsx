@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Layout from "@/components/layout/Layout";
+import Layout from '@/components/layout/header/Layout';
 import Banner from '@/components/sections/customHome/Banner';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import { Services } from '@/components/sections/customHome/Services';
@@ -18,7 +18,7 @@ export default function Page() {
 }
 function HomeContent() {
   const { isOpen, modalType, modalData, closeModal } = useModal();
- 
+
   return (
     <Layout useCustomHeader={true} footerStyle={'customFooter'}>
       <Banner />
@@ -31,13 +31,12 @@ function HomeContent() {
       <Prices />
       <ContactUs />
 
-      <ModalManager 
-        isOpen={isOpen} 
-        modalType={modalType} 
-        modalData={modalData} 
-        onClose={closeModal} 
+      <ModalManager
+        isOpen={isOpen}
+        modalType={modalType}
+        modalData={modalData}
+        onClose={closeModal}
       />
     </Layout>
   );
 }
-

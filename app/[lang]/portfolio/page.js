@@ -1,7 +1,7 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 import { ModalProvider } from '@/components/customHooks/useModal';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
@@ -18,15 +18,18 @@ export default function Portfolio() {
       <PortfolioContent />
     </ModalProvider>
   );
-};
+}
 
 function PortfolioContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const [showAllProjects, setShowAllProjects] = useState(false);
-  
-  const { data: projects, loading: projectsLoading } = useFetchData("cases", language);
+
+  const { data: projects, loading: projectsLoading } = useFetchData(
+    'cases',
+    language
+  );
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
@@ -34,29 +37,29 @@ function PortfolioContent() {
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
   const isLoading = projectsLoading;
-  
+
   return (
     <>
       {isLoading ? (
-        <Loading /> 
+        <Loading />
       ) : (
         <div className='portfolio'>
-          <Layout useCustomHeader={true} footerStyle="customFooter" logoWhite>
-            <PageBanner 
-              SolutionsBannerTitle={t("OurportfolioBannerTitle")}
-              SolutionsBannerDescr={t("OurportfolioBannerdescr")}
-              textBnt={t("buttons.BookMeeting")}
+          <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+            <PageBanner
+              SolutionsBannerTitle={t('OurportfolioBannerTitle')}
+              SolutionsBannerDescr={t('OurportfolioBannerdescr')}
+              textBnt={t('buttons.BookMeeting')}
               onOpenModal={openModal}
             />
             <div className='container'>
-              <div className="blog-maxOpen__wrapper">
-                <h2 className='blog-title mb-20'>{t("Ourportfolio")}</h2>
+              <div className='blog-maxOpen__wrapper'>
+                <h2 className='blog-title mb-20'>{t('Ourportfolio')}</h2>
                 {/* <Filter /> */}
-                <div className="row mt-65">
+                <div className='row mt-65'>
                   {Array.isArray(projects) && projects.length > 0 ? (
                     visibleProjects.map((project) => (
-                      <ProjectCard 
-                        key={project.id} 
+                      <ProjectCard
+                        key={project.id}
                         img={project['image-of-project'].thumb}
                         title={project['name-of-project']}
                         descr={project['short-description']}
@@ -64,15 +67,21 @@ function PortfolioContent() {
                       />
                     ))
                   ) : (
-                    <p className='no-data text-lg neutral-500'>{t('notification.noDataAvailable')}</p>
+                    <p className='no-data text-lg neutral-500'>
+                      {t('notification.noDataAvailable')}
+                    </p>
                   )}
                 </div>
                 {projects.length > 6 && (
-                  <button 
-                    className="btn btn-brand-4-medium hover-up mt-4" 
+                  <button
+                    className='btn btn-brand-4-medium hover-up mt-4'
                     onClick={toggleProjectsView}
                   >
-                    <span>{showAllProjects ? t("buttons.ShowLess"): t("buttons.LoadMore")}</span>
+                    <span>
+                      {showAllProjects
+                        ? t('buttons.ShowLess')
+                        : t('buttons.LoadMore')}
+                    </span>
                   </button>
                 )}
               </div>
@@ -88,7 +97,5 @@ function PortfolioContent() {
         </div>
       )}
     </>
-    
   );
-};
-
+}

@@ -155,6 +155,7 @@
     "FailedSend": "Не удалось отправить данные",
     "SentSuccessfully": "Данные отправлено успешно!",
     "validationRequired": "Введите корректные данные в поле...",
-    "InformationMissing": "Информация отсутствует..."
+    "InformationMissing": "Информация отсутствует...",
+    "noDataAvailable": "Данные отсутствуют..."
   }
 }
