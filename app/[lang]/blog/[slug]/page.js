@@ -1,14 +1,22 @@
-'use client';
+'use client'
 import React from 'react';
 import Layout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import BlogCardCustom from '@/components/blog/BlogCardCustom';
+import Loading from '@/components/elements/Loading';
+import { useFetchData } from '@/components/customHooks/useFetchData';
+import { useRouter } from 'next/navigation';
 
-const Article = () => {
+
+const Article = ({params}) => {
   const { t, i18n } = useTranslation();
-  // const { language } = i18n;
+  const { language } = i18n;
+  //const router = useRouter()
+  //console.log(params)
+ const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
 
+ console.log(article)
   return (
     <div className='article'>
       <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>

@@ -1,53 +1,32 @@
-import { useState, useEffect } from "react";
+import useSWR from "swr";
 
-export const useFetchData = (endpoint, language = null, fallbackLocale = "en") => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const fetcher = async (url) => {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_BEARER_TOKEN_GET}`,
+    },
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch data from ${url}`);
+  }
 
-      try {
-        const url = language
-          ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${language === 'ru' ? 'ru_UA' : language}`
-          : `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}`;
-
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_BEARER_TOKEN_GET}`,
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data from ${endpoint}`);
-        }
-
-        const result = await response.json();
-
-        if (language) {
-          const filteredData =
-            result.filter((item) => item.locale === (language === 'ru' ? 'ru_UA' : language)).length > 0
-              ? result.filter((item) => item.locale === (language === 'ru' ? 'ru_UA' : language))
-              : result.filter((item) => item.locale === fallbackLocale);
-
-          setData(filteredData);
-        } else {
-          setData(result);
-        }
-      } catch (err) {
-        console.error(`Error fetching data from ${endpoint}:`, err);
-        setError(`Error fetching data: ${err.message}`);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [endpoint, language, fallbackLocale]);
-
-  return { data, loading, error };
+  return response.json();
 };
+
+export const useFetchData = (endpoint, language = null) => {
+  const locale = language === "ru" ? "ru_UA" : language;
+  const url = locale
+    ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${locale}`
+    : `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}`;
+
+  const { data, error } = useSWR(url, fetcher);
+
+  return {
+    data: data || [],
+    loading: !data && !error,
+    error,
+  };
+};
+

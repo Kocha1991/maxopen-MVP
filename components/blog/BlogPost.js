@@ -11,6 +11,7 @@ export default function BlogPost({ style, showItem, showPagination }) {
   const { language } = i18n;
 
   const { data: blogPosts, loading: blogPostsLoading } = useFetchData("our-blog", language);
+  console.log(blogPosts)
 
   let [currentPage, setCurrentPage] = useState(1);
   let showLimit = showItem;
@@ -28,10 +29,7 @@ export default function BlogPost({ style, showItem, showPagination }) {
   }, [limit, blogPosts]);
 
   const createPagination = (length) => {
-    let arr = new Array(Math.ceil(length / limit))
-        .fill()
-        .map((_, idx) => idx + 1);
-
+    let arr = new Array(Math.ceil(length / limit)).fill().map((_, idx) => idx + 1);
     setPagination(arr);
   };
 
@@ -42,18 +40,6 @@ export default function BlogPost({ style, showItem, showPagination }) {
   let start = Math.floor((currentPage - 1) / paginationItem) * paginationItem;
   let end = start + paginationItem;
   const getPaginationGroup = pagination.slice(start, end);
-
-  const next = () => {
-    setCurrentPage((page) => page + 1);
-  };
-
-  const prev = () => {
-    setCurrentPage((page) => page - 1);
-  };
-
-  const handleActive = (item) => {
-    setCurrentPage(item);
-  };
 
   return (
     <>
@@ -69,16 +55,16 @@ export default function BlogPost({ style, showItem, showPagination }) {
             </div>
           ))}
 
-          {showPagination &&
+          {showPagination && (
             <Pagination
               getPaginationGroup={getPaginationGroup}
               currentPage={currentPage}
               pages={pages}
-              next={next}
-              prev={prev}
-              handleActive={handleActive}
+              next={() => setCurrentPage(prev => prev + 1)}
+              prev={() => setCurrentPage(prev => prev - 1)}
+              handleActive={setCurrentPage}
             />
-          }
+          )}
         </>
       )}
     </>

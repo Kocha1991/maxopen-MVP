@@ -1,35 +1,39 @@
 import Link from "next/link";
 
 export default function BlogCardCustom({ item }) {
+  if (!item) return null;
+console.log(item.slug)
   return (
-    <div className="blog-card-custom">
-      <div className="card-image">
-        <Link href={`/blog-maxOpen/${item.slug || "article"}`}>
-          <img 
-            src={item.img?.full_url || "/assets/imgs/template/UxArticle.jpg"} 
-            alt={item.title} 
-            className="img-fluid" 
-          />
-        </Link>
-      </div>
-      <div className="card-info">
-        <div>
-          <div className="card-title maxOpen__subtitle">
-            {item.title}
+    <Link href={`/blog/${item?.slug ?? ""}`}>
+      <div className="blog-card-custom">
+        <div className="card-image">
+         
+            <img 
+              src={item?.img?.full_url || "/assets/imgs/template/UxArticle.jpg"} 
+              alt={item?.title || "Default title"} 
+              className="img-fluid" 
+            />
+         
+        </div>
+        <div className="card-info">
+          <div>
+            <div className="card-title maxOpen__subtitle">
+              {item?.title || "No title"}
+            </div>
+            <div className="card-meta">
+              <span className="date-post">{item?.date || "16 October 2023"}</span>
+            </div>
+            <div className="card-descr maxOpen-services__descr">
+              {item?.description || "No description available."}
+            </div>
           </div>
-          <div className="card-meta">
-            <span className="date-post">{item.date || "16 October 2023"}</span>
-          </div>
-          <div className='card-descr maxOpen-services__descr'>
-            {item.description}
+          <div className="card-more">
+            <button className="btn btn-brand-4-medium hover-up">
+              {item?.category || "Design"}
+            </button>
           </div>
         </div>
-        <div className="card-more">
-          <Link className="btn btn-brand-4-medium hover-up" href={`/blog/${item.category || "article"}`}>
-            {item.category || "Design"}
-          </Link>
-        </div>
       </div>
-    </div>
+    </Link>
   );
 }
