@@ -21,10 +21,8 @@ function ServicesContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: services, loading: servicesLoading } = useFetchData(
-    'services',
-    language
-  );
+  const { data: services, loading: servicesLoading } = useFetchData('services', language);
+  console.log(services)
 
   return (
     <div className='services'>
@@ -52,7 +50,7 @@ function ServicesContent() {
                     descr={service.description}
                     btnText={t('buttons.Learn more')}
                     isFullWidth={isFullWidth}
-                    link='/services/service'
+                    link={service.slug ? `/services/${service.slug}` : null}
                   />
                 );
               })}

@@ -6,17 +6,21 @@ import { useTranslation } from 'react-i18next';
 import BlogCardCustom from '@/components/blog/BlogCardCustom';
 import Loading from '@/components/elements/Loading';
 import { useFetchData } from '@/components/customHooks/useFetchData';
-import { useRouter } from 'next/navigation';
 
-
-const Article = ({params}) => {
+const Article = ({ params }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  //const router = useRouter()
-  //console.log(params)
- const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
+  const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
+  console.log(language);
 
- console.log(article)
+  if (articleLoading) {
+    return <Loading />;
+  }
+
+  if (!article || Object.keys(article).length === 0) {
+    return <p>Article not found.</p>;
+  }
+
   return (
     <div className='article'>
       <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
@@ -24,76 +28,27 @@ const Article = ({params}) => {
         <div className='container'>
           <div className='article__wrapper'>
             <div className='article__left'>
-              <div className='article__heder'>
-                <div>Design</div>
-                <span>August 20, 2022</span>
+              <div className='article__header'>
+                <div className='article__categorie'>{article.categorie}</div>
+                <span>{new Date(article.data).toLocaleDateString()}</span>
               </div>
               <div className='article__content'>
-                <h2 className='text-48-semibold mb-20'>
-                  Cheap Airline Tickets Great Ways To Save
-                </h2>
-                <p className='text-lg mb-40'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-                <h3 className='text-30-bold mb-20'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
-                </h3>
-                <p className='text-lg mb-20'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-                <p className='text-lg mb-20'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-                <img src='/assets/imgs/template/test.jpg' alt='' />
-                <p className='text-lg mb-20'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
-                <p className='text-lg mb-20'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
-                </p>
+                <h2 className='text-48-semibold mb-20'>{article.title}</h2>
+                <p className='text-lg mb-40'>{article.description}</p>
+                <div dangerouslySetInnerHTML={{ __html: article['article-en']}} />
+                {article.image && <img src={article.image} alt={article.title} />}
               </div>
             </div>
             <div className='article__right'>
-              <h2 className='.text-30-bold mb-40'>Related Articles</h2>
+              <h2 className='text-30-bold mb-40'>Related Articles</h2>
               <div className='article__cards'>
-                <BlogCardCustom />
-                <BlogCardCustom />
+                {article.relatedArticles && article.relatedArticles.length > 0 ? (
+                  article.relatedArticles.map((related, index) => (
+                    <BlogCardCustom key={index} article={related} />
+                  ))
+                ) : (
+                  <p>No related articles found.</p>
+                )}
               </div>
             </div>
           </div>

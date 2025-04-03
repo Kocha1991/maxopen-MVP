@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useTranslation } from 'react-i18next';
+
 
 export default function BlogCardCustom({ item }) {
+  const { t } = useTranslation();
   if (!item) return null;
 console.log(item.slug)
   return (
@@ -29,7 +32,7 @@ console.log(item.slug)
           </div>
           <div className="card-more">
             <button className="btn btn-brand-4-medium hover-up">
-              {item?.category || "Design"}
+              {item?.category || (t("buttons.Learn more"))}
             </button>
           </div>
         </div>

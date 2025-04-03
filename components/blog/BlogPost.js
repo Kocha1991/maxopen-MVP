@@ -11,8 +11,6 @@ export default function BlogPost({ style, showItem, showPagination }) {
   const { language } = i18n;
 
   const { data: blogPosts, loading: blogPostsLoading } = useFetchData("our-blog", language);
-  console.log(blogPosts)
-
   let [currentPage, setCurrentPage] = useState(1);
   let showLimit = showItem;
   let paginationItem = 4;
