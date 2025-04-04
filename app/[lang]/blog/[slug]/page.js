@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,7 @@ const Article = ({ params }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
+  
   console.log(language);
 
   if (articleLoading) {
@@ -20,6 +21,8 @@ const Article = ({ params }) => {
   if (!article || Object.keys(article).length === 0) {
     return <p>Article not found.</p>;
   }
+
+  const articleHtml = article[`article-${language}`] || article['article-en'];
 
   return (
     <div className='article'>
@@ -35,7 +38,7 @@ const Article = ({ params }) => {
               <div className='article__content'>
                 <h2 className='text-48-semibold mb-20'>{article.title}</h2>
                 <p className='text-lg mb-40'>{article.description}</p>
-                <div dangerouslySetInnerHTML={{ __html: article['article-en']}} />
+                <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
                 {article.image && <img src={article.image} alt={article.title} />}
               </div>
             </div>
