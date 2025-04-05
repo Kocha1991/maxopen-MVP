@@ -9,25 +9,40 @@ const Prices = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   
-  const { data: prices, loading: pricesLoading  } = useFetchData("price-of-services", language);
-  
+  const { data: pricesData, loading: pricesLoading } = useFetchData("price-of-services", language);
+
+  // Якщо дані приходять у вигляді об'єкта, який містить масив
+  const prices = Array.isArray(pricesData)
+    ? pricesData
+    : pricesData?.services || [];
+
   return (
     <section className="maxOpen__prices">
       <div className="container">
-        <BlogTitle textOnBg={t("PricesTextOnBg")} title={t("PricesTitle")} descr={t("PricesDescr")} />
+        <BlogTitle
+          textOnBg={t("PricesTextOnBg")}
+          title={t("PricesTitle")}
+          descr={t("PricesDescr")}
+        />
         {pricesLoading ? (
           <Loading />
         ) : (
-          <div className="maxOpen__prices-items">
-            {prices.map((service) => (
-              <PriceItem
-                key={service.id}
-                title={`${service.title} ${service.price}`}
-                descr={service.description}
-                btnText={t("buttons.Let's discuss")}
-              />
-            ))}
-          </div>
+          <>
+            {Array.isArray(prices) && prices.length > 0 ? (
+              <div className="maxOpen__prices-items">
+                {prices.map((service) => (
+                  <PriceItem
+                    key={service.id}
+                    title={`${service.title} ${service.price}`}
+                    descr={service.description}
+                    btnText={t("buttons.Let's discuss")}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p>{t("No prices available")}</p>
+            )}
+          </>
         )}
       </div>
     </section>
