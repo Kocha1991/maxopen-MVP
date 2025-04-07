@@ -12,41 +12,6 @@ const urban = Urbanist({
   display: "swap",
 });
 
-// Генерація метаданих
-export async function generateMetadata({ params: { lang } }) {
-  console.log("Generating metadata for language:", lang);
-
-  const currentTranslation = getTranslation(lang);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MaxOpen Agency",
-    "url": "https://maxopen.com.ua",
-    "sameAs": [
-      "https://www.linkedin.com/company/maxopen-studio/posts/?feedView=all",
-      "https://www.upwork.com/agencies/maxopen",
-      "https://www.instagram.com/maxopen_studio",
-      "https://t.me/account_owl",
-    ]
-  };
-
-  return {
-    title: currentTranslation.MetaTitle,
-    description: currentTranslation.MetaDescription,
-    keywords: currentTranslation.MetaKeywords,
-    alternates: {
-      languages: {
-        en: "/en",
-        uk: "/uk",
-        ru_UA: "/ru_UA",
-      },
-    },
-    other: {
-      jsonLd: JSON.stringify(jsonLd),
-    },
-  };
-}
 
 export default async function Layout({ children, params }) {
   console.log("Params:", params);
