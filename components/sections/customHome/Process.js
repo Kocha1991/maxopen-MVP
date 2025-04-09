@@ -24,16 +24,20 @@ const Process = () => {
         {processStepsLoading ? (
           <Loading />
         ) : (
-          <div className="row">
-            {processSteps.map((step) => (
-              <InfoBlock2 
-                key={step.id}
-                number={step.number}
-                title={step['name process']}
-                descr={step.description}
-              />
-            ))}
-          </div>
+          {Array.isArray(processSteps) ? (
+            <div className="row">
+              {processSteps.map((step) => (
+                <InfoBlock2 
+                  key={step.id}
+                  number={step.number}
+                  title={step['name process']}
+                  descr={step.description}
+                />
+              ))}
+            </div>
+          ) : (
+            <p>{t("errors.NoDataAvailable")}</p>
+          )}
         )}
       </div>
       <div className="container mt-25">
