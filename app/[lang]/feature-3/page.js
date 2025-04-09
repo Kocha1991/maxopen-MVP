@@ -1,3 +1,4 @@
+'use client';
 import CounterUp from '@/components/elements/CounterUp';
 import Layout from '@/components/layout/header/Layout';
 import Link from 'next/link';

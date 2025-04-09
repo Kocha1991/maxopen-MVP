@@ -1,3 +1,4 @@
+'use client';
 import LogoTicker from '@/components/elements/LogoTicker';
 import Layout from '@/components/layout/header/Layout';
 import Team2Slider from '@/components/slider/Team2Slider';
