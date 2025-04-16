@@ -9,7 +9,7 @@ import BlogPost from '@/components/blog/BlogPost';
 import ModalManager from '@/components/elements/ModalManager';
 import Filter from '@/components/elements/Filter';
 
-export default function BlogMaxOpen() {
+export default function Blog () {
   return (
     <ModalProvider>
       <BlogMaxOpenContent />

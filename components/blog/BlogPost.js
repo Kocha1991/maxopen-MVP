@@ -10,33 +10,45 @@ export default function BlogPost({ style, showItem, showPagination }) {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: blogPosts, loading: blogPostsLoading } = useFetchData("our-blog", language);
-  let [currentPage, setCurrentPage] = useState(1);
-  let showLimit = showItem;
-  let paginationItem = 4;
+  const { data: blogPosts, loading: blogPostsLoading } = useFetchData("blog-cards", language);
 
-  let [pagination, setPagination] = useState([]);
-  let [limit, setLimit] = useState(showLimit);
-  let [pages, setPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(showItem);
+  const [pagination, setPagination] = useState([]);
+  const [pages, setPages] = useState(0);
 
+  const paginationItem = 4;
+
+  // 1. Оновлюємо limit тільки коли showItem змінюється
   useEffect(() => {
-    if (Array.isArray(blogPosts)) {
-      setPages(Math.ceil(blogPosts.length / limit));
-      createPagination(blogPosts.length);
-    }
-  }, [limit, blogPosts]);
+    setLimit(showItem);
+  }, [showItem]);
 
-  const createPagination = (length) => {
-    let arr = new Array(Math.ceil(length / limit)).fill().map((_, idx) => idx + 1);
-    setPagination(arr);
-  };
+  // 2. Формуємо сторінки тільки коли blogPosts або limit змінюється
+  // useEffect(() => {
+  //   if (Array.isArray(blogPosts)) {
+  //     const totalPages = Math.ceil(blogPosts.length / limit);
+  //     setPages(totalPages);
 
-  const startIndex = currentPage * limit - limit;
+  //     const pagArray = Array.from({ length: totalPages }, (_, idx) => idx + 1);
+  //     setPagination(pagArray);
+
+  //     // якщо поточна сторінка більша за кількість — скидуємо на 1
+  //     if (currentPage > totalPages) {
+  //       setCurrentPage(1);
+  //     }
+  //   }
+  // }, [blogPosts, limit]);
+
+  const startIndex = (currentPage - 1) * limit;
   const endIndex = startIndex + limit;
-  const getPaginatedPosts = Array.isArray(blogPosts) ? blogPosts.slice(startIndex, endIndex) : [];
 
-  let start = Math.floor((currentPage - 1) / paginationItem) * paginationItem;
-  let end = start + paginationItem;
+  const getPaginatedPosts = Array.isArray(blogPosts)
+    ? blogPosts.slice(startIndex, endIndex)
+    : [];
+
+  const start = Math.floor((currentPage - 1) / paginationItem) * paginationItem;
+  const end = start + paginationItem;
   const getPaginationGroup = pagination.slice(start, end);
 
   return (
@@ -58,8 +70,8 @@ export default function BlogPost({ style, showItem, showPagination }) {
               getPaginationGroup={getPaginationGroup}
               currentPage={currentPage}
               pages={pages}
-              next={() => setCurrentPage(prev => prev + 1)}
-              prev={() => setCurrentPage(prev => prev - 1)}
+              next={() => setCurrentPage(prev => Math.min(prev + 1, pages))}
+              prev={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               handleActive={setCurrentPage}
             />
           )}

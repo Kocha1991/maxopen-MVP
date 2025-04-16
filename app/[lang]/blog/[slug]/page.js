@@ -12,7 +12,7 @@ const Article = ({ params }) => {
   const { language } = i18n;
   const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
   
-  console.log(language);
+  console.log(params.slug);
 
   if (articleLoading) {
     return <Loading />;

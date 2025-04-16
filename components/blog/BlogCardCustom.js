@@ -5,14 +5,13 @@ import { useTranslation } from 'react-i18next';
 export default function BlogCardCustom({ item }) {
   const { t } = useTranslation();
   if (!item) return null;
-console.log(item.slug)
   return (
     <Link href={`/blog/${item?.slug ?? ""}`}>
       <div className="blog-card-custom">
         <div className="card-image">
          
             <img 
-              src={item?.img?.full_url || "/assets/imgs/template/UxArticle.jpg"} 
+              src={item?.img?.full_url} 
               alt={item?.title || "Default title"} 
               className="img-fluid" 
             />
