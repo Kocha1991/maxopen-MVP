@@ -13,7 +13,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
   const { openModal } = useModal();
 
   // Отримання логотипу з API
-  const { data: logoData, loading: logoLoading } = useFetchData('main-logo', i18n.language);
+  const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
   const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
   const logoWeb = logoItem?.['logo-web']?.full_url;
 

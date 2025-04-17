@@ -11,7 +11,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: logoData, loading: logoLoading } = useFetchData('main-logo', language);
+  const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
   const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
 
   const logoWeb = logoItem?.['logo-web']?.full_url;

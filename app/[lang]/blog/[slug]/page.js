@@ -10,7 +10,11 @@ import { useFetchData } from '@/components/customHooks/useFetchData';
 const Article = ({ params }) => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: article, loading: articleLoading } = useFetchData(`article/${params.slug}`, language);
+  const { data: articles, loading: articleLoading } = useFetchData(`article`);
+
+  const article = Array.isArray(articles)
+  ? articles.find(item => item.slug === params.slug)
+  : null;
   
   console.log(params.slug);
 
@@ -27,7 +31,7 @@ const Article = ({ params }) => {
   return (
     <div className='article'>
       <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
-        <PageBanner bunnerBg='/assets/imgs/template/article-banner-bg.jpg' />
+        <PageBanner bunnerBg={article?.banner?.full_url} />
         <div className='container'>
           <div className='article__wrapper'>
             <div className='article__left'>

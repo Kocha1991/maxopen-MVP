@@ -12,7 +12,7 @@ export const CustomFooter = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: logoData, loading: logoLoading } = useFetchData('main-logo', language);
+  const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
 
   const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
   const logoImage = logoItem?.['logo-web']?.full_url;
