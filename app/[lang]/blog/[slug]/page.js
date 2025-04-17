@@ -37,7 +37,7 @@ const Article = ({ params }) => {
             <div className='article__left'>
               <div className='article__header'>
                 <div className='article__categorie'>{article.categorie}</div>
-                <span>{new Date(article.data).toLocaleDateString()}</span>
+                <span>{new Date(article.date).toLocaleDateString()}</span>
               </div>
               <div className='article__content'>
                 <h2 className='text-48-semibold mb-20'>{article.title}</h2>
