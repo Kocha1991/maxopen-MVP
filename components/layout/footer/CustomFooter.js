@@ -9,8 +9,7 @@ import { Nav } from '@/components/elements/Nav';
 import Loading from '@/components/elements/Loading';
 
 export const CustomFooter = () => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
+  const { t } = useTranslation();
 
   const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
 

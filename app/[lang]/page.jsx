@@ -12,16 +12,30 @@ import WhyWe from '@/components/sections/customHome/WhyWe';
 import Process from '@/components/sections/customHome/Process';
 import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
+import { useTranslation } from 'react-i18next';
+import { useFetchData } from '@/components/customHooks/useFetchData';
 
 export default function Page() {
   return <HomeContent />;
 }
+
 function HomeContent() {
   const { isOpen, modalType, modalData, closeModal } = useModal();
+  const { i18n } = useTranslation();
+  const { language } = i18n;
+
+  const { data: homeBanner, loading: homeBannerLoading } = useFetchData("services", language);
+
+  // Беремо перший банер, який відповідає поточній мові
+  const bannerData = Array.isArray(homeBanner)
+    ? homeBanner.find(item => item.locale === language)
+    : null;
 
   return (
     <Layout useCustomHeader={true} footerStyle={'customFooter'}>
-      <Banner />
+      <Banner
+   
+      />
       <GoodsAnimation />
       <Services />
       <Projects />

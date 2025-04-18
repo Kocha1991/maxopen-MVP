@@ -1,9 +1,10 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import Lottie from "lottie-react";
+import animationData from "@/public/assets/imgs/template/Maxopen-loading.json";
 
 const Loading = () => (
   <div className="loading-container">
-    <ClipLoader color="#2afad7" size={50} />
+    <Lottie animationData={animationData} loop={true} autoplay={true} speed={10}/>
   </div>
 );
 

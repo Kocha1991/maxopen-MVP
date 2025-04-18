@@ -8,10 +8,9 @@ export const Nav = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: navigations, loading, error } = useFetchData("navigation", language);
+  const { data: navigations, loading } = useFetchData("navigation", language);
 
   if (loading) return <Loading />;
-  if (error) return <div className="error-message">{t("Error loading navigation")}: {error}</div>;
 
   return (
     <nav className="custom-nav">

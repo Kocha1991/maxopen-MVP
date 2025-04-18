@@ -5,11 +5,11 @@ import { useModal } from '@/components/customHooks/useModal';
 import { Nav } from '@/components/elements/Nav';
 import { useTranslation } from 'react-i18next';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack }) {
   const { openModal } = useModal();
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
+  const { t } = useTranslation();
 
   const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
   const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
@@ -32,18 +32,22 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
       <div className="container">
         <div className="custom-header">
           <div className="header-logo">
-            <Link className="d-flex" href="/">
-              <img
-                src={logoWeb}
-                alt="MaxOpen Logo"
-                className="web-logo"
-              />
-              <img
-                src={logoPhone}
-                alt="MaxOpen Mobile Logo"
-                className="mobile-logo"
-              />
-            </Link>
+            {logoLoading ? (
+              <Loading />
+            ) : (
+              <Link className="d-flex" href="/">
+                <img
+                  src={logoWeb}
+                  alt="MaxOpen Logo"
+                  className="web-logo"
+                />
+                <img
+                  src={logoPhone}
+                  alt="MaxOpen Mobile Logo"
+                  className="mobile-logo"
+                />
+              </Link>
+            )}
           </div>
           <Nav />
           <div className="header-right">
