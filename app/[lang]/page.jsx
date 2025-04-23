@@ -33,9 +33,7 @@ function HomeContent() {
 
   return (
     <Layout useCustomHeader={true} footerStyle={'customFooter'}>
-      <Banner
-   
-      />
+      <Banner/>
       <GoodsAnimation />
       <Services />
       <Projects />
