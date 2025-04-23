@@ -29,7 +29,7 @@ export default function Error() {
               >
                 <path
                   d='M22 10.9993L18.4791 7.47852V10.3064H0V11.6924H18.4791V14.5203L22 10.9993Z'
-                  fill='true'
+                  fill='currentColor'
                 ></path>
               </svg>
             </Link>

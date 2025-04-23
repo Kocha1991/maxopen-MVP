@@ -15,7 +15,7 @@ export const Nav = () => {
   return (
     <nav className="custom-nav">
       <ul className="main-menu">
-        {navigations.map((item) => (
+        {Array.isArray(navigations) && navigations.map((item) => (
           <li key={item.id} className="has-children">
             <Link href={item.slug.toLowerCase()}>{item.name}</Link>
           </li>
