@@ -21,7 +21,7 @@ function ServicesContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: services, loading: servicesLoading } = useFetchData('services', language);
+  const { data: services, loading: servicesLoading } = useFetchData('services-card', language);
   console.log(services)
 
   return (

@@ -6,26 +6,30 @@ import { useModal } from '@/components/customHooks/useModal';  // Додаємо
 import Loading from '@/components/elements/Loading';
 
 export const Games = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
 
-  const { data: games, loading: gamesLoading } = useFetchData("video-games");
   const { openModal } = useModal();
 
-  if (!Array.isArray(games)) {
+  const { data: videos, loading: videosLoading } = useFetchData("video-games");
+  const { data: text, loading: textLoading } = useFetchData("games-title", language, true);
+  const loading = videosLoading || textLoading;
+
+  if (!Array.isArray(videos)) {
     return <p>{t("notification.InformationMissing")}</p>;
   }
 
   return (
     <section className="games">
-      {gamesLoading ? (
+      {loading ? (
         <Loading />
       ) : (
         <div className="container games__wrapper">
           <h2 className="maxOpen-services__title">
-            {t("GamesTitle")}
+            {text.title}
           </h2>
           <div className="box-swiper mt-60">
-            <Team2Slider slides={games} openModal={openModal} />
+            <Team2Slider slides={videos} openModal={openModal} />
           </div>
         </div>
       )}

@@ -15,7 +15,7 @@ const fetcher = async (url) => {
   return response.json();
 };
 
-export const useFetchData = (endpoint, language = null) => {
+export const useFetchData = (endpoint, language = null, returnFirst = false) => {
   const locale = language === "ru" ? "ru_UA" : language;
   const url = locale
     ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${locale}`
@@ -24,9 +24,8 @@ export const useFetchData = (endpoint, language = null) => {
   const { data, error } = useSWR(url, fetcher);
 
   return {
-    data: data || [],
+    data: returnFirst && Array.isArray(data) ? data[0] : (data || []),
     loading: !data && !error,
     error,
   };
 };
-

@@ -11,31 +11,37 @@ const Process = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: processSteps, loading: processStepsLoading } = useFetchData("work-process", language);
-  
+  const { data: items, loading: itemsLoading } = useFetchData("process-items", language);
+  const { data: text, loading: textLoading } = useFetchData("process-text", language, true);
+  const loading = itemsLoading || textLoading;
+
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
       <div className="container">
-        <BlogTitle 
-          textOnBg={t("ProcesTextOnBg")}
-          title={t("ProcesTitle")}
-          descr={t("ProcesSubtitle")}
-        />
-        {processStepsLoading ? (
+        {loading ? (
           <Loading />
-        ) : Array.isArray(processSteps) ? (
-          <div className="row">
-            {processSteps.map((step) => (
-              <InfoBlock2 
-                key={step.id}
-                number={step.number}
-                title={step['name process']}
-                descr={step.description}
-              />
-            ))}
-          </div>
         ) : (
-          <p>{t("errors.NoDataAvailable")}</p>
+          <>
+            <BlogTitle 
+              textOnBg={text?.teaser}
+              title={text?.title}
+              descr={text?.descr}
+            />
+            {Array.isArray(items) ? (
+              <div className="row">
+                {items.map((step) => (
+                  <InfoBlock2 
+                    key={step.id}
+                    number={step.number}
+                    title={step['name process']}
+                    descr={step.description}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p>{t("errors.NoDataAvailable")}</p>
+            )}
+          </>
         )}
       </div>
       <div className="container mt-25">

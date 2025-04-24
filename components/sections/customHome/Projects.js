@@ -11,27 +11,28 @@ export const Projects = () => {
   const { language } = i18n;
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const { data: projects, loading: projectsLoading } = useFetchData("cases", language);
+  const { data: projectsCard, loading: projectsCardLoading } = useFetchData("projects-card", language);
+  const { data: projectsText, loading: projectsTextLoading } = useFetchData("projects-text", language, true);
+  const loading= projectsCardLoading || projectsTextLoading;
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
   };
 
-  const visibleProjects = Array.isArray(projects) ? (showAllProjects ? projects : projects.slice(0, 6)) : [];
+  const visibleProjects = Array.isArray(projectsCard) ? (showAllProjects ? projectsCard : projectsCard.slice(0, 6)) : [];
 
   return (
     <div className="maxOpen-projects" id="projects">
       <div className="container">
-        <BlogTitle 
-          textOnBg={t("ProjectsTextOnBg")}
-          title={t("ProjectsTitle")}
-          descr={t("ProjectsSubtitle")}
-        />
-        
-        {projectsLoading ? (
+        {loading ? (
           <Loading />
         ) : (
           <>
+            <BlogTitle 
+              textOnBg={projectsText.teaser}
+              title={projectsText.title}
+              descr={projectsText.descr}
+            />
             <div className="row mt-65">
               {visibleProjects.length > 0 ? (
                 visibleProjects.map((project) => (
@@ -48,8 +49,7 @@ export const Projects = () => {
               )}
             </div>
 
-            {/* Кнопка "Load More" повинна бути поза .row, щоб не порушувати структуру */}
-            {Array.isArray(projects) && projects.length > 6 && (
+            {Array.isArray(projectsCard) && projectsCard.length > 6 && (
               <button 
                 className="btn btn-brand-4-medium hover-up mt-4" 
                 onClick={toggleProjectsView}
