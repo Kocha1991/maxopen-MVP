@@ -17,7 +17,7 @@ export async function POST(
     formData.append('email', data.email);
     formData.append('message', data.message);
 
-    return fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/сustomer-data', {
+    return fetch('https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/customer-data', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -25,6 +25,12 @@ export async function POST(
       },
       body: formData,
     }).then((res) => {
+      if (res.statusText !== "Created") {
+        return new Response(
+          JSON.stringify({ message: res.statusText }),
+          { status: 500 }
+        );
+      }
       return new Response(
         JSON.stringify({ message: "Data received", data: data }),
         { status: 201 }

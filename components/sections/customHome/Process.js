@@ -13,7 +13,8 @@ const Process = () => {
 
   const { data: items, loading: itemsLoading } = useFetchData("process-items", language);
   const { data: text, loading: textLoading } = useFetchData("process-text", language, true);
-  const loading = itemsLoading || textLoading;
+  const { data: formText, loading: formTextLoading } = useFetchData("form-2", language, true);
+  const loading = itemsLoading || textLoading || formTextLoading;
 
   return (
     <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
@@ -46,11 +47,11 @@ const Process = () => {
       </div>
       <div className="container mt-25">
         <BoxNewsletter 
-          title={t("NewsLetterTitle")}
-          descr={t("NewsLetterDescr")}
-          buttonText={t("buttons.Get in Touch")}
-          placeholder={t('NewsLetterPlaceholder')}
-          newsLetterText={t("NewsLetterText")}
+          title={formText.title}
+          descr={formText.desc}
+          buttonText={formText["btn-text"]}
+          placeholder={formText.placeholder}
+          newsLetterText={formText.text}
         />
       </div>
     </section>

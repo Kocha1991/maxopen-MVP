@@ -22,41 +22,50 @@ function ServicesContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
   const { data: services, loading: servicesLoading } = useFetchData('services-card', language);
-  console.log(services)
+  const { data: text, loading: textLoading } = useFetchData("services-page-text", language, true);
+  const loading = servicesLoading || textLoading;
 
   return (
     <div className='services'>
       <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
-        <PageBanner
-          SolutionsBannerTitle={t('OurservicesBannerTitle')}
-          SolutionsBannerDescr={t('OurservicesBannerDescr')}
-          textBnt={t('buttons.BookMeeting')}
-          onOpenModal={openModal}
-        />
-        <div className='container'>
-          <div className='blog-maxOpen__wrapper'>
-            <h2 className='blog-title mb-20'>{t('Ourservices')}</h2>
-            <div className='row'>
-              {services.map((service, index) => {
-                const isFullWidth =
-                  (index + 1) % 3 !== 0 && index === services.length - 1;
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <PageBanner
+              SolutionsBannerTitle={text.title}
+              SolutionsBannerDescr={text.descr}
+              textBnt={text['btn-text']}
+              onOpenModal={openModal}
+            />
+            <div className='container'>
+              <div className='blog-maxOpen__wrapper'>
+                <h2 className='blog-title mb-20'>{text.teaser}</h2>
+                <div className='row'>
+                  {services.map((service, index) => {
+                    const isFullWidth =
+                      (index + 1) % 3 !== 0 && index === services.length - 1;
 
-                return (
-                  <ServicesCard
-                    key={service.id}
-                    icon={service.icon}
-                    iconHover={service['icon-black']}
-                    title={service.title}
-                    descr={service.description}
-                    btnText={t('buttons.Learn more')}
-                    isFullWidth={isFullWidth}
-                    link={service.slug ? `/services/${service.slug}` : null}
-                  />
-                );
-              })}
+                    return (
+                      <ServicesCard
+                        key={service.id}
+                        icon={service.icon}
+                        iconHover={service['icon-black']}
+                        title={service.title}
+                        descr={service.description}
+                        btnText={t('buttons.Learn more')}
+                        isFullWidth={isFullWidth}
+                        link={service.slug ? `/services/${service.slug}` : null}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </>
+        )}
+        
+        
       </Layout>
       <ModalManager
         isOpen={isOpen}

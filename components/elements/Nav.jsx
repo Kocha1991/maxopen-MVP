@@ -1,16 +1,13 @@
 import React from "react";
 import Link from 'next/link';
-import Loading from '@/components/elements/Loading';
 import { useTranslation } from 'react-i18next';
 import { useFetchData } from '../customHooks/useFetchData';
 
 export const Nav = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: navigations, loading } = useFetchData("navigation", language);
-
-  if (loading) return <Loading />;
+  const { data: navigations} = useFetchData("navigation", language);
 
   return (
     <nav className="custom-nav">

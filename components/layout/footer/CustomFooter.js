@@ -21,23 +21,15 @@ export const CustomFooter = () => {
     <footer className="footer custom-footer">
       <div className="container">
         <div className="custom-footer__wrapper">
-          {logoLoading ? (
-            <Loading />
-          ) : logoImage ? (
-            <Link href={logoHref} className="maxOpen-logo">
-              <img
-                alt="MaxOpen"
-                src={logoImage}
-                width={logoItem?.['logo-web']?.width || 206}
-                height={logoItem?.['logo-web']?.height || 44}
-              />
-            </Link>
-          ) : (
-            <p className="text-sm neutral-600">{t('notification.InformationMissing')}</p>
-          )}
-
+          <Link href={logoHref} className="maxOpen-logo">
+            <img
+              alt="MaxOpen"
+              src={logoImage}
+              width={logoItem?.['logo-web']?.width || 206}
+              height={logoItem?.['logo-web']?.height || 44}
+            />
+          </Link>
           <Nav />
-
           <div className="custom-footer__social">
             <p className="text-lg title-follow neutral-0 mt-0">{t('Follow')}</p>
             <SocialNetworks />

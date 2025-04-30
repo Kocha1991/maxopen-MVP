@@ -10,6 +10,8 @@ const Prices = () => {
   const { language } = i18n;
   
   const { data: pricesData, loading: pricesLoading } = useFetchData("price-of-services", language);
+  const { data: pricesText, loading: pricesTextLoading } = useFetchData("prices-text", language, true);
+  const loading = pricesLoading || pricesTextLoading;
 
   // Якщо дані приходять у вигляді об'єкта, який містить масив
   const prices = Array.isArray(pricesData)
@@ -19,15 +21,15 @@ const Prices = () => {
   return (
     <section className="maxOpen__prices">
       <div className="container">
-        <BlogTitle
-          textOnBg={t("PricesTextOnBg")}
-          title={t("PricesTitle")}
-          descr={t("PricesDescr")}
-        />
-        {pricesLoading ? (
+        {loading ? (
           <Loading />
         ) : (
           <>
+            <BlogTitle
+              textOnBg={pricesText.teaser}
+              title={pricesText.title}
+              descr={pricesText.descr}
+            />
             {Array.isArray(prices) && prices.length > 0 ? (
               <div className="maxOpen__prices-items">
                 {prices.map((service) => (

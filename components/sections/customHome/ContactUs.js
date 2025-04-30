@@ -45,6 +45,7 @@ const ContactUs = () => {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email, message }),
       });
@@ -90,6 +91,7 @@ const ContactUs = () => {
                     placeholder={t("TypeName")}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    id="fullname"
                   />
                   {errors.name && <small className="text-danger">{t("notification.validationRequired")}</small>}
                 </div>
@@ -101,6 +103,7 @@ const ContactUs = () => {
                     placeholder={t("TypeEmail")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    id="email"
                   />
                   {errors.email && <small className="text-danger">{t("notification.validationRequired")}</small>}
                 </div>
@@ -113,6 +116,7 @@ const ContactUs = () => {
                     style={{ resize: 'none' }}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    id="message"
                   />
                 </div>
                 <div className="form-group">

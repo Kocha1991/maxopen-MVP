@@ -32,22 +32,18 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
       <div className="container">
         <div className="custom-header">
           <div className="header-logo">
-            {logoLoading ? (
-              <Loading />
-            ) : (
-              <Link className="d-flex" href="/">
-                <img
-                  src={logoWeb}
-                  alt="MaxOpen Logo"
-                  className="web-logo"
-                />
-                <img
-                  src={logoPhone}
-                  alt="MaxOpen Mobile Logo"
-                  className="mobile-logo"
-                />
-              </Link>
-            )}
+            <Link className="d-flex" href="/">
+              <img
+                src={logoWeb}
+                alt="MaxOpen Logo"
+                className="web-logo"
+              />
+              <img
+                src={logoPhone}
+                alt="MaxOpen Mobile Logo"
+                className="mobile-logo"
+              />
+            </Link>
           </div>
           <Nav />
           <div className="header-right">

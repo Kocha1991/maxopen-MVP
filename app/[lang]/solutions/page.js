@@ -24,16 +24,12 @@ function CompleteSolutionsContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: cards, loading: cardsLoading } = useFetchData(
-    'packege-card',
-    language
-  );
-  const { data: fullPackage, loading: fullPackageLoading } = useFetchData(
-    'full-package',
-    language
-  );
+  const { data: cards, loading: cardsLoading } = useFetchData('packege-card', language);
+  const { data: fullPackage, loading: fullPackageLoading } = useFetchData('full-package', language);
+  const { data: text, loading: textLoading } = useFetchData("solutions-page-text", language, true);
+  
 
-  const isLoading = cardsLoading || fullPackageLoading;
+  const isLoading = cardsLoading || fullPackageLoading || textLoading;
   return (
     <>
       {isLoading ? (
@@ -42,9 +38,9 @@ function CompleteSolutionsContent() {
         <div className='complete-solutions'>
           <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
             <PageBanner
-              SolutionsBannerTitle={t('SolutionsBannerTitle')}
-              SolutionsBannerDescr={t('SolutionsBannerDescr')}
-              textBnt={t('buttons.BookMeeting')}
+              SolutionsBannerTitle={text['banner-title']}
+              SolutionsBannerDescr={text["banner-descr"]}
+              textBnt={text["banner-btn"]}
               onOpenModal={openModal}
             />
             <div className='complete-solutions__items'>
@@ -97,17 +93,17 @@ function CompleteSolutionsContent() {
                 <div className='add-top-footer__wrapper'>
                   <div className='add-top-footer__text-block'>
                     <div className='solution-card__title text-white'>
-                      {t('SolutionsNeedHelp')}
+                      {text["footer-title"]}
                     </div>
                     <div className='solution-card__descr'>
-                      {t('SolutionsHalpDescr')}
+                      {text["footer-descr"]}
                     </div>
                     <a
                       className='btn btn-brand-4-medium hover-up'
                       onClick={() => openModal('calendar')}
                     >
                       <span>
-                        {t('buttons.Book a call')}
+                        {text["footer-btn"]}
                         <svg
                           width='11'
                           height='12'
@@ -136,7 +132,7 @@ function CompleteSolutionsContent() {
                     </a>
                   </div>
                   <img
-                    src='/assets/imgs/template/top-footer-img.png'
+                    src={text["footer-img"]?.full_url}
                     alt='image'
                   />
                 </div>

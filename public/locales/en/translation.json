@@ -1,14 +1,4 @@
 {
-
-  "NewsLetterTitle": "Let's discuss your project!",
-  "NewsLetterDescr": "Enter your email, and we'll get in touch with you as soon as possible to discuss your ideas in detail and help bring your project to life",
-  "NewsLetterPlaceholder": "Your email address",
-  "NewsLetterText": "Your email is safe with us – just for project updates.",
-
-  "PricesTextOnBg": "Solutions for You",
-  "PricesTitle": "Your Goal — Our Solutions",
-  "PricesDescr": "Browse our services and find the perfect match for your project. We offer tailored solutions for every need, whether it's website development, mobile app creation, or business process optimization. Together, we'll achieve results that exceed your expectations",
-
   "ContactUsBannerTitle":"Ready to cooperate?",
   "ContactUsBannerDescr":"We are always ready to help! Contact us and we will be happy to discuss your ideas and project requirements.",
   "ContactUsTitle":"Get in Touch",
@@ -19,13 +9,6 @@
   "TypeEmail":"Type your email",
   "ContactUsMessage":"Message",
   "ContactUsHelp":"How can we help you?",
-
-  "Home":"Home",
-  "Services":"Services",
-  "Solutions":"Solutions",
-  "Portfolio":"Portfolio",
-  "Blog":"Blog",
-  "AboutUs": "About us",
 
   "Follow":"Follow us",
   
@@ -83,10 +66,6 @@
   "Ourportfolio": "Our Portfolio",
   "OurportfolioBannerTitle": "Transform Ideas into Digital Reality",
   "OurportfolioBannerdescr": "Explore the latest insights, tips, and news from various industries. Here you will find useful information that will help you stay one step ahead in your business by improving strategies and making effective decisions.",
-
-  "Ourservices":"Our service",
-  "OurservicesBannerTitle":"Elevate Your Business with Chatbots",
-  "OurservicesBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
 
   "ServicesBannerTitle": "Elevate Your Business with Chatbots",
   "ServicesBannerDescr": "Enhance customer experience and streamline processes with smart chatbots. Designed to engage, adapt, and automate, our solutions help your business grow and stand out. Let's create seamless interactions that drive results.",
