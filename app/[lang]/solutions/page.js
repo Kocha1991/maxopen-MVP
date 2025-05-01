@@ -52,6 +52,9 @@ function CompleteSolutionsContent() {
                     descr={card.description}
                     icon={card.icon}
                     price={card.price}
+                    priceText={card["price-package-text"]}
+                    title={card["package-option-title"]}
+                    btnText={card["btn-text"]}
                     options={[
                       { title: card.options1, description: card.optionsDescr1 },
                       { title: card.options2, description: card.optionsDescr2 },

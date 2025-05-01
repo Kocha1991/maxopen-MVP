@@ -8,7 +8,7 @@ import { useModal } from '@/components/customHooks/useModal';
 import ModalManager from '@/components/elements/ModalManager';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import ContactUs from '@/components/sections/customHome/ContactUs';
-import BlogCardLinks from '@/components/blog/BlogCardLinks';
+import CardLinks from '@/components/blog/CardLinks';
 import TextInfo from '@/components/elements/TextInfo';
 import KeyBenefits from '@/components/sections/service-page/KeyBenefits';
 import ChatbotSlider from '@/components/slider/ChatbotSlider';
@@ -32,29 +32,14 @@ function ServiceContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: services, loading: loadingServices } = useFetchData(
-    'animation-services',
-    language
-  );
-  const { data: networks, loading: loadingNetworks } =
-    useFetchData('social-networks');
-  const { data: logos, loading: logosLoading } =
-    useFetchData('logo-techonologies');
-  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData(
-    'key-benefits',
-    language
-  );
-  const { data: cards, loading: cardsLoading } = useFetchData(
-    'chatbot-tasks-card',
-    language
-  );
+  const { data: services, loading: loadingServices } = useFetchData('animation-services', language);
+  const { data: networks, loading: loadingNetworks } = useFetchData('social-networks');
+  const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
+  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
+  const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
+  const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
 
-  const isLoading =
-    loadingServices ||
-    loadingNetworks ||
-    logosLoading ||
-    benefitsItemsLoading ||
-    cardsLoading;
+  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading;
 
   return (
     <>
@@ -64,26 +49,28 @@ function ServiceContent() {
         <div className='service'>
           <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
             <PageBanner
-              SolutionsBannerTitle={t('ServicesBannerTitle')}
-              SolutionsBannerDescr={t('ServicesBannerDescr')}
-              textBnt={t('buttons.BookMeeting')}
+              SolutionsBannerTitle={textPage['banner-title']}
+              SolutionsBannerDescr={textPage['banner-text']}
+              textBnt={textPage['banner-btn']}
               onOpenModal={openModal}
             />
             <GoodsAnimation
-              text={t('ServicesAnimationText')}
+              text={textPage['text-technologies-animation']}
               data={logos}
               isLoading={logosLoading}
             />
-            <BlogCardLinks
+            <CardLinks
               textOnBg={t('ChatbotSolutionsTextOnBg')}
               title={t('ChatbotSolutionsTitle')}
               descr={t('ChatbotSolutionsDescr')}
             />
             <TextInfo
-              title={t('ServiceTextInfoTitle')}
-              descr={t('ServiceTextInfoDescr')}
+              title={textPage["blok-info-title"]}
+              descr={textPage["blok-info-text"]}
             />
             <KeyBenefits
+              teaser={textPage["key-benefits-teaser"]}
+              title={textPage["key-benefits-title"]}
               data={benefitsItems}
               isLoading={benefitsItemsLoading}
             />

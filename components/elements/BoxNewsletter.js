@@ -15,7 +15,7 @@ const BoxNewsletter = ({ title, descr, buttonText, placeholder, newsLetterText }
     setError(false);
 
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch("/api/customer-data", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

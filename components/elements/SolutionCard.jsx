@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const SolutionCard = ({ name, descr, icon, price, options = [] }) => {
+export const SolutionCard = ({ name, descr, icon, price, options = [], priceText, btnText, title }) => {
   const { t } = useTranslation();
 
   return (
@@ -21,7 +21,7 @@ export const SolutionCard = ({ name, descr, icon, price, options = [] }) => {
             type="button"
           >
             <span>
-              {t("buttons.Order package")}
+              {btnText}
               <svg
                 width={22}
                 height={8}
@@ -37,13 +37,13 @@ export const SolutionCard = ({ name, descr, icon, price, options = [] }) => {
             </span>
           </button>
           <div className="solution-card__left-price">
-            <h3 className="solution-card__subheader">{t("PackagePrice")}</h3>
+            <h3 className="solution-card__subheader">{priceText}</h3>
             <p>${price}</p>
           </div>
         </div>
       </div>
       <div className="solution-card__right">
-        <div className="solution-card__title">{t("WhatIncluded")}</div>
+        <div className="solution-card__title">{title}</div>
         <div className="solution-card__right-grid">
           {options.map((option, index) => (
             <div key={index} className="solution-card__right-item">

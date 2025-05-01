@@ -26,17 +26,16 @@ function PortfolioContent() {
   const { language } = i18n;
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const { data: projects, loading: projectsLoading } = useFetchData(
-    'cases',
-    language
-  );
+  const { data: projects, loading: projectsLoading } = useFetchData("projects-card", language);
+  const { data: projectsText, loading: projectsTextLoading } = useFetchData("projects-text", language, true);
+  
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
   };
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
-  const isLoading = projectsLoading;
+  const isLoading = projectsLoading || projectsTextLoading;
 
   return (
     <>
@@ -46,9 +45,9 @@ function PortfolioContent() {
         <div className='portfolio'>
           <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
             <PageBanner
-              SolutionsBannerTitle={t('OurportfolioBannerTitle')}
-              SolutionsBannerDescr={t('OurportfolioBannerdescr')}
-              textBnt={t('buttons.BookMeeting')}
+              SolutionsBannerTitle={projectsText["banner-title"]}
+              SolutionsBannerDescr={projectsText["banner-text"]}
+              textBnt={projectsText["banner-btn-text"]}
               onOpenModal={openModal}
             />
             <div className='container'>

@@ -33,7 +33,7 @@ export default function Team2Slider({ slides, openModal }) {
       <>
         <div className="swiper-container swiper-group-4">
             <Swiper {...swiperOptions}>
-                {slides.map((slide) => (
+                {slides?.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <SlideCard
                             video={slide["video-game"].full_url}

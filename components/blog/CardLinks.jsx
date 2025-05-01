@@ -2,7 +2,7 @@ import React from "react";
 import Link from 'next/link';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 
-const BlogCardLinks = ({
+const CardLinks = ({
   textOnBg,
   title,
   descr,
@@ -45,4 +45,4 @@ const BlogCardLinks = ({
   );
 };
 
-export default BlogCardLinks;
+export default CardLinks;

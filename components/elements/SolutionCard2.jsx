@@ -13,8 +13,7 @@ export const SolutionCard2 = ({ title, description, price, icon, options = [] })
         ></span>
         <div className="solution-card__title">{title}</div>
       </div>
-      <div className="solution-card__descr">{description}</div>
-      <div className="solution-card__descr">{t("YouGet")}</div>
+      <div className="solution-card__descr" dangerouslySetInnerHTML={{ __html: description }}></div>
       <div className="solution-card--2__items">
         {options.map((option, index) => (
           <div key={index} className="solution-card--2__item">

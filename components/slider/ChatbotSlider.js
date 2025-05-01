@@ -26,7 +26,7 @@ const chatbotSliderOptions = {
   },
 };
 
-export default function ChatbotSlider({data, isLoading}) {
+export default function ChatbotSlider({data}) {
   const { t } = useTranslation();
 
   return (
