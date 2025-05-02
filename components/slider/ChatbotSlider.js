@@ -4,7 +4,6 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideCard2 } from '../elements/SliderCard2';
 import { BlogTitle } from '../blog/BlogTitle';
-import { useTranslation } from 'react-i18next';
 
 const chatbotSliderOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -26,15 +25,14 @@ const chatbotSliderOptions = {
   },
 };
 
-export default function ChatbotSlider({data}) {
-  const { t } = useTranslation();
+export default function ChatbotSlider({data, title, teaser}) {
 
   return (
     <div className='container'>
       <div className='chatbot-slider'>
         <BlogTitle 
-          textOnBg={t("ChatbotTasksTextOnBg")}
-          title={t("ChatbotTasksTextTitle")}
+          textOnBg={teaser}
+          title={title}
         />
 
         {/* Обгортка Swiper */}

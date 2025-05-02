@@ -38,8 +38,10 @@ function ServiceContent() {
   const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
   const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
+  const { data: info, loading: infoLoading } = useFetchData("efficiency-chatbot", language);
 
-  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading;
+
+  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading || infoLoading;
 
   return (
     <>
@@ -74,21 +76,26 @@ function ServiceContent() {
               data={benefitsItems}
               isLoading={benefitsItemsLoading}
             />
-            <ChatbotSlider data={cards} isLoading={cardsLoading} />
+            <ChatbotSlider data={cards} title={textPage["slider-title"]} teaser={textPage["slider-teaser"]}/>
             <div className='who-needs'>
               <BlogTitle
-                textOnBg={t('WhoNeedsTextOnBg')}
-                title={t('WhoNeedsTitle')}
+                textOnBg={textPage["who-need-teser"]}
+                title={textPage["who-need-title"]}
                 textColor='wight-text'
               />
               <ItemsTicker items={services} />
             </div>
-            <Efficiency />
+            <Efficiency 
+              teaser={textPage["teaser-info"]}
+              title={textPage["title-info"]}
+              descr={textPage["descr-info"]}
+              data={info}
+            />
             <div className='container'>
               <BlogTitle
-                textOnBg={t('PlatformsChatbotTextOnBg')}
-                title={t('PlatformsChatbotTitle')}
-                descr={t('PlatformsChatbotDescr')}
+                textOnBg={textPage["platform-teaser"]}
+                title={textPage["platform-title"]}
+                descr={textPage["platform-descr"]}
               />
             </div>
             <ItemsTicker items={networks} />
