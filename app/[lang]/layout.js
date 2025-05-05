@@ -33,8 +33,8 @@ export default async function Layout({ children, params }) {
             </ModalProvider>
           </LanguageProvider>
         </I18nProvider>
+        <script src="//recorder.ugc-up.com/api/get_script/1.js"></script>
       </body>
-      <script src="//recorder.ugc-up.com/api/get_script/1.js"></script>
     </html>
   );
 }
