@@ -24,7 +24,6 @@ export default async function Layout({ children, params }) {
         <title>{currentTranslation.MetaTitle}</title>
         <meta name="description" content={currentTranslation.MetaDescription} />
         <meta name="keywords" content={currentTranslation.MetaKeywords} />
-        <script src="//recorder.ugc-up.com/api/get_script/1.js"></script>
       </head>
       <body className={urban.variable}>
         <I18nProvider>
@@ -35,6 +34,7 @@ export default async function Layout({ children, params }) {
           </LanguageProvider>
         </I18nProvider>
       </body>
+      <script src="//recorder.ugc-up.com/api/get_script/1.js"></script>
     </html>
   );
 }
