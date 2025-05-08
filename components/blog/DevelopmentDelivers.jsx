@@ -21,8 +21,6 @@ const DevelopmentDelivers = ({data, isLoading}) => {
 
     const activeData = data.find((cat) => cat.id === activeCategory);
 
-    console.log(activeData);
-
     if (!activeData) {
       return <div>{t("errors.noDataForCategory")}</div>;
     }

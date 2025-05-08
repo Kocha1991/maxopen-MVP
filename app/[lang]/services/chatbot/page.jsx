@@ -39,9 +39,10 @@ function ServiceContent() {
   const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
   const { data: info, loading: infoLoading } = useFetchData("efficiency-chatbot", language);
+  const { data: questions, loading: questionsLoading } = useFetchData("faq-question", language);
 
 
-  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading || infoLoading;
+  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading || infoLoading || questionsLoading;
 
   return (
     <>
@@ -99,7 +100,15 @@ function ServiceContent() {
               />
             </div>
             <ItemsTicker items={networks} />
-            <Faq onOpenModal={openModal} />
+            <Faq 
+              onOpenModal={openModal}
+              teaser={textPage["faq-teaser"]}
+              title={textPage["faq-title"]}
+              leftBlockTitle={textPage["faq-left-title"]}
+              leftBlockDescr={textPage["faq-left-descr"]}
+              textBtn={textPage["faq-btn"]}
+              questions={questions}
+            />
             <ContactUs />
           </Layout>
           <ModalManager
