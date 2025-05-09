@@ -1,9 +1,13 @@
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function Error() {
   return (
     <>
-      <Layout useCustomHeader={true} footerStyle={'customFooter'} logoWhite>
+      <HeaderLayout
+        useCustomHeader={true}
+        footerStyle={'customFooter'}
+        logoWhite
+      >
         <section className='section-box wow animate__animated animate__fadeIn box-404'>
           <div className='text-center'>
             <img src='/assets/imgs/page/404/404.png' alt='Nivia' />
@@ -31,7 +35,7 @@ export default function Error() {
             </Link>
           </div>
         </section>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

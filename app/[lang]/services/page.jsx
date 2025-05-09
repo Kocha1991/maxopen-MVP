@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { ModalProvider } from '@/components/customHooks/useModal';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
@@ -21,13 +21,20 @@ function ServicesContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: services, loading: servicesLoading } = useFetchData('services-card', language);
-  const { data: text, loading: textLoading } = useFetchData("services-page-text", language, true);
+  const { data: services, loading: servicesLoading } = useFetchData(
+    'services-card',
+    language
+  );
+  const { data: text, loading: textLoading } = useFetchData(
+    'services-page-text',
+    language,
+    true
+  );
   const loading = servicesLoading || textLoading;
 
   return (
     <div className='services'>
-      <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+      <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
         {loading ? (
           <Loading />
         ) : (
@@ -64,9 +71,7 @@ function ServicesContent() {
             </div>
           </>
         )}
-        
-        
-      </Layout>
+      </HeaderLayout>
       <ModalManager
         isOpen={isOpen}
         modalType={modalType}

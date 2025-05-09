@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { ModalProvider } from '@/components/customHooks/useModal';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
@@ -32,17 +32,42 @@ function ServiceContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: services, loading: loadingServices } = useFetchData('animation-services', language);
-  const { data: networks, loading: loadingNetworks } = useFetchData('social-networks');
-  const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
-  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
-  const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
-  const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
-  const { data: info, loading: infoLoading } = useFetchData("efficiency-chatbot", language);
-  const { data: questions, loading: questionsLoading } = useFetchData("faq-question", language);
+  const { data: services, loading: loadingServices } = useFetchData(
+    'animation-services',
+    language
+  );
+  const { data: networks, loading: loadingNetworks } =
+    useFetchData('social-networks');
+  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData(
+    'chatbot-key-benefits',
+    language
+  );
+  const { data: cards, loading: cardsLoading } = useFetchData(
+    'chatbot-tasks-card',
+    language
+  );
+  const { data: textPage, loading: textPageLoading } = useFetchData(
+    'chatbot-page-text',
+    language,
+    true
+  );
+  const { data: info, loading: infoLoading } = useFetchData(
+    'efficiency-chatbot',
+    language
+  );
+  const { data: questions, loading: questionsLoading } = useFetchData(
+    'faq-question',
+    language
+  );
 
-
-  const isLoading = loadingServices || loadingNetworks || logosLoading || benefitsItemsLoading || cardsLoading || textPageLoading || infoLoading || questionsLoading;
+  const isLoading =
+    loadingServices ||
+    loadingNetworks ||
+    benefitsItemsLoading ||
+    cardsLoading ||
+    textPageLoading ||
+    infoLoading ||
+    questionsLoading;
 
   return (
     <>
@@ -50,7 +75,11 @@ function ServiceContent() {
         <Loading />
       ) : (
         <div className='service'>
-          <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+          <HeaderLayout
+            useCustomHeader={true}
+            footerStyle='customFooter'
+            logoWhite
+          >
             <PageBanner
               SolutionsBannerTitle={textPage['banner-title']}
               SolutionsBannerDescr={textPage['banner-text']}
@@ -68,49 +97,53 @@ function ServiceContent() {
               descr={t('ChatbotSolutionsDescr')}
             />
             <TextInfo
-              title={textPage["blok-info-title"]}
-              descr={textPage["blok-info-text"]}
+              title={textPage['blok-info-title']}
+              descr={textPage['blok-info-text']}
             />
             <KeyBenefits
-              teaser={textPage["key-benefits-teaser"]}
-              title={textPage["key-benefits-title"]}
+              teaser={textPage['key-benefits-teaser']}
+              title={textPage['key-benefits-title']}
               data={benefitsItems}
               isLoading={benefitsItemsLoading}
             />
-            <ChatbotSlider data={cards} title={textPage["slider-title"]} teaser={textPage["slider-teaser"]}/>
+            <ChatbotSlider
+              data={cards}
+              title={textPage['slider-title']}
+              teaser={textPage['slider-teaser']}
+            />
             <div className='who-needs'>
               <BlogTitle
-                textOnBg={textPage["who-need-teser"]}
-                title={textPage["who-need-title"]}
+                textOnBg={textPage['who-need-teser']}
+                title={textPage['who-need-title']}
                 textColor='wight-text'
               />
               <ItemsTicker items={services} />
             </div>
-            <Efficiency 
-              teaser={textPage["teaser-info"]}
-              title={textPage["title-info"]}
-              descr={textPage["descr-info"]}
+            <Efficiency
+              teaser={textPage['teaser-info']}
+              title={textPage['title-info']}
+              descr={textPage['descr-info']}
               data={info}
             />
             <div className='container'>
               <BlogTitle
-                textOnBg={textPage["platform-teaser"]}
-                title={textPage["platform-title"]}
-                descr={textPage["platform-descr"]}
+                textOnBg={textPage['platform-teaser']}
+                title={textPage['platform-title']}
+                descr={textPage['platform-descr']}
               />
             </div>
             <ItemsTicker items={networks} />
-            <Faq 
+            <Faq
               onOpenModal={openModal}
-              teaser={textPage["faq-teaser"]}
-              title={textPage["faq-title"]}
-              leftBlockTitle={textPage["faq-left-title"]}
-              leftBlockDescr={textPage["faq-left-descr"]}
-              textBtn={textPage["faq-btn"]}
+              teaser={textPage['faq-teaser']}
+              title={textPage['faq-title']}
+              leftBlockTitle={textPage['faq-left-title']}
+              leftBlockDescr={textPage['faq-left-descr']}
+              textBtn={textPage['faq-btn']}
               questions={questions}
             />
             <ContactUs />
-          </Layout>
+          </HeaderLayout>
           <ModalManager
             isOpen={isOpen}
             modalType={modalType}

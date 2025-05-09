@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { ModalProvider } from '@/components/customHooks/useModal';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
@@ -26,9 +26,15 @@ function PortfolioContent() {
   const { language } = i18n;
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const { data: projects, loading: projectsLoading } = useFetchData("projects-card", language);
-  const { data: projectsText, loading: projectsTextLoading } = useFetchData("projects-text", language, true);
-  
+  const { data: projects, loading: projectsLoading } = useFetchData(
+    'projects-card',
+    language
+  );
+  const { data: projectsText, loading: projectsTextLoading } = useFetchData(
+    'projects-text',
+    language,
+    true
+  );
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
@@ -43,11 +49,15 @@ function PortfolioContent() {
         <Loading />
       ) : (
         <div className='portfolio'>
-          <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+          <HeaderLayout
+            useCustomHeader={true}
+            footerStyle='customFooter'
+            logoWhite
+          >
             <PageBanner
-              SolutionsBannerTitle={projectsText["banner-title"]}
-              SolutionsBannerDescr={projectsText["banner-text"]}
-              textBnt={projectsText["banner-btn-text"]}
+              SolutionsBannerTitle={projectsText['banner-title']}
+              SolutionsBannerDescr={projectsText['banner-text']}
+              textBnt={projectsText['banner-btn-text']}
               onOpenModal={openModal}
             />
             <div className='container'>
@@ -86,7 +96,7 @@ function PortfolioContent() {
               </div>
             </div>
             <ContactUs />
-          </Layout>
+          </HeaderLayout>
           <ModalManager
             isOpen={isOpen}
             modalType={modalType}

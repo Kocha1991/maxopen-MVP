@@ -1,9 +1,8 @@
 // components/SEO.js
-import Head from 'next/head';
 
 const SEO = ({ title, description, keywords }) => {
   return (
-    <Head>
+    <head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -15,11 +14,10 @@ const SEO = ({ title, description, keywords }) => {
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
-      <meta property="og:image" content="/path-to-your-image.jpg" />
       <meta property="og:url" content="https://maxopen.com" />
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
-    </Head>
+    </head>
   );
 };
 

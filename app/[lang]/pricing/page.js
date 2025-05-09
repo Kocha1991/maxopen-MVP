@@ -1,5 +1,5 @@
 'use client';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
@@ -42,7 +42,7 @@ export default function Pricing() {
   const handleToggle = () => setToggled(!isToggled);
   return (
     <>
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -1162,7 +1162,7 @@ export default function Pricing() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],
@@ -37,7 +37,7 @@ const swiperOptions = {
 export default function JobDetails() {
   return (
     <>
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -959,7 +959,7 @@ export default function JobDetails() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

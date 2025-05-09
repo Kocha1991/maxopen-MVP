@@ -1,13 +1,13 @@
 import Countdown from '@/components/elements/Countdown';
 import ResizeComingSoon from '@/components/elements/ResizeComingSoon';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function CommingSoon() {
   const currentTime = new Date();
   return (
     <>
       <ResizeComingSoon />
-      <Layout headerStyle={2} footerStyle={1} headerCls='header-style-6'>
+      <HeaderLayout headerStyle={2} footerStyle={1} headerCls='header-style-6'>
         <section className='section-box box-content-comming-soon'>
           <div className='container-fluid'>
             <div className='row'>
@@ -85,7 +85,7 @@ export default function CommingSoon() {
             </div>
           </div>
         </section>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

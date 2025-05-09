@@ -1,9 +1,9 @@
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function Error() {
   return (
     <>
-      <Layout
+      <HeaderLayout
         useCustomHeader={true}
         footerStyle={'customFooter'}
         isBlack={true}
@@ -35,7 +35,7 @@ export default function Error() {
             </Link>
           </div>
         </section>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

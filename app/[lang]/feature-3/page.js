@@ -1,11 +1,11 @@
 'use client';
 import CounterUp from '@/components/elements/CounterUp';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function Feature3() {
   return (
     <>
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -374,7 +374,7 @@ export default function Feature3() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

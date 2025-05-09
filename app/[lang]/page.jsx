@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Banner from '@/components/sections/customHome/Banner';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import { Services } from '@/components/sections/customHome/Services';
@@ -21,8 +21,8 @@ function HomeContent() {
   const { isOpen, modalType, modalData, closeModal } = useModal();
 
   return (
-    <Layout useCustomHeader={true} footerStyle={'customFooter'}>
-      <Banner/>
+    <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
+      <Banner />
       <GoodsAnimation />
       <Services />
       <Projects />
@@ -38,6 +38,6 @@ function HomeContent() {
         modalData={modalData}
         onClose={closeModal}
       />
-    </Layout>
+    </HeaderLayout>
   );
 }

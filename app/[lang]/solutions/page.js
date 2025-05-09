@@ -2,7 +2,7 @@
 import React from 'react';
 import { SolutionCard } from '@/components/elements/SolutionCard';
 import { SolutionCard2 } from '@/components/elements/SolutionCard2';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import { ModalProvider } from '@/components/customHooks/useModal';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
@@ -24,10 +24,19 @@ function CompleteSolutionsContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: cards, loading: cardsLoading } = useFetchData('packege-card', language);
-  const { data: fullPackage, loading: fullPackageLoading } = useFetchData('full-package', language);
-  const { data: text, loading: textLoading } = useFetchData("solutions-page-text", language, true);
-  
+  const { data: cards, loading: cardsLoading } = useFetchData(
+    'packege-card',
+    language
+  );
+  const { data: fullPackage, loading: fullPackageLoading } = useFetchData(
+    'full-package',
+    language
+  );
+  const { data: text, loading: textLoading } = useFetchData(
+    'solutions-page-text',
+    language,
+    true
+  );
 
   const isLoading = cardsLoading || fullPackageLoading || textLoading;
   return (
@@ -36,11 +45,15 @@ function CompleteSolutionsContent() {
         <Loading />
       ) : (
         <div className='complete-solutions'>
-          <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+          <HeaderLayout
+            useCustomHeader={true}
+            footerStyle='customFooter'
+            logoWhite
+          >
             <PageBanner
               SolutionsBannerTitle={text['banner-title']}
-              SolutionsBannerDescr={text["banner-descr"]}
-              textBnt={text["banner-btn"]}
+              SolutionsBannerDescr={text['banner-descr']}
+              textBnt={text['banner-btn']}
               onOpenModal={openModal}
             />
             <div className='complete-solutions__items'>
@@ -52,9 +65,9 @@ function CompleteSolutionsContent() {
                     descr={card.description}
                     icon={card.icon}
                     price={card.price}
-                    priceText={card["price-package-text"]}
-                    title={card["package-option-title"]}
-                    btnText={card["btn-text"]}
+                    priceText={card['price-package-text']}
+                    title={card['package-option-title']}
+                    btnText={card['btn-text']}
                     options={[
                       { title: card.options1, description: card.optionsDescr1 },
                       { title: card.options2, description: card.optionsDescr2 },
@@ -96,17 +109,17 @@ function CompleteSolutionsContent() {
                 <div className='add-top-footer__wrapper'>
                   <div className='add-top-footer__text-block'>
                     <div className='solution-card__title text-white'>
-                      {text["footer-title"]}
+                      {text['footer-title']}
                     </div>
                     <div className='solution-card__descr'>
-                      {text["footer-descr"]}
+                      {text['footer-descr']}
                     </div>
                     <a
                       className='btn btn-brand-4-medium hover-up'
                       onClick={() => openModal('calendar')}
                     >
                       <span>
-                        {text["footer-btn"]}
+                        {text['footer-btn']}
                         <svg
                           width='11'
                           height='12'
@@ -134,10 +147,7 @@ function CompleteSolutionsContent() {
                       </span>
                     </a>
                   </div>
-                  <img
-                    src={text["footer-img"]?.full_url}
-                    alt='image'
-                  />
+                  <img src={text['footer-img']?.full_url} alt='image' />
                 </div>
               </div>
             </div>
@@ -148,7 +158,7 @@ function CompleteSolutionsContent() {
               modalData={modalData}
               onClose={closeModal}
             />
-          </Layout>
+          </HeaderLayout>
         </div>
       )}
     </>

@@ -1,11 +1,11 @@
 'use client';
 import LogoTicker from '@/components/elements/LogoTicker';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function Register() {
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1}>
+      <HeaderLayout headerStyle={1} footerStyle={1}>
         <div>
           <section className='section-box box-content-register'>
             <div className='container'>
@@ -409,7 +409,7 @@ export default function Register() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

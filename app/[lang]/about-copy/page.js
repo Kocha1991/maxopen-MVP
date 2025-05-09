@@ -1,7 +1,7 @@
 import CounterUp from '@/components/elements/CounterUp';
 import ResizeContainer from '@/components/elements/ResizeContainer';
 import VideoPopup from '@/components/elements/VideoPopup';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import NewsSlider from '@/components/slider/NewsSlider';
 import OfficeSlider from '@/components/slider/OfficeSlider';
 import Team2Slider from '@/components/slider/Team2Slider';
@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <ResizeContainer />
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -1063,7 +1063,7 @@ export default function About() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

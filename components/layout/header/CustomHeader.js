@@ -6,17 +6,11 @@ import { Nav } from '@/components/elements/Nav';
 import { useTranslation } from 'react-i18next';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
+import Logo from '@/components/elements/Logo';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack }) {
   const { openModal } = useModal();
   const { t } = useTranslation();
-
-  const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
-  const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
-
-  const logoWeb = logoItem?.['logo-web']?.full_url;
-  const logoPhone = logoItem?.['logo-phone']?.full_url;
-
 
   if (!openModal) {
     console.error('openModal is not available. Make sure CustomHeader is wrapped in ModalProvider.');
@@ -31,20 +25,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
     <header className={`header ${headerCls || ''} sticky-bar ${scroll ? 'stick' : ''} ${isBlack ? 'header-black' : ''}`}>
       <div className="container">
         <div className="custom-header">
-          <div className="header-logo">
-            <Link className="d-flex" href="/">
-              <img
-                src={logoWeb}
-                alt="MaxOpen Logo"
-                className="web-logo"
-              />
-              <img
-                src={logoPhone}
-                alt="MaxOpen Mobile Logo"
-                className="mobile-logo"
-              />
-            </Link>
-          </div>
+          <Logo />
           <Nav />
           <div className="header-right">
             <div className="header-right__block">

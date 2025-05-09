@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import { ModalProvider } from '@/components/customHooks/useModal';
 import { useTranslation } from 'react-i18next';
 import PageBanner from '@/components/elements/PageBanner';
@@ -41,8 +41,14 @@ function AboutUsContent() {
     'development-delivers',
     language
   );
+  const { data: textPage, loading: textPageLoading } = useFetchData(
+    'about-us-page-text',
+    language,
+    true
+  );
 
-  const isLoading = optionsLoading || indicatorsLoading || categoriesLoading;
+  const isLoading =
+    optionsLoading || indicatorsLoading || categoriesLoading || textPageLoading;
 
   return (
     <>
@@ -50,22 +56,26 @@ function AboutUsContent() {
         <Loading />
       ) : (
         <div className='about-us'>
-          <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+          <HeaderLayout
+            useCustomHeader={true}
+            footerStyle='customFooter'
+            logoWhite
+          >
             <PageBanner
-              SolutionsBannerTitle={t('AboutUsTitle')}
-              SolutionsBannerDescr={t('AboutUsSubtitle')}
-              textBnt={t('buttons.BookMeeting')}
+              SolutionsBannerTitle={textPage['banner-title']}
+              SolutionsBannerDescr={textPage['banner-descr']}
+              textBnt={textPage['btn-text']}
               onOpenModal={openModal}
             />
             <BlogCardLinks
-              textOnBg={t('AboutUsTextOnBg')}
-              title={t('AboutUsWhoWeTitle')}
-              descr={t('AboutUsWhoWeDescr')}
+              textOnBg={textPage['who-we-teaser']}
+              title={textPage['who-we-title']}
+              descr={textPage['who-we-descr']}
             />
             <TextInfo
-              title={t('RealityTitle')}
-              descr={t('RealityDescr')}
-              textOnBg={t('RealityText')}
+              title={textPage['info-title']}
+              descr={textPage['info-descr']}
+              textOnBg={textPage['info-text']}
             />
             <section className='our-culture'>
               <div className='container'>
@@ -143,7 +153,7 @@ function AboutUsContent() {
               </div>
             </section>
             <ContactUs />
-          </Layout>
+          </HeaderLayout>
 
           <ModalManager
             isOpen={isOpen}

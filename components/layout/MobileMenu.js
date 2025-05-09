@@ -5,17 +5,13 @@ import { Nav } from '../elements/Nav';
 import { useTranslation } from 'react-i18next';
 import { useModal } from '@/components/customHooks/useModal';
 import { useFetchData } from '@/components/customHooks/useFetchData'; // імпорт хука
+import Logo from '../elements/Logo';
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
   const [isActive, setIsActive] = useState({ status: false, key: "" });
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
   const { openModal } = useModal();
-
-  // Отримання логотипу з API
-  const { data: logoData, loading: logoLoading } = useFetchData('main-logo');
-  const logoItem = Array.isArray(logoData) && logoData.length > 0 ? logoData[0] : null;
-  const logoWeb = logoItem?.['logo-web']?.full_url;
 
   const handleToggle = (key) => {
     setIsActive(prev => prev.key === key ? { status: false } : { status: true, key });
@@ -45,7 +41,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
     <div className={`mobile-header-active mobile-header-wrapper-style custom-mobile-inner ${isMobileMenu ? "sidebar-visible" : ""}`}>
       <div className="mobile-header-wrapper-inner">
         <div className="mobile-header-top">
-          <img src={logoWeb} alt="MaxOpen" />
+          <Logo />
           <div className={`${isMobileMenu ? "burger-close" : ""}`} onClick={handleMobileMenu}>
             <img src="/assets/imgs/template/icons/close-green.png" alt="close" />
           </div>

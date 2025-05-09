@@ -1,12 +1,12 @@
 'use client';
 import LogoTicker from '@/components/elements/LogoTicker';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Team2Slider from '@/components/slider/Team2Slider';
 import Link from 'next/link';
 export default function Contact() {
   return (
     <>
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -247,7 +247,7 @@ export default function Contact() {
             </div>
           </section>
         </div>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }

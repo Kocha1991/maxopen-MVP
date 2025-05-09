@@ -10,9 +10,9 @@ import Footer3 from '../footer/Footer3';
 import Footer4 from '../footer/Footer4';
 import Header1 from './Header1';
 import CustomHeader from './CustomHeader';
-import {CustomFooter} from '../footer/CustomFooter';
+import { CustomFooter } from '../footer/CustomFooter';
 
-export default function Layout({
+export default function HeaderLayout({
   headerStyle,
   footerStyle,
   breadcrumbTitle,

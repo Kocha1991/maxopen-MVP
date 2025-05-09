@@ -1,6 +1,6 @@
-'use client'
+'use client';
 import React, { useEffect } from 'react';
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
 import BlogCardCustom from '@/components/blog/BlogCardCustom';
@@ -13,9 +13,9 @@ const Article = ({ params }) => {
   const { data: articles, loading: articleLoading } = useFetchData(`article`);
 
   const article = Array.isArray(articles)
-  ? articles.find(item => item.slug === params.slug)
-  : null;
-  
+    ? articles.find((item) => item.slug === params.slug)
+    : null;
+
   console.log(params.slug);
 
   if (articleLoading) {
@@ -30,7 +30,7 @@ const Article = ({ params }) => {
 
   return (
     <div className='article'>
-      <Layout useCustomHeader={true} footerStyle='customFooter' logoWhite>
+      <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
         <PageBanner bunnerBg={article?.banner?.full_url} />
         <div className='container'>
           <div className='article__wrapper'>
@@ -43,13 +43,16 @@ const Article = ({ params }) => {
                 <h2 className='text-48-semibold mb-20'>{article.title}</h2>
                 <p className='text-lg mb-40'>{article.description}</p>
                 <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
-                {article.image && <img src={article.image} alt={article.title} />}
+                {article.image && (
+                  <img src={article.image} alt={article.title} />
+                )}
               </div>
             </div>
             <div className='article__right'>
               <h2 className='text-30-bold mb-40'>Related Articles</h2>
               <div className='article__cards'>
-                {article.relatedArticles && article.relatedArticles.length > 0 ? (
+                {article.relatedArticles &&
+                article.relatedArticles.length > 0 ? (
                   article.relatedArticles.map((related, index) => (
                     <BlogCardCustom key={index} article={related} />
                   ))
@@ -60,7 +63,7 @@ const Article = ({ params }) => {
             </div>
           </div>
         </div>
-      </Layout>
+      </HeaderLayout>
     </div>
   );
 };

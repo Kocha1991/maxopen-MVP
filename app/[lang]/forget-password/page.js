@@ -1,9 +1,9 @@
-import Layout from '@/components/layout/header/Layout';
+import HeaderLayout from '@/components/layout/header/Layout';
 import Link from 'next/link';
 export default function ForgetPassword() {
   return (
     <>
-      <Layout
+      <HeaderLayout
         headerStyle={1}
         footerStyle={1}
         headerCls='header-style-2 header-style-4'
@@ -65,7 +65,7 @@ export default function ForgetPassword() {
             </div>
           </div>
         </section>
-      </Layout>
+      </HeaderLayout>
     </>
   );
 }
