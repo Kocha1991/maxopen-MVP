@@ -40,7 +40,9 @@ function BlogMaxOpenContent() {
     <div className='blog-maxOpen'>
       <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
         {loading ? (
-          <Loading />
+          <div className='page-loading'>
+            <Loading /> 
+          </div>
         ) : (
           <>
             <PageBanner

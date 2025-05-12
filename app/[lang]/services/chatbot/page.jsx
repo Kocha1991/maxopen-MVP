@@ -32,33 +32,15 @@ function ServiceContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: services, loading: loadingServices } = useFetchData(
-    'animation-services',
-    language
-  );
-  const { data: networks, loading: loadingNetworks } =
-    useFetchData('social-networks');
-  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData(
-    'chatbot-key-benefits',
-    language
-  );
-  const { data: cards, loading: cardsLoading } = useFetchData(
-    'chatbot-tasks-card',
-    language
-  );
-  const { data: textPage, loading: textPageLoading } = useFetchData(
-    'chatbot-page-text',
-    language,
-    true
-  );
-  const { data: info, loading: infoLoading } = useFetchData(
-    'efficiency-chatbot',
-    language
-  );
-  const { data: questions, loading: questionsLoading } = useFetchData(
-    'faq-question',
-    language
-  );
+  const { data: services, loading: loadingServices } = useFetchData('animation-services', language);
+  const { data: networks, loading: loadingNetworks } = useFetchData('social-networks');
+  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
+  const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
+  const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
+  const { data: info, loading: infoLoading } = useFetchData('efficiency-chatbot', language);
+  const { data: questions, loading: questionsLoading } = useFetchData('faq-question', language);
+  const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
+  
 
   const isLoading =
     loadingServices ||
@@ -67,7 +49,8 @@ function ServiceContent() {
     cardsLoading ||
     textPageLoading ||
     infoLoading ||
-    questionsLoading;
+    questionsLoading ||
+    logosLoading;
 
   return (
     <>

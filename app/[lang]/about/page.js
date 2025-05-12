@@ -29,23 +29,10 @@ function AboutUsContent() {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: options, loading: optionsLoading } = useFetchData(
-    'our-mission',
-    language
-  );
-  const { data: indicators, loading: indicatorsLoading } = useFetchData(
-    'indicators',
-    language
-  );
-  const { data: categories, loading: categoriesLoading } = useFetchData(
-    'development-delivers',
-    language
-  );
-  const { data: textPage, loading: textPageLoading } = useFetchData(
-    'about-us-page-text',
-    language,
-    true
-  );
+  const { data: options, loading: optionsLoading } = useFetchData('our-mission', language);
+  const { data: indicators, loading: indicatorsLoading } = useFetchData('indicators', language);
+  const { data: categories, loading: categoriesLoading } = useFetchData('development-delivers', language);
+  const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
 
   const isLoading =
     optionsLoading || indicatorsLoading || categoriesLoading || textPageLoading;
@@ -53,7 +40,9 @@ function AboutUsContent() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <div className='page-loading'>
+          <Loading /> 
+        </div>
       ) : (
         <div className='about-us'>
           <HeaderLayout

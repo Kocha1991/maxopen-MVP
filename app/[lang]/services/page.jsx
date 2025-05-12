@@ -36,7 +36,9 @@ function ServicesContent() {
     <div className='services'>
       <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
         {loading ? (
-          <Loading />
+          <div className='page-loading'>
+            <Loading /> 
+          </div>
         ) : (
           <>
             <PageBanner

@@ -42,7 +42,9 @@ function CompleteSolutionsContent() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <div className='page-loading'>
+          <Loading /> 
+        </div>
       ) : (
         <div className='complete-solutions'>
           <HeaderLayout

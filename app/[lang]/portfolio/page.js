@@ -46,7 +46,9 @@ function PortfolioContent() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <div className='page-loading'>
+          <Loading /> 
+        </div>
       ) : (
         <div className='portfolio'>
           <HeaderLayout
