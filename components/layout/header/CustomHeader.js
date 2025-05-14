@@ -1,11 +1,8 @@
 'use client';
-import Link from 'next/link';
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
 import { useModal } from '@/components/customHooks/useModal';
 import { Nav } from '@/components/elements/Nav';
 import { useTranslation } from 'react-i18next';
-import { useFetchData } from '@/components/customHooks/useFetchData';
-import Loading from '@/components/elements/Loading';
 import Logo from '@/components/elements/Logo';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack }) {

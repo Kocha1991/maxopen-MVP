@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { useFetchData } from '@/components/customHooks/useFetchData';
+import Loading from '@/components/elements/Loading';
 
 const ContactUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
+  const { data: textForm, loading: textFormLoading } = useFetchData('form-1', language, true);
+  
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -71,36 +76,36 @@ const ContactUs = () => {
           <div className="col-lg-6">
             <div className="box-image-get-touch">
               <h2 className='box-image-get-touch__title'>
-                {t("ContactUsBannerTitle")}
+                {textForm["img-title"]}
               </h2>
               <h3 className='box-image-get-touch__descr'>
-                {t("ContactUsBannerDescr")}
+                {textForm["img-descr"]}
               </h3>
             </div>
           </div>
           <div className="col-lg-6">
-            <h2>{t("ContactUsTitle")}</h2>
-            <p className="text-md neutral-700">{t("ContactUsdescr")}</p>
+            <h2>{textForm["form-title"]}</h2>
+            <p className="text-md neutral-700">{textForm["form-subtitle"]}</p>
             <div className="block-form-contact mt-20">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="fullname">{t("YourName")}</label>
+                  <label htmlFor="fullname">{textForm["name"]}</label>
                   <input
                     className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                     type="text"
-                    placeholder={t("TypeName")}
+                    placeholder={textForm["name-placeholder"]}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     id="fullname"
                   />
-                  {errors.name && <small className="text-danger">{t("notification.validationRequired")}</small>}
+                  {errors.name && <small className="text-danger">{textForm[""]}</small>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">{t("YourEmail")}</label>
+                  <label htmlFor="email">{textForm["email"]}</label>
                   <input
                     className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                     type="email"
-                    placeholder={t("TypeEmail")}
+                    placeholder={textForm["email-placeholder"]}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     id="email"
@@ -108,11 +113,11 @@ const ContactUs = () => {
                   {errors.email && <small className="text-danger">{t("notification.validationRequired")}</small>}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">{t("ContactUsMessage")}</label>
+                  <label htmlFor="message">{textForm["message"]}</label>
                   <textarea
                     className="form-control"
                     rows={3}
-                    placeholder={t("ContactUsHelp")}
+                    placeholder={textForm["message-placeholder"]}
                     style={{ resize: 'none' }}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -126,18 +131,24 @@ const ContactUs = () => {
                     disabled={isSubmitting}
                   >
                     <span>
-                      {isSubmitting ? t("Sending...") : t("buttons.Send Message")}
-                      {isSubmitting && (
-                        <svg width={22} height={8} viewBox="0 0 22 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M22 3.99934L18.4791 0.478516V3.30642H0V4.69236H18.4791V7.52031L22 3.99934Z" fill="true" />
-                        </svg>
-                      )}
+                      {textForm["btn-text"]}
+                      <img
+                        src={
+                          isSubmitting
+                            ? textForm["btn-icon"]?.full_url
+                            : success
+                            ? textForm["btn-icon-done"]?.full_url
+                            : textForm["btn-icon"]?.full_url
+                        }
+                        alt=""
+                        style={{ marginLeft: 8 }}
+                      />
                     </span>
                   </button>
                 </div>
               </form>
-              {error && <p className="text-danger">{error}</p>}
-              {success && <p className="text-success">{t("notification.SentSuccessfully")}</p>}
+              {error && <p className="text-danger">{textForm.error}</p>}
+              {success && <p className="text-success">{textForm.success}</p>}
             </div>
           </div>
         </div>

@@ -55,7 +55,9 @@ function ServiceContent() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <div className='page-loading'>
+          <Loading />
+        </div>
       ) : (
         <div className='service'>
           <HeaderLayout
