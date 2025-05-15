@@ -15,6 +15,7 @@ import DevelopmentDelivers from '@/components/blog/DevelopmentDelivers';
 import TextInfo from '@/components/elements/TextInfo';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
+import InfoWithCircle from '@/components/blog/InfoWithCircle';
 
 export default function AboutUs() {
   return (
@@ -33,9 +34,10 @@ function AboutUsContent() {
   const { data: indicators, loading: indicatorsLoading } = useFetchData('indicators', language);
   const { data: categories, loading: categoriesLoading } = useFetchData('development-delivers', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
+  const { data: ourCultureItems, loading: ourCultureItemsLoading } = useFetchData('our-culture', language, true);
 
   const isLoading =
-    optionsLoading || indicatorsLoading || categoriesLoading || textPageLoading;
+    optionsLoading || indicatorsLoading || categoriesLoading || textPageLoading || ourCultureItemsLoading;
 
   return (
     <>
@@ -69,65 +71,30 @@ function AboutUsContent() {
             <section className='our-culture'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={t('OurCultureTextOnBg')}
-                  title={t('OurCultureTitle')}
-                  descr={t('OurCultureDescr')}
+                  textOnBg={textPage['our-culture-teaser']}
+                  title={textPage['our-culture-title']}
+                  descr={textPage['our-culture-descr']}
                 />
-                <div className='our-culture__grid'>
-                  <div className='our-culture__circle'>
-                    <h3 className='maxOpen-services__title'>
-                      {t('Our Culture')}
-                    </h3>
-                    <h4 className='maxOpen-services__descr'>
-                      {t('OurCultureCircleText')}
-                    </h4>
-                  </div>
-                  <div className='our-culture__bloc bloc-1'>
-                    <h3 className='maxOpen__subtitle'>
-                      {t('OurCultureBloc1Title')}
-                    </h3>
-                    <h4 className='maxOpen-services__descr'>
-                      {t('OurCultureBloc1Descr')}
-                    </h4>
-                  </div>
-                  <div className='our-culture__bloc bloc-2'>
-                    <h3 className='maxOpen__subtitle'>
-                      {t('OurCultureBloc2Title')}
-                    </h3>
-                    <h4 className='maxOpen-services__descr'>
-                      {t('OurCultureBloc2Descr')}
-                    </h4>
-                  </div>
-                  <div className='our-culture__bloc bloc-3'>
-                    <h3 className='maxOpen__subtitle'>
-                      {t('OurCultureBloc3Title')}
-                    </h3>
-                    <h4 className='maxOpen-services__descr'>
-                      {t('OurCultureBloc3Descr')}
-                    </h4>
-                  </div>
-                  <div className='our-culture__bloc bloc-4'>
-                    <h3 className='maxOpen__subtitle'>
-                      {t('OurCultureBloc4Title')}
-                    </h3>
-                    <h4 className='maxOpen-services__descr'>
-                      {t('OurCultureBloc4Descr')}
-                    </h4>
-                  </div>
-                </div>
+                <InfoWithCircle 
+                  items={ourCultureItems}
+                />
               </div>
             </section>
             <section className='our-mission'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={t('OurMissionTextOnBg')}
-                  title={t('OurMissionTitle')}
-                  descr={t('TextOnBgDescr')}
+                  textOnBg={textPage['our-mission-teaser']}
+                  title={textPage['our-mission-title']}
+                  descr={textPage['our-mission-descr']}
                 />
-                <BlogChangeOption data={options} isLoading={optionsLoading} />
+                <BlogChangeOption data={options} />
               </div>
             </section>
-            <Indicators data={indicators} isLoading={indicatorsLoading} />
+            <Indicators 
+              teaser={textPage['achievements-teaser']}
+              title={textPage['achievements-title']}
+              data={indicators} 
+            />
             <section className='development-delivers'>
               <div className='container'>
                 <BlogTitle
@@ -137,7 +104,6 @@ function AboutUsContent() {
                 />
                 <DevelopmentDelivers
                   data={categories}
-                  isLoading={categoriesLoading}
                 />
               </div>
             </section>

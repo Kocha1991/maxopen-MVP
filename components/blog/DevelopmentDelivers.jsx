@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const DevelopmentDelivers = ({data, isLoading}) => {
+const DevelopmentDelivers = ({data}) => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(null);
 

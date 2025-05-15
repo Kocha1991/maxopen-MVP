@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-const BlogChangeOption = ({data, isLoading}) => {
+const BlogChangeOption = ({data}) => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(null);
 

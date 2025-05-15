@@ -1,16 +1,14 @@
 import React from "react";
 import { BlogTitle } from "@/components/blog/BlogTitle";
-import { useTranslation } from "react-i18next";
 
-const Indicators = ({data, isLoading}) => {
-  const { t } = useTranslation();
+const Indicators = ({data, teaser, title}) => {
 
   return (
     <section className="indicators">
       <div className="container">
         <BlogTitle
-          textOnBg={t("IndicatorsTextOnBg")}
-          title={t("IndicatorsTitle")}
+          textOnBg={teaser}
+          title={title}
           textColor="text-white"
         />
         {data.length > 0 ? (

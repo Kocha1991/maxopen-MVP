@@ -5,7 +5,8 @@ import { useFetchData } from '../customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
 
 export default function ModalCalendar({ isOpen, onClose }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { language } = i18n;
   const [calendarUrl, setCalendarUrl] = useState('');  // Спочатку пустий URL календаря
   const [isLoading, setIsLoading] = useState(true);  // Стан для контролю лоадера
 
@@ -46,7 +47,10 @@ export default function ModalCalendar({ isOpen, onClose }) {
     }
   }, [calendarUrl, isOpen]);
 
-  const { data: contacts, loading: contactsLoading } = useFetchData('modal-contacts');
+  const { data: contacts } = useFetchData('modal-contacts');
+  const { data: text } = useFetchData('calendar', language, true);
+
+  console.log(text);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,13 +81,13 @@ export default function ModalCalendar({ isOpen, onClose }) {
           {isLoading ? (
             <Loading />
           ) : (
-            <div className="calendly-inline-widget"></div> // Після завантаження календаря відображаємо його
+            <div className="calendly-inline-widget"></div>
           )}
           <div className="calendar-page__footer">
             <div className="calendar-page__text">
-              <h2 className="calendar-page__footer-title">{t("CalendarHeader")}</h2>
+              <h2 className="calendar-page__footer-title">{text["footer-title"]}</h2>
               <h3 className="calendar-page__footer-descr">
-                {t("CalendarSubheader")}
+                {text['footer-descr']}
               </h3>
             </div>
             <div className="calendar-page__contacts">
