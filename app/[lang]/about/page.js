@@ -27,17 +27,17 @@ export default function AboutUs() {
 
 function AboutUsContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
   const { data: options, loading: optionsLoading } = useFetchData('our-mission', language);
   const { data: indicators, loading: indicatorsLoading } = useFetchData('indicators', language);
-  const { data: categories, loading: categoriesLoading } = useFetchData('development-delivers', language);
+  const { data: webs, loading: websLoading } = useFetchData('development-delivers', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
   const { data: ourCultureItems, loading: ourCultureItemsLoading } = useFetchData('our-culture', language, true);
 
   const isLoading =
-    optionsLoading || indicatorsLoading || categoriesLoading || textPageLoading || ourCultureItemsLoading;
+    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading;
 
   return (
     <>
@@ -98,12 +98,12 @@ function AboutUsContent() {
             <section className='development-delivers'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={t('DevelopmentDeliversTextOnBg')}
-                  title={t('DevelopmentDeliversTitle')}
-                  descr={t('DevelopmentDeliversSubtitle')}
+                  textOnBg={textPage["development-teaser"]}
+                  title={textPage["development-title"]}
+                  descr={textPage["development-descr"]}
                 />
                 <DevelopmentDelivers
-                  data={categories}
+                  data={webs}
                 />
               </div>
             </section>

@@ -35,9 +35,9 @@ const DevelopmentDelivers = ({data}) => {
           className="blog-change-option__text"
           dangerouslySetInnerHTML={{ __html: activeData.description }}
         />
-        <button className="btn btn-brand-4-medium hover-up">
+        <a className="btn btn-brand-4-medium hover-up" href='/'>
           {t("buttons.Go to website")}
-        </button>
+        </a>
       </div>
     );
   };

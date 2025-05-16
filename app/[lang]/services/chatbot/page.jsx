@@ -29,7 +29,7 @@ export default function Chatbot() {
 
 function ServiceContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
   const { data: services, loading: loadingServices } = useFetchData('animation-services', language);
@@ -77,9 +77,9 @@ function ServiceContent() {
               isLoading={logosLoading}
             />
             <CardLinks
-              textOnBg={t('ChatbotSolutionsTextOnBg')}
-              title={t('ChatbotSolutionsTitle')}
-              descr={t('ChatbotSolutionsDescr')}
+              textOnBg={textPage["solutions-teaser"]}
+              title={textPage["solutions-title"]}
+              descr={textPage["solutions-descr"]}
             />
             <TextInfo
               title={textPage['blok-info-title']}
