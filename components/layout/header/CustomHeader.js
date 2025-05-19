@@ -2,12 +2,16 @@
 import LanguageDropdown from '@/components/elements/LanguageDropdown';
 import { useModal } from '@/components/customHooks/useModal';
 import { Nav } from '@/components/elements/Nav';
-import { useTranslation } from 'react-i18next';
 import Logo from '@/components/elements/Logo';
+import { useFetchData } from '@/components/customHooks/useFetchData';
+import { useTranslation } from 'react-i18next';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack }) {
   const { openModal } = useModal();
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const { language } = i18n;
+  const { data: btnsText} = useFetchData("btns-text", language, true);
+  
 
   if (!openModal) {
     console.error('openModal is not available. Make sure CustomHeader is wrapped in ModalProvider.');
@@ -31,7 +35,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
                 className="btn btn-brand-4-medium hover-up"
                 onClick={handleCalendarOpen}
               >
-                <span>{t("buttons.Get started")}</span>
+                <span>{btnsText["get-started"]}</span>
               </button>
             </div>
             <div className="burger-icon burger-icon-white burger-icon-custom" onClick={handleMobileMenu}>
