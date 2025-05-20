@@ -9,9 +9,12 @@ import Logo from '../elements/Logo';
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
   const [isActive, setIsActive] = useState({ status: false, key: "" });
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+  const { language } = i18n;
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
   const { openModal } = useModal();
+  const { data: btnsText } = useFetchData("btns-text", language, true);
+  
 
   const handleToggle = (key) => {
     setIsActive(prev => prev.key === key ? { status: false } : { status: true, key });
@@ -49,7 +52,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
         <div className="custom-menu-body">
           <Nav onLinkClick={handleNavLinkClick} />
           <button className="btn btn-brand-4-medium hover-up" onClick={handleCalendarOpen}>
-            <span>{t("buttons.Get started")}</span>
+            <span>{btnsText["get-started"]}</span>
           </button>
         </div>
         <div className="custom-menu-footer">

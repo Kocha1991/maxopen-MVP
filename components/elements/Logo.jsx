@@ -15,8 +15,6 @@ const Logo = () => {
       <img
         alt="MaxOpen"
         src={imgSrc}
-        width={logoItem?.['logo-web']?.width || 206}
-        height={logoItem?.['logo-web']?.height || 44}
         onError={() => setImgSrc('/assets/imgs/template/logo.png')}
       />
     </Link>

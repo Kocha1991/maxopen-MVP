@@ -5,6 +5,7 @@ import { Nav } from '@/components/elements/Nav';
 import Logo from '@/components/elements/Logo';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerCls, isBlack }) {
   const { openModal } = useModal();
@@ -26,7 +27,12 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
     <header className={`header ${headerCls || ''} sticky-bar ${scroll ? 'stick' : ''} ${isBlack ? 'header-black' : ''}`}>
       <div className="container">
         <div className="custom-header">
-          <Logo />
+          <div className='custom-header__logos-block'>
+            <Logo />
+            <Link href="/" className='logo-phone'>
+              <img src="/assets/imgs/template/Logo-phone.png" alt="MaxOpen" />
+            </Link>
+          </div>
           <Nav />
           <div className="header-right">
             <div className="header-right__block">
