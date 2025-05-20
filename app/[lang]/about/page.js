@@ -35,9 +35,10 @@ function AboutUsContent() {
   const { data: webs, loading: websLoading } = useFetchData('development-delivers', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
   const { data: ourCultureItems, loading: ourCultureItemsLoading } = useFetchData('our-culture', language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
 
   const isLoading =
-    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading;
+    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading || btnsTextLoading;
 
   return (
     <>
@@ -55,7 +56,7 @@ function AboutUsContent() {
             <PageBanner
               SolutionsBannerTitle={textPage['banner-title']}
               SolutionsBannerDescr={textPage['banner-descr']}
-              textBnt={textPage['btn-text']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <BlogCardLinks
@@ -104,6 +105,7 @@ function AboutUsContent() {
                 />
                 <DevelopmentDelivers
                   data={webs}
+                  btnText={btnsText["go-to-website"]}
                 />
               </div>
             </section>

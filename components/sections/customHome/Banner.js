@@ -1,7 +1,7 @@
 'use client';
 import { useModal } from '@/components/customHooks/useModal';
 
-export default function Banner({ banner }) {
+export default function Banner({ banner, btnText }) {
   const { openModal } = useModal();
   
 
@@ -20,7 +20,7 @@ export default function Banner({ banner }) {
               >
                 <span>
                   <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
-                  {banner["btn-text"]}
+                  {btnText}
                 </span>
               </button>
             </div>

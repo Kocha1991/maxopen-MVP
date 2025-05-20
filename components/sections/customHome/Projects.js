@@ -6,7 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 export const Projects = ({
   text,
-  items
+  items,
+  btnsText
 }) => {
   const { t } = useTranslation();
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -48,7 +49,7 @@ export const Projects = ({
               className="btn btn-brand-4-medium hover-up mt-4" 
               onClick={toggleProjectsView}
             >
-              <span>{showAllProjects ? t("buttons.ShowLess") : t("buttons.LoadMore")}</span>
+              <span>{showAllProjects ? btnsText["show-less"] : btnsText["load-more"]}</span>
             </button>
           )}
         </>

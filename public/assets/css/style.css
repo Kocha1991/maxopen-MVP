@@ -1381,6 +1381,7 @@ body {
   transform: translateY(-3px);
 }
 .btn.btn-brand-4-medium svg {
+  height: 24px;
   fill: #191919;
   margin-left: 5px;
 }
@@ -10659,7 +10660,10 @@ p {
   opacity: 0;
 }
 .price-item .btn span {
+  display: flex;
   min-width: 220px;
+  align-items: center;
+  justify-content: center;
 }
 .price-item:hover .price-item__descr {
   max-height: 500px;

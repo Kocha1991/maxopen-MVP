@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const DevelopmentDelivers = ({data}) => {
+const DevelopmentDelivers = ({data, btnText}) => {
   const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -36,7 +36,7 @@ const DevelopmentDelivers = ({data}) => {
           dangerouslySetInnerHTML={{ __html: activeData.description }}
         />
         <a className="btn btn-brand-4-medium hover-up" href='/'>
-          {t("buttons.Go to website")}
+          {btnText}
         </a>
       </div>
     );

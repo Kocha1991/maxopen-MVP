@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 
-export const SolutionCard2 = ({ title, description, price, icon, options = [] }) => {
+export const SolutionCard2 = ({ title, description, price, btnText, icon, options = [] }) => {
   const { t } = useTranslation();
 
   return (
@@ -32,7 +32,7 @@ export const SolutionCard2 = ({ title, description, price, icon, options = [] })
           type="submit"
         >
           <span>
-            {t("buttons.Order package")}
+            {btnText}
             <svg
               width={22}
               height={8}

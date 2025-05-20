@@ -1,6 +1,4 @@
 {
-  "FAQTitle": "Ответы на ваши вопросы",
-
   "notification": {
     "FailedSend": "Не удалось отправить данные",
     "SentSuccessfully": "Данные отправлено успешно!",

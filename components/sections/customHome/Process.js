@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 const Process = ({
   text, 
   items,
-  formText
+  formText,
+  btnsText
 }) => {
   const { t } = useTranslation();
 
@@ -41,7 +42,7 @@ const Process = ({
         <BoxNewsletter 
           title={formText.title}
           descr={formText.desc}
-          buttonText={formText["btn-text"]}
+          btnsText={btnsText["get-in-touch"]}
           placeholder={formText.placeholder}
           newsLetterText={formText.text}
         />

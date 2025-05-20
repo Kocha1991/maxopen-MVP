@@ -40,8 +40,8 @@ function ServiceContent() {
   const { data: info, loading: infoLoading } = useFetchData('efficiency-chatbot', language);
   const { data: questions, loading: questionsLoading } = useFetchData('faq-question', language);
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
   
-
   const isLoading =
     loadingServices ||
     loadingNetworks ||
@@ -68,7 +68,7 @@ function ServiceContent() {
             <PageBanner
               SolutionsBannerTitle={textPage['banner-title']}
               SolutionsBannerDescr={textPage['banner-text']}
-              textBnt={textPage['banner-btn']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <GoodsAnimation
@@ -124,7 +124,7 @@ function ServiceContent() {
               title={textPage['faq-title']}
               leftBlockTitle={textPage['faq-left-title']}
               leftBlockDescr={textPage['faq-left-descr']}
-              textBtn={textPage['faq-btn']}
+              textBtn={btnsText["book-meeting"]}
               questions={questions}
             />
             <ContactUs />

@@ -21,16 +21,11 @@ function ServicesContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: services, loading: servicesLoading } = useFetchData(
-    'services-card',
-    language
-  );
-  const { data: text, loading: textLoading } = useFetchData(
-    'services-page-text',
-    language,
-    true
-  );
-  const loading = servicesLoading || textLoading;
+  const { data: services, loading: servicesLoading } = useFetchData('services-card', language);
+  const { data: text, loading: textLoading } = useFetchData('services-page-text', language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  
+  const loading = servicesLoading || textLoading || btnsTextLoading;
 
   return (
     <div className='services'>
@@ -44,7 +39,7 @@ function ServicesContent() {
             <PageBanner
               SolutionsBannerTitle={text.title}
               SolutionsBannerDescr={text.descr}
-              textBnt={text['btn-text']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <div className='container'>
@@ -62,7 +57,7 @@ function ServicesContent() {
                         iconHover={service['icon-black']}
                         title={service.title}
                         descr={service.description}
-                        btnText={t('buttons.Learn more')}
+                        btnText={btnsText["learn-more"]}
                         isFullWidth={isFullWidth}
                         link={service.slug ? `/services/${service.slug}` : null}
                       />

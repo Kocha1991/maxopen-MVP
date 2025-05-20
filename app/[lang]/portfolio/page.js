@@ -26,22 +26,17 @@ function PortfolioContent() {
   const { language } = i18n;
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const { data: projects, loading: projectsLoading } = useFetchData(
-    'projects-card',
-    language
-  );
-  const { data: projectsText, loading: projectsTextLoading } = useFetchData(
-    'projects-text',
-    language,
-    true
-  );
+  const { data: projects, loading: projectsLoading } = useFetchData('projects-card', language);
+  const { data: projectsText, loading: projectsTextLoading } = useFetchData('projects-text', language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  
 
   const toggleProjectsView = () => {
     setShowAllProjects(!showAllProjects);
   };
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
-  const isLoading = projectsLoading || projectsTextLoading;
+  const isLoading = projectsLoading || projectsTextLoading || btnsTextLoading;
 
   return (
     <>
@@ -59,7 +54,7 @@ function PortfolioContent() {
             <PageBanner
               SolutionsBannerTitle={projectsText['banner-title']}
               SolutionsBannerDescr={projectsText['banner-text']}
-              textBnt={projectsText['banner-btn-text']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <div className='container'>
@@ -84,15 +79,11 @@ function PortfolioContent() {
                   )}
                 </div>
                 {projects.length > 6 && (
-                  <button
-                    className='btn btn-brand-4-medium hover-up mt-4'
+                  <button 
+                    className="btn btn-brand-4-medium hover-up mt-4" 
                     onClick={toggleProjectsView}
                   >
-                    <span>
-                      {showAllProjects
-                        ? t('buttons.ShowLess')
-                        : t('buttons.LoadMore')}
-                    </span>
+                    <span>{showAllProjects ? btnsText["show-less"] : btnsText["load-more"]}</span>
                   </button>
                 )}
               </div>

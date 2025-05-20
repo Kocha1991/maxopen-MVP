@@ -33,8 +33,10 @@ function BlogMaxOpenContent() {
     'blog-cards',
     language
   );
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  
 
-  const loading = projectsTextLoading || blogPostsLoading;
+  const loading = projectsTextLoading || blogPostsLoading || btnsTextLoading;
 
   return (
     <div className='blog-maxOpen'>
@@ -48,7 +50,7 @@ function BlogMaxOpenContent() {
             <PageBanner
               SolutionsBannerTitle={text['banner-title']}
               SolutionsBannerDescr={text['banner-descr']}
-              textBnt={text['banner-btn-text']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <div className='container'>
@@ -61,6 +63,7 @@ function BlogMaxOpenContent() {
                     style={1}
                     showPagination
                     items={blogPosts}
+                    btnText={btnsText["learn-more"]}
                   />
                 </div>
               </div>

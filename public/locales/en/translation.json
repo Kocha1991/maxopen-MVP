@@ -1,6 +1,4 @@
 {
-  "FAQTitle": "Answers to your questions",
-
   "notification": {
     "FailedSend":"Failed to send the data",
     "SentSuccessfully":"Data sent successfully!",

@@ -9,7 +9,7 @@ export const ServicesCard = ({
   descr,
   btnText,
   isFullWidth,
-  link
+  link,
 }) => {
   return (
     <div className={`mb-20 ${isFullWidth ? 'col-12 card-features-maxOpen-long' : 'col-lg-4'}`}>

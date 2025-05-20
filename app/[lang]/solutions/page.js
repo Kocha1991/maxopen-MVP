@@ -21,24 +21,15 @@ export default function CompleteSolutions() {
 
 function CompleteSolutionsContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: cards, loading: cardsLoading } = useFetchData(
-    'packege-card',
-    language
-  );
-  const { data: fullPackage, loading: fullPackageLoading } = useFetchData(
-    'full-package',
-    language
-  );
-  const { data: text, loading: textLoading } = useFetchData(
-    'solutions-page-text',
-    language,
-    true
-  );
+  const { data: cards, loading: cardsLoading } = useFetchData('packege-card', language);
+  const { data: fullPackage, loading: fullPackageLoading } = useFetchData('full-package', language);
+  const { data: text, loading: textLoading } = useFetchData('solutions-page-text', language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
 
-  const isLoading = cardsLoading || fullPackageLoading || textLoading;
+  const isLoading = cardsLoading || fullPackageLoading || textLoading || btnsTextLoading;
   return (
     <>
       {isLoading ? (
@@ -55,7 +46,7 @@ function CompleteSolutionsContent() {
             <PageBanner
               SolutionsBannerTitle={text['banner-title']}
               SolutionsBannerDescr={text['banner-descr']}
-              textBnt={text['banner-btn']}
+              textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <div className='complete-solutions__items'>
@@ -69,7 +60,7 @@ function CompleteSolutionsContent() {
                     price={card.price}
                     priceText={card['price-package-text']}
                     title={card['package-option-title']}
-                    btnText={card['btn-text']}
+                    btnText={btnsText["order-package"]}
                     options={[
                       { title: card.options1, description: card.optionsDescr1 },
                       { title: card.options2, description: card.optionsDescr2 },
@@ -85,6 +76,7 @@ function CompleteSolutionsContent() {
                     description={pkg.description}
                     icon={pkg.icon}
                     price={pkg.price}
+                    btnText={btnsText["order-package"]}
                     options={[
                       {
                         title: pkg['title-option1'],
@@ -121,7 +113,7 @@ function CompleteSolutionsContent() {
                       onClick={() => openModal('calendar')}
                     >
                       <span>
-                        {text['footer-btn']}
+                        {btnsText["book-a-call"]}
                         <svg
                           width='11'
                           height='12'

@@ -4,7 +4,7 @@ import Pagination from "./Pagination";
 import BlogCardCustom from './BlogCardCustom';
 import { useTranslation } from 'react-i18next';
 
-export default function BlogPost({ style, showItem, showPagination, items}) {
+export default function BlogPost({ style, showItem, showPagination, items, btnText}) {
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState(showItem);
   const [pagination, setPagination] = useState([]);
@@ -53,7 +53,7 @@ export default function BlogPost({ style, showItem, showPagination, items}) {
       <>
         {getPaginatedPosts.map(item => (
           <div className="col-lg-3 col-md-4" key={item.id}>
-            <BlogCardCustom item={item}/>
+            <BlogCardCustom item={item} btnText={btnText}/>
           </div>
         ))}
 

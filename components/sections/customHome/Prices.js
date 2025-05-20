@@ -3,7 +3,7 @@ import { BlogTitle } from "@/components/blog/BlogTitle";
 import { PriceItem } from "../../elements/PriceItem";
 import { useTranslation } from 'react-i18next';
 
-const Prices = ({items, text}) => {
+const Prices = ({items, text, btnsText}) => {
   const { t } = useTranslation();
   
   const prices = Array.isArray(items)
@@ -26,7 +26,7 @@ const Prices = ({items, text}) => {
                   key={price.id}
                   title={`${price.title} ${price.price}`}
                   descr={price.description}
-                  btnText={t("buttons.Let's discuss")}
+                  btnText={btnsText["lets-discuss"]}
                 />
               ))}
             </div>

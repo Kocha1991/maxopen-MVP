@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from 'react-i18next';
 
-const BoxNewsletter = ({ title, descr, buttonText, placeholder, newsLetterText }) => {
+const BoxNewsletter = ({ title, descr, btnsText, placeholder, newsLetterText }) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,7 +55,7 @@ const BoxNewsletter = ({ title, descr, buttonText, placeholder, newsLetterText }
             required
           />
           <button className="btn btn-subscribe" type="submit" disabled={isSubmitting}>
-            {buttonText}
+            {btnsText}
           </button>
         </form>
         {message && <p className={error ? "text-danger" : "text-success"}>{message}</p>}

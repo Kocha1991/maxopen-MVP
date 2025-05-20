@@ -6,7 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 export const Services = ({
   text,
-  items
+  items,
+  btnText
 }) => {
   const { t } = useTranslation();
 
@@ -34,6 +35,7 @@ export const Services = ({
                       btnText={t("buttons.Learn more")}
                       isFullWidth={isLastSingle}
                       link={service.slug ? `/services/${service.slug}` : null}
+                      btnText={btnText}
                     />
                   );
                 })

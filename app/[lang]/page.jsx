@@ -21,7 +21,7 @@ export default function Page() {
 }
 
 function HomeContent() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
   const { isOpen, modalType, modalData, closeModal, openModal } = useModal();
 
@@ -40,6 +40,8 @@ function HomeContent() {
   const { data: formText, loading: formTextLoading } = useFetchData("form-2", language, true);
   const { data: pricesData, loading: pricesLoading } = useFetchData("price-of-services", language);
   const { data: pricesText, loading: pricesTextLoading } = useFetchData("prices-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+
 
   const isLoading = 
     bannerLoading || 
@@ -56,7 +58,8 @@ function HomeContent() {
     processTextLoading ||
     formTextLoading ||
     pricesLoading ||
-    pricesTextLoading;
+    pricesTextLoading ||
+    btnsTextLoading;
   
   return (
     <>
@@ -66,15 +69,17 @@ function HomeContent() {
         </div>
       ) : (
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Banner banner={banner} />
+          <Banner banner={banner} btnText={btnsText["book-meeting"]}/>
           <GoodsAnimation data={logos}/>
           <Services 
             text={servicesText}
             items={servicesCard}
+            btnText={btnsText["learn-more"]}
           />
           <Projects 
             text={projectsText}
             items={projectsCard}
+            btnsText={btnsText}
           />
           <WhyWe 
             text={textWhyWe}
@@ -88,10 +93,12 @@ function HomeContent() {
             formText={formText}
             items={processItems}
             text={processText}
+            btnsText={btnsText}
           />
           <Prices 
             items={pricesData}
             text={pricesText}
+            btnsText={btnsText}
           />
           <ContactUs />
     
