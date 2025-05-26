@@ -60,7 +60,7 @@ function HomeContent() {
     pricesLoading ||
     pricesTextLoading ||
     btnsTextLoading;
-  
+    
   return (
     <>
       {isLoading ? (

@@ -658,7 +658,7 @@ h6, .heading-6 {
 }
 
 .neutral-300 {
-  color: #B1B2B8 !important;
+  color: #3e3e3f !important;
 }
 
 .neutral-400 {
@@ -11200,6 +11200,10 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   letter-spacing: 0.03em;
   color: rgba(181, 181, 181, 1);
   margin-bottom: 30px;
+}
+.solution-card__right-item
+.solution-card__descr {
+  color: #3e3e3f;
 }
 .solution-card__header
 .solution-card__title,
