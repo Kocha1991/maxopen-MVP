@@ -10182,6 +10182,7 @@ a.icon-socials:hover {
   width: 100%;
   object-fit: contain;
   object-position: center;
+  filter: drop-shadow(5px 8px 6px rgba(255, 255, 255, 0.5));
 }
 .logo-phone {
   margin-top: 8px;
