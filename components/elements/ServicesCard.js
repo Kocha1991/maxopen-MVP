@@ -15,18 +15,20 @@ export const ServicesCard = ({
     <div className={`mb-20 ${isFullWidth ? 'col-12 card-features-maxOpen-long' : 'col-lg-4'}`}>
       <div className={`card-features-maxOpen ${isFullWidth ? 'card-features-maxOpen-long' : ''}`}>
         <div className="card-wrapper">
-          <div className="card-image"> 
-            <div 
-              className='card-image__icon'
-              dangerouslySetInnerHTML={{ __html: icon }}
-            />
-            <div 
-              className='card-image__icon-hover'
-              dangerouslySetInnerHTML={{ __html: iconHover }}
-            />
+          <div className='card-wrapper__top'>
+            <div className="card-image"> 
+              <div 
+                className='card-image__icon'
+                dangerouslySetInnerHTML={{ __html: icon }}
+              />
+              <div 
+                className='card-image__icon-hover'
+                dangerouslySetInnerHTML={{ __html: iconHover }}
+              />
+            </div>
+            <h5 className="mb-12">{title}</h5>
           </div>
           <div className="card-info">
-            <h5 className="mb-12">{title}</h5>
             <p className="mb-12 text-md neutral-300">
               {descr}
             </p>

@@ -32,7 +32,6 @@ export const Services = ({
                       iconHover={service["icon-black"]}
                       title={service.title}
                       descr={service.description}
-                      btnText={t("buttons.Learn more")}
                       isFullWidth={isLastSingle}
                       link={service.slug ? `/services/${service.slug}` : null}
                       btnText={btnText}
