@@ -29,9 +29,10 @@ export const ServicesCard = ({
             <h5 className="mb-12">{title}</h5>
           </div>
           <div className="card-info">
-            <p className="mb-12 text-md neutral-300">
-              {descr}
-            </p>
+            <div
+              className="mb-12 text-md neutral-300"
+              dangerouslySetInnerHTML={{ __html: descr }}
+            />
           </div>
         </div>
 

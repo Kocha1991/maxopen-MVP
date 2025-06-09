@@ -56,7 +56,7 @@ function ServicesContent() {
                         icon={service.icon}
                         iconHover={service['icon-black']}
                         title={service.title}
-                        descr={service.description}
+                        descr={service.descr}
                         btnText={btnsText["learn-more"]}
                         isFullWidth={isFullWidth}
                         link={service.slug ? `/services/${service.slug}` : null}
