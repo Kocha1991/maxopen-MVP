@@ -1,6 +1,7 @@
 'use client';
 import React from "react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const ServicesCard = ({
   icon,
@@ -8,23 +9,42 @@ export const ServicesCard = ({
   title,
   descr,
   btnText,
-  isFullWidth,
+  colSize, // Використовуємо colSize замість isFullWidth
+  addLongClass, // Новий пропс для додавання класу 'card-features-maxOpen-long'
   link,
 }) => {
+  // Визначаємо клас колонки на основі colSize
+  const columnClass = `col-12 col-lg-${colSize}`; // Використовуйте col-lg- або col-md- в залежності від вашого брейкпоінту
+
+  // Визначаємо додатковий клас для card-features-maxOpen
+  const cardLongClass = addLongClass ? 'card-features-maxOpen-long' : '';
+
   return (
-    <div className={`mb-20 ${isFullWidth ? 'col-12 card-features-maxOpen-long' : 'col-lg-4'}`}>
-      <div className={`card-features-maxOpen ${isFullWidth ? 'card-features-maxOpen-long' : ''}`}>
+    // Замість isFullWidth в класі mb-20, використовуємо colSize
+    <div className={`mb-20 ${columnClass} ${addLongClass ? 'card-features-maxOpen-long' : ''}`}>
+      {/* Клас card-features-maxOpen-long додаємо і сюди */}
+      <div className={`card-features-maxOpen ${cardLongClass}`}>
         <div className="card-wrapper">
           <div className='card-wrapper__top'>
-            <div className="card-image"> 
-              <div 
-                className='card-image__icon'
-                dangerouslySetInnerHTML={{ __html: icon }}
-              />
-              <div 
-                className='card-image__icon-hover'
-                dangerouslySetInnerHTML={{ __html: iconHover }}
-              />
+            <div className="card-image">
+              {icon && (
+                <Image
+                  src={icon.full_url}
+                  alt={title}
+                  width={icon.width}
+                  height={icon.height}
+                  className='card-image__icon'
+                />
+              )}
+              {iconHover && (
+                <Image
+                  src={iconHover.full_url}
+                  alt={`${title} (hover)`}
+                  width={iconHover.width}
+                  height={iconHover.height}
+                  className='card-image__icon-hover'
+                />
+              )}
             </div>
             <h5 className="mb-12">{title}</h5>
           </div>

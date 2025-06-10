@@ -10348,6 +10348,11 @@ a.icon-socials:hover {
 .maxOpen-services {
   padding: 160px 0 50px;
 }
+.maxOpen-services .card-image img {
+  height: 68px;
+  object-fit: contain;
+  object-position: center;
+}
 .card-features-maxOpen {
   display: flex;
   flex-direction: column;
@@ -10423,11 +10428,19 @@ p {
   list-style: disc;
   padding-left: 30px;
 }
+.card-wrapper .card-info ul > li {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
 .card-wrapper__top {
   display: flex;
   align-items: center;
   gap: 10px;
   z-index: 5;
+}
+.card-wrapper__top > h5 {
+  max-width: 330px;
 }
 .card-features-maxOpen.card-features-maxOpen-long
 .card-wrapper {
