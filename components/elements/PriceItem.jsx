@@ -1,7 +1,11 @@
 "use client";
 import React from "react";
+import { useModal } from '@/components/customHooks/useModal';
+
 
 export const PriceItem = ({ title, descr, btnText }) => {
+  const { openModal } = useModal();
+
   return (
     <div className="price-item">
       <div className="price-item__text">
@@ -10,7 +14,11 @@ export const PriceItem = ({ title, descr, btnText }) => {
       </div>
 
       {btnText ? (
-        <button className="btn btn-brand-4-medium hover-up">
+        <button 
+          className="btn btn-brand-4-medium hover-up"
+          onClick={() => openModal('calendar')}
+
+        >
           <span>
             {btnText}
             <svg

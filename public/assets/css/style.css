@@ -10763,6 +10763,15 @@ p {
   opacity: 0;
   transition: max-height 0.5s ease, opacity 0.3s ease;
 }
+.price-item__descr ul {
+  list-style: disc;
+  padding-left: 15px;
+}
+.price-item__descr ul > li {
+}
+.price-item__descr ul > li::marker {
+  color: white; /* обов’язково для коректного кольору маркерів у всіх браузерах */
+}
 .price-item__descr.open {
   max-height: 250px;
   opacity: 1;
