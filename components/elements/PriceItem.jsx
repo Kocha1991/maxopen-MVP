@@ -6,7 +6,7 @@ export const PriceItem = ({ title, descr, btnText }) => {
     <div className="price-item">
       <div className="price-item__text">
         <h2 className="price-item__title">{title}</h2>
-        <p className="price-item__descr">{descr}</p>
+        <p className="price-item__descr" dangerouslySetInnerHTML={{ __html: descr }} />
       </div>
 
       {btnText ? (

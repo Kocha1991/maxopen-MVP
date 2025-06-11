@@ -9,8 +9,8 @@ export const ServicesCard = ({
   title,
   descr,
   btnText,
-  colSize, // Використовуємо colSize замість isFullWidth
-  addLongClass, // Новий пропс для додавання класу 'card-features-maxOpen-long'
+  colSize,
+  addLongClass,
   link,
 }) => {
   // Визначаємо клас колонки на основі colSize
