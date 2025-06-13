@@ -40,7 +40,8 @@ function HomeContent() {
   const { data: formText, loading: formTextLoading } = useFetchData("form-2", language, true);
   const { data: pricesData, loading: pricesLoading } = useFetchData("price-of-services", language);
   const { data: pricesText, loading: pricesTextLoading } = useFetchData("prices-text", language, true);
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
 
 
   const isLoading = 
@@ -59,7 +60,8 @@ function HomeContent() {
     formTextLoading ||
     pricesLoading ||
     pricesTextLoading ||
-    btnsTextLoading;
+    btnsTextLoading ||
+    bannersDataLoading;
     
   return (
     <>
@@ -69,7 +71,7 @@ function HomeContent() {
         </div>
       ) : (
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Banner banner={banner} btnText={btnsText["book-meeting"]}/>
+          <Banner banner={banner} btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
           <GoodsAnimation data={logos}/>
           <Services 
             text={servicesText}

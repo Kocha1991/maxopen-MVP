@@ -11,7 +11,7 @@ export default function CustomHeader({ scroll, handleMobileMenu, topBar, headerC
   const { openModal } = useModal();
   const { i18n } = useTranslation();
   const { language } = i18n;
-  const { data: btnsText} = useFetchData("btns-text", language, true);
+  const { data: btnsText} = useFetchData("buttons-text", language, true);
   
 
   if (!openModal) {

@@ -7,14 +7,16 @@ export const Nav = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: navigations} = useFetchData("navigation", language);
+  const { data: navigations } = useFetchData("navigation", language);
 
   return (
     <nav className="custom-nav">
       <ul className="main-menu">
         {Array.isArray(navigations) && navigations.map((item) => (
           <li key={item.id} className="has-children">
-            <Link href={item.slug.toLowerCase()}>{item.name}</Link>
+            <Link href={item.slug ? item.slug.toLowerCase() : '#'}>
+              {item.name || 'Без назви'}
+            </Link>
           </li>
         ))}
       </ul>

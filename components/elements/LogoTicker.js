@@ -14,7 +14,7 @@ export default function LogoTicker({ data }) {
       {data.map((item) => (
         <li key={item.id} className="carouselTicker__item">
           <div className="item-logo">
-            <img src={item.full_url} alt={item.file_name} />
+            <img src={item.full_url} alt="Techonologies-logo" />
           </div>
         </li>
       ))}

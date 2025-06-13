@@ -1,7 +1,7 @@
 'use client';
 import { useModal } from '@/components/customHooks/useModal';
 
-export default function Banner({ banner, btnText }) {
+export default function Banner({ banner, btnText, bannersData }) {
   const { openModal } = useModal();
   
 
@@ -11,8 +11,8 @@ export default function Banner({ banner, btnText }) {
       <div className="container">
         <div className='maxOpen-banner__wrapper'>
           <div className="maxOpen-banner__left">
-            <h1 className="display-2 mb-30 mt-25 neutral-0">{banner.title}</h1>
-            <p className="text-lg neutral-500 mb-40">{banner.description}</p>
+            <h1 className="display-2 mb-30 mt-25 neutral-0">{bannersData["home-title"]}</h1>
+            <p className="text-lg neutral-500 mb-40">{banner["home-descr"]}</p>
             <div className="d-flex mb-60">
               <button
                 className="btn banner-btn hover-up mr-5"
