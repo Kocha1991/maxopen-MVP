@@ -3,7 +3,12 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
 import { useTranslation } from 'react-i18next';
 
-export default function WhyWe({text, items}) {
+export default function WhyWe({
+  teaser,
+  title,
+  subtitle,
+  items
+}) {
   const { t } = useTranslation();
   
   return (
@@ -11,9 +16,9 @@ export default function WhyWe({text, items}) {
         <div className="container">
           <>
             <BlogTitle 
-              textOnBg={text.teaser}
-              title={text.title} 
-              descr={text.description}
+              textOnBg={teaser}
+              title={title} 
+              descr={subtitle}
             />
             <div className="row mt-90">
               {items.length > 0 ? (

@@ -6,7 +6,9 @@ import Loading from '@/components/elements/Loading';
 const ContactUs = () => {
   const { t, i18n } = useTranslation();
   const { language } = i18n;
-  const { data: textForm, loading: textFormLoading } = useFetchData('form-1', language, true);
+  const { data: textForm, loading: textFormLoading } = useFetchData('form-2', language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  
   
   
   const [name, setName] = useState('');
@@ -131,7 +133,7 @@ const ContactUs = () => {
                     disabled={isSubmitting}
                   >
                     <span>
-                      {textForm["btn-text"]}
+                      {btnsText["send-message"]}
                       <img
                         src={
                           isSubmitting

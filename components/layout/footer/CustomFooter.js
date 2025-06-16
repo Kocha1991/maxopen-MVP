@@ -27,12 +27,12 @@ export const CustomFooter = () => {
             <Logo />
             <Nav />
             <div className="custom-footer__social">
-              <p className="text-lg title-follow neutral-0 mt-0">{text.follow}</p>
+              <p className="text-lg title-follow neutral-0 mt-0">{text["follow-us"]}</p>
               <SocialNetworks />
             </div>
 
             <div className="footer-bottom text-center">
-              <p className="text-sm neutral-600">{text.copyright}</p>
+              <p className="text-sm neutral-600">{text['copyright-notice']}</p>
             </div>
           </div>
         )}

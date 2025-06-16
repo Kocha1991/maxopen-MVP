@@ -6,7 +6,9 @@ import BoxNewsletter from '@/components/elements/BoxNewsletter';
 import { useTranslation } from 'react-i18next';
 
 const Process = ({
-  text, 
+  teaser,
+  title,
+  subtitle,
   items,
   formText,
   btnsText
@@ -18,9 +20,9 @@ const Process = ({
       <div className="container">
         <>
           <BlogTitle 
-            textOnBg={text?.teaser}
-            title={text?.title}
-            descr={text?.descr}
+            textOnBg={teaser}
+            title={title}
+            descr={subtitle}
           />
           {Array.isArray(items) ? (
             <div className="row">
@@ -28,8 +30,8 @@ const Process = ({
                 <InfoBlock2 
                   key={step.id}
                   number={step.number}
-                  title={step['name process']}
-                  descr={step.description}
+                  title={step['name-process']}
+                  descr={step["process-descr"]}
                 />
               ))}
             </div>
@@ -41,7 +43,7 @@ const Process = ({
       <div className="container mt-25">
         <BoxNewsletter 
           title={formText.title}
-          descr={formText.desc}
+          descr={formText.descr}
           btnsText={btnsText["get-in-touch"]}
           placeholder={formText.placeholder}
           newsLetterText={formText.text}

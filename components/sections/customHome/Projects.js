@@ -5,7 +5,9 @@ import { BlogTitle } from '@/components/blog/BlogTitle';
 import { useTranslation } from 'react-i18next';
 
 export const Projects = ({
-  text,
+  teaser,
+  title,
+  subtitle,
   items,
   btnsText
 }) => {
@@ -24,19 +26,19 @@ export const Projects = ({
       <div className="container">
         <>
           <BlogTitle 
-            textOnBg={text.teaser}
-            title={text.title}
-            descr={text.descr}
+            textOnBg={teaser}
+            title={title}
+            descr={subtitle}
           />
           <div className="row mt-65">
             {visibleProjects.length > 0 ? (
               visibleProjects.map((project) => (
                 <ProjectCard 
                   key={project.id} 
-                  img={project['image-of-project']?.thumb}
-                  title={project['name-of-project']}
-                  descr={project['short-description']}
-                  link={project['link-to-project']}
+                  img={project['img']?.thumb}
+                  title={project['name-project']}
+                  descr={project['description']}
+                  link={project['link-project']}
                 />
               ))
             ) : (
@@ -49,7 +51,7 @@ export const Projects = ({
               className="btn btn-brand-4-medium hover-up mt-4" 
               onClick={toggleProjectsView}
             >
-              <span>{showAllProjects ? btnsText["show-less"] : btnsText["load-more"]}</span>
+              <span>{showAllProjects ? btnsText["show-less"] : btnsText["show-more"]}</span>
             </button>
           )}
         </>

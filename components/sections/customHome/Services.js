@@ -5,7 +5,9 @@ import { BlogTitle } from "@/components/blog/BlogTitle";
 import { useTranslation } from 'react-i18next';
 
 export const Services = ({
-  text,
+  teaser,
+  title,
+  subtitle,
   items,
   btnText
 }) => {
@@ -16,9 +18,9 @@ export const Services = ({
       <div className="container">
         <>
           <BlogTitle
-            textOnBg={text.teaser}
-            title={text.title}
-            descr={text.descr}
+            textOnBg={teaser}
+            title={title}
+            descr={subtitle}
           />
           <div className="row">
             {Array.isArray(items) && items.length > 0 ? (
