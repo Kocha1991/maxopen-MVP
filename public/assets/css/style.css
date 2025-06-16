@@ -10348,7 +10348,7 @@ a.icon-socials:hover {
 .maxOpen-services {
   padding: 160px 0 50px;
 }
-.maxOpen-services .card-image img {
+.card-image img {
   height: 68px;
   object-fit: contain;
   object-position: center;
