@@ -14,6 +14,7 @@ import ModalManager from '@/components/elements/ModalManager';
 import { useModal } from '@/components/customHooks/useModal';
 import { useTranslation } from 'react-i18next';
 import { useFetchData } from '@/components/customHooks/useFetchData';
+import { BlogTitle } from '@/components/blog/BlogTitle';
 import Loading from '@/components/elements/Loading';
 
 export default function Page() {
@@ -25,7 +26,6 @@ function HomeContent() {
   const { language } = i18n;
   const { isOpen, modalType, modalData, closeModal, openModal } = useModal();
 
-  const { data: banner, loading: bannerLoading } = useFetchData("home-banner", language, true);
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
   const { data: servicesCard, loading: servicesCardLoading } = useFetchData("services-card", language);
   const { data: projectsCard, loading: projectsCardLoading } = useFetchData("portfolio-card", language);
@@ -40,7 +40,6 @@ function HomeContent() {
 
 
   const isLoading = 
-    bannerLoading || 
     logosLoading || 
     servicesCardLoading || 
     projectsCardLoading || 
@@ -61,22 +60,34 @@ function HomeContent() {
         </div>
       ) : (
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Banner banner={banner} btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
+          <Banner btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
           <GoodsAnimation data={logos}/>
-          <Services 
-            teaser={sectionTitles["services-teaser"]}
-            title={sectionTitles["services-title"]}
-            subtitle={sectionTitles["services-subtitle"]}
-            items={servicesCard}
-            btnText={btnsText["learn-more"]}
-          />
-          <Projects 
-            teaser={sectionTitles["portfolio-teaser"]}
-            title={sectionTitles["portfolio-title"]}
-            subtitle={sectionTitles["portfolio-descr"]}
-            items={projectsCard}
-            btnsText={btnsText}
-          />
+          <section className="maxOpen-services" id="services">
+            <div className="container">
+              <BlogTitle
+                teaser={sectionTitles["services-teaser"]}
+                title={sectionTitles["services-title"]}
+                subtitle={sectionTitles["services-subtitle"]}
+              />
+              <Services 
+                items={servicesCard}
+                btnText={btnsText["learn-more"]}
+              />
+            </div>
+          </section>
+          <section className="maxOpen-projects" id="projects">
+            <div className="container">
+              <BlogTitle 
+                teaser={sectionTitles["portfolio-teaser"]}
+                title={sectionTitles["portfolio-title"]}
+                subtitle={sectionTitles["portfolio-descr"]}
+              />
+              <Projects
+                items={projectsCard}
+                btnsText={btnsText}
+              />
+            </div>
+          </section>
           <WhyWe 
             teaser={sectionTitles["why-we-teaser"]}
             title={sectionTitles["why-we-title"]}
@@ -87,14 +98,21 @@ function HomeContent() {
             title={sectionTitles["games-title"]}
             items={videos}
           />
-          <Process
-            teaser={sectionTitles["how-works-teaser"]}
-            title={sectionTitles["how-works-title"]}
-            subtitle={sectionTitles["how-works-subtitle"]}
-            formText={formText}
-            items={processItems}
-            btnsText={btnsText}
-          />
+          <section className="section-box wow animate__animated animate__fadeIn box-how-it-work">
+            <div className="container">
+              <BlogTitle 
+                teaser={sectionTitles["how-works-teaser"]}
+                title={sectionTitles["how-works-title"]}
+                subtitle={sectionTitles["how-works-subtitle"]}
+              />
+              <Process
+                formText={formText}
+                items={processItems}
+                btnsText={btnsText}
+              />
+            </div>
+          </section>
+                
           <Prices 
             items={pricesData}
             teaser={sectionTitles["solutions-teaser"]}

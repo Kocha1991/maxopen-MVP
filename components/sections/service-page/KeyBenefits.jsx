@@ -1,8 +1,10 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
+import { useTranslation } from 'react-i18next';
 
 const KeyBenefits = ({data, title, teaser}) => {
+  const { t } = useTranslation();
 
   return (
     <div className='key-benefits'>

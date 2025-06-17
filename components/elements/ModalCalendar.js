@@ -50,8 +50,6 @@ export default function ModalCalendar({ isOpen, onClose }) {
   const { data: contacts } = useFetchData('modal-contacts');
   const { data: text } = useFetchData('calendar', language, true);
 
-  console.log(text);
-
   useEffect(() => {
     const interval = setInterval(() => {
       const iframe = document.querySelector('.calendly-inline-widget iframe');
@@ -85,9 +83,9 @@ export default function ModalCalendar({ isOpen, onClose }) {
           )}
           <div className="calendar-page__footer">
             <div className="calendar-page__text">
-              <h2 className="calendar-page__footer-title">{text["footer-title"]}</h2>
+              <h2 className="calendar-page__footer-title">{""}</h2>
               <h3 className="calendar-page__footer-descr">
-                {text['footer-descr']}
+                {""}
               </h3>
             </div>
             <div className="calendar-page__contacts">

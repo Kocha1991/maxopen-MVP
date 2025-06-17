@@ -26,10 +26,11 @@ function CompleteSolutionsContent() {
 
   const { data: cards, loading: cardsLoading } = useFetchData('packege-card', language);
   const { data: fullPackage, loading: fullPackageLoading } = useFetchData('full-package', language);
-  const { data: text, loading: textLoading } = useFetchData('solutions-page-text', language, true);
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
+  const { data: footerData, loading: footerDataLoading} = useFetchData("solutions-footer", language, true);
 
-  const isLoading = cardsLoading || fullPackageLoading || textLoading || btnsTextLoading;
+  const isLoading = cardsLoading || fullPackageLoading || btnsTextLoading || bannersDataLoading || footerDataLoading;
   return (
     <>
       {isLoading ? (
@@ -44,8 +45,8 @@ function CompleteSolutionsContent() {
             logoWhite
           >
             <PageBanner
-              SolutionsBannerTitle={text['banner-title']}
-              SolutionsBannerDescr={text['banner-descr']}
+              SolutionsBannerTitle={bannersData['solutions-title']}
+              SolutionsBannerDescr={bannersData['solutions-descr']}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
@@ -59,8 +60,9 @@ function CompleteSolutionsContent() {
                     icon={card.icon}
                     price={card.price}
                     priceText={card['price-package-text']}
-                    title={card['package-option-title']}
+                    title={card['right-title']}
                     btnText={btnsText["order-package"]}
+                    rightTitle={card["right-title"]}
                     options={[
                       { title: card.options1, description: card.optionsDescr1 },
                       { title: card.options2, description: card.optionsDescr2 },
@@ -103,17 +105,17 @@ function CompleteSolutionsContent() {
                 <div className='add-top-footer__wrapper'>
                   <div className='add-top-footer__text-block'>
                     <div className='solution-card__title text-white'>
-                      {text['footer-title']}
+                      {footerData.title}
                     </div>
                     <div className='solution-card__descr'>
-                      {text['footer-descr']}
+                      {footerData.subtitle}
                     </div>
                     <a
                       className='btn btn-brand-4-medium hover-up'
                       onClick={() => openModal('calendar')}
                     >
                       <span>
-                        {btnsText["book-a-call"]}
+                        {btnsText["book-call"]}
                         <svg
                           width='11'
                           height='12'
@@ -141,7 +143,7 @@ function CompleteSolutionsContent() {
                       </span>
                     </a>
                   </div>
-                  <img src={text['footer-img']?.full_url} alt='image' />
+                  <img src={footerData.img?.full_url} alt='image' />
                 </div>
               </div>
             </div>

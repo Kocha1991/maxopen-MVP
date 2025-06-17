@@ -21,22 +21,14 @@ export default function Blog() {
 
 function BlogMaxOpenContent() {
   const { openModal, isOpen, modalType, modalData, closeModal } = useModal();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: text, loading: projectsTextLoading } = useFetchData(
-    'blog-page-text',
-    language,
-    true
-  );
-  const { data: blogPosts, loading: blogPostsLoading } = useFetchData(
-    'blog-cards',
-    language
-  );
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
-  
+  const { data: blogPosts, loading: blogPostsLoading } = useFetchData('blog-cards', language);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
 
-  const loading = projectsTextLoading || blogPostsLoading || btnsTextLoading;
+  const loading = blogPostsLoading || btnsTextLoading || bannersDataLoading;
 
   return (
     <div className='blog-maxOpen'>
@@ -48,14 +40,14 @@ function BlogMaxOpenContent() {
         ) : (
           <>
             <PageBanner
-              SolutionsBannerTitle={text['banner-title']}
-              SolutionsBannerDescr={text['banner-descr']}
+              SolutionsBannerTitle={bannersData['blog-title']}
+              SolutionsBannerDescr={bannersData['blog-descr']}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <div className='container'>
               <div className='blog-maxOpen__wrapper'>
-                <h2 className='blog-title mb-20'>{text['cards-title']}</h2>
+                <h2 className='blog-title mb-20'>{""}</h2>
                 <div className='row'>
                   {/* <Filter /> */}
                   <BlogPost

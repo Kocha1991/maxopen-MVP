@@ -40,7 +40,8 @@ function ServiceContent() {
   const { data: info, loading: infoLoading } = useFetchData('efficiency-chatbot', language);
   const { data: questions, loading: questionsLoading } = useFetchData('faq-question', language);
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
   
   const isLoading =
     loadingServices ||
@@ -50,7 +51,9 @@ function ServiceContent() {
     textPageLoading ||
     infoLoading ||
     questionsLoading ||
-    logosLoading;
+    logosLoading ||
+    btnsTextLoading ||
+    bannersDataLoading;
 
   return (
     <>
@@ -66,13 +69,13 @@ function ServiceContent() {
             logoWhite
           >
             <PageBanner
-              SolutionsBannerTitle={textPage['banner-title']}
-              SolutionsBannerDescr={textPage['banner-text']}
+              SolutionsBannerTitle={bannersData["services-title"]}
+              SolutionsBannerDescr={bannersData["services-descr"]}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
             <GoodsAnimation
-              text={textPage['text-technologies-animation']}
+              text={textPage["logos-animation-text"]}
               data={logos}
               isLoading={logosLoading}
             />

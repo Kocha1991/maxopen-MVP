@@ -10,7 +10,8 @@ import Filter from '@/components/elements/Filter';
 import ContactUs from '@/components/sections/customHome/ContactUs';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
-import { ProjectCard } from '@/components/elements/ProjectCard';
+import { Projects } from '@/components/sections/customHome/Projects';
+
 
 export default function Portfolio() {
   return (
@@ -27,8 +28,9 @@ function PortfolioContent() {
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const { data: projects, loading: projectsLoading } = useFetchData('projects-card', language);
-  const { data: projectsText, loading: projectsTextLoading } = useFetchData('projects-text', language, true);
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
+  const { data: projectsCard, loading: projectsCardLoading } = useFetchData("portfolio-card", language);
   
 
   const toggleProjectsView = () => {
@@ -36,7 +38,7 @@ function PortfolioContent() {
   };
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
-  const isLoading = projectsLoading || projectsTextLoading || btnsTextLoading;
+  const isLoading = projectsLoading || btnsTextLoading || bannersDataLoading || projectsCardLoading;
 
   return (
     <>
@@ -52,8 +54,8 @@ function PortfolioContent() {
             logoWhite
           >
             <PageBanner
-              SolutionsBannerTitle={projectsText['banner-title']}
-              SolutionsBannerDescr={projectsText['banner-text']}
+              SolutionsBannerTitle={bannersData['portfolio-title']}
+              SolutionsBannerDescr={bannersData['portfolio-descr']}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />
@@ -61,23 +63,10 @@ function PortfolioContent() {
               <div className='blog-maxOpen__wrapper'>
                 <h2 className='blog-title mb-20'>{t('Ourportfolio')}</h2>
                 {/* <Filter /> */}
-                <div className='row mt-65'>
-                  {Array.isArray(projects) && projects.length > 0 ? (
-                    visibleProjects.map((project) => (
-                      <ProjectCard
-                        key={project.id}
-                        img={project['image-of-project'].thumb}
-                        title={project['name-of-project']}
-                        descr={project['short-description']}
-                        link={project['link-to-project']}
-                      />
-                    ))
-                  ) : (
-                    <p className='no-data text-lg neutral-500'>
-                      {t('notification.noDataAvailable')}
-                    </p>
-                  )}
-                </div>
+                <Projects
+                  items={projectsCard}
+                  btnsText={btnsText}
+                />
                 {projects.length > 6 && (
                   <button 
                     className="btn btn-brand-4-medium hover-up mt-4" 

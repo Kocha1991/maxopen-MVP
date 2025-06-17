@@ -35,10 +35,11 @@ function AboutUsContent() {
   const { data: webs, loading: websLoading } = useFetchData('development-delivers', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
   const { data: ourCultureItems, loading: ourCultureItemsLoading } = useFetchData('our-culture', language, true);
-  const { data: btnsText, loading: btnsTextLoading} = useFetchData("btns-text", language, true);
+  const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
+  const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
 
   const isLoading =
-    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading || btnsTextLoading;
+    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading || btnsTextLoading || bannersDataLoading;
 
   return (
     <>
@@ -54,8 +55,8 @@ function AboutUsContent() {
             logoWhite
           >
             <PageBanner
-              SolutionsBannerTitle={textPage['banner-title']}
-              SolutionsBannerDescr={textPage['banner-descr']}
+              SolutionsBannerTitle={bannersData['about-title']}
+              SolutionsBannerDescr={bannersData['about-descr']}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
             />

@@ -1,21 +1,21 @@
 import React from "react";
 
 export const BlogTitle = ({
-  textOnBg,
+  teaser,
   title,
-  descr,
+  subtitle,
   textColor
 }) => {
   return (
     <div className='blog-title'>
       <div className="maxOpen-bg-text">
-        {textOnBg}
+        {teaser}
       </div>
       <h2 className={`maxOpen-services__title ${textColor}`}>
         {title}
       </h2>
       <h3 className={`maxOpen-services__descr`}>
-        {descr}
+        {subtitle}
       </h3>
     </div>
   );

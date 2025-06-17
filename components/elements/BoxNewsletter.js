@@ -42,7 +42,7 @@ const BoxNewsletter = ({ title, descr, btnsText, placeholder, newsLetterText }) 
     <div className="box-newsletter box-newsletter--maxOpen">
       <div className="newsletter-left">
         <h2>{title}</h2>
-        <p className="text-md neutral-600">{descr}</p>
+        <p className="text-lg">{descr}</p>
       </div>
       <div className="newsletter-right">
         <form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ const BoxNewsletter = ({ title, descr, btnsText, placeholder, newsLetterText }) 
           </button>
         </form>
         {message && <p className={error ? "text-danger" : "text-success"}>{message}</p>}
-        <p className="newsletter-input-lable">{newsLetterText}</p>
+        <p className="text-lg mt-5">{newsLetterText}</p>
       </div>
     </div>
   );

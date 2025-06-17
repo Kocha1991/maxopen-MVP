@@ -1,8 +1,6 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 export const SolutionCard = ({ name, descr, icon, price, options = [], priceText, btnText, title }) => {
-  const { t } = useTranslation();
 
   return (
     <div className="solution-card">

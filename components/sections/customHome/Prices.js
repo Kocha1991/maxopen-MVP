@@ -19,9 +19,9 @@ const Prices = ({
       <div className="container">
         <>
           <BlogTitle
-            textOnBg={teaser}
+            teaser={teaser}
             title={title}
-            descr={subtitle}
+            subtitle={subtitle}
           />
           {Array.isArray(prices) && prices.length > 0 ? (
             <div className="maxOpen__prices-items">
