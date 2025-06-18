@@ -12,13 +12,19 @@ export const Nav = () => {
   return (
     <nav className="custom-nav">
       <ul className="main-menu">
-        {Array.isArray(navigations) && navigations.map((item) => (
-          <li key={item.id} className="has-children">
-            <Link href={item.slug ? item.slug.toLowerCase() : '#'}>
-              {item.name || 'Без назви'}
-            </Link>
-          </li>
-        ))}
+        {Array.isArray(navigations) && navigations.map((item) => {
+          const localizedSlug = item.slug
+            ? `/${language}/${item.slug.toLowerCase().replace(/^\/+/, '')}`
+            : '#';
+
+          return (
+            <li key={item.id} className="has-children">
+              <Link href={localizedSlug}>
+                {item.name || 'Без назви'}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
