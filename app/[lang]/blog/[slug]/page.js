@@ -8,15 +8,13 @@ import Loading from '@/components/elements/Loading';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 
 const Article = ({ params }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
   const { data: articles, loading: articleLoading } = useFetchData(`article`);
 
   const article = Array.isArray(articles)
     ? articles.find((item) => item.slug === params.slug)
     : null;
-
-  console.log(params.slug);
 
   if (articleLoading) {
     return <Loading />;

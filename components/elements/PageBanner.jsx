@@ -10,7 +10,7 @@ const PageBanner = ({
 
   const bannerStyle = {
     background: bunnerBg
-      ? `url(${bunnerBg}) center/cover no-repeat`
+      ? `url(${bunnerBg.replace(/ /g, "%20")}) center/cover no-repeat`
       : "rgba(25, 25, 25, 1)",
   };
 
