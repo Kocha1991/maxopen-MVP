@@ -19,7 +19,7 @@ export const Projects = ({
 
   return (
     <>
-      <div className="row mt-65">
+      <div className="row">
         {visibleProjects.length > 0 ? (
           visibleProjects.map((project) => (
             <ProjectCard 

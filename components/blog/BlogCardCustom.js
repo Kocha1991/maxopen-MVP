@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { useTranslation } from 'react-i18next';
-
 
 export default function BlogCardCustom({ item, btnText }) {
-  const { t } = useTranslation();
+
   if (!item) return null;
+  
   return (
     <Link href={`/blog/${item?.slug ?? ""}`}>
       <div className="blog-card-custom">

@@ -39,10 +39,10 @@ function HomeContent() {
   const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
 
 
-  const isLoading = 
-    logosLoading || 
-    servicesCardLoading || 
-    projectsCardLoading || 
+  const isLoading =
+    logosLoading ||
+    servicesCardLoading ||
+    projectsCardLoading ||
     itemsWhyWeLoading ||
     videosLoading ||
     processItemsLoading ||
@@ -62,7 +62,7 @@ function HomeContent() {
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
           <Banner btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
           <GoodsAnimation data={logos}/>
-          <section className="maxOpen-services" id="services">
+          <section className="maxOpen-services ptb-50" id="services">
             <div className="container">
               <BlogTitle
                 teaser={sectionTitles["services-teaser"]}
@@ -75,7 +75,7 @@ function HomeContent() {
               />
             </div>
           </section>
-          <section className="maxOpen-projects" id="projects">
+          <section className="maxOpen-projects ptb-50" id="projects">
             <div className="container">
               <BlogTitle 
                 teaser={sectionTitles["portfolio-teaser"]}
@@ -112,14 +112,19 @@ function HomeContent() {
               />
             </div>
           </section>
-                
-          <Prices 
-            items={pricesData}
-            teaser={sectionTitles["solutions-teaser"]}
-            title={sectionTitles["solutions-title"]}
-            subtitle={sectionTitles["solutions-subtitle"]}
-            btnsText={btnsText["lets-discuss"]}
-          />
+          <section className="maxOpen__prices">
+              <div className="container">
+                <BlogTitle
+                  teaser={sectionTitles["solutions-teaser"]}
+                  title={sectionTitles["solutions-title"]}
+                  subtitle={sectionTitles["solutions-subtitle"]}
+                />
+                <Prices
+                  items={pricesData}
+                  btnsText={btnsText["lets-discuss"]}
+                />
+              </div>
+          </section>
           <ContactUs />
     
           <ModalManager

@@ -12,7 +12,7 @@ export default function WhyWe({
   const { t } = useTranslation();
   
   return (
-    <section className="section-box wow animate__animated animate__fadeIn box-preparing-3 maxOpen-whyWe">
+    <section className="section-box wow animate__animated animate__fadeIn box-preparing-3 maxOpen-whyWe ptb-100">
       <BlogTitle 
         teaser={teaser}
         title={title} 

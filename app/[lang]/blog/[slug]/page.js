@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React from 'react';
 import HeaderLayout from '@/components/layout/header/Layout';
 import PageBanner from '@/components/elements/PageBanner';
 import { useTranslation } from 'react-i18next';
@@ -28,16 +28,18 @@ const Article = ({ params }) => {
 
   const articleHtml = article[`article-${language}`] || article['article-en'];
 
+  console.log(article["banner-img"])
+
   return (
     <div className='article'>
       <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
-        <PageBanner bunnerBg={article?.banner?.full_url} />
+        <PageBanner bunnerBg={article?.["banner-img"]?.full_url || ''} />
         <div className='container'>
           <div className='article__wrapper'>
             <div className='article__left'>
               <div className='article__header'>
                 <div className='article__categorie'>{article.categorie}</div>
-                <span>{new Date(article.date).toLocaleDateString()}</span>
+                <span>{new Date(article.data).toLocaleDateString()}</span>
               </div>
               <div className='article__content'>
                 <h2 className='text-48-semibold mb-20'>{article.title}</h2>

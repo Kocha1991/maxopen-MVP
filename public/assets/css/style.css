@@ -7627,7 +7627,6 @@ a.icon-socials:hover {
 
 .box-preparing-3 {
   background-color: #191919;
-  padding: 142px 0px;
 }
 .box-preparing-3 p {
   max-width: 80%;
@@ -10490,7 +10489,7 @@ p {
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
 }
 .maxOpen-services {
-  margin:  150px 0 100px;
+  margin: 100px 0 0;
 }
 .maxOpen-services__title {
   font-size: 48px;
@@ -10586,9 +10585,6 @@ p {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.maxOpen-whyWe.box-preparing-3{
-  padding: 140px 0 80px;
-}
 .maxOpen-whyWe .bg-abstract {
   bottom: 0;
   right: 0;
@@ -10636,12 +10632,6 @@ p {
 }
 .box-newsletter--maxOpen .newsletter-left {
   max-width: 600px;
-}
-/* .newsletter-left > .text-md {
-  font-size: ;
-} */
-.maxOpen-projects {
-  margin: 100px 0;
 }
 .maxOpen-projects .btn {
   display: block;
@@ -10757,7 +10747,6 @@ p {
   letter-spacing: 0.03em;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  margin-bottom: 25px;
 }
 .price-item__descr {
   font-size: 18px;
@@ -10778,7 +10767,7 @@ p {
 .price-item__descr ul > li {
 }
 .price-item__descr ul > li::marker {
-  color: white; /* обов’язково для коректного кольору маркерів у всіх браузерах */
+  color: white; 
 }
 .price-item__descr.open {
   max-height: 250px;
@@ -10794,11 +10783,23 @@ p {
   align-items: center;
   justify-content: center;
 }
+.price-item__descr {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out, visibility 0.6s ease-in-out, max-height 0.6s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
 .price-item:hover .price-item__descr {
-  max-height: 500px;
   opacity: 1;
   visibility: visible;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+.price-item:hover .price-item__title {
+  margin-bottom: 25px;
 }
 @media (max-width: 992px) {
   .maxOpen__prices {

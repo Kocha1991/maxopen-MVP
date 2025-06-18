@@ -24,11 +24,13 @@ function BlogMaxOpenContent() {
   const { i18n } = useTranslation();
   const { language } = i18n;
 
-  const { data: blogPosts, loading: blogPostsLoading } = useFetchData('blog-cards', language);
+  const { data: blogPosts, loading: blogPostsLoading } = useFetchData('blog-card', language);
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
+  const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
+  
 
-  const loading = blogPostsLoading || btnsTextLoading || bannersDataLoading;
+  const loading = blogPostsLoading || btnsTextLoading || bannersDataLoading || sectionTitlesLoading;
 
   return (
     <div className='blog-maxOpen'>
@@ -47,7 +49,7 @@ function BlogMaxOpenContent() {
             />
             <div className='container'>
               <div className='blog-maxOpen__wrapper'>
-                <h2 className='blog-title mb-20'>{""}</h2>
+                <h2 className='blog-title mb-20'>{sectionTitles["our-blog"]}</h2>
                 <div className='row'>
                   {/* <Filter /> */}
                   <BlogPost
