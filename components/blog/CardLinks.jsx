@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 
 const CardLinks = ({
-  textOnBg,
+  teaser,
   title,
-  descr,
+  subtitle
 }) => {
   
   return (
@@ -34,9 +34,9 @@ const CardLinks = ({
           </div>
           <div className='blog-card-links__info-bloc'>
             <BlogTitle 
-              textOnBg={textOnBg}
+              teaser={teaser}
               title={title}
-              descr={descr}
+              subtitle={subtitle}
             />
           </div>
         </div>

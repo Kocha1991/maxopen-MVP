@@ -33,13 +33,22 @@ function AboutUsContent() {
   const { data: options, loading: optionsLoading } = useFetchData('our-mission', language);
   const { data: indicators, loading: indicatorsLoading } = useFetchData('indicators', language);
   const { data: webs, loading: websLoading } = useFetchData('development-delivers', language);
-  const { data: textPage, loading: textPageLoading } = useFetchData('about-us-page-text', language, true);
+  const { data: textPage, loading: textPageLoading } = useFetchData('about-page-text', language, true);
   const { data: ourCultureItems, loading: ourCultureItemsLoading } = useFetchData('our-culture', language, true);
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
+  const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
+  
 
   const isLoading =
-    optionsLoading || indicatorsLoading || websLoading || textPageLoading || ourCultureItemsLoading || btnsTextLoading || bannersDataLoading;
+    optionsLoading || 
+    indicatorsLoading || 
+    websLoading || 
+    textPageLoading || 
+    ourCultureItemsLoading || 
+    btnsTextLoading || 
+    bannersDataLoading ||
+    sectionTitlesLoading;
 
   return (
     <>
@@ -61,14 +70,14 @@ function AboutUsContent() {
               onOpenModal={openModal}
             />
             <BlogCardLinks
-              textOnBg={textPage['who-we-teaser']}
-              title={textPage['who-we-title']}
-              descr={textPage['who-we-descr']}
+              teaser={sectionTitles["who-we-are-teaser"]}
+              title={sectionTitles["who-we-are-title"]}
+              subtitle={sectionTitles["who-we-are-subtitle"]}
             />
             <TextInfo
-              title={textPage['info-title']}
-              descr={textPage['info-descr']}
-              textOnBg={textPage['info-text']}
+              title={textPage['text-info-title']}
+              descr={textPage['text-info-subtitle']}
+              textOnBg={textPage['text-info-text']}
             />
             <section className='our-culture'>
               <div className='container'>

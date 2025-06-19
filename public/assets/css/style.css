@@ -7633,7 +7633,6 @@ a.icon-socials:hover {
   margin: 0 auto;
 }
 
-
 .box-author {
   display: flex;
   align-items: center;
@@ -11697,6 +11696,12 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   position: relative;
   padding: 60px 0;
   background-color: rgba(25, 25, 25, 1);
+}
+.bout-us__reality-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .about-us__reality::after {
   position: absolute;

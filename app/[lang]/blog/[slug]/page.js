@@ -26,8 +26,6 @@ const Article = ({ params }) => {
 
   const articleHtml = article[`article-${language}`] || article['article-en'];
 
-  console.log(article["banner-img"])
-
   return (
     <div className='article'>
       <HeaderLayout useCustomHeader={true} footerStyle='customFooter' logoWhite>
