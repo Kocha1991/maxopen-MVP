@@ -82,9 +82,9 @@ function AboutUsContent() {
             <section className='our-culture'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={textPage['our-culture-teaser']}
-                  title={textPage['our-culture-title']}
-                  descr={textPage['our-culture-descr']}
+                  teaser={sectionTitles["our-culture-teaser"]}
+                  title={sectionTitles["our-culture-title"]}
+                  subtitle={sectionTitles["our-culture-subtitle"]}
                 />
                 <InfoWithCircle 
                   items={ourCultureItems}
@@ -94,24 +94,24 @@ function AboutUsContent() {
             <section className='our-mission'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={textPage['our-mission-teaser']}
-                  title={textPage['our-mission-title']}
-                  descr={textPage['our-mission-descr']}
+                  teaser={sectionTitles["our-mission-teaser"]}
+                  title={sectionTitles["our-mission-title"]}
+                  subtitle={sectionTitles["our-mission-subtitle"]}
                 />
                 <BlogChangeOption data={options} />
               </div>
             </section>
             <Indicators 
-              teaser={textPage['achievements-teaser']}
-              title={textPage['achievements-title']}
+              teaser={sectionTitles["our-numbers-teaser"]}
+              title={sectionTitles["our-numbers-title"]}
               data={indicators} 
             />
             <section className='development-delivers'>
               <div className='container'>
                 <BlogTitle
-                  textOnBg={textPage["development-teaser"]}
-                  title={textPage["development-title"]}
-                  descr={textPage["development-descr"]}
+                  teaser={sectionTitles["development-that-delivers-teaser"]}
+                  title={sectionTitles["development-that-delivers-title"]}
+                  subtitle={sectionTitles["development-that-delivers-subtitle"]}
                 />
                 <DevelopmentDelivers
                   data={webs}

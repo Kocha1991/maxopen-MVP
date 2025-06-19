@@ -7,7 +7,7 @@ const Indicators = ({data, teaser, title}) => {
     <section className="indicators">
       <div className="container">
         <BlogTitle
-          textOnBg={teaser}
+          teaser={teaser}
           title={title}
           textColor="text-white"
         />
