@@ -118,28 +118,35 @@ function ServiceContent() {
               <ItemsTicker items={services} />
             </div>
             <Efficiency
-              teaser={textPage['teaser-info']}
-              title={textPage['title-info']}
-              descr={textPage['descr-info']}
+              teaser={sectionTitles["chatbot-efficiency-teaser"]}
+              title={sectionTitles["chatbot-efficiency-title"]}
+              subtitle={sectionTitles["chatbot-efficiency-subtitle"]}
               data={info}
             />
             <div className='container'>
               <BlogTitle
-                textOnBg={textPage['platform-teaser']}
-                title={textPage['platform-title']}
-                descr={textPage['platform-descr']}
+                teaser={sectionTitles["chatbot-platforms-teaser"]}
+                title={sectionTitles["chatbot-platforms-title"]}
+                subtitle={sectionTitles["chatbot-platforms-subtitle"]}
               />
             </div>
             <ItemsTicker items={networks} />
-            <Faq
-              onOpenModal={openModal}
-              teaser={textPage['faq-teaser']}
-              title={textPage['faq-title']}
-              leftBlockTitle={textPage['faq-left-title']}
-              leftBlockDescr={textPage['faq-left-descr']}
-              textBtn={btnsText["book-meeting"]}
-              questions={questions}
-            />
+            <div className='faq'>
+              <div className="container">
+                <BlogTitle
+                  teaser={sectionTitles["chatbot-faq-teaser"]}
+                  title={sectionTitles["chatbot-faq-title"]}
+                  textColor="wight-text"
+                />
+                <Faq
+                  onOpenModal={openModal}
+                  leftBlockTitle={textPage['faq-left-title']}
+                  leftBlockDescr={textPage['faq-left-descr']}
+                  textBtn={btnsText["book-meeting"]}
+                  questions={questions}
+                />
+              </div>
+            </div>
             <ContactUs />
           </HeaderLayout>
           <ModalManager

@@ -13,41 +13,32 @@ const Faq = ({
 }) => {
 
   return (
-    <div className='faq'>
-      <div className="container">
-        <BlogTitle
-          textOnBg={teaser}
-          title={title}
-          textColor="wight-text"
-        />
-        <div className='faq__wrapper'>
-          <div className='faq__left-block'>
-            <h3 className='faq__left-block-title price-item__title'>
-              {leftBlockTitle}
-            </h3>
-            <h4 className='maxOpen-services__descr'>
-              {leftBlockDescr}
-            </h4>
-            <button
-              className="btn banner-btn hover-up mr-5"
-              onClick={() => onOpenModal('calendar')}
-            >
-              <span>
-                <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
-                {textBtn}
-              </span>
-            </button>
-          </div>
-          <div className='faq__right-block'>
-            {questions?.map((question, index) => (
-              <PriceItem
-                key={index}
-                title={question.question}
-                descr={question.answer}
-              />
-            ))}
-          </div>
-        </div>
+    <div className='faq__wrapper'>
+      <div className='faq__left-block'>
+        <h3 className='faq__left-block-title price-item__title'>
+          {leftBlockTitle}
+        </h3>
+        <h4 className='maxOpen-services__descr'>
+          {leftBlockDescr}
+        </h4>
+        <button
+          className="btn banner-btn hover-up mr-5"
+          onClick={() => onOpenModal('calendar')}
+        >
+          <span>
+            <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
+            {textBtn}
+          </span>
+        </button>
+      </div>
+      <div className='faq__right-block'>
+        {questions?.map((question, index) => (
+          <PriceItem
+            key={index}
+            title={question.question}
+            descr={question.answer}
+          />
+        ))}
       </div>
     </div>
   );

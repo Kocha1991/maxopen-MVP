@@ -2,16 +2,16 @@
 import React from "react";
 import { BlogTitle } from '@/components/blog/BlogTitle';
 
-const Efficiency = ({teaser, title, descr, data}) => {
+const Efficiency = ({teaser, title, subtitle, data}) => {
   
   return (
     <div className='efficiency'>
       <div className="container">
         <div className='efficiency__wrapper'>
           <BlogTitle 
-            textOnBg={teaser}
+            teaser={teaser}
             title={title}
-            descr={descr}
+            subtitle={subtitle}
           />
           <div className='efficiency__block'>
             {data?.map((item, index) => (
