@@ -998,6 +998,7 @@ body {
 }
 
 .btn {
+  width: fit-content;
   font-family: var(--tg-body-font-family);
   border-radius: 0px;
   padding: 14px 23px;
@@ -1388,6 +1389,7 @@ body {
 }
 .btn.btn-brand-4-medium {
   min-width: 120px;
+  white-space: nowrap;
   position: relative;
   padding: 14px 25px;
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
@@ -2341,7 +2343,7 @@ label {
 .card-casestudy .card-desc p {
   font-size: 14px;
   line-height: 23px;
-  color: #898A8A;
+  /* color: #898A8A; */
   font-family: var(--tg-body-font-family);
 }
 

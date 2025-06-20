@@ -31,7 +31,7 @@ export default function ChatbotSlider({data, title, teaser}) {
     <div className='container'>
       <div className='chatbot-slider'>
         <BlogTitle 
-          textOnBg={teaser}
+          teaser={teaser}
           title={title}
         />
 

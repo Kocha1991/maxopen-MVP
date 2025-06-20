@@ -115,7 +115,7 @@ function AboutUsContent() {
                 />
                 <DevelopmentDelivers
                   data={webs}
-                  btnText={btnsText["go-to-website"]}
+                  btnText={btnsText["go-website"]}
                 />
               </div>
             </section>

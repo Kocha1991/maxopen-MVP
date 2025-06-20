@@ -36,12 +36,15 @@ function ServiceContent() {
   const { data: networks, loading: loadingNetworks } = useFetchData('social-networks');
   const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
   const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
-  const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-page-text', language, true);
+  const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-info', language, true);
   const { data: info, loading: infoLoading } = useFetchData('efficiency-chatbot', language);
   const { data: questions, loading: questionsLoading } = useFetchData('faq-question', language);
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
+  const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
+  const { data: chatbotInfo, loading: chatbotInfoLoading } = useFetchData('chatbot-info', language, true);
+
   
   const isLoading =
     loadingServices ||
@@ -53,7 +56,9 @@ function ServiceContent() {
     questionsLoading ||
     logosLoading ||
     btnsTextLoading ||
-    bannersDataLoading;
+    bannersDataLoading ||
+    sectionTitlesLoading ||
+    chatbotInfoLoading;
 
   return (
     <>
@@ -80,29 +85,34 @@ function ServiceContent() {
               isLoading={logosLoading}
             />
             <CardLinks
-              textOnBg={textPage["solutions-teaser"]}
-              title={textPage["solutions-title"]}
-              descr={textPage["solutions-descr"]}
+              teaser={sectionTitles["chatbot-solutions-teaser"]}
+              title={sectionTitles["chatbot-solutions-title"]}
+              subtitle={sectionTitles["chatbot-solutions-subtitle"]}
             />
             <TextInfo
-              title={textPage['blok-info-title']}
-              descr={textPage['blok-info-text']}
+              title={chatbotInfo["chatbot-info-title"]}
+              descr={chatbotInfo["chatbot-info-descr"]}
             />
-            <KeyBenefits
-              teaser={textPage['key-benefits-teaser']}
-              title={textPage['key-benefits-title']}
-              data={benefitsItems}
-              isLoading={benefitsItemsLoading}
-            />
+            <div className='key-benefits'>
+              <div className='container'>
+                <BlogTitle 
+                  teaser={sectionTitles["key-benefits-teaser"]}
+                  title={sectionTitles["key-benefits-title"]}
+                />
+                <KeyBenefits
+                  data={benefitsItems}
+                />
+              </div>
+            </div>
             <ChatbotSlider
               data={cards}
-              title={textPage['slider-title']}
-              teaser={textPage['slider-teaser']}
+              teaser={sectionTitles["chatbot-tasks-teaser"]}
+              title={sectionTitles["chatbot-tasks-title"]}
             />
             <div className='who-needs'>
               <BlogTitle
-                textOnBg={textPage['who-need-teser']}
-                title={textPage['who-need-title']}
+                teaser={sectionTitles["chatbot-who-teaser"]}
+                title={sectionTitles["chatbot-who-title"]}
                 textColor='wight-text'
               />
               <ItemsTicker items={services} />
