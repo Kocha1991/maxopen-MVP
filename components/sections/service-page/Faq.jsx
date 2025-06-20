@@ -1,11 +1,8 @@
 import React from "react";
-import { BlogTitle } from '@/components/blog/BlogTitle';
 import { PriceItem } from '@/components/elements/PriceItem';
 
 const Faq = ({
   onOpenModal,
-  teaser,
-  title,
   leftBlockTitle,
   leftBlockDescr,
   textBtn,
@@ -35,8 +32,8 @@ const Faq = ({
         {questions?.map((question, index) => (
           <PriceItem
             key={index}
-            title={question.question}
-            descr={question.answer}
+            title={question["chatbot-faq-questions"]}
+            // descr={question.answer}
           />
         ))}
       </div>

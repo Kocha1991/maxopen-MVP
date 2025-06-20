@@ -11,7 +11,7 @@ const InfoBlock = ({
     <div className="col-lg-4 col-md-6 mb-20">
       <div className={`card-preparing-2 maxOpen-card-preparing ${bgWight ? 'card-preparing--wide' : ''}`}>
         <Link className="card-image" href="#">
-          {icon}
+          <img src={icon} alt={title} />
         </Link>
         <div className="card-info">
           <Link href="#">

@@ -34,16 +34,17 @@ function ServiceContent() {
 
   const { data: services, loading: loadingServices } = useFetchData('animation-services', language);
   const { data: networks, loading: loadingNetworks } = useFetchData('social-networks');
-  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-key-benefits', language);
+  const { data: benefitsItems, loading: benefitsItemsLoading } = useFetchData('chatbot-keybenefits-card', language);
   const { data: cards, loading: cardsLoading } = useFetchData('chatbot-tasks-card', language);
   const { data: textPage, loading: textPageLoading } = useFetchData('chatbot-info', language, true);
   const { data: info, loading: infoLoading } = useFetchData('efficiency-chatbot', language);
-  const { data: questions, loading: questionsLoading } = useFetchData('faq-question', language);
+  const { data: questions, loading: questionsLoading } = useFetchData('chatbot-faq-questions', language);
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
   const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
   const { data: chatbotInfo, loading: chatbotInfoLoading } = useFetchData('chatbot-info', language, true);
+  const { data: faqText, loading: faqTextLoading } = useFetchData('chatbot-faq', language, true);
 
   
   const isLoading =
@@ -58,7 +59,8 @@ function ServiceContent() {
     btnsTextLoading ||
     bannersDataLoading ||
     sectionTitlesLoading ||
-    chatbotInfoLoading;
+    chatbotInfoLoading ||
+    faqTextLoading;
 
   return (
     <>
@@ -140,8 +142,8 @@ function ServiceContent() {
                 />
                 <Faq
                   onOpenModal={openModal}
-                  leftBlockTitle={textPage['faq-left-title']}
-                  leftBlockDescr={textPage['faq-left-descr']}
+                  leftBlockTitle={faqText["chatbot-faq-title"]}
+                  leftBlockDescr={faqText["chatbot-faq-subtitle"]}
                   textBtn={btnsText["book-meeting"]}
                   questions={questions}
                 />

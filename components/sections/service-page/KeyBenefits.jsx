@@ -1,9 +1,8 @@
 import React from "react";
-import { BlogTitle } from '@/components/blog/BlogTitle';
 import InfoBlock from '@/components/elements/InfoBlock';
 import { useTranslation } from 'react-i18next';
 
-const KeyBenefits = ({data, title, teaser}) => {
+const KeyBenefits = ({data}) => {
   const { t } = useTranslation();
 
   return (
@@ -12,9 +11,9 @@ const KeyBenefits = ({data, title, teaser}) => {
         data.map((item) => (
           <InfoBlock 
             key={item.id}
-            icon={<span dangerouslySetInnerHTML={{ __html: item['icon-svg'] }} />}
+            icon={item.icon?.full_url}
             title={item.title}
-            descr={item.description}
+            descr={item.descr}
             bgWight
           />
         ))

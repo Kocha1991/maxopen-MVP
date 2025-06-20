@@ -2569,9 +2569,6 @@ label {
   color: #ffffff;
   margin-bottom: 8px;
 }
-.card-preparing-2 .card-info p {
-  color: #898A8A;
-}
 .card-preparing-2:hover .card-image {
   background-color: #C5FF41;
 }
@@ -10929,6 +10926,7 @@ p {
   transition: all 0.5s ease-in-out;
 }
 .banner-btn span {
+  white-space: nowrap;
   position: relative;
   z-index: 1;
   display: flex;
@@ -12547,6 +12545,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   display: flex;
   gap: 40px;
   text-align: start;
+  align-items: flex-start;
 }
 .efficiency__wrapper .blog-title {
   align-items: flex-start;
