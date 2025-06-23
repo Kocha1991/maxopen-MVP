@@ -10596,6 +10596,9 @@ p {
 .maxOpen-card-preparing {
   cursor: pointer;
 }
+.maxOpen-card-preparing p {
+  color: rgba(181, 181, 181, 1);
+}
 .maxOpen-card-preparing.card-preparing-2 svg path {
   fill: #2afad7;
 }
@@ -10746,18 +10749,6 @@ p {
   text-align: left;
   color: rgba(255, 255, 255, 1);
 }
-.price-item__descr {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 28px;
-  letter-spacing: 0.03em;
-  text-align: left;
-  color: rgba(181, 181, 181, 1);
-  max-height: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.3s ease;
-}
 .price-item__descr ul {
   list-style: disc;
   padding-left: 15px;
@@ -10782,23 +10773,34 @@ p {
   justify-content: center;
 }
 .price-item__descr {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: rgba(181, 181, 181, 1);
+  margin-top: 10px;
+
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out, visibility 0.6s ease-in-out, max-height 0.6s ease-in-out;
-  max-height: 0;
-  overflow: hidden;
+
+  transition:
+    max-height 1.2s ease,
+    opacity 1s ease,
+    transform 1s ease,
+    visibility 1s ease;
 }
 
 .price-item:hover .price-item__descr {
+  max-height: 800px; /* запас по висоті, можна більше */
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  max-height: 1000px;
 }
-.price-item:hover .price-item__title {
-  margin-bottom: 25px;
-}
+
 @media (max-width: 992px) {
   .maxOpen__prices {
     padding: 40px 0;
