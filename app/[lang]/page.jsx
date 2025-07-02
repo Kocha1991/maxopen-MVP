@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Loading from '@/components/elements/Loading';
+import PortfolioSlider from '@/components/slider/PortfolioSlider';
 
 export default function Page() {
   return <HomeContent />;
@@ -76,7 +77,8 @@ function HomeContent() {
             </div>
           </section>
           <section className="maxOpen-projects ptb-50" id="projects">
-            <div className="container">
+            <PortfolioSlider />
+            {/* <div className="container">
               <BlogTitle 
                 teaser={sectionTitles["portfolio-teaser"]}
                 title={sectionTitles["portfolio-title"]}
@@ -86,7 +88,7 @@ function HomeContent() {
                 items={projectsCard}
                 btnsText={btnsText}
               />
-            </div>
+            </div> */}
           </section>
           <WhyWe 
             teaser={sectionTitles["why-we-teaser"]}

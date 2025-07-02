@@ -12659,3 +12659,121 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   width: 100%;
   height: 100vh;
 }
+/* .maxOpen-projects {
+  position: relative;
+} */
+.portfolio-slider {
+  position: relative;
+}
+.portfolio-slider__wrapper {
+  position: relative;
+}
+.portfolio-slider .custom-slider-btn {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+}
+.portfolio-slider__bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+  object-position: center;
+}
+.portfolio-slider .blog-title {
+  align-items: flex-start;
+  gap: 15px;
+}
+.portfolio-slider .blog-title .maxOpen-services__descr {
+  text-align: start;
+}
+.blog-title .btn {
+  margin: 0;
+  min-width: 0;
+  background: transparent;
+}
+.blog-title .btn svg {
+  margin-left: 5px;
+}
+.portfolio-slide__tegs-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.portfolio-slider .portfolio-slide__tegs {
+  display: flex;
+  gap: 10px;
+}
+.portfolio-slide__availabla {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.portfolio-slider .portfolio-slide__tegs span {
+  padding: 3px 10px;
+  border-radius: 50px;
+  background-color: #fff;
+}
+.portfolio-slide__bot-info {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.portfolio-slide__bot-info--wrepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.portfolio-slide__bot-item {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 2px solid rgba(236, 238, 242, 1);
+}
+.portfolio-slide__bot-info .animation-btn-svg {
+  height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  margin: 0;
+  background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
+}
+.progres-line {
+  position: relative;
+  width: 60%;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-top: 20px;
+  overflow: hidden;
+  margin-left: 25px;
+  margin-bottom: 35px;
+}
+.progres-line__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #2AFAF8;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progres-line__counter {
+  text-align: right;
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+}
+.portfolio-slider__wrapper .custom-slider-btn {
+  width: 530px;
+  display: flex;
+  align-items: center;
+}
+.swiper-button-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
