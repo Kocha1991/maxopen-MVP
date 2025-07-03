@@ -55,7 +55,7 @@ export const SlidePortfolio = ({ item }) => {
           </div>
           <div className='portfolio-slide__availabla maxOpen-services__descr'>
             {item.available}
-            <img src="/assets/imgs/template/icons/planet.svg" alt="planet icon" />
+            <img src={item.icon?.full_url} alt="icon" />
           </div>
         </div>
       </div>
