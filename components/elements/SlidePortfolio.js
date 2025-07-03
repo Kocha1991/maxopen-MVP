@@ -1,55 +1,67 @@
-import React from "react";
-import Link from 'next/link';
+'use client';
+import React, { useRef, useState, useEffect } from 'react';
 
-export const SlidePortfolio = ({ }) => {
+export const SlidePortfolio = ({ item }) => {
+  const descrRef = useRef(null);
+  const [isExpandable, setIsExpandable] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    const el = descrRef.current;
+    if (el) {
+      const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
+      const height = el.scrollHeight;
+      const lines = height / lineHeight;
+      if (lines > 3) {
+        setIsExpandable(true);
+      }
+    }
+  }, []);
+
+  const handleToggle = () => {
+    if (isExpandable) {
+      setExpanded(prev => !prev);
+    }
+  };
+
   return (
     <div className="portfolio-slide">
       <div className='blog-title'>
-        <div className="maxOpen-bg-text">
-          Our Portfolio
-        </div>
-        <h2 className={`maxOpen-services__title`}>
-          KloTop
-        </h2>
-        <h3 className={`maxOpen-services__descr`}>
-          KloTop is a specialized web solution that combines a landing page and a CRM system for effective management of arbitration campaigns. The service provides convenient statistics tracking, traffic optimization, and protection against blocking. The platform is adapted for both experienced professionals and beginners.
+        <div className="maxOpen-bg-text">{item.teaser}</div>
+
+        <h2 className="maxOpen-services__title">{item.title}</h2>
+
+        <h3
+          ref={descrRef}
+          className={`maxOpen-services__descr ${expanded ? 'expanded' : ''}`}
+        >
+          {item.descr}
         </h3>
-        <button className="btn btn-info-card animation-btn-svg">
-          Read more
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
-          </svg>
-        </button>
+
+        {isExpandable && (
+          <button className="btn btn-info-card animation-btn-svg" onClick={handleToggle}>
+            {expanded ? 'Hide' : 'Read more'}
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919" />
+            </svg>
+          </button>
+        )}
+
         <div className='portfolio-slide__tegs-info'>
           <div className='portfolio-slide__tegs'>
-            <span className='maxOpen-services__descr'>#landing</span>
-            <span className='maxOpen-services__descr'>#crm</span>
+            {item.teg.map((tag, i) => (
+              <span key={i} className='maxOpen-services__descr'>{tag}</span>
+            ))}
           </div>
           <div className='portfolio-slide__availabla maxOpen-services__descr'>
-            Available on:
-            <img src="/assets/imgs/template/icons/planet.svg" alt="" />
+            {item.available}
+            <img src="/assets/imgs/template/icons/planet.svg" alt="planet icon" />
           </div>
         </div>
       </div>
-      <img src="/assets/imgs/template/slide1.png" alt="" />
-      <div className='portfolio-slide__bot-info'>
-        <div className='portfolio-slide__bot-info--wrepper'>
-          <div className='portfolio-slide__bot-item'>
-            <h3 className='text-lg'>Services Provided</h3>
-            <h2 className='text-18-bold '>Design & Development</h2>
-          </div>
-          <div className='portfolio-slide__bot-item'>
-            <h3 className='text-lg'>Design</h3>
-            <h2 className='text-18-bold '>60 hours</h2>
-          </div>
-        </div>
-        <Link className="btn btn-info-card animation-btn-svg" href={""}>
-          Check it out on Behance
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919"/>
-          </svg>
-        </Link>
-      </div>
+
+      <img src={item["slide-web-img"].full_url} alt="Project preview" className='portfolio-slide__web-img'/>
+      <img src={item["slide-phone-img"].full_url} alt="Project preview" className='portfolio-slide__phone-img'/>
     </div>
   );
 };

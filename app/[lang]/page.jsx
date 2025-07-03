@@ -38,6 +38,7 @@ function HomeContent() {
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
   const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
+  const { data: portfolioSlide, loading: portfolioSlideLoading} = useFetchData("portfolio-slider", language);
 
 
   const isLoading =
@@ -51,7 +52,8 @@ function HomeContent() {
     pricesLoading ||
     btnsTextLoading ||
     bannersDataLoading ||
-    sectionTitlesLoading;
+    sectionTitlesLoading ||
+    portfolioSlideLoading;
 
   return (
     <>
@@ -77,7 +79,9 @@ function HomeContent() {
             </div>
           </section>
           <section className="maxOpen-projects ptb-50" id="projects">
-            <PortfolioSlider />
+            <PortfolioSlider 
+              items={portfolioSlide}
+            />
             {/* <div className="container">
               <BlogTitle 
                 teaser={sectionTitles["portfolio-teaser"]}
