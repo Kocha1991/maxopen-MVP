@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
 
-export const SlidePortfolio = ({ item }) => {
+export const SlidePortfolio = ({ item, btnsText }) => {
   const descrRef = useRef(null);
   const [isExpandable, setIsExpandable] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -40,7 +40,7 @@ export const SlidePortfolio = ({ item }) => {
 
         {isExpandable && (
           <button className="btn btn-info-card animation-btn-svg" onClick={handleToggle}>
-            {expanded ? 'Hide' : 'Read more'}
+            {expanded ? btnsText["show-less"] : btnsText["show-more"]}
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919" />
             </svg>

@@ -81,6 +81,7 @@ function HomeContent() {
           <section className="maxOpen-projects ptb-50" id="projects">
             <PortfolioSlider 
               items={portfolioSlide}
+              btnsText={btnsText}
             />
             {/* <div className="container">
               <BlogTitle 

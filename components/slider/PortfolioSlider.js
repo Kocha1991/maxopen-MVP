@@ -7,7 +7,7 @@ import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export default function PortfolioSlider({ items }) {
+export default function PortfolioSlider({ items, btnsText }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,6 +34,10 @@ export default function PortfolioSlider({ items }) {
             spaceBetween={0}
             slidesPerView={1}
             loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
@@ -50,7 +54,10 @@ export default function PortfolioSlider({ items }) {
           >
             {items.map((item, index) => (
               <SwiperSlide key={item.id}>
-                <SlidePortfolio item={item} />
+                <SlidePortfolio 
+                  item={item}
+                  btnsText={btnsText}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -93,7 +100,7 @@ export default function PortfolioSlider({ items }) {
           </div>
 
           <Link className="btn btn-info-card animation-btn-svg" href="">
-            Check it out on Behance
+            {btnsText.behance}
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22 11.0003L18.4791 7.47949V10.3074H0V11.6933H18.4791V14.5213L22 11.0003Z" fill="#191919" />
             </svg>
