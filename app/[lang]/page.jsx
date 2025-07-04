@@ -78,22 +78,11 @@ function HomeContent() {
               />
             </div>
           </section>
-          <section className="maxOpen-projects ptb-50" id="projects">
+          <section className="maxOpen-projects" id="projects">
             <PortfolioSlider 
               items={portfolioSlide}
               btnsText={btnsText}
             />
-            {/* <div className="container">
-              <BlogTitle 
-                teaser={sectionTitles["portfolio-teaser"]}
-                title={sectionTitles["portfolio-title"]}
-                subtitle={sectionTitles["portfolio-descr"]}
-              />
-              <Projects
-                items={projectsCard}
-                btnsText={btnsText}
-              />
-            </div> */}
           </section>
           <WhyWe 
             teaser={sectionTitles["why-we-teaser"]}

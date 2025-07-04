@@ -4129,6 +4129,7 @@ a.icon-socials img {
   vertical-align: middle;
   width: 50%;
   height: 50%;
+  margin-bottom: 3px;
 }
 a.icon-socials:last-child {
   margin-right: 0px;
@@ -12659,17 +12660,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   width: 100%;
   height: 100vh;
 }
-/* .maxOpen-projects {
-  position: relative;
-} */
 .portfolio-slider {
-  position: relative;
   display: flex;
   flex-direction: column;
-}
-
-.portfolio-slider 
-.portfolio-slider__wrapper {
   position: relative;
 }
 .portfolio-slider .custom-slider-btn {
@@ -12783,6 +12776,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   opacity: 0.3;
   pointer-events: none;
 }
+.portfolio-slide {
+  margin-bottom: 20px;
+}
 .portfolio-slide .maxOpen-services__descr {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -12796,11 +12792,23 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .portfolio-slider__bg-web,
 .portfolio-slide__web-img {
-  display: block;
+  display: block !important;
+}
+.nav-slider-web,
+.portfolio-slider__bot-info-web {
+  display: flex !important;
 }
 .portfolio-slider__bg-phone,
-.portfolio-slide__phone-img {
-  display: none;
+.portfolio-slide__phone-img,
+.nav-slider-phone,
+.portfolio-slider__bot-info-mob {
+  display: none !important;
+}
+.container-rel {
+  position: relative;
+}
+.portfolio-slider__bot-info-web {
+  margin-top: 25px;
 }
 @media (max-width: 992px) {
   .portfolio-slide .maxOpen-bg-text {
@@ -12859,16 +12867,28 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     font-size: 16px;
   }
   .portfolio-slide__web-img,
-  .portfolio-slider__bg-web {
-    display: none;
+  .portfolio-slider__bg-web,
+  .nav-slider-web,
+  .portfolio-slider__bot-info-web {
+    display: none !important;
   }
   .portfolio-slide__phone-img,
   .portfolio-slider__bg-phone {
-    display: block;
+    display: block !important;
+  }
+  .nav-slider-phone,
+  .portfolio-slider__bot-info-mob {
+    display: flex !important;
   }
   .portfolio-slider__bg-phone {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-30%);
+  }
+  .portfolio-slide.ptb-50 {
+    padding-bottom: 0;
+  }
+  .portfolio-slider {
+    margin-bottom: 50px;
   }
 }
  
