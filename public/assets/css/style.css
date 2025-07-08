@@ -12884,6 +12884,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     top: 50%;
     transform: translateY(-30%);
   }
+  
   .portfolio-slide.ptb-50 {
     padding-bottom: 0;
   }
@@ -12891,4 +12892,3 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     margin-bottom: 50px;
   }
 }
- 
