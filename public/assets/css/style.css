@@ -10470,6 +10470,7 @@ p {
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
+  gap: 20px;
 }
 .maxOpen-bg-text {
   margin-bottom: 15px;
@@ -12412,6 +12413,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     justify-content: center;
   }
 }
+.portfolio {
+  background: rgba(25, 25, 25, 1);
+}
 .portfolio .blog-maxOpen__wrapper .hover-up  {
   margin: 0 auto;
 }
@@ -12697,10 +12701,12 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .portfolio-slide__tegs-info {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
-.portfolio-slider .portfolio-slide__tegs {
+.portfolio-slide__tegs {
   display: flex;
   gap: 10px;
 }
@@ -12709,15 +12715,19 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   gap: 5px;
   align-items: center;
 }
-.portfolio-slider .portfolio-slide__tegs span {
+.portfolio-slide__tegs span {
   padding: 3px 10px;
   border-radius: 50px;
+  border: 1px solid rgba(59, 60, 64, 1);
+}
+.portfolio-slider .portfolio-slide__tegs span {
   background-color: #fff;
 }
 .portfolio-slider__bot-info {
- display: flex;
- align-items: center;
- justify-content: space-between;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .portfolio-slider__bot-info--wrepper {
   display: flex;
@@ -12846,7 +12856,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   }
   .portfolio-slider__bot-info--wrepper {
     order: 2;
-    justify-content: center;
+    /* justify-content: center; */
   }
   .portfolio-slider__bot-info .animation-btn-svg {
     order: 1;
@@ -12891,5 +12901,24 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   }
   .portfolio-slider {
     margin-bottom: 50px;
+  }
+}
+
+.portfolio-card {
+  position: relative;
+  padding: 100px 0;
+  z-index: 0;
+}
+.portfolio-card .maxOpen-services__descr {
+  text-align: start;
+}
+.portfolio-card .portfolio-slide__tegs span,
+.portfolio-card .portfolio-slider__bot-item {
+  background: rgba(38, 38, 38, 1);
+  border: 2px solid rgba(59, 60, 64, 1);
+}
+@media (max-width: 992px) {
+  .portfolio-card {
+    padding: 40px 0;
   }
 }

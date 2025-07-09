@@ -25,11 +25,10 @@ export default function Page() {
 function HomeContent() {
   const { i18n } = useTranslation();
   const { language } = i18n;
-  const { isOpen, modalType, modalData, closeModal, openModal } = useModal();
+  const { isOpen, modalType, modalData, closeModal } = useModal();
 
   const { data: logos, loading: logosLoading } = useFetchData('logo-techonologies');
   const { data: servicesCard, loading: servicesCardLoading } = useFetchData("services-card", language);
-  const { data: projectsCard, loading: projectsCardLoading } = useFetchData("portfolio-card", language);
   const { data: itemsWhyWe, loading: itemsWhyWeLoading } = useFetchData("why-we-items", language);
   const { data: videos, loading: videosLoading } = useFetchData("video-games");
   const { data: processItems, loading: processItemsLoading } = useFetchData("process-items", language);
@@ -44,7 +43,6 @@ function HomeContent() {
   const isLoading =
     logosLoading ||
     servicesCardLoading ||
-    projectsCardLoading ||
     itemsWhyWeLoading ||
     videosLoading ||
     processItemsLoading ||

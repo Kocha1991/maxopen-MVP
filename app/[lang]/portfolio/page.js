@@ -10,7 +10,7 @@ import Filter from '@/components/elements/Filter';
 import ContactUs from '@/components/sections/customHome/ContactUs';
 import { useFetchData } from '@/components/customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
-import { Projects } from '@/components/sections/customHome/Projects';
+import PortfolioCard from '@/components/elements/PortfolioCard';
 
 
 export default function Portfolio() {
@@ -31,6 +31,8 @@ function PortfolioContent() {
   const { data: btnsText, loading: btnsTextLoading} = useFetchData("buttons-text", language, true);
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
   const { data: projectsCard, loading: projectsCardLoading } = useFetchData("portfolio-card", language);
+  const { data: portfolioSlide, loading: portfolioSlideLoading} = useFetchData("portfolio-slider", language);
+  
   
 
   const toggleProjectsView = () => {
@@ -38,7 +40,7 @@ function PortfolioContent() {
   };
 
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
-  const isLoading = projectsLoading || btnsTextLoading || bannersDataLoading || projectsCardLoading;
+  const isLoading = projectsLoading || btnsTextLoading || bannersDataLoading || projectsCardLoading || portfolioSlideLoading;
 
   return (
     <>
@@ -53,31 +55,20 @@ function PortfolioContent() {
             footerStyle='customFooter'
             logoWhite
           >
-            <PageBanner
+            {/* <PageBanner
               SolutionsBannerTitle={bannersData['portfolio-title']}
               SolutionsBannerDescr={bannersData['portfolio-descr']}
               textBnt={btnsText["book-meeting"]}
               onOpenModal={openModal}
-            />
-            <div className='container'>
-              <div className='blog-maxOpen__wrapper'>
-                <h2 className='blog-title mb-20'>{t('Ourportfolio')}</h2>
-                {/* <Filter /> */}
-                <Projects
-                  items={projectsCard}
-                  btnsText={btnsText}
-                />
-                {projects.length > 6 && (
-                  <button 
-                    className="btn btn-brand-4-medium hover-up mt-4" 
-                    onClick={toggleProjectsView}
-                  >
-                    <span>{showAllProjects ? btnsText["show-less"] : btnsText["load-more"]}</span>
-                  </button>
-                )}
-              </div>
+            /> */}
+            <div className='blog-maxOpen__wrapper'>
+              <h2 className='blog-title mb-20'>{t('Ourportfolio')}</h2>
+              {/* <Filter /> */}
+              {portfolioSlide?.map((item, index) => (
+                <PortfolioCard key={item.id || index} item={item} btnsText={btnsText}/>
+              ))}
             </div>
-            <ContactUs />
+            {/* <ContactUs /> */}
           </HeaderLayout>
           <ModalManager
             isOpen={isOpen}
