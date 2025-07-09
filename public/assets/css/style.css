@@ -12885,6 +12885,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   .portfolio-slide__phone-img,
   .portfolio-slider__bg-phone {
     display: block !important;
+    width: 100%;
   }
   .nav-slider-phone,
   .portfolio-slider__bot-info-mob {
