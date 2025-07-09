@@ -27,7 +27,7 @@ const Process = ({
       ) : (
         <p>{t("errors.NoDataAvailable")}</p>
       )}
-      <div className="container mt-25">
+      <div className="mt-25">
         <BoxNewsletter 
           title={formText.title}
           descr={formText.descr}

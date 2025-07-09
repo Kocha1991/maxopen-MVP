@@ -395,7 +395,9 @@ textarea.form-control {
 .brand-4 {
   color: #2afad7;
 }
-
+.container {
+  padding: 0 40px;
+}
 @media (min-width: 1400px) {
   .container {
     max-width: 1503px;
