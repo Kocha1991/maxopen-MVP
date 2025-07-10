@@ -1,6 +1,5 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 
 export const SlidePortfolio = ({ item, btnsText }) => {
   const descrRef = useRef(null);
@@ -13,7 +12,7 @@ export const SlidePortfolio = ({ item, btnsText }) => {
       const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
       const height = el.scrollHeight;
       const lines = height / lineHeight;
-      if (lines > 3) {
+      if (lines > 2) {
         setIsExpandable(true);
       }
     }

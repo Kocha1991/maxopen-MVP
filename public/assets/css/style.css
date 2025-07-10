@@ -11052,7 +11052,7 @@ p {
 .games .box-button-slider.box-button-slider-team {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 40px;
 }
 .play-btn-block {
   position: absolute;
@@ -12673,8 +12673,8 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .portfolio-slider .custom-slider-btn {
   position: absolute;
-  top: 30px;
-  right: 0px;
+  top: 55px;
+  right: 40px;
 }
 .portfolio-slider__bg {
   width: 100%;
@@ -12687,7 +12687,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .portfolio-slider .blog-title {
   align-items: flex-start;
-  gap: 15px;
+  gap: 10px;
 }
 .portfolio-slider .blog-title .maxOpen-services__descr {
   text-align: start;
@@ -12794,9 +12794,14 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .portfolio-slide {
   margin-bottom: 20px;
 }
+.portfolio-slide .blog-title,
+.portfolio-slide .maxOpen-bg-text,
+.portfolio-slide .maxOpen-services__title {
+  margin-bottom: 0;
+}
 .portfolio-slide .maxOpen-services__descr {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: max-height 0.3s ease;
