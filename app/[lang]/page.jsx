@@ -4,7 +4,6 @@ import HeaderLayout from '@/components/layout/header/Layout';
 import Banner from '@/components/sections/customHome/Banner';
 import GoodsAnimation from '@/components/sections/customHome/GoodsAnimation';
 import { Services } from '@/components/sections/customHome/Services';
-import { Projects } from '@/components/sections/customHome/Projects';
 import { Games } from '@/components/sections/customHome/Games';
 import Prices from '@/components/sections/customHome/Prices';
 import ContactUs from '@/components/sections/customHome/ContactUs';

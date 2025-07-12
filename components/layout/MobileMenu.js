@@ -13,7 +13,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
   const { language } = i18n;
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language || 'en');
   const { openModal } = useModal();
-  const { data: btnsText } = useFetchData("btns-text", language, true);
+  const { data: btnsText } = useFetchData("buttons-text", language, true);
   
 
   const handleToggle = (key) => {
