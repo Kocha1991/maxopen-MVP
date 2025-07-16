@@ -21,7 +21,12 @@ export const useFetchData = (endpoint, language = null, returnFirst = false) => 
     ? `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}?where[locale]=${locale}`
     : `https://api.maxopen.com.ua/api/0b75148ea08740bd8c78fc4077500b5d/${endpoint}`;
 
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url, fetcher, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000, // avoid refetching within 10s
+    revalidateIfStale: true,
+  });
+
 
   return {
     data: returnFirst && Array.isArray(data) ? data[0] : (data || []),

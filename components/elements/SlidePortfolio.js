@@ -85,7 +85,7 @@ export const SlidePortfolio = ({ item, btnsText }) => {
           </div>
 
           <a
-            href="https://www.behance.net/baa4cc2f"
+            href={item["link-project"]}
             className="btn btn-info-card animation-btn-svg"
             target="_blank"
             rel="noopener noreferrer"

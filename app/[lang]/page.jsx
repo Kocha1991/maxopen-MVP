@@ -38,7 +38,6 @@ function HomeContent() {
   const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
   const { data: portfolioSlide, loading: portfolioSlideLoading} = useFetchData("portfolio-slider", language);
 
-
   const isLoading =
     logosLoading ||
     servicesCardLoading ||

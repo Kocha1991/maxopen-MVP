@@ -52,7 +52,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
         <div className="custom-menu-body">
           <Nav onLinkClick={handleNavLinkClick} />
           <button className="btn btn-brand-4-medium hover-up" onClick={handleCalendarOpen}>
-            <span>{btnsText["get-started"]}</span>
+            <span>{btnsText["book-meeting"]}</span>
           </button>
         </div>
         <div className="custom-menu-footer">
