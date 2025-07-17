@@ -13016,6 +13016,9 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   .portfolio-slider__bot-info-mob {
     margin-bottom: 0px;
   }
+  .portfolio-slider .animation-btn-svg {
+    font-size: 16px;
+  }
 }
 
 .portfolio-card {
