@@ -1854,24 +1854,25 @@ body {
   position: relative;
   z-index: 10;
   display: inline-block;
-  height: 85px;
+  height: 65px;
   border-radius: 50%;
   padding: 0px;
-  width: 85px;
+  width: 65px;
   color: #ffffff;
-  right: 30px;
+  right: 10px;
   bottom: 50px;
   text-align: center;
   z-index: 999 !important;
-  border: 10px solid #2afad7;
+  border: 7px solid #2afad7;
   background: #2B2C2D;
   line-height: 60px;
 }
 #scrollUp svg {
   fill: #2afad7;
-  height: 26px;
+  height: 23px;
   position: relative;
   z-index: 123;
+  margin-bottom: 12px;
 }
 
 #scrollUp {
@@ -1894,6 +1895,17 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  #scrollUp {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #2afad7;
+  }
+  #scrollUp svg {
+    height: 18px;
+    margin-bottom: 22px;
   }
 }
 /*button switch*/
@@ -11047,7 +11059,7 @@ p {
   display: none;
 }
 .custom-header {
-  padding: 30px 0px;
+  padding: 15px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12799,7 +12811,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 .portfolio-slide__tegs span {
   padding: 3px 10px;
   border-radius: 50px;
-  border: 1px solid rgba(59, 60, 64, 1);
+  border: 1px solid rgba(236, 238, 242, 1);
 }
 .portfolio-slider .portfolio-slide__tegs span {
   background-color: #fff;
@@ -12827,6 +12839,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 100px;
   height: 62px;
   display: flex;
   align-items: center;
