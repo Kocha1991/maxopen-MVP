@@ -10262,6 +10262,9 @@ a.icon-socials:hover {
   object-fit: contain;
   object-position: center;
 }
+.custom-footer__wrapper .main-menu {
+  margin-right: 15px;
+}
 @media (max-width: 1399px) {
   .logo-phone {
     display: block;
@@ -10419,7 +10422,7 @@ p {
 
 .card-features-maxOpen .card-image {
   position: relative;
-  width: 75px;
+  min-width: 75px;
   height: 75px;
   z-index: 5;
 }
@@ -10513,6 +10516,7 @@ p {
   text-align: center;
   border-radius: 36px;
   background: linear-gradient(113.15deg, #2AFAF8 -35.36%, #12FDA3 165%);
+  z-index: 5;
 }
 .maxOpen-services {
   margin: 100px 0 0;
@@ -10638,9 +10642,9 @@ p {
 .maxOpen-card-preparing {
   cursor: pointer;
 }
-.maxOpen-card-preparing p {
+/* .maxOpen-card-preparing p {
   color: rgba(181, 181, 181, 1);
-}
+} */
 .maxOpen-card-preparing.card-preparing-2 svg path {
   fill: #2afad7;
 }
@@ -12596,6 +12600,11 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   }
   .chatbot-slider .blog-title {
     align-items: center;
+  }
+}
+@media (max-width: 580px) {
+  .slide-card2 img {
+    width: 90px;
   }
 }
 .who-needs {

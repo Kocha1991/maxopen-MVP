@@ -6,7 +6,7 @@ const KeyBenefits = ({data}) => {
   const { t } = useTranslation();
 
   return (
-    <div className="row mt-90">
+    <div className="row">
       {data.length > 0 ? (
         data.map((item) => (
           <InfoBlock 
