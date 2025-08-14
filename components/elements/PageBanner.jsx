@@ -24,15 +24,17 @@ const PageBanner = ({
           <h3 className="text-lg neutral-500 mb-55 page-banner__descr">
             {SolutionsBannerDescr}
           </h3>
-          <button
-            className="btn banner-btn hover-up mr-5"
-            onClick={() => onOpenModal('calendar')}
-          >
-            <span>
-              <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
-              {textBnt}
-            </span>
-          </button>
+          {textBnt && (
+            <button
+              className="btn banner-btn hover-up mr-5"
+              onClick={() => onOpenModal('calendar')}
+            >
+              <span>
+                <img src="/assets/imgs/template/icons/G.svg" alt="maxOpen" />
+                {textBnt}
+              </span>
+            </button>
+          )}
         </div>
       </div>
     </div>

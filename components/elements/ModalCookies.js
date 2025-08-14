@@ -1,9 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
 
-const ModalCookies = ({ btnsText, onClose }) => {
+const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
   const descrRef = useRef(null);
   const [isExpandable, setIsExpandable] = useState(false);
   const [expanded, setExpanded] = useState(false);
+
+  const [necessary, setNecessary] = useState(defaultSettings.necessary);
+  const [targeting, setTargeting] = useState(defaultSettings.targeting);
+
+  // Заборона скролу при відкритті
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   useEffect(() => {
     const el = descrRef.current;
@@ -18,6 +29,13 @@ const ModalCookies = ({ btnsText, onClose }) => {
   }, []);
 
   const handleToggle = () => setExpanded((prev) => !prev);
+
+  const handleSave = () => {
+    onSave({
+      necessary,
+      targeting
+    });
+  };
 
   return (
     <div className="modal-overlay">
@@ -46,7 +64,12 @@ const ModalCookies = ({ btnsText, onClose }) => {
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
             <h2 className="modal-cookies__title">Necessary Cookies</h2>
-            <input type="checkbox" className="custom-checkbox" />
+            <input 
+              type="checkbox" 
+              className="custom-checkbox"
+              checked={necessary}
+              onChange={(e) => setNecessary(e.target.checked)}
+            />
           </div>
           <h3 className="modal-cookies__descr">These cookies are ne...</h3>
         </div>
@@ -55,7 +78,12 @@ const ModalCookies = ({ btnsText, onClose }) => {
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
             <h2 className="modal-cookies__title">Targeting & Advertising</h2>
-            <input type="checkbox" className="custom-checkbox" />
+            <input 
+              type="checkbox" 
+              className="custom-checkbox"
+              checked={targeting}
+              onChange={(e) => setTargeting(e.target.checked)}
+            />
           </div>
           <h3
             ref={descrRef}
@@ -81,7 +109,12 @@ const ModalCookies = ({ btnsText, onClose }) => {
 
         {/* Buttons */}
         <div className="cookies__btns mt-20">
-          <button className="cookies__btns--settings">Customize settings</button>
+          <button 
+            className="cookies__btns--settings"
+            onClick={handleSave}
+          >
+            Save changes
+          </button>
           <button
             className="btn btn-brand-4-medium hover-up"
             onClick={onClose}
