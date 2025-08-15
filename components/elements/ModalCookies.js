@@ -1,6 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 
-const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
+const ModalCookies = ({
+  btnsText,
+  onAcceptAll,
+  onSave,
+  defaultSettings = { necessary: true, targeting: false }
+}) => {
   const descrRef = useRef(null);
   const [isExpandable, setIsExpandable] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -8,7 +13,6 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
   const [necessary, setNecessary] = useState(defaultSettings.necessary);
   const [targeting, setTargeting] = useState(defaultSettings.targeting);
 
-  // Заборона скролу при відкритті
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -28,10 +32,10 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
     }
   }, []);
 
-  const handleToggle = () => setExpanded((prev) => !prev);
+  const handleToggle = () => setExpanded(prev => !prev);
 
   const handleSave = () => {
-    onSave({
+    onSave?.({
       necessary,
       targeting
     });
@@ -49,7 +53,6 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
           />
         </div>
 
-        {/* Section 1 */}
         <div className="modal-cookies__section">
           <h2 className="modal-cookies__title">
             Here you have the option to adjust your cookie consent.
@@ -60,12 +63,11 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
           </h3>
         </div>
 
-        {/* Section 2 */}
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
             <h2 className="modal-cookies__title">Necessary Cookies</h2>
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               className="custom-checkbox"
               checked={necessary}
               onChange={(e) => setNecessary(e.target.checked)}
@@ -74,12 +76,11 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
           <h3 className="modal-cookies__descr">These cookies are ne...</h3>
         </div>
 
-        {/* Section 3 */}
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
             <h2 className="modal-cookies__title">Targeting & Advertising</h2>
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               className="custom-checkbox"
               checked={targeting}
               onChange={(e) => setTargeting(e.target.checked)}
@@ -107,9 +108,8 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
           )}
         </div>
 
-        {/* Buttons */}
         <div className="cookies__btns mt-20">
-          <button 
+          <button
             className="cookies__btns--settings"
             onClick={handleSave}
           >
@@ -117,7 +117,7 @@ const ModalCookies = ({ btnsText, onClose, onSave, defaultSettings }) => {
           </button>
           <button
             className="btn btn-brand-4-medium hover-up"
-            onClick={onClose}
+            onClick={onAcceptAll}
           >
             Accept all cookies
           </button>

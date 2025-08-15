@@ -6,18 +6,16 @@ import { useTranslation } from 'react-i18next';
 const Cookies = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
-  
-  const [showModal, setShowModal] = useState(false);
-  const [showCookiesBar, setShowCookiesBar] = useState(true);
 
-  // Функція для отримання cookies
+  const [showCookiesBar, setShowCookiesBar] = useState(false);
+  const [modalSettings, setModalSettings] = useState(null); // null = модалка закрита
+
   const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(";").shift();
   };
 
-  // Функція для встановлення cookies
   const setCookie = (name, value, days) => {
     let expires = "";
     if (days) {
@@ -29,26 +27,50 @@ const Cookies = () => {
   };
 
   useEffect(() => {
+    console.log("document.cookie at start:", document.cookie);
     const accepted = getCookie("cookiesAccepted");
+    console.log("accepted cookie value:", accepted);
     if (!accepted) {
       setShowCookiesBar(true);
     }
   }, []);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
+  // Accept all cookies з Cookies
+  const handleAcceptAllFromCookies = () => {
+    setCookie("cookiesAccepted", JSON.stringify({ necessary: true, targeting: true }), 365);
+    setShowCookiesBar(false);
+    setModalSettings(null);
+  };
+
+  // Перехід до ModalCookies з актуальними налаштуваннями
+  const handleOpenCustomize = () => {
+    const saved = getCookie("cookiesAccepted");
+    let settings = { necessary: true, targeting: false };
+
+    if (saved) {
+      try {
+        settings = JSON.parse(saved);
+      } catch (e) {
+        console.error("Invalid cookie JSON", e);
+      }
+    }
+
+    setShowCookiesBar(false);
+    setModalSettings(settings);
+  };
+
+  // Accept all cookies з ModalCookies
+  const handleAcceptAllFromModal = () => {
+    setCookie("cookiesAccepted", JSON.stringify({ necessary: true, targeting: true }), 365);
+    setModalSettings(null);
     setShowCookiesBar(false);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
+  // Save changes з ModalCookies → повернення до Cookies
+  const handleSaveChanges = (settings) => {
+    setCookie("cookiesAccepted", JSON.stringify(settings), 365);
+    setModalSettings(null);
     setShowCookiesBar(true);
-  };
-
-  const handleAcceptCookies = () => {
-    setCookie("cookiesAccepted", "true", 365);
-    setShowCookiesBar(false);
-    setShowModal(false);
   };
 
   return (
@@ -71,13 +93,13 @@ const Cookies = () => {
           <div className="cookies__btns">
             <button
               className="btn btn-brand-4-medium hover-up"
-              onClick={handleAcceptCookies}
+              onClick={handleAcceptAllFromCookies}
             >
               Accept all cookies
             </button>
             <button
               className="cookies__btns--settings"
-              onClick={handleOpenModal}
+              onClick={handleOpenCustomize}
             >
               Customize settings
             </button>
@@ -85,14 +107,15 @@ const Cookies = () => {
         </div>
       )}
 
-      {showModal && (
+      {modalSettings && (
         <ModalCookies
           btnsText={{
             "show-more": "Show more",
             "show-less": "Show less",
           }}
-          onClose={handleCloseModal}
-          onAccept={handleAcceptCookies}
+          defaultSettings={modalSettings}
+          onAcceptAll={handleAcceptAllFromModal}
+          onSave={handleSaveChanges}
         />
       )}
     </>

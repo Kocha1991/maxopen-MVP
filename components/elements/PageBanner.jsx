@@ -18,12 +18,16 @@ const PageBanner = ({
     <div className="page-banner__banner" style={bannerStyle}>
       <div className="container">
         <div className="page-banner__wrapper">
-          <h2 className="display-2 mb-30 mt-25 neutral-0 page-banner__title">
-            {SolutionsBannerTitle}
-          </h2>
-          <h3 className="text-lg neutral-500 mb-55 page-banner__descr">
-            {SolutionsBannerDescr}
-          </h3>
+          {SolutionsBannerTitle && (
+            <h2 className="display-2 mb-30 mt-25 neutral-0 page-banner__title">
+              {SolutionsBannerTitle}
+            </h2>
+          )}
+          {SolutionsBannerDescr && (
+            <h3 className="text-lg neutral-500 mb-55 page-banner__descr">
+              {SolutionsBannerDescr}
+            </h3>
+          )}
           {textBnt && (
             <button
               className="btn banner-btn hover-up mr-5"

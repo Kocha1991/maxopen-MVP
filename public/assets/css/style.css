@@ -13199,6 +13199,15 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     flex-direction: column;
   }
 }
+.privacy-policy .page-banner__banner {
+  min-height: auto;
+}
+.privacy-policy__wrapper a {
+  color: #52B8AA;
+}
+.privacy-policy__wrapper a:hover {
+  color: rgba(18, 253, 163, 1);
+}
 .privacy-policy__wrapper {
   padding: 100px 0;
   display: flex;
