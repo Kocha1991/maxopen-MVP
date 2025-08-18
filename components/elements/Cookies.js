@@ -3,7 +3,7 @@ import ModalCookies from "./ModalCookies";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-const Cookies = ({btnsText}) => {
+const Cookies = ({btnsText, cookiesContent}) => {
   const { i18n } = useTranslation();
   const { language } = i18n;
 
@@ -79,16 +79,15 @@ const Cookies = ({btnsText}) => {
         <div className="cookies">
           <div className="cookies__top">
             <img
-              src="/assets/imgs/template/icons/3d-rendering-cookie-with-chocolate 1.png"
-              alt=""
+              src={cookiesContent.icon?.full_url}
+              alt="cookies icon"
               className="cookies__icon"
             />
-            <h2 className="cookies__title">Cookies</h2>
+            <h2 className="cookies__title">{cookiesContent["banner-title"]}</h2>
           </div>
           <div className="cookies__text">
-            This website uses cookies to ensure you get the best experience on
-            our website. For more information read our{" "}
-            <Link href={`/${language}/privacy-policy`}>privacy policy.</Link>
+            {cookiesContent["banner-text"]}{" "}
+            <Link href={`/${language}/privacy-policy`}>{cookiesContent.link}</Link>
           </div>
           <div className="cookies__btns">
             <button
@@ -113,6 +112,7 @@ const Cookies = ({btnsText}) => {
           defaultSettings={modalSettings}
           onAcceptAll={handleAcceptAllFromModal}
           onSave={handleSaveChanges}
+          cookiesContent={cookiesContent}
         />
       )}
     </>

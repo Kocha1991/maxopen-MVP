@@ -4,7 +4,8 @@ const ModalCookies = ({
   btnsText,
   onAcceptAll,
   onSave,
-  defaultSettings = { necessary: true, targeting: false }
+  defaultSettings = { necessary: true, targeting: false },
+  cookiesContent
 }) => {
   const descrRef = useRef(null);
   const [isExpandable, setIsExpandable] = useState(false);
@@ -45,7 +46,7 @@ const ModalCookies = ({
     <div className="modal-overlay">
       <div className="modal-cookies">
         <div className="cookies__top">
-          <h2 className="cookies__title">Manage Cookies</h2>
+          <h2 className="cookies__title">{cookiesContent["settings-title"]}</h2>
           <img
             src="/assets/imgs/template/icons/3d-rendering-cookie-with-chocolate 1.png"
             alt=""
@@ -55,17 +56,16 @@ const ModalCookies = ({
 
         <div className="modal-cookies__section">
           <h2 className="modal-cookies__title">
-            Here you have the option to adjust your cookie consent.
+            {cookiesContent["settings-subtitle"]}
           </h2>
           <h3 className="modal-cookies__descr">
-            Cookies are small text that can be used by websites to make the user
-            experience more efficient. This site uses various types of cookies.
+            {cookiesContent["settings-descr"]}
           </h3>
         </div>
 
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
-            <h2 className="modal-cookies__title">Necessary Cookies</h2>
+            <h2 className="modal-cookies__title">{cookiesContent["srction1-title"]}</h2>
             <input
               type="checkbox"
               className="custom-checkbox"
@@ -73,12 +73,12 @@ const ModalCookies = ({
               onChange={(e) => setNecessary(e.target.checked)}
             />
           </div>
-          <h3 className="modal-cookies__descr">These cookies are ne...</h3>
+          <h3 className="modal-cookies__descr">{cookiesContent["section1-text"]}</h3>
         </div>
 
         <div className="modal-cookies__section">
           <div className="modal-cookies__chackbox-blok">
-            <h2 className="modal-cookies__title">Targeting & Advertising</h2>
+            <h2 className="modal-cookies__title">{cookiesContent["section2-title"]}</h2>
             <input
               type="checkbox"
               className="custom-checkbox"
@@ -96,10 +96,7 @@ const ModalCookies = ({
               WebkitLineClamp: !expanded ? 2 : "unset"
             }}
           >
-            These cookies track browsing habits to deliver targeted
-            advertisements and gather insights for our marketing efforts. They
-            may also be used to show you relevant advertisements on other
-            websites.
+            {cookiesContent["section2-text"]}
           </h3>
           {isExpandable && (
             <button className="btn coockies-btn-show" onClick={handleToggle}>
