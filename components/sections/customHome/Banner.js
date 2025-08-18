@@ -8,6 +8,7 @@ export default function Banner({ btnText, bannersData }) {
   return (
     <section className="section-box maxOpen-banner">
       <div className="blur-bg blur-move" />
+      <img src="" alt="" />
       <div className="container">
         <div className='maxOpen-banner__wrapper'>
           <div className="maxOpen-banner__left">

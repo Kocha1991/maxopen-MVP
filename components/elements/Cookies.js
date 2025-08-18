@@ -3,7 +3,7 @@ import ModalCookies from "./ModalCookies";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-const Cookies = () => {
+const Cookies = ({btnsText}) => {
   const { i18n } = useTranslation();
   const { language } = i18n;
 
@@ -95,13 +95,13 @@ const Cookies = () => {
               className="btn btn-brand-4-medium hover-up"
               onClick={handleAcceptAllFromCookies}
             >
-              Accept all cookies
+              {btnsText["accept-cookies"]}
             </button>
             <button
               className="cookies__btns--settings"
               onClick={handleOpenCustomize}
             >
-              Customize settings
+              {btnsText["customize-settings"]}
             </button>
           </div>
         </div>
@@ -109,10 +109,7 @@ const Cookies = () => {
 
       {modalSettings && (
         <ModalCookies
-          btnsText={{
-            "show-more": "Show more",
-            "show-less": "Show less",
-          }}
+          btnsText={btnsText}
           defaultSettings={modalSettings}
           onAcceptAll={handleAcceptAllFromModal}
           onSave={handleSaveChanges}

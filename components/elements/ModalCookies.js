@@ -113,13 +113,13 @@ const ModalCookies = ({
             className="cookies__btns--settings"
             onClick={handleSave}
           >
-            Save changes
+            {btnsText["save-changes"]}
           </button>
           <button
             className="btn btn-brand-4-medium hover-up"
             onClick={onAcceptAll}
           >
-            Accept all cookies
+            {btnsText["accept-cookies"]}
           </button>
         </div>
       </div>

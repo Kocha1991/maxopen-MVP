@@ -61,7 +61,7 @@ function HomeContent() {
         </div>
       ) : (
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Cookies />
+          <Cookies btnsText={btnsText}/>
           <Banner btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
           <GoodsAnimation data={logos}/>
           <section className="maxOpen-services ptb-50" id="services">
@@ -128,9 +128,6 @@ function HomeContent() {
             modalData={modalData}
             onClose={closeModal}
           />
-          {/* <ModalCookies 
-            btnsText={btnsText}
-          /> */}
         </HeaderLayout>
       )}
     </>
