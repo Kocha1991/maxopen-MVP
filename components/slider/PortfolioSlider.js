@@ -1,11 +1,12 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import { SlidePortfolio } from '../elements/SlidePortfolio';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
 export default function PortfolioSlider({ items, btnsText }) {
   const swiperRef = useRef(null);
@@ -49,7 +50,11 @@ export default function PortfolioSlider({ items, btnsText }) {
 
         <div className="swiper-container swiper-group">
           <Swiper
-            modules={[Autoplay]}
+            modules={[Autoplay, EffectFade]}
+            effect='fade'
+            fadeEffect={{ crossFade: true }}
+            speed={800}
+            allowTouchMove={false}
             spaceBetween={0}
             slidesPerView={1}
             loop={true}
