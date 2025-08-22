@@ -49,8 +49,7 @@ function HomeContent() {
     btnsTextLoading ||
     bannersDataLoading ||
     sectionTitlesLoading ||
-    portfolioSlideLoading ||
-    cookiesContentLoading;
+    portfolioSlideLoading;
 
   return (
     <>
