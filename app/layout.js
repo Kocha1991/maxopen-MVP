@@ -8,6 +8,7 @@ import { ModalProvider } from '@/components/customHooks/useModal';
 import { I18nProvider } from "@/components/providers/I18nProvider";
 import { getTranslation } from './[lang]/metatranslations';
 import SEO from '@/components/sections/customHome/SEO';
+import CookiesWrapper from "@/components/elements/CookiesWrapper";
 
 const urban = Urbanist({
   weight: ['200', '300', '400', '500', '600', '700'],
@@ -30,6 +31,7 @@ export default function RootLayout({ children, params }) {
         <I18nProvider>
           <LanguageProvider>
             <ModalProvider>
+              <CookiesWrapper />
               {children}
             </ModalProvider>
           </LanguageProvider>

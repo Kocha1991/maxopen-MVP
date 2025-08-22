@@ -16,8 +16,6 @@ import { useFetchData } from '@/components/customHooks/useFetchData';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Loading from '@/components/elements/Loading';
 import PortfolioSlider from '@/components/slider/PortfolioSlider';
-import Cookies from '@/components/elements/Cookies';
-import ModalCookies from '@/components/elements/ModalCookies';
 
 export default function Page() {
   return <HomeContent />;
@@ -39,7 +37,6 @@ function HomeContent() {
   const { data: bannersData, loading: bannersDataLoading} = useFetchData("banners", language, true);
   const { data: sectionTitles, loading: sectionTitlesLoading} = useFetchData("section-titles", language, true);
   const { data: portfolioSlide, loading: portfolioSlideLoading} = useFetchData("portfolio-slider", language);
-  const { data: cookiesContent, loading: cookiesContentLoading} = useFetchData("cookie-modal-content", language, true);
 
   const isLoading =
     logosLoading ||
@@ -63,7 +60,6 @@ function HomeContent() {
         </div>
       ) : (
         <HeaderLayout useCustomHeader={true} footerStyle={'customFooter'}>
-          <Cookies btnsText={btnsText} cookiesContent={cookiesContent}/>
           <Banner btnText={btnsText["book-meeting"]} bannersData={bannersData}/>
           <GoodsAnimation data={logos}/>
           <section className="maxOpen-services ptb-50" id="services">
