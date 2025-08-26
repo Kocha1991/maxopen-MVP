@@ -16,6 +16,7 @@ import { useFetchData } from '@/components/customHooks/useFetchData';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Loading from '@/components/elements/Loading';
 import PortfolioSlider from '@/components/slider/PortfolioSlider';
+import Calendar from '@/components/elements/Calendar';
 
 export default function Page() {
   return <HomeContent />;
@@ -73,6 +74,9 @@ function HomeContent() {
                 btnText={btnsText["learn-more"]}
               />
             </div>
+          </section>
+          <section className='container'>
+            <Calendar />
           </section>
           <section className="maxOpen-projects" id="projects">
             <PortfolioSlider 

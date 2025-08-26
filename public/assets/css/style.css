@@ -13222,3 +13222,36 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     gap: 30px;
   }
 }
+.calendar {
+  max-width: 1114px;
+}
+.calendar-page__footer {
+  padding: 40px 60px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+
+}
+.calendar__main-blok {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.calendar__left-blok {
+  width: 50%;
+  min-height: 300px;
+  background: rgba(14, 14, 14, 1);
+}
+.calendar__avatar-blok {
+  width: 174px;
+  height: 174px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+.calendar__avatar {
+  object-position: center;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.calendar__left-blok {
+  padding: 60px 40px;
+}
