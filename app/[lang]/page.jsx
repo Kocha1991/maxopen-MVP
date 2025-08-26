@@ -16,7 +16,7 @@ import { useFetchData } from '@/components/customHooks/useFetchData';
 import { BlogTitle } from '@/components/blog/BlogTitle';
 import Loading from '@/components/elements/Loading';
 import PortfolioSlider from '@/components/slider/PortfolioSlider';
-import Calendar from '@/components/elements/Calendar';
+import CustomCalendar from '@/components/elements/CustomCalendar';
 
 export default function Page() {
   return <HomeContent />;
@@ -76,7 +76,7 @@ function HomeContent() {
             </div>
           </section>
           <section className='container'>
-            <Calendar />
+            <CustomCalendar />
           </section>
           <section className="maxOpen-projects" id="projects">
             <PortfolioSlider 
