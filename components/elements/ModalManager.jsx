@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import ModalCalendar from './ModalCalendar';
+// import ModalCalendar from './ModalCalendar';
 import ModalGames from './ModalGames';
+import CustomCalendar from './CustomCalendar';
 
 export default function ModalManager({ isOpen, modalType, modalData, onClose }) {
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function ModalManager({ isOpen, modalType, modalData, onClose }) 
 
   switch (modalType) {
     case 'calendar':
-      return <ModalCalendar isOpen={isOpen} onClose={onClose} />;
+      return <CustomCalendar isOpen={isOpen} onClose={onClose} />;
     case 'game':
       return <ModalGames isOpen={isOpen} onClose={onClose} videoSrc={modalData} />;
     default:

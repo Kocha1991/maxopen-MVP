@@ -75,9 +75,6 @@ function HomeContent() {
               />
             </div>
           </section>
-          <section className='container'>
-            <CustomCalendar />
-          </section>
           <section className="maxOpen-projects" id="projects">
             <PortfolioSlider 
               items={portfolioSlide}

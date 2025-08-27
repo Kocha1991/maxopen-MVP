@@ -26,6 +26,8 @@ TABLE CONTENT
  WP STYPE
  Custom amine
 ***/
+
+
 @import url(https://fonts.bunny.net/css?family=urbanist:200,300,400,500,600,700);
 /*import vendors*/
 @import url(../css/vendors/normalize.css);
@@ -40,6 +42,10 @@ TABLE CONTENT
 @import url(../css/plugins/carouselTicker.css);
 :root {
     --tg-body-font-family: "Urbanist", sans-serif;
+    --color-primary: #2afad7;
+    --color-bg: rgba(14, 14, 14, 1);
+    --transition-base: all 0.3s ease;
+    --shadow-green: 0px 6px 30px rgba(42, 250, 248, 0.6);
   }
 /*RESET*/
 html,
@@ -11000,7 +11006,6 @@ p {
   color: #212529;
   background-color: transparent;
   transition: all 0.5s ease-in-out;
-
 }
 .banner-btn img {
   position: relative;
@@ -13117,7 +13122,6 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   -webkit-appearance: none;
   width: 40px;
   height: 20px;
-  /* background: rgba(178, 178, 178, 1); */
   border-radius: 20px;
   position: relative;
   cursor: pointer;
@@ -13194,14 +13198,20 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   }
 }
 .calendar {
-  max-width: 1114px;
+  overflow: hidden;
+  width: 900px;
+  max-width: 95%;
+  min-height: 646px;
+  max-height: 95%;
   border-radius: 40px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-green);
+  background: #fff;
 }
 .calendar__main-blok {
   width: 100%;
+  min-height: 500px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 .calendar__left-blok {
   width: 50%;
@@ -13212,7 +13222,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   padding: 30px 20px;
   color: #fff;
   min-height: 300px;
-  background: rgba(14, 14, 14, 1);
+  background: var(--color-bg);
   border-top-left-radius: 40px;
 }
 .calendar__avatar-blok {
@@ -13222,6 +13232,7 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   gap: 20px;
   width: 300px;
   border-radius: 50%;
+  margin-bottom: 15px;
 }
 .calendar__avatar {
   width: 100px;
@@ -13243,8 +13254,15 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   border: none;
 }
 .react-calendar__navigation,
-.react-calendar__viewContainer {
-  background: rgba(14, 14, 14, 1);
+.react-calendar__viewContainer
+{
+  background: var(--color-bg);
+}
+.calendar .react-calendar__month-view__days__day--weekend,
+.calendar .react-calendar__month-view__days__day--weekend:hover {
+  background: var(--color-bg) !important;
+  color: red !important;
+  cursor: auto;
 }
 .calendar
 .react-calendar__navigation {
@@ -13252,7 +13270,8 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 }
 .react-calendar__navigation__arrow,
 .react-calendar__navigation__label__labelText,
-.react-calendar__month-view__days__day {
+.react-calendar__month-view__days__day,
+.react-calendar__tile  {
   color: #fff;
 }
 .calendar
@@ -13278,13 +13297,15 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
 
 .react-calendar__navigation__label:hover span {
   color: black !important;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: var(--transition-base)
 }
-
 .calendar-page__footer {
   margin: 0 auto;
   width: 100%;
   padding: 20px 30px;
+  background: #fff;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 .calendar-page__footer-title {
   font-size: 24px;
@@ -13303,8 +13324,105 @@ linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
   margin-bottom: 10px;
 }
 .calendar__right-blok {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 50%;
   padding: 30px 20px;
+  background-color: #fff;
+}
+.calendar
+.react-calendar__tile--hasActive,
+.calendar
+.react-calendar__tile--active,
+.calendar
+.react-calendar__tile--now {
+  background-color: gray;
+}
+.calendar__right-blok__text {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 3%;
+}
+.calendar__right-blok__text--data {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 3%;
+}
+.calendar__right-blok__text--data span {
+  font-weight: 600;
+}
+.calendar__input-wrapper {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+.calendar__input-wrapper::after {
+  content: " minutes";
+  position: absolute;
+  left: calc(50% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
+}
+.calendar__main-blok .form-control {
+  text-align: center;
+}
+.calendar__time {
+  max-height: 210px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px; 
+}
+.calendar__time-btn {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(17, 92, 75, 1);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+}
+.calendar__form-top {
+  padding: 30px 20px;
+}
+.calendar__form--header__data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.calendar__form--header__data button {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 16px;
+  color: rgba(82, 184, 170, 1);
+}
+.inputs-group {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.calendar__form-top .form-group input {
+  height: 50px;
+}
+.inputs-group .form-group {
+  width: 50%;
+}
+@media (max-width: 780px) {
+  .calendar__main-blok {
+    flex-direction: column;
+  }
+  .calendar__left-blok,
+  .calendar__right-blok {
+    width: 100%;
+  }
 }
 @media (max-width: 560px) {
   .calendar-page__footer-title {

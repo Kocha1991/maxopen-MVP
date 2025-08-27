@@ -5,7 +5,7 @@ import { useFetchData } from '../customHooks/useFetchData';
 import Loading from '@/components/elements/Loading';
 
 export default function ModalCalendar({ isOpen, onClose }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language } = i18n;
   const [calendarUrl, setCalendarUrl] = useState('');  // Спочатку пустий URL календаря
   const [isLoading, setIsLoading] = useState(true);  // Стан для контролю лоадера

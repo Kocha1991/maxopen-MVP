@@ -52,38 +52,13 @@ export default function HeaderLayout({
       <AddClassBody />
       <div className='body-overlay-1' onClick={handleMobileMenu} />
 
-      {/* Умовне відображення хедера */}
-      {useCustomHeader ? (
-        <CustomHeader
-          scroll={scroll}
-          isMobileMenu={isMobileMenu}
-          handleMobileMenu={handleMobileMenu}
-          isBlack={isBlack}
-        />
-      ) : (
-        <>
-          {!headerStyle && (
-            <Header1
-              scroll={scroll}
-              isMobileMenu={isMobileMenu}
-              handleMobileMenu={handleMobileMenu}
-              topBar={topBar}
-              headerCls={headerCls}
-            />
-          )}
-          {headerStyle === 1 && (
-            <Header1
-              scroll={scroll}
-              isMobileMenu={isMobileMenu}
-              handleMobileMenu={handleMobileMenu}
-              topBar={topBar}
-              headerCls={headerCls}
-              logoWhite={logoWhite}
-            />
-          )}
-        </>
-      )}
-
+      <CustomHeader
+        scroll={scroll}
+        isMobileMenu={isMobileMenu}
+        handleMobileMenu={handleMobileMenu}
+        isBlack={isBlack}
+      />
+    
       <MobileMenu
         isMobileMenu={isMobileMenu}
         handleMobileMenu={handleMobileMenu}
@@ -95,12 +70,7 @@ export default function HeaderLayout({
         {children}
       </main>
 
-      {!footerStyle && <Footer1 />}
-      {footerStyle == 1 ? <Footer1 /> : null}
-      {footerStyle == 2 ? <Footer2 /> : null}
-      {footerStyle == 3 ? <Footer3 /> : null}
-      {footerStyle == 4 ? <Footer4 /> : null}
-      {footerStyle == 'customFooter' ? <CustomFooter /> : null}
+      <CustomFooter />
 
       <BackToTop />
     </>
