@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 
 const CustomCalendar = ({ isOpen, onClose }) => {
   const [date, setDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState("");
   const [isOpenCalendar, setIsOpenCalendar] = useState(true)
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [finalScreen, setFinalScreen] = useState(false);
@@ -13,6 +14,7 @@ const CustomCalendar = ({ isOpen, onClose }) => {
     const options = { day: "2-digit", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-US", options);
   };
+
   const openCalendar = () => {
     setIsOpenCalendar(true);
     setIsOpenForm(false);
@@ -109,7 +111,7 @@ const CustomCalendar = ({ isOpen, onClose }) => {
               </h2>
               <div className='calendar__form--header__data'>
                 <h3 className='calendar__right-blok__text--data'>
-                  Thursday, November 21, 2024 p.m. 7:45 p.m.
+                  {formatDate(date)} {selectedTime}
                 </h3>
                 <button 
                   className='btn'
@@ -154,7 +156,7 @@ const CustomCalendar = ({ isOpen, onClose }) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Share your idea, so our call will have more value *</label>
+              <label htmlFor="message">Share your idea, so our call will have more value</label>
               <textarea
                 className="form-control"
                 rows={2}
@@ -167,7 +169,7 @@ const CustomCalendar = ({ isOpen, onClose }) => {
             <div className='add-guests'>
               <h3 className='calendar__right-blok__text mb-10'>Add guests</h3>
               <div className="form-group">
-                <label htmlFor="email">Your email address *</label>
+                <label htmlFor="email">Invite to a meeting by: 0/10</label>
                 <div className='add-guests__blok'>
                   <input
                     className={`form-control`}
